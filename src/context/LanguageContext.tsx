@@ -7,13 +7,15 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
+const byKey = new Map(translations.map((e) => [e.key, e]));
+
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>('fr');
 
   const t = (key: string): string => {
-    return translations[lang][key] ?? key;
+    return byKey.get(key)?.[lang] ?? key;
   };
 
   return (

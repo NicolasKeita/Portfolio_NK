@@ -51,3 +51,20 @@
   color: var(--white);
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
 }
+
+/* ─── GITHUB BUTTON INSIDE MODAL ───────── */
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+  margin-top: 1.5rem;
+}
+.btn-github:hover {
+  background: #24292e;
+  border-color: #24292e;
+  color: #fff;
+  box-shadow: 0 0 0 2px rgba(36, 41, 46, 0.2);
+}

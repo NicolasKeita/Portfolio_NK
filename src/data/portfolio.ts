@@ -51,10 +51,10 @@ export const projects: Project[] = [
     techs: ['Java', 'Android', 'Temps réel'],
     link: 'https://github.com/NicolasKeita/Tactic-Nav',
     photos: [
-      tacticNavCockpit,
+      tacticNavAndroid,
       tacticNavSchema,
       tacticNavBacklog,
-      tacticNavAndroid,
+      tacticNavCockpit,
     ],
   },
   {

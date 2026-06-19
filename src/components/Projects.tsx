@@ -38,6 +38,16 @@ export function Projects() {
               <span key={tech} className="tech">{tech}</span>
             ))}
           </div>
+          {modalProject.link && (
+            <a
+              href={modalProject.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-github"
+            >
+              {t('modal.github')}
+            </a>
+          )}
         </Modal>
       )}
     </section>
