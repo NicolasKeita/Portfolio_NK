@@ -1,0 +1,64 @@
+/* ─── PROJETS ────────────────────────── */
+.projets-sec { background: var(--bg-dark); }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.proj-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.proj-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(59, 130, 246, 0.15);
+  border-color: var(--blue);
+}
+.proj-header {
+  padding: 1.375rem 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.proj-tag {
+  font-family: var(--fn-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.22rem 0.55rem;
+  border-radius: 4px;
+}
+.tag-py  { background: #dbeafe; color: #1d4ed8; }
+.tag-sys { background: #d1fae5; color: #065f46; }
+.tag-web { background: #ede9fe; color: #6d28d9; }
+.tag-audit { background: #fef3c7; color: #92400e; }
+.tag-data { background: #e0e7ff; color: #3730a3; }
+.tag-mobile { background: #cffafe; color: #155e75; }
+.proj-link {
+  width: 32px; height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+.proj-link:hover { border-color: var(--blue); color: var(--text); }
+.proj-body { padding: 1.25rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.proj-title { font-family: var(--fn-display); font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+.proj-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
+.proj-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tech {
+  font-family: var(--fn-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.18rem 0.45rem;
+}

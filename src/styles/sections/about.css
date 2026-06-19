@@ -1,0 +1,24 @@
+/* ─── ABOUT ──────────────────────────── */
+.about-sec {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.about-pull {
+  font-family: var(--fn-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.625rem);
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.about-pull em { font-style: normal; color: var(--blue); }
+.about-divider { width: 40px; height: 3px; background: var(--amber); margin: 1.5rem 0; }
+.about-body { color: var(--muted); font-size: 0.9rem; line-height: 1.8; }
+.about-body p + p { margin-top: 1rem; }

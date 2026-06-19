@@ -1,0 +1,78 @@
+/* ─── SKILLS MAP ──────────────────────── */
+.skills-map-preview {
+  width: 100%;
+  margin: 2rem 0 1.5rem;
+  min-height: 180px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid var(--border);
+}
+.skills-map-preview .skills-map-container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  min-height: 140px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1.75rem 1.25rem;
+}
+.skill-pin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+.skill-pin:hover {
+  transform: translateY(-8px) scale(1.05);
+  z-index: 2;
+}
+.pin-marker {
+  width: 48px;
+  height: 48px;
+  background: var(--blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--bg-dark);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  transition: all 0.3s ease, border-color 0.25s ease;
+  position: relative;
+}
+.pin-marker--accent {
+  background: var(--amber);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+.skill-pin:hover .pin-marker {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+.skill-pin:hover .pin-marker--accent {
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);
+}
+.pin-icon {
+  width: 22px;
+  height: 22px;
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+}
+.pin-label {
+  font-family: var(--fn-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin-top: 0.75rem;
+  max-width: 120px;
+  line-height: 1.3;
+}

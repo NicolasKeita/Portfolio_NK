@@ -8,7 +8,20 @@ import { Projects } from './components/Projects';
 import { FormationSection } from './components/FormationSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import './styles/portfolio.css';
+import './styles/sections/reset.css';
+import './styles/sections/nav.css';
+import './styles/sections/hero.css';
+import './styles/sections/buttons.css';
+import './styles/sections/shared.css';
+import './styles/sections/skills.css';
+import './styles/sections/about.css';
+import './styles/sections/formation.css';
+import './styles/sections/projects.css';
+import './styles/sections/contact.css';
+import './styles/sections/footer.css';
+import './styles/sections/gallery.css';
+import './styles/sections/modal.css';
+import './styles/sections/responsive.css';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
