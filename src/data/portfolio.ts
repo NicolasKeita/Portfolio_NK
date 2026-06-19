@@ -42,7 +42,7 @@ export const projects: Project[] = [
     tag: 'Avionique',
     tagClass: 'tag-mobile',
     title: 'Tactic-Nav',
-    description: 'Système embarqué de surveillance aérienne pour cockpit d\'avion sur Android, relié à un simulateur de contrôle aérien (ATC). Réception de flux radars, traitement temps réel et cartographie offline sous fortes contraintes de latence et mémoire.',
+    description: 'Système embarqué Android de surveillance aérienne exploitant le protocole ADS-B, standard utilisé en aviation réelle pour la transmission de position des aéronefs, pour la réception et la visualisation cartographique en temps réel du trafic aérien.',
     techs: ['Java', 'Android', 'Temps réel'],
     link: 'https://github.com/NicolasKeita/Tactic-Nav',
   },
