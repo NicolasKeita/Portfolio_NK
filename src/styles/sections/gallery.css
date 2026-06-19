@@ -38,12 +38,18 @@
   z-index: 2000;
   background: rgba(0, 0, 0, 0.92);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lightbox-img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
   cursor: default;
 }
 
