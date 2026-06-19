@@ -38,6 +38,7 @@
 .tag-audit { background: #fef3c7; color: #92400e; }
 .tag-data { background: #e0e7ff; color: #3730a3; }
 .tag-mobile { background: #cffafe; color: #155e75; }
+.tag-ai { background: #fce7f3; color: #9d174d; }
 .proj-link {
   width: 32px; height: 32px;
   border: 1px solid var(--border);
