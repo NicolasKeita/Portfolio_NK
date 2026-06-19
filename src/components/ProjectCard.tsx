@@ -1,4 +1,5 @@
 import { Project } from '../types';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ProjectCardProps {
   project: Project;
@@ -6,6 +7,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
+  const { lang } = useLanguage();
+
   const handleClick = (e: React.MouseEvent) => {
     if ((e.target as HTMLElement).closest('a.proj-link')) return;
     onOpenModal(project);
@@ -31,8 +34,8 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
         </a>
       </div>
       <div className="proj-body">
-        <div className="proj-title">{project.title}</div>
-        <div className="proj-desc">{project.description}</div>
+        <div className="proj-title">{lang === 'en' && project.titleEn ? project.titleEn : project.title}</div>
+        <div className="proj-desc">{lang === 'en' && project.descEn ? project.descEn : project.description}</div>
         <div className="proj-techs">
           {project.techs.map((tech) => (
             <span key={tech} className="tech">{tech}</span>

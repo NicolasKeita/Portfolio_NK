@@ -1,7 +1,10 @@
 import { SkillsMapPreview } from './SkillsMap';
+import { useLanguage } from '../context/LanguageContext';
 import photoProfil from '../assets/photo-profil.jpg';
 
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section id="hero">
       <div className="hero">
@@ -15,18 +18,18 @@ export function Hero() {
                 </div>
               </div>
             </div>
-            <span className="hero-role">Portfolio — Ingénieur Logiciel & Consultant IT</span>
+            <span className="hero-role">{t('hero.role')}</span>
             <p className="hero-desc">
               <a href="#formation" className="hero-text-link">
-                Formé par les meilleures écoles, guidé par la rigueur et l'exigence de qualité.
+                {t('hero.line1')}
               </a>
               <a href="#projets" className="hero-text-link">
-                Talent démontré à travers des projets complexes, construits à partir de l'étude de publications scientifiques et de l'exploration de méthodes state of the art dans le domaine.
+                {t('hero.line2')}
               </a>
             </p>
             <div className="hero-ctas">
-              <a href="#projets" className="btn btn-primary">Voir mes réalisations</a>
-              <a href="#contact" className="btn btn-secondary">Me contacter</a>
+              <a href="#projets" className="btn btn-primary">{t('hero.cta.work')}</a>
+              <a href="#contact" className="btn btn-secondary">{t('hero.cta.contact')}</a>
             </div>
             <SkillsMapPreview />
           </div>

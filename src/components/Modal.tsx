@@ -1,4 +1,5 @@
 import { useEffect, useRef, ReactNode } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ModalProps {
   title: string;
@@ -7,6 +8,7 @@ interface ModalProps {
 }
 
 export function Modal({ title, children, onClose }: ModalProps) {
+  const { t } = useLanguage();
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export function Modal({ title, children, onClose }: ModalProps) {
   return (
     <div className="modal-overlay active" ref={overlayRef} onClick={handleOverlayClick}>
       <div className="modal">
-        <button className="modal-close" aria-label="Fermer" onClick={onClose}>
+        <button className="modal-close" aria-label={t('modal.close')} onClick={onClose}>
           ✕
         </button>
         <h3 className="modal-title">{title}</h3>

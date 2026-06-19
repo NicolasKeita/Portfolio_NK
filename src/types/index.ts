@@ -11,6 +11,7 @@ export interface Skill {
   id: string;
   icon: string;
   label: string;
+  labelEn?: string;
   accent?: boolean;
 }
 
@@ -18,6 +19,8 @@ export interface SkillCard {
   icon: string;
   name: string;
   desc: string;
+  nameEn?: string;
+  descEn?: string;
   level: number; // 1-5
 }
 
@@ -25,6 +28,8 @@ export interface Formation {
   title: string;
   org: string;
   desc: string;
+  titleEn?: string;
+  descEn?: string;
 }
 
 export interface Project {
@@ -33,6 +38,8 @@ export interface Project {
   tagClass: string;
   title: string;
   description: string;
+  titleEn?: string;
+  descEn?: string;
   techs: string[];
   link: string;
   photos: string[];
@@ -42,8 +49,11 @@ export interface ContactItem {
   icon: string;
   label: string;
   value: string;
+  labelEn?: string;
+  valueEn?: string;
   href?: string;
   sub?: string;
+  subEn?: string;
 }
 
 export type Theme = 'dark' | 'light';

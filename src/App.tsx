@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useTheme } from './hooks/useTheme';
+import { LanguageProvider } from './context/LanguageContext';
 import { SvgSprite } from './components/SvgSprite';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
@@ -32,7 +33,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <LanguageProvider>
       <SvgSprite />
       <Nav theme={theme} onToggleTheme={toggleTheme} />
       <Hero />
@@ -40,7 +41,7 @@ function App() {
       <FormationSection />
       <ContactSection />
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }
 
