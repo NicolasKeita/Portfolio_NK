@@ -7,11 +7,14 @@ export function Hero() {
       <div className="hero">
         <div className="hero-layout">
           <div className="hero-content">
-            <div className="hero-code">
-              <span className="ck">┌──(</span><span className="cv">nk</span><span className="ck">㉿</span><span className="cs">portfolio</span><span className="ck">)</span><br />
-              <span className="ck">└─</span><span className="ck2">$ </span> whoami<span className="cursor" />
+            <div className="hero-name-photo-row">
+              <h1 className="hero-name">Nicolas<br />Keita</h1>
+              <div className="hero-photo-col">
+                <div className="photo-placeholder has-photo">
+                  <img src={photoProfil} alt="Nicolas Keita" />
+                </div>
+              </div>
             </div>
-            <h1 className="hero-name">Nicolas<br />Keita</h1>
             <span className="hero-role">Portfolio — Ingénieur Logiciel & Consultant IT</span>
             <p className="hero-desc">
               <a href="#formation" className="hero-text-link">
@@ -26,11 +29,6 @@ export function Hero() {
               <a href="#contact" className="btn btn-secondary">Me contacter</a>
             </div>
             <SkillsMapPreview />
-          </div>
-          <div className="hero-photo-col">
-            <div className="photo-placeholder has-photo">
-              <img src={photoProfil} alt="Nicolas Keita" />
-            </div>
           </div>
         </div>
       </div>
