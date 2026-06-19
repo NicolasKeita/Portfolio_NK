@@ -45,6 +45,11 @@ export const projects: Project[] = [
     description: 'Système embarqué Android de surveillance aérienne exploitant le protocole ADS-B, standard utilisé en aviation réelle pour la transmission de position des aéronefs, pour la réception et la visualisation cartographique en temps réel du trafic aérien.',
     techs: ['Java', 'Android', 'Temps réel'],
     link: 'https://github.com/NicolasKeita/Tactic-Nav',
+    photos: [
+      'https://picsum.photos/seed/tactic1/800/500',
+      'https://picsum.photos/seed/tactic2/800/500',
+      'https://picsum.photos/seed/tactic3/800/500',
+    ],
   },
   {
     id: 'mudlet',
@@ -54,6 +59,11 @@ export const projects: Project[] = [
     description: 'Analyse approfondie d\'un système de données de plus de 15 ans, identification d\'anomalies complexes, déploiement de protocoles de vérification et restructuration de l\'architecture.',
     techs: ['Audit système', 'Tests fonctionnels', 'Architecture'],
     link: 'https://github.com/Mudlet/Mudlet/pulls?q=is%3Apr+is%3Aclosed+author%3ANicolasKeita',
+    photos: [
+      'https://picsum.photos/seed/mudlet1/800/500',
+      'https://picsum.photos/seed/mudlet2/800/500',
+      'https://picsum.photos/seed/mudlet3/800/500',
+    ],
   },
   {
     id: 'champ-select',
@@ -63,6 +73,12 @@ export const projects: Project[] = [
     description: 'Application compagnon desktop pour League of Legends, plus de 70 000 téléchargements. Développement web full-stack avec React, déployée sur AWS.',
     techs: ['React', 'AWS', 'Full-stack'],
     link: 'https://github.com/NicolasKeita/Champ_select_winrate',
+    photos: [
+      'https://picsum.photos/seed/champ1/800/500',
+      'https://picsum.photos/seed/champ2/800/500',
+      'https://picsum.photos/seed/champ3/800/500',
+      'https://picsum.photos/seed/champ4/800/500',
+    ],
   },
   {
     id: 'pdf-generator',
@@ -72,6 +88,10 @@ export const projects: Project[] = [
     description: 'Système de génération automatique de lettres de motivation et documents professionnels en PDF, avec mise en page bicolore, tableaux et polices embarquées.',
     techs: ['Python', 'ReportLab', 'PDF'],
     link: '#',
+    photos: [
+      'https://picsum.photos/seed/pdf1/800/500',
+      'https://picsum.photos/seed/pdf2/800/500',
+    ],
   },
   {
     id: 'lan-analysis',
@@ -81,6 +101,11 @@ export const projects: Project[] = [
     description: 'Cartographie et analyse d\'un réseau local, identification des points d\'amélioration, rapport de recommandations pour environnement PME.',
     techs: ['Nmap', 'Wireshark', 'Linux'],
     link: '#',
+    photos: [
+      'https://picsum.photos/seed/lan1/800/500',
+      'https://picsum.photos/seed/lan2/800/500',
+      'https://picsum.photos/seed/lan3/800/500',
+    ],
   },
 ];
 

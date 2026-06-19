@@ -1,5 +1,5 @@
-import { PhotoUpload } from './PhotoUpload';
 import { SkillsMapPreview } from './SkillsMap';
+import photoProfil from '../assets/photo-profil.jpg';
 
 export function Hero() {
   return (
@@ -27,7 +27,11 @@ export function Hero() {
             </div>
             <SkillsMapPreview />
           </div>
-          <PhotoUpload />
+          <div className="hero-photo-col">
+            <div className="photo-placeholder has-photo">
+              <img src={photoProfil} alt="Nicolas Keita" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

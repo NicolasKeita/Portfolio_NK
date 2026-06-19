@@ -3,6 +3,7 @@ import { Project } from '../types';
 import { projects } from '../data/portfolio';
 import { ProjectCard } from './ProjectCard';
 import { Modal } from './Modal';
+import { Gallery } from './Gallery';
 
 export function Projects() {
   const [modalProject, setModalProject] = useState<Project | null>(null);
@@ -28,6 +29,7 @@ export function Projects() {
           title={modalProject.title}
           onClose={() => setModalProject(null)}
         >
+          <Gallery photos={modalProject.photos} title={modalProject.title} />
           <p>{modalProject.description}</p>
           <div className="proj-techs" style={{ marginTop: '1rem' }}>
             {modalProject.techs.map((tech) => (

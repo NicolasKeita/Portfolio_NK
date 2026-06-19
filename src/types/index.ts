@@ -35,6 +35,7 @@ export interface Project {
   description: string;
   techs: string[];
   link: string;
+  photos: string[];
 }
 
 export interface ContactItem {
