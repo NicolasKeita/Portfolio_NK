@@ -1,4 +1,8 @@
 import { Skill, SkillCard, Project, Formation, ContactItem } from '../types';
+import tacticNavAndroid from '../assets/tactic-nav/Android_app_2.png';
+import tacticNavBacklog from '../assets/tactic-nav/backlog_backend.png';
+import tacticNavCockpit from '../assets/tactic-nav/cockpit.png';
+import tacticNavSchema from '../assets/tactic-nav/schema_architecture.png';
 
 export const skillsMap: Skill[] = [
   { id: 'team', icon: '#i-users', label: "Travail d'équipe", labelEn: 'Teamwork', accent: true },
@@ -47,9 +51,26 @@ export const projects: Project[] = [
     techs: ['Java', 'Android', 'Temps réel'],
     link: 'https://github.com/NicolasKeita/Tactic-Nav',
     photos: [
-      'https://picsum.photos/seed/tactic1/800/500',
-      'https://picsum.photos/seed/tactic2/800/500',
-      'https://picsum.photos/seed/tactic3/800/500',
+      tacticNavCockpit,
+      tacticNavSchema,
+      tacticNavBacklog,
+      tacticNavAndroid,
+    ],
+  },
+  {
+    id: 'mars-lander-rl',
+    tag: 'IA',
+    tagClass: 'tag-ai',
+    title: 'IA de Pilotage Autonome — Mars Lander, Lunar Lander et défis OpenAI Gym',
+    titleEn: 'Autonomous Pilot AI — Mars Lander, Lunar Lander and OpenAI Gym challenges',
+    description: 'Développement d\'agents d\'atterrissage autonomes sur environnements simulés inspirés de problèmes réels de contrôle continu. Mise en œuvre et comparaison de différentes approches de Reinforcement Learning sur des environnements de type OpenAI Gym, incluant Lunar Lander et Mars Lander (Codingame). Le projet explore la conception d\'agents capables de prendre des décisions en temps réel dans un espace d\'état continu, avec contraintes physiques (gravité, poussée, carburant, stabilité). Travail réalisé : implémentation d\'agents basés sur des méthodes de Reinforcement Learning (Q-learning, policy-based methods), entraînement sur environnements OpenAI Gym et adaptation sur un environnement Codingame (Mars Lander), analyse des fonctions de récompense et impact sur la convergence des politiques, optimisation des performances d\'atterrissage via ajustement des hyperparamètres et shaping de reward, étude comparative des comportements des agents selon les architectures testées.',
+    descEn: 'Development of autonomous landing agents on simulated environments inspired by real-world continuous control problems. Implementation and comparison of different Reinforcement Learning approaches on OpenAI Gym environments, including Lunar Lander and Mars Lander (Codingame). The project explores the design of agents capable of making real-time decisions in continuous state spaces, with physical constraints (gravity, thrust, fuel, stability). Work accomplished: implementation of agents based on Reinforcement Learning methods (Q-learning, policy-based methods), training on OpenAI Gym environments and adaptation to a Codingame environment (Mars Lander), analysis of reward functions and their impact on policy convergence, landing performance optimization via hyperparameter tuning and reward shaping, comparative study of agent behaviors across tested architectures.',
+    techs: ['Python', 'Reinforcement Learning', 'OpenAI Gym'],
+    link: 'https://github.com/NicolasKeita',
+    photos: [
+      'https://picsum.photos/seed/mars1/800/500',
+      'https://picsum.photos/seed/mars2/800/500',
+      'https://picsum.photos/seed/mars3/800/500',
     ],
   },
   {
@@ -82,22 +103,6 @@ export const projects: Project[] = [
       'https://picsum.photos/seed/champ2/800/500',
       'https://picsum.photos/seed/champ3/800/500',
       'https://picsum.photos/seed/champ4/800/500',
-    ],
-  },
-  {
-    id: 'mars-lander-rl',
-    tag: 'IA',
-    tagClass: 'tag-ai',
-    title: 'IA de Pilotage Autonome — Mars Lander, Lunar Lander et défis OpenAI Gym',
-    titleEn: 'Autonomous Pilot AI — Mars Lander, Lunar Lander and OpenAI Gym challenges',
-    description: 'Développement d\'agents d\'atterrissage autonomes sur environnements simulés inspirés de problèmes réels de contrôle continu. Mise en œuvre et comparaison de différentes approches de Reinforcement Learning sur des environnements de type OpenAI Gym, incluant Lunar Lander et Mars Lander (Codingame). Le projet explore la conception d\'agents capables de prendre des décisions en temps réel dans un espace d\'état continu, avec contraintes physiques (gravité, poussée, carburant, stabilité). Travail réalisé : implémentation d\'agents basés sur des méthodes de Reinforcement Learning (Q-learning, policy-based methods), entraînement sur environnements OpenAI Gym et adaptation sur un environnement Codingame (Mars Lander), analyse des fonctions de récompense et impact sur la convergence des politiques, optimisation des performances d\'atterrissage via ajustement des hyperparamètres et shaping de reward, étude comparative des comportements des agents selon les architectures testées.',
-    descEn: 'Development of autonomous landing agents on simulated environments inspired by real-world continuous control problems. Implementation and comparison of different Reinforcement Learning approaches on OpenAI Gym environments, including Lunar Lander and Mars Lander (Codingame). The project explores the design of agents capable of making real-time decisions in continuous state spaces, with physical constraints (gravity, thrust, fuel, stability). Work accomplished: implementation of agents based on Reinforcement Learning methods (Q-learning, policy-based methods), training on OpenAI Gym environments and adaptation to a Codingame environment (Mars Lander), analysis of reward functions and their impact on policy convergence, landing performance optimization via hyperparameter tuning and reward shaping, comparative study of agent behaviors across tested architectures.',
-    techs: ['Python', 'Reinforcement Learning', 'OpenAI Gym'],
-    link: 'https://github.com/NicolasKeita',
-    photos: [
-      'https://picsum.photos/seed/mars1/800/500',
-      'https://picsum.photos/seed/mars2/800/500',
-      'https://picsum.photos/seed/mars3/800/500',
     ],
   },
 ];
