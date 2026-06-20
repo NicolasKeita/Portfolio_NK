@@ -40,6 +40,8 @@ export interface Project {
   description: string;
   titleEn?: string;
   descEn?: string;
+  prologue?: string;
+  prologueEn?: string;
   techs: string[];
   link: string;
   photos: string[];

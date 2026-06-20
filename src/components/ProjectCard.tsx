@@ -35,7 +35,7 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
       </div>
       <div className="proj-body">
         <div className="proj-title">{lang === 'en' && project.titleEn ? project.titleEn : project.title}</div>
-        <div className="proj-desc">{lang === 'en' && project.descEn ? project.descEn : project.description}</div>
+        <div className="proj-desc">{lang === 'en' && project.prologueEn ? project.prologueEn : project.prologue}</div>
         <div className="proj-techs">
           {project.techs.map((tech) => (
             <span key={tech} className="tech">{tech}</span>

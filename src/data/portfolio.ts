@@ -48,6 +48,8 @@ export const projects: Project[] = [
     title: 'Tactic-Nav',
     description: 'Système embarqué Android de surveillance aérienne exploitant le protocole ADS-B, standard utilisé en aviation réelle pour la transmission de position des aéronefs, pour la réception et la visualisation cartographique en temps réel du trafic aérien.',
     descEn: 'Android embedded system for air surveillance using the ADS-B protocol, a standard used in real aviation for aircraft position transmission, receiving and displaying real-time air traffic on a map.',
+    prologue: 'Ce projet sert à démontrer mon talent dans le développement logiciel.',
+    prologueEn: 'This project showcases my talent in software development.',
     techs: ['Java', 'Android', 'Temps réel'],
     link: 'https://github.com/NicolasKeita/Tactic-Nav',
     photos: [
@@ -65,6 +67,8 @@ export const projects: Project[] = [
     titleEn: 'Autonomous Pilot AI — Mars Lander, Lunar Lander and OpenAI Gym challenges',
     description: 'Développement d\'agents autonomes utilisant des techniques de Reinforcement Learning sur plusieurs environnements OpenAI Gym, ainsi que sur Mars Lander (Codingame) et Lunar Lander.\n\nLe projet explore la conception d\'agents capables de prendre des décisions en temps réel dans un espace d\'état continu, avec contraintes physiques (gravité, poussée, carburant, stabilité). Ces environnements constituent des cas d\'étude classiques pour des problématiques de contrôle, de prise de décision séquentielle et d\'optimisation.\n\nTravail réalisé :\n\n* Implémentation d\'agents basés sur des méthodes de Reinforcement Learning (Q-Learning, algorithmes de type Policy Gradient)\n* Entraînement sur des environnements OpenAI Gym et adaptation sur un environnement Codingame (Mars Lander)\n* Analyse des fonctions de récompense et de leur impact sur l\'apprentissage et les performances des agents\n* Optimisation des performances d\'atterrissage via l\'ajustement des hyperparamètres et le reward shaping\n* Étude comparative des comportements des agents selon les architectures testées\n\nFormation des compétences via des ressources académiques en ligne, notamment le cours de Reinforcement Learning CS234 de Stanford University.',
     descEn: 'Development of autonomous agents using Reinforcement Learning techniques across multiple OpenAI Gym environments, as well as Mars Lander (Codingame) and Lunar Lander.\n\nThe project explores the design of agents capable of making real-time decisions in a continuous state space, with physical constraints (gravity, thrust, fuel, stability). These environments are classic case studies for control problems, sequential decision-making, and optimization.\n\nWork accomplished:\n\n* Implementation of agents based on Reinforcement Learning methods (Q-Learning, Policy Gradient algorithms)\n* Training on OpenAI Gym environments and adaptation to a Codingame environment (Mars Lander)\n* Analysis of reward functions and their impact on agent learning and performance\n* Landing performance optimization via hyperparameter tuning and reward shaping\n* Comparative study of agent behaviors across tested architectures\n\nSkill development through online academic resources, including Stanford University\'s CS234 Reinforcement Learning course.',
+    prologue: 'Ce projet sert à démontrer mon talent dans le développement logiciel.',
+    prologueEn: 'This project showcases my talent in software development.',
     techs: ['Python', 'Reinforcement Learning', 'OpenAI Gym'],
     link: 'https://github.com/NicolasKeita',
     photos: [
@@ -81,6 +85,8 @@ export const projects: Project[] = [
     titleEn: 'Platform audit and restructuring (Mudlet)',
     description: 'Analyse approfondie d\'un système de données de plus de 15 ans, identification d\'anomalies complexes, déploiement de protocoles de vérification et restructuration de l\'architecture.',
     descEn: 'In-depth analysis of a 15+ year old data system, identification of complex anomalies, deployment of verification protocols, and architecture restructuring.',
+    prologue: 'Ce projet sert à démontrer mon talent dans le développement logiciel.',
+    prologueEn: 'This project showcases my talent in software development.',
     techs: ['Audit système', 'Tests fonctionnels', 'Architecture'],
     link: 'https://github.com/Mudlet/Mudlet/pulls?q=is%3Apr+is%3Aclosed+author%3ANicolasKeita',
     photos: [
@@ -96,6 +102,8 @@ export const projects: Project[] = [
     title: 'Champ Select Winrate',
     description: 'Application compagnon desktop pour League of Legends, plus de 70 000 téléchargements. Développement web full-stack avec React, déployée sur AWS.',
     descEn: 'Desktop companion app for League of Legends, over 70,000 downloads. Full-stack web development with React, deployed on AWS.',
+    prologue: 'Ce projet sert à démontrer mon talent dans le développement logiciel.',
+    prologueEn: 'This project showcases my talent in software development.',
     techs: ['React', 'AWS', 'Full-stack'],
     link: 'https://github.com/NicolasKeita/Champ_select_winrate',
     photos: [

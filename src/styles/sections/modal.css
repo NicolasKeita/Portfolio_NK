@@ -59,6 +59,15 @@
   color: var(--text);
   margin-bottom: 1rem;
 }
+.modal-prologue {
+  color: var(--text);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
 .modal-content {
   color: var(--muted);
   line-height: 1.8;
