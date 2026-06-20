@@ -54,7 +54,7 @@
 .proj-link:hover { border-color: var(--blue); color: var(--text); }
 .proj-body { padding: 1.25rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
 .proj-title { font-family: var(--fn-display); font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
-.proj-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
+.proj-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 1rem; white-space: pre-line; }
 .proj-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .tech {
   font-family: var(--fn-mono);

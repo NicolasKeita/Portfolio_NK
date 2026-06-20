@@ -48,8 +48,8 @@ export const projects: Project[] = [
     title: 'Tactic-Nav',
     description: 'Système embarqué Android de surveillance aérienne exploitant le protocole ADS-B, standard utilisé en aviation réelle pour la transmission de position des aéronefs, pour la réception et la visualisation cartographique en temps réel du trafic aérien.',
     descEn: 'Android embedded system for air surveillance using the ADS-B protocol, a standard used in real aviation for aircraft position transmission, receiving and displaying real-time air traffic on a map.',
-    prologue: 'Ce projet sert à démontrer mon talent dans le développement logiciel.',
-    prologueEn: 'This project showcases my talent in software development.',
+    prologue: 'Au-delà de son contexte aéronautique, ce projet constitue un exercice complet d\'ingénierie logicielle couvrant :\n- le développement mobile Android\n- l\'assurance d\'une application sans crash grâce à des tests automatisés variés\n- l\'optimisation bas niveau nécessaire au respect d\'objectifs de performance stricts (aucun crash ni perte de FPS n\'est autorisé en plein vol), avec validation par benchmarking',
+    prologueEn: 'Beyond its aeronautical context, this project is a complete software engineering exercise covering:\n- Android mobile development\n- ensuring a crash-free application through various automated tests\n- low-level optimization required to meet strict performance targets (no crashes or FPS drops allowed during flight), validated through benchmarking',
     techs: ['Java', 'Android', 'Temps réel'],
     link: 'https://github.com/NicolasKeita/Tactic-Nav',
     photos: [
