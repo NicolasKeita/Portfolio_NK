@@ -32,7 +32,7 @@ export function Projects() {
           onClose={() => setModalProject(null)}
         >
           <Gallery photos={modalProject.photos} title={modalProject.title} />
-          <p>{lang === 'en' && modalProject.descEn ? modalProject.descEn : modalProject.description}</p>
+          <div className="modal-content">{lang === 'en' && modalProject.descEn ? modalProject.descEn : modalProject.description}</div>
           <div className="proj-techs" style={{ marginTop: '1rem' }}>
             {modalProject.techs.map((tech) => (
               <span key={tech} className="tech">{tech}</span>
