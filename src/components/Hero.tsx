@@ -20,14 +20,6 @@ export function Hero() {
             </div>
             <span className="hero-role">{t('hero.role')}</span>
             <p className="hero-tagline">{t('hero.tagline')}</p>
-            <p className="hero-desc">
-              <a href="#formation" className="hero-text-link">
-                {t('hero.line1')}
-              </a>
-              <a href="#projets" className="hero-text-link">
-                {t('hero.line2')}
-              </a>
-            </p>
             <div className="hero-ctas">
               <a href="#projets" className="btn btn-primary">{t('hero.cta.work')}</a>
               <a href="#contact" className="btn btn-secondary">{t('hero.cta.contact')}</a>

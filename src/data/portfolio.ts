@@ -3,6 +3,10 @@ import tacticNavAndroid from '../assets/tactic-nav/Android_app_2.png';
 import tacticNavBacklog from '../assets/tactic-nav/backlog_backend.png';
 import tacticNavCockpit from '../assets/tactic-nav/cockpit.png';
 import tacticNavSchema from '../assets/tactic-nav/schema_architecture.png';
+import marsLanderCodingame from '../assets/mars-lander/codinggame_mars_lander.png';
+import marsLanderHumanoid from '../assets/mars-lander/humanoid_standup.gif';
+import marsLanderFalcon9Landing from '../assets/mars-lander/space_x_falcon_9_landing.png';
+import marsLanderFalcon9Launch from '../assets/mars-lander/space_X_falcon_9_launch.png';
 
 export const skillsMap: Skill[] = [
   { id: 'team', icon: '#i-users', label: "Travail d'équipe", labelEn: 'Teamwork', accent: true },
@@ -72,9 +76,10 @@ export const projects: Project[] = [
     techs: ['Python', 'Reinforcement Learning', 'OpenAI Gym'],
     link: 'https://github.com/NicolasKeita',
     photos: [
-      'https://picsum.photos/seed/mars1/800/500',
-      'https://picsum.photos/seed/mars2/800/500',
-      'https://picsum.photos/seed/mars3/800/500',
+      marsLanderCodingame,
+      marsLanderFalcon9Landing,
+      marsLanderFalcon9Launch,
+      marsLanderHumanoid,
     ],
   },
   {
