@@ -19,6 +19,7 @@ export function Hero() {
               </div>
             </div>
             <span className="hero-role">{t('hero.role')}</span>
+            <p className="hero-tagline">{t('hero.tagline')}</p>
             <p className="hero-desc">
               <a href="#formation" className="hero-text-link">
                 {t('hero.line1')}

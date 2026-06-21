@@ -20,6 +20,7 @@ export const translations: TranslationEntry[] = [
 
   /* Hero */
   { key: 'hero.role', en: 'Portfolio — Software Engineer & IT Consultant', fr: 'Portfolio — Ingénieur Logiciel & Consultant IT' },
+  { key: 'hero.tagline', en: 'What sets me apart is not the number of projects completed, but the quality standard I bring to each one.', fr: 'Ce qui me distingue n\'est pas la quantité de projets réalisés, mais l\'exigence de qualité que j\'apporte à chacun d\'eux.' },
   { key: 'hero.line1', en: 'Trained by top-tier schools, guided by rigor and a commitment to quality.', fr: 'Formé par les meilleures écoles, guidé par la rigueur et l\'exigence de qualité.' },
   { key: 'hero.line2', en: 'Proven talent through complex projects built from the study of scientific publications and the exploration of state-of-the-art methods.', fr: 'Talent démontré à travers des projets complexes, construits à partir de l\'étude de publications scientifiques et de l\'exploration de méthodes state of the art dans le domaine.' },
   { key: 'hero.cta.work', en: 'See my work', fr: 'Voir mes réalisations' },
