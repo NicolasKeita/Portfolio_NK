@@ -7,6 +7,9 @@ import marsLanderCodingame from '../assets/mars-lander/codinggame_mars_lander.pn
 import marsLanderHumanoid from '../assets/mars-lander/humanoid_standup.gif';
 import marsLanderFalcon9Landing from '../assets/mars-lander/space_x_falcon_9_landing.png';
 import marsLanderFalcon9Launch from '../assets/mars-lander/space_X_falcon_9_launch.png';
+import mudletAlgora from '../assets/mudlet/algora.io.png';
+import mudletGame1 from '../assets/mudlet/game_1.png';
+import mudletGame2 from '../assets/mudlet/game_2.png';
 
 export const skillsMap: Skill[] = [
   { id: 'team', icon: '#i-users', label: "Travail d'équipe", labelEn: 'Teamwork', accent: true },
@@ -95,9 +98,9 @@ export const projects: Project[] = [
     techs: ['C++', 'Qt', 'Sentry', 'Tests fonctionnels', 'Architecture modulaire'],
     link: 'https://github.com/Mudlet/Mudlet/pulls?q=is%3Apr+is%3Aclosed+author%3ANicolasKeita',
     photos: [
-      'https://picsum.photos/seed/mudlet1/800/500',
-      'https://picsum.photos/seed/mudlet2/800/500',
-      'https://picsum.photos/seed/mudlet3/800/500',
+      mudletGame1,
+      mudletGame2,
+      mudletAlgora,
     ],
   },
   {
