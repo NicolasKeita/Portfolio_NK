@@ -1,8 +1,20 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
 import { SvgIcon } from './SvgSprite';
 import { useLanguage } from '../context/LanguageContext';
 import { skillsMap } from '../data/portfolio';
+
+/* ─── Traductions locales ─── */
+const LOCALE = {
+  systemeSolaire: { fr: 'Système Solaire', en: 'Solar System' },
+  tableauDeBord: { fr: 'Tableau de Bord', en: 'Dashboard' },
+  planetes: { fr: 'planètes', en: 'planets' },
+  rotating: { fr: '▶ ROTATION', en: '▶ ROTATING' },
+  paused: { fr: '⏸ PAUSE', en: '⏸ PAUSED' },
+  specialist: { fr: 'Spécialité principale', en: 'Lead specialty' },
+  survole: { fr: 'Survole une planète pour découvrir mes compétences.', en: 'Hover a planet to discover my skills.' },
+  enCours: { fr: 'En cours de déploiement…', en: 'Deployment in progress…' },
+  methodologies: { fr: 'Méthodologies :', en: 'Methodologies :' },
+} as const;
 
 /* ─── Distribution helpers ─── */
 function distributeOnRing(
@@ -19,14 +31,13 @@ function distributeOnRing(
   return ring;
 }
 
-/* ─── Ring component ─── */
+/* ─── Pure CSS Orbital Ring ─── */
 function OrbitalRing({
   skills,
   radius,
   duration,
   onSelect,
   activeId,
-  onHoverChange,
   labelFn,
 }: {
   skills: (typeof skillsMap[number] | null)[];
@@ -34,22 +45,20 @@ function OrbitalRing({
   duration: number;
   onSelect: (s: typeof skillsMap[number]) => void;
   activeId: string | null;
-  onHoverChange: (v: boolean) => void;
   labelFn: (s: typeof skillsMap[number]) => string;
 }) {
   return (
-    <motion.div
+    <div
+      data-orbit
       className="absolute rounded-full border border-white/[0.04]"
       style={{
         width: radius * 2,
         height: radius * 2,
         left: `calc(50% - ${radius}px)`,
         top: `calc(50% - ${radius}px)`,
+        willChange: 'transform',
+        animation: `orbit-spin ${duration}s linear infinite`,
       }}
-      animate={{ rotate: 360 }}
-      transition={{ ease: 'linear', duration, repeat: Infinity }}
-      onMouseEnter={() => onHoverChange(true)}
-      onMouseLeave={() => onHoverChange(false)}
     >
       {skills.map((skill, index) => {
         if (!skill) return null;
@@ -61,16 +70,15 @@ function OrbitalRing({
         const isActive = activeId === skill.id;
 
         return (
-          <motion.div
+          <div
             key={skill.id}
             className="absolute"
             style={{
               left: `calc(50% + ${x}px - 22px)`,
               top: `calc(50% + ${y}px - 22px)`,
+              willChange: 'transform',
+              animation: `orbit-counter-spin ${duration}s linear infinite`,
             }}
-            // Contre-rotation : le label reste droit
-            animate={{ rotate: -360 }}
-            transition={{ ease: 'linear', duration, repeat: Infinity }}
           >
             <button
               onClick={() => onSelect(skill)}
@@ -98,10 +106,10 @@ function OrbitalRing({
                 {labelFn(skill)}
               </span>
             </button>
-          </motion.div>
+          </div>
         );
       })}
-    </motion.div>
+    </div>
   );
 }
 
@@ -109,32 +117,46 @@ function OrbitalRing({
 export function SkillsMapPreview() {
   const { lang } = useLanguage();
   const [activeSkill, setActiveSkill] = useState(skillsMap[0] ?? null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
+
+  const t = (obj: { fr: string; en: string }) => (lang === 'en' ? obj.en : obj.fr);
 
   const label = (s: typeof skillsMap[number]) =>
     lang === 'en' && s.labelEn ? s.labelEn : s.label;
   const proof = (s: typeof skillsMap[number]) =>
     lang === 'en' ? s.proofEn : s.proof;
 
-  // 12 skills → 6 par anneau sur 2 anneaux → plus d'espace
   const half = Math.ceil(skillsMap.length / 2);
   const ringA = distributeOnRing(skillsMap, 0, half);
   const ringB = distributeOnRing(skillsMap, 1, half);
 
+  // Pause/resume animations on hover
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const rings = containerRef.current.querySelectorAll<HTMLElement>('[data-orbit], [data-orbit] > div');
+    rings.forEach((el) => {
+      el.style.animationPlayState = hovered ? 'paused' : 'running';
+    });
+  }, [hovered]);
+
   return (
     <div className="w-full max-w-5xl mx-auto p-4 sm:p-6 space-y-6">
-      {/* ─── SOLAR SYSTEM (pleine largeur) ─── */}
-      <div className="relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/[0.08] bg-slate-950/40 backdrop-blur-md p-6 min-h-[500px] select-none">
-        {/* Label top-left */}
+      {/* ─── SOLAR SYSTEM ─── */}
+      <div
+        ref={containerRef}
+        className="relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/[0.08] bg-slate-950/40 backdrop-blur-md p-6 min-h-[500px] select-none"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
         <div className="absolute top-4 left-6 z-20">
           <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-            Système Solaire
+            {t(LOCALE.systemeSolaire)}
           </span>
         </div>
 
         {/* Sun / Core */}
         <div className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          {/* Glow */}
           <div className="w-20 h-20 rounded-full bg-blue-500/15 animate-ping absolute -inset-4 pointer-events-none" />
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 flex items-center justify-center shadow-[0_0_30px_rgba(96,165,250,0.3)]">
             <div className="text-center">
@@ -150,54 +172,45 @@ export function SkillsMapPreview() {
 
         {/* Orbital rings */}
         <div className="relative w-full h-full" style={{ minHeight: 460 }}>
-          {/* Outer ring — 6 planètes, grand rayon, lent */}
           <OrbitalRing
             skills={ringB}
             radius={200}
             duration={50}
             onSelect={setActiveSkill}
             activeId={activeSkill?.id ?? null}
-            onHoverChange={setHovered}
             labelFn={label}
           />
-
-          {/* Inner ring — 6 planètes, rayon moyen, plus rapide */}
           <OrbitalRing
             skills={ringA}
             radius={135}
             duration={28}
             onSelect={setActiveSkill}
             activeId={activeSkill?.id ?? null}
-            onHoverChange={setHovered}
             labelFn={label}
           />
         </div>
 
-        {/* Hover pause indicator */}
         {hovered && (
           <div className="absolute bottom-4 left-6 z-20 text-[10px] text-slate-500 font-mono tracking-wider">
-            ⏸ PAUSED
+            {t(LOCALE.paused)}
           </div>
         )}
       </div>
 
-      {/* ─── HUD / PROOF PANEL (en bas, pleine largeur) ─── */}
+      {/* ─── HUD / PROOF PANEL ─── */}
       <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-slate-950/50 backdrop-blur-md p-5 sm:p-6">
         <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-          {/* Label colonne gauche */}
           <div className="shrink-0 w-full sm:w-32">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 block">
-              Tableau de Bord
+              {t(LOCALE.tableauDeBord)}
             </span>
           </div>
 
-          {/* Contenu dynamique */}
           <div className="flex-1 w-full">
             {activeSkill ? (
-              <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-in" key={activeSkill.id}>
-                {/* Header */}
+              <div className="flex flex-col sm:flex-row items-start gap-4" key={activeSkill.id}>
                 <div
-                  className={`flex items-center gap-3 p-3 rounded-2xl border transition-colors duration-300 shrink-0 ${
+                  className={`flex items-center gap-3 p-3 rounded-2xl border shrink-0 ${
                     activeSkill.accent
                       ? 'bg-amber-500/5 border-amber-500/15'
                       : 'bg-white/[0.04] border-white/[0.08]'
@@ -225,39 +238,39 @@ export function SkillsMapPreview() {
                     </h4>
                     {activeSkill.accent && (
                       <span className="inline-block text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full mt-1 font-medium">
-                        Spécialité principale
+                        {t(LOCALE.specialist)}
                       </span>
                     )}
                   </div>
                 </div>
 
-                {/* Proof */}
                 <p
-                  className={`text-sm leading-relaxed p-4 rounded-2xl shadow-inner italic border transition-colors duration-300 flex-1 ${
+                  className={`text-sm leading-relaxed p-4 rounded-2xl italic border flex-1 ${
                     activeSkill.accent
                       ? 'text-amber-200/80 bg-amber-500/[0.03] border-amber-500/10'
                       : 'text-slate-300 bg-white/[0.02] border-white/[0.04]'
                   }`}
                 >
-                  &ldquo;{proof(activeSkill) || 'En cours de déploiement…'}&rdquo;
+                  &ldquo;{proof(activeSkill) || t(LOCALE.enCours)}&rdquo;
                 </p>
               </div>
             ) : (
               <p className="text-sm text-slate-500 italic">
-                Survole une planète pour découvrir mes compétences.
+                {t(LOCALE.survole)}
               </p>
             )}
           </div>
 
-          {/* Status colonne droite */}
           <div className="shrink-0 self-end sm:self-auto flex items-center gap-3">
-            <span className="text-xs text-slate-400 whitespace-nowrap">{skillsMap.length} planètes</span>
+            <span className="text-xs text-slate-400 whitespace-nowrap">
+              {skillsMap.length} {t(LOCALE.planetes)}
+            </span>
             <span
               className={`text-[10px] font-mono transition-colors ${
                 hovered ? 'text-blue-400' : 'text-slate-500'
               }`}
             >
-              {hovered ? '⏸ PAUSED' : '▶ ROTATING'}
+              {hovered ? t(LOCALE.paused) : t(LOCALE.rotating)}
             </span>
           </div>
         </div>
@@ -266,7 +279,7 @@ export function SkillsMapPreview() {
       {/* ─── BADGES ─── */}
       <div className="w-full rounded-2xl border border-white/[0.08] bg-slate-950/20 p-4 flex flex-wrap gap-3 items-center justify-center">
         <span className="text-xs font-medium text-slate-500 mr-2">
-          Méthodologies :
+          {t(LOCALE.methodologies)}
         </span>
         <span className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium">
           Travail d'équipe

@@ -16,3 +16,17 @@ body {
 .nav-links a.active {
   @apply text-text-light dark:text-text-dark;
 }
+
+/* ─── Orbital spin keyframes (GPU accelerated) ─── */
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbit-counter-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* Pause all orbital animations (toggled via JS data attribute) */
+
