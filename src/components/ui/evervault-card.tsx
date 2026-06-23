@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 interface EvervaultCardProps {
   text: string;
   icon?: ReactNode;
+  className?: string;
 }
 
 /**
@@ -11,7 +12,7 @@ interface EvervaultCardProps {
  * On hover, a matrix rain of cryptographic characters falls in the background,
  * and a spotlight follows the cursor.
  */
-export function EvervaultCard({ text, icon }: EvervaultCardProps) {
+export function EvervaultCard({ text, icon, className }: EvervaultCardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -85,7 +86,7 @@ export function EvervaultCard({ text, icon }: EvervaultCardProps) {
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => { setIsHovered(false); setMousePosition({ x: 0, y: 0 }); }}
       onPointerMove={handlePointerMove}
-      className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30 backdrop-blur-sm group cursor-default"
+      className={`relative w-full h-full flex items-center justify-center overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30 backdrop-blur-sm group cursor-default ${className ?? ''}`}
       style={{ perspective: '600px' }}
     >
       {/* Canvas for matrix rain */}
