@@ -10,6 +10,8 @@ import marsLanderFalcon9Launch from '../assets/mars-lander/space_X_falcon_9_laun
 import mudletAlgora from '../assets/mudlet/algora.io.png';
 import mudletGame1 from '../assets/mudlet/game_1.png';
 import mudletGame2 from '../assets/mudlet/game_2.png';
+import champSelectScreenshot1 from '../assets/champ-select/CSW_1.jpg';
+import champSelectScreenshot2 from '../assets/champ-select/CSW_2.jpg';
 
 export const skillsMap: Skill[] = [
   { id: 'team', icon: '#i-users', label: "Travail d'équipe", labelEn: 'Teamwork', accent: true },
@@ -108,17 +110,15 @@ export const projects: Project[] = [
     tag: 'Web',
     tagClass: 'tag-web',
     title: 'Champ Select Winrate',
-    description: 'Application compagnon desktop pour League of Legends, plus de 70 000 téléchargements. Développement web full-stack avec React, déployée sur AWS.',
-    descEn: 'Desktop companion app for League of Legends, over 70,000 downloads. Full-stack web development with React, deployed on AWS.',
-    prologue: 'Ce projet sert à démontrer mon talent dans le développement logiciel.',
-    prologueEn: 'This project showcases my talent in software development.',
+    description: 'Application compagnon desktop pour League of Legends (70k téléchargements). Dev web full-stack, React, AWS.',
+    descEn: 'Desktop companion app for League of Legends (70k downloads). Full-stack web development, React, AWS.',
+    prologue: 'Au-delà du développement web, ce projet illustre ma capacité à construire un produit complet : intégration d\'API tierces, architecture full-stack React/AWS, déploiement cloud et collaboration avec les équipes QA d\'Overwolf jusqu\'à la validation du produit.',
+    prologueEn: 'Beyond web development, this project demonstrates my ability to build a complete product: third-party API integration, full-stack React/AWS architecture, cloud deployment and collaboration with Overwolf\'s QA teams until product validation.',
     techs: ['React', 'AWS', 'Full-stack'],
     link: 'https://github.com/NicolasKeita/Champ_select_winrate',
     photos: [
-      'https://picsum.photos/seed/champ1/800/500',
-      'https://picsum.photos/seed/champ2/800/500',
-      'https://picsum.photos/seed/champ3/800/500',
-      'https://picsum.photos/seed/champ4/800/500',
+      champSelectScreenshot1,
+      champSelectScreenshot2,
     ],
   },
 ];
