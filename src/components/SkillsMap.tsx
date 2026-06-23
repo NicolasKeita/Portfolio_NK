@@ -3,20 +3,28 @@ import { useLanguage } from '../context/LanguageContext';
 import { skillsMap } from '../data/portfolio';
 
 export function SkillsMapPreview() {
-  const { lang, t } = useLanguage();
+  const { lang } = useLanguage();
 
   return (
-    <div className="skills-map-preview">
-      <div className="skills-map-container">
-        {skillsMap.map((skill) => (
-          <a key={skill.id} href="#projets" className="skill-pin" title={t('hero.skill.tooltip')}>
-            <div className={`pin-marker${skill.accent ? ' pin-marker--accent' : ''}`}>
-              <SvgIcon id={skill.icon} className="pin-icon" />
-            </div>
-            <span className="pin-label">{lang === 'en' && skill.labelEn ? skill.labelEn : skill.label}</span>
-          </a>
-        ))}
-      </div>
+    <div className="pins">
+      {skillsMap.map((skill, i) => (
+        <span
+          key={skill.id}
+          className={`pin${skill.accent ? ' pin--accent' : ''}`}
+          style={{ '--i': i } as React.CSSProperties}
+        >
+          <span className="pin-body">
+            <SvgIcon id={skill.icon} className="pin-icon" />
+            <span className="pin-sparkle" />
+            <span className="pin-sparkle" />
+            <span className="pin-sparkle" />
+          </span>
+          <span className="pin-shadow" />
+          <span className="pin-label">
+            {lang === 'en' && skill.labelEn ? skill.labelEn : skill.label}
+          </span>
+        </span>
+      ))}
     </div>
   );
 }

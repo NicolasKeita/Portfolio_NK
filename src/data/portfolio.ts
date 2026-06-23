@@ -14,28 +14,18 @@ import champSelectScreenshot1 from '../assets/champ-select/CSW_1.jpg';
 import champSelectScreenshot2 from '../assets/champ-select/CSW_2.jpg';
 
 export const skillsMap: Skill[] = [
-  { id: 'team', icon: '#i-users', label: "Travail d'équipe", labelEn: 'Teamwork', accent: true },
-  { id: 'mobile', icon: '#i-smartphone', label: 'Développement mobile', labelEn: 'Mobile development' },
-  { id: 'testing', icon: '#i-flask', label: 'Testings QA', labelEn: 'QA Testing' },
   { id: 'dev', icon: '#i-code', label: 'Développement', labelEn: 'Development' },
+  { id: 'mobile', icon: '#i-smartphone', label: 'Mobile', labelEn: 'Mobile' },
   { id: 'linux', icon: '#i-terminal', label: 'Linux/Unix', labelEn: 'Linux/Unix' },
-  { id: 'automation', icon: '#i-refresh', label: 'Automatisation', labelEn: 'Automation' },
-  { id: 'audit', icon: '#i-search', label: 'Audit système', labelEn: 'System audit' },
   { id: 'arch', icon: '#i-layout', label: 'Architecture', labelEn: 'Architecture' },
-  { id: 'pm', icon: '#i-clipboard', label: 'Gestion de projet', labelEn: 'Project management' },
+  { id: 'automation', icon: '#i-refresh', label: 'Automatisation', labelEn: 'Automation' },
+  { id: 'deploy', icon: '#i-send', label: 'Déploiement', labelEn: 'Deployment' },
+  { id: 'algo', icon: '#i-branch', label: 'Algorithmique', labelEn: 'Algorithmics' },
+  { id: 'data', icon: '#i-bars', label: 'Data', labelEn: 'Data' },
   { id: 'client', icon: '#i-user-check', label: 'Relation client', labelEn: 'Client relations', accent: true },
   { id: 'conseil', icon: '#i-bulb', label: 'Conseil', labelEn: 'Consulting', accent: true },
   { id: 'rigueur', icon: '#i-target', label: 'Rigueur', labelEn: 'Rigor', accent: true },
-  { id: 'deploy', icon: '#i-send', label: 'Déploiement', labelEn: 'Deployment' },
-  { id: 'maintenance', icon: '#i-wrench', label: 'Maintenance', labelEn: 'Maintenance' },
-  { id: 'optim', icon: '#i-zap', label: 'Optimisation', labelEn: 'Optimization' },
-  { id: 'algo', icon: '#i-branch', label: 'Algorithmique', labelEn: 'Algorithmics' },
-  { id: 'struct', icon: '#i-layers', label: 'Structures de données', labelEn: 'Data structures' },
-  { id: 'debug', icon: '#i-bug', label: 'Tests & Debugging', labelEn: 'Testing & Debugging' },
-  { id: 'docs', icon: '#i-book', label: 'Documentation', labelEn: 'Documentation' },
-  { id: 'veille', icon: '#i-eye', label: 'Veille technologique', labelEn: 'Tech watch' },
-  { id: 'agile', icon: '#i-kanban', label: 'Méthodes agiles', labelEn: 'Agile methods' },
-  { id: 'data', icon: '#i-bars', label: 'Analyse de données', labelEn: 'Data analysis' },
+  { id: 'team', icon: '#i-users', label: "Équipe", labelEn: 'Teamwork', accent: true },
 ];
 
 export const skillCards: SkillCard[] = [
