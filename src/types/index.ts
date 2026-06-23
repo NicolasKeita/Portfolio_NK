@@ -13,6 +13,8 @@ export interface Skill {
   label: string;
   labelEn?: string;
   accent?: boolean;
+  proof?: string;
+  proofEn?: string;
 }
 
 export interface SkillCard {

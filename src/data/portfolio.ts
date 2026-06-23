@@ -14,18 +14,18 @@ import champSelectScreenshot1 from '../assets/champ-select/CSW_1.jpg';
 import champSelectScreenshot2 from '../assets/champ-select/CSW_2.jpg';
 
 export const skillsMap: Skill[] = [
-  { id: 'dev', icon: '#i-code', label: 'Développement', labelEn: 'Development' },
-  { id: 'mobile', icon: '#i-smartphone', label: 'Mobile', labelEn: 'Mobile' },
-  { id: 'linux', icon: '#i-terminal', label: 'Linux/Unix', labelEn: 'Linux/Unix' },
-  { id: 'arch', icon: '#i-layout', label: 'Architecture', labelEn: 'Architecture' },
-  { id: 'automation', icon: '#i-refresh', label: 'Automatisation', labelEn: 'Automation' },
-  { id: 'deploy', icon: '#i-send', label: 'Déploiement', labelEn: 'Deployment' },
-  { id: 'algo', icon: '#i-branch', label: 'Algorithmique', labelEn: 'Algorithmics' },
-  { id: 'data', icon: '#i-bars', label: 'Data', labelEn: 'Data' },
-  { id: 'client', icon: '#i-user-check', label: 'Relation client', labelEn: 'Client relations', accent: true },
-  { id: 'conseil', icon: '#i-bulb', label: 'Conseil', labelEn: 'Consulting', accent: true },
-  { id: 'rigueur', icon: '#i-target', label: 'Rigueur', labelEn: 'Rigor', accent: true },
-  { id: 'team', icon: '#i-users', label: "Équipe", labelEn: 'Teamwork', accent: true },
+  { id: 'dev', icon: '#i-code', label: 'Développement', labelEn: 'Development', proof: 'React, TypeScript, Python, Java, C++ — stack varié maîtrisé.', proofEn: 'React, TypeScript, Python, Java, C++ — versatile stack mastered.' },
+  { id: 'mobile', icon: '#i-smartphone', label: 'Mobile', labelEn: 'Mobile', proof: 'Application Android Tactic-Nav avec réception ADS-B et carte temps réel.', proofEn: 'Tactic-Nav Android app with ADS-B reception and real-time map.' },
+  { id: 'linux', icon: '#i-terminal', label: 'Linux/Unix', labelEn: 'Linux/Unix', proof: 'Administration Debian/Ubuntu, scripting shell, Docker, LXC, audit sécurité.', proofEn: 'Debian/Ubuntu admin, shell scripting, Docker, LXC, security audit.' },
+  { id: 'arch', icon: '#i-layout', label: 'Architecture', labelEn: 'Architecture', proof: 'Modularisation d\'un codebase legacy C++/Qt de 15+ ans pour préparer une version mobile.', proofEn: 'Modularized a 15+ year legacy C++/Qt codebase for a mobile version.' },
+  { id: 'automation', icon: '#i-refresh', label: 'Automatisation', labelEn: 'Automation', proof: 'Scripts Python, CI/CD, génération automatisée de documents PDF.', proofEn: 'Python scripts, CI/CD, automated PDF document generation.' },
+  { id: 'deploy', icon: '#i-send', label: 'Déploiement', labelEn: 'Deployment', proof: 'AWS (EC2, S3), Firebase Hosting, déploiement cloud full-stack.', proofEn: 'AWS (EC2, S3), Firebase Hosting, full-stack cloud deployment.' },
+  { id: 'algo', icon: '#i-branch', label: 'Algorithmique', labelEn: 'Algorithmics', proof: 'Reinforcement Learning (Stanford CS234), agents autonomes sur OpenAI Gym.', proofEn: 'Reinforcement Learning (Stanford CS234), autonomous agents on OpenAI Gym.' },
+  { id: 'data', icon: '#i-bars', label: 'Data', labelEn: 'Data', proof: 'Analyse de données, modélisation BDD (MySQL, PostgreSQL, MongoDB).', proofEn: 'Data analysis, database modeling (MySQL, PostgreSQL, MongoDB).' },
+  { id: 'client', icon: '#i-user-check', label: 'Relation client', labelEn: 'Client relations', accent: true, proof: '70k téléchargements sur l\'App Store Overwolf, support et itérations selon feedback.', proofEn: '70k downloads on Overwolf App Store, support and iteration based on feedback.' },
+  { id: 'conseil', icon: '#i-bulb', label: 'Conseil', labelEn: 'Consulting', accent: true, proof: 'Conseil en architecture logicielle et choix techniques pour projets variés.', proofEn: 'Software architecture and technical consulting for various projects.' },
+  { id: 'rigueur', icon: '#i-target', label: 'Rigueur', labelEn: 'Rigor', accent: true, proof: 'Tests automatisés, benchmark de performance, certification sans crash en vol.', proofEn: 'Automated tests, performance benchmarking, crash-free in-flight certification.' },
+  { id: 'team', icon: '#i-users', label: "Équipe", labelEn: 'Teamwork', accent: true, proof: 'Collaboration avec QA Overwolf, revue de code, coordination multidisciplinaire.', proofEn: 'Collaboration with Overwolf QA, code review, multidisciplinary coordination.' },
 ];
 
 export const skillCards: SkillCard[] = [
