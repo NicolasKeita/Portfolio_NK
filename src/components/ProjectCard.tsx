@@ -17,7 +17,7 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
 
   return (
     <motion.div
-      className="bg-bg-card-light dark:bg-bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden flex flex-col cursor-pointer transition-shadow duration-300 hover:border-blue"
+      className="cosmic-card rounded-xl overflow-hidden flex flex-col cursor-pointer transition-all duration-300"
       onClick={handleClick}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
           href={project.link}
           target="_blank"
           rel="noreferrer"
-          className="w-8 h-8 border border-border-light dark:border-border-dark rounded-lg flex items-center justify-center no-underline text-muted-light dark:text-muted-dark text-sm hover:border-blue hover:text-text-light dark:hover:text-text-dark transition-colors"
+          className="w-8 h-8 border border-white/10 rounded-lg flex items-center justify-center no-underline text-slate-400 text-sm hover:border-cyan-300/60 hover:text-white hover:bg-cyan-400/10 transition-colors"
           title="Voir le projet"
           onClick={(e) => e.stopPropagation()}
         >
@@ -41,15 +41,15 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
         </a>
       </div>
       <div className="px-6 pb-6 pt-5 flex-1 flex flex-col">
-        <div className="font-display font-semibold text-base text-text-light dark:text-text-dark mb-2">
+        <div className="font-display font-semibold text-base text-white mb-2">
           {lang === 'en' && project.titleEn ? project.titleEn : project.title}
         </div>
-        <div className="text-sm text-muted-light dark:text-muted-dark leading-relaxed flex-1 mb-4 whitespace-pre-line">
+        <div className="text-sm text-slate-400 leading-relaxed flex-1 mb-4 whitespace-pre-line">
           {lang === 'en' && project.prologueEn ? project.prologueEn : project.prologue}
         </div>
         <div className="flex flex-wrap gap-1.5">
           {project.techs.map((tech) => (
-            <span key={tech} className="font-mono text-xs text-muted-light dark:text-muted-dark bg-bg-dark-light dark:bg-bg-dark-dark border border-border-light dark:border-border-dark rounded px-1.5 py-0.5">
+            <span key={tech} className="font-mono text-xs text-slate-300 bg-white/[0.04] border border-white/10 rounded px-1.5 py-0.5">
               {tech}
             </span>
           ))}

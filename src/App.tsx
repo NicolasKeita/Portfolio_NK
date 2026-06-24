@@ -8,6 +8,8 @@ import { Projects } from './components/Projects';
 import { FormationSection } from './components/FormationSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { CosmicBackdrop } from './components/ui/cosmic-backdrop';
+import { SiteConstellationLayer } from './components/ui/site-constellation-layer';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
@@ -34,12 +36,20 @@ function App() {
   return (
     <LanguageProvider>
       <SvgSprite />
-      <Nav theme={theme} onToggleTheme={toggleTheme} />
-      <Hero />
-      <Projects />
-      <FormationSection />
-      <ContactSection />
-      <Footer />
+      <CosmicBackdrop />
+      <div className="relative z-0 min-h-screen">
+        <SiteConstellationLayer />
+        <div className="relative z-10">
+          <Nav theme={theme} onToggleTheme={toggleTheme} />
+          <main>
+            <Hero />
+            <Projects />
+            <FormationSection />
+            <ContactSection />
+          </main>
+          <Footer />
+        </div>
+      </div>
     </LanguageProvider>
   );
 }
