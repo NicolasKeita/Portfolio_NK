@@ -41,9 +41,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['Space Grotesk', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-        body: ['Inter', 'sans-serif'],
+        display: ['var(--font-display)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
+        body: ['var(--font-body)', 'sans-serif'],
       },
       keyframes: {
         'fade-in': {
