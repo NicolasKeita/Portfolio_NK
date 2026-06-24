@@ -16,7 +16,7 @@ export function Nav({ theme, onToggleTheme }: NavProps) {
 
   return (
     <motion.nav
-      className="sticky top-0 z-50 bg-[#050816]/78 backdrop-blur-2xl border-b border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.2)]"
+      className="sticky top-0 z-50 bg-[#050816]/78 backdrop-blur-lg border-b border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.2)]"
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}

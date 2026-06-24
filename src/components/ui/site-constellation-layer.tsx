@@ -64,13 +64,6 @@ export function SiteConstellationLayer() {
             <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.18" />
             <stop offset="100%" stopColor="#818cf8" stopOpacity="0.05" />
           </linearGradient>
-          <filter id="siteConstellationGlow">
-            <feGaussianBlur stdDeviation="0.8" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
 
         {links.map(([a, b], index) => (
@@ -93,7 +86,6 @@ export function SiteConstellationLayer() {
             r={node.r}
             fill={index % 3 === 0 ? '#67e8f9' : index % 3 === 1 ? '#93c5fd' : '#c4b5fd'}
             opacity={index % 5 === 0 ? 0.42 : 0.24}
-            filter="url(#siteConstellationGlow)"
           />
         ))}
       </svg>
