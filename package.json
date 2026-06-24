@@ -15,7 +15,6 @@
     "next": "^16.2.9",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-icon-cloud": ">=4.1.7",
     "tailwindcss-animate": ">=1.0.7",
     "three": ">=0.184.0"
   },

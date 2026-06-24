@@ -91,6 +91,7 @@ export function SkillsMapPreview() {
       {/* ─── CANVAS 3D + overlay HTML lisible ─── */}
       <div className="relative min-h-[760px] overflow-visible">
         <div className="pointer-events-none absolute inset-0 z-0">
+          {/*
           <NebulaConstellation
             skills={skillsMap}
             layoutPositions={SKILL_POSITIONS}
@@ -101,7 +102,7 @@ export function SkillsMapPreview() {
             isCenterHovered={isCenterHovered}
             onCenterHover={setIsCenterHovered}
             centerLabel={t(LOCALE.engineer)}
-          />
+          />*/}
         </div>
 
         <div className="relative z-10 min-h-[760px]">
