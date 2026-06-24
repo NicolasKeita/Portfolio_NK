@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTheme } from './hooks/useTheme';
 import { LanguageProvider } from './context/LanguageContext';
 import { SvgSprite } from './components/SvgSprite';
@@ -14,6 +14,7 @@ import { SiteConstellationLayer } from './components/ui/site-constellation-layer
 
 function App() {
   const { theme, toggleTheme } = useTheme();
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]');
@@ -32,6 +33,18 @@ function App() {
     );
     sections.forEach((s) => io.observe(s));
     return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      // Désactiver le scroll restoration du navigateur
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      // Forcer le scroll en haut de la page au chargement initial
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   return (
