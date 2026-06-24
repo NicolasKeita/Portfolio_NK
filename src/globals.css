@@ -45,24 +45,15 @@ footer::before {
   pointer-events: none;
 }
 
-/* ─── Selection ─── */
+
 ::selection {
   background: rgba(34, 211, 238, 0.28);
   color: #f8fafc;
 }
 
-/* ─── Nav active link ─── */
+
 .nav-links a.active {
   color: #fff;
 }
 
-/* ─── Animations ─── */
-@keyframes orbit-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
 
-@keyframes orbit-counter-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
-}
