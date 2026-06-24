@@ -15,7 +15,10 @@ export function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section id="hero" className="overflow-hidden">
+    <section
+      id="hero"
+      className="overflow-hidden relative isolate before:content-[''] before:absolute before:inset-0 before:-z-10 before:pointer-events-none before:bg-[linear-gradient(90deg,rgba(34,211,238,0.04),transparent_28%,transparent_72%,rgba(167,139,250,0.04)),linear-gradient(180deg,rgba(5,8,22,0.12),rgba(5,8,22,0.36))]"
+    >
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 py-12 min-h-[calc(100vh-60px)] flex flex-col justify-center">
         <div className="w-full">
           <div className="flex flex-col justify-center">

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
-import '../index.css';
+import './globals.css';
 
 const inter = Inter({
   subsets: ['latin'],

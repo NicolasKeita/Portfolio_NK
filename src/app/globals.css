@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth bg-[#050816];
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  body {
+    @apply text-text-dark font-body min-h-screen bg-[#050816];
+    line-height: 1.6;
+  }
+
+  ::selection {
+    @apply bg-cyan-400/30 text-slate-50;
+  }
+}
+
+@layer components {
+  .cosmic-panel {
+    @apply border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.26),inset_0_1px_0_rgba(255,255,255,0.05)];
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.46));
+  }
+
+  .cosmic-card {
+    @apply border border-white/[0.11] shadow-[0_18px_60px_rgba(2,6,23,0.32),inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-300;
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.78), rgba(20, 29, 51, 0.48));
+  }
+
+  .cosmic-card:hover {
+    @apply border-cyan-400/45 shadow-[0_22px_80px_rgba(8,47,73,0.38),0_0_0_1px_rgba(34,211,238,0.08)];
+  }
+
+  .nav-links a.active {
+    @apply text-cyan-300;
+    text-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+  }
+}
+
+/* ─── Orbital spin keyframes (GPU accelerated) ─── */
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbit-counter-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}

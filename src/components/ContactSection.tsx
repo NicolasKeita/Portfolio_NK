@@ -12,7 +12,10 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16 px-8">
+    <section
+      id="contact"
+      className="py-16 px-8 relative isolate before:content-[''] before:absolute before:inset-0 before:-z-10 before:pointer-events-none before:bg-[linear-gradient(90deg,rgba(34,211,238,0.04),transparent_28%,transparent_72%,rgba(167,139,250,0.04)),linear-gradient(180deg,rgba(5,8,22,0.12),rgba(5,8,22,0.5))] after:content-[''] after:absolute after:top-0 after:left-1/2 after:-translate-x-1/2 after:w-[min(1100px,calc(100%-4rem))] after:h-[1px] after:bg-[linear-gradient(90deg,transparent,rgba(34,211,238,0.32),rgba(129,140,248,0.22),transparent)]"
+    >
       <div className="max-w-[1100px] mx-auto cosmic-panel rounded-2xl p-6 sm:p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <div>
