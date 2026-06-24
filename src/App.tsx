@@ -38,7 +38,7 @@ function App() {
     <LanguageProvider>
       <SvgSprite />
       <div className="relative z-0 min-h-screen">
-        {/* <SiteConstellationLayer /> */}
+        <SiteConstellationLayer />
         <div className="relative z-10">
           <Nav theme={theme} onToggleTheme={toggleTheme} />
           <main>
