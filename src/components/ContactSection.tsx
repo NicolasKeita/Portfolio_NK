@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { SvgIcon } from './SvgSprite';
 import { useLanguage } from '../context/LanguageContext';
 import { contactItems } from '../data/portfolio';
+import { MagicCard } from './ui/MagicCard';
 
 export function ContactSection() {
   const { lang, t } = useLanguage();
@@ -13,7 +14,7 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="py-16 px-8">
-      <div className="max-w-[1100px] mx-auto cosmic-panel rounded-2xl p-6 sm:p-8">
+      <MagicCard asPanel className="max-w-[1100px] mx-auto p-6 sm:p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <div>
             <p className="font-mono text-xs font-semibold text-amber uppercase tracking-widest mb-2.5">{t('contact.title')}</p>
@@ -64,7 +65,7 @@ export function ContactSection() {
             ))}
           </ul>
         </div>
-      </div>
+      </MagicCard>
     </section>
   );
 }

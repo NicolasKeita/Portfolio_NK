@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { formations } from '../data/portfolio';
+import { MagicCard } from './ui/MagicCard';
 
 const stagger = {
   hidden: {},
@@ -24,13 +25,13 @@ export function FormationSection() {
         <h2 className="font-display font-bold text-white tracking-tight leading-tight mb-0 drop-shadow-[0_0_28px_rgba(167,139,250,0.12)]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.75rem)' }}>
           {t('formation.title')}
         </h2>
-        <motion.div
-          className="list-none cosmic-panel rounded-2xl mt-8 px-5 sm:px-7"
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <MagicCard asPanel className="list-none mt-8 px-5 sm:px-7">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
           {formations.map((f, i) => (
             <motion.div
               key={i}
@@ -49,6 +50,7 @@ export function FormationSection() {
             </motion.div>
           ))}
         </motion.div>
+        </MagicCard>
       </div>
     </section>
   );

@@ -43,7 +43,7 @@ export function Modal({ title, children, onClose }: ModalProps) {
         transition={{ duration: 0.2 }}
       >
         <motion.div
-          className="cosmic-panel rounded-xl max-w-2xl w-11/12 max-h-[90vh] overflow-y-auto p-8 relative"
+          className="relative rounded-xl max-w-2xl w-11/12 max-h-[90vh] overflow-y-auto p-8 border border-white/10 bg-gradient-to-br from-slate-900/80 to-slate-800/50 shadow-[0_24px_80px_rgba(0,0,0,0.26)] backdrop-blur-xl"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}

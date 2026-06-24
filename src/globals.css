@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  background: #050816;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+  @apply text-text-dark;
+  line-height: 1.6;
+  min-height: 100vh;
+  background: #050816;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ─── Section separators ─── */
+section {
+  position: relative;
+  isolation: isolate;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+section + section::after,
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1100px, calc(100% - 4rem));
+  height: 1px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(34, 211, 238, 0.28);
+  color: #f8fafc;
+}
+
+/* ─── Nav active link ─── */
+.nav-links a.active {
+  color: #fff;
+}
+
+/* ─── Animations ─── */
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbit-counter-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}

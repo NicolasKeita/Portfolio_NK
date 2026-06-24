@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
 import { Project } from '../types';
 import { useLanguage } from '../context/LanguageContext';
+import { MagicCard } from './ui/MagicCard';
 
 interface ProjectCardProps {
   project: Project;
@@ -16,14 +16,8 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
   };
 
   return (
-    <motion.div
-      className="cosmic-card rounded-xl overflow-hidden flex flex-col cursor-pointer transition-all duration-300"
+    <MagicCard
       onClick={handleClick}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      whileHover={{ y: -4 }}
     >
       <div className="px-6 pt-5 flex items-center justify-between">
         <span className={`font-mono text-xs font-semibold px-2 py-0.5 rounded ${project.tagClass === 'tag-py' ? 'bg-blue-100 text-blue-800' : project.tagClass === 'tag-sys' ? 'bg-green-100 text-green-800' : project.tagClass === 'tag-web' ? 'bg-purple-100 text-purple-800' : project.tagClass === 'tag-audit' ? 'bg-amber-100 text-amber-800' : project.tagClass === 'tag-data' ? 'bg-indigo-100 text-indigo-800' : project.tagClass === 'tag-mobile' ? 'bg-cyan-100 text-cyan-800' : project.tagClass === 'tag-ai' ? 'bg-pink-100 text-pink-800' : ''}`}>
@@ -55,6 +49,6 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
           ))}
         </div>
       </div>
-    </motion.div>
+    </MagicCard>
   );
 }
