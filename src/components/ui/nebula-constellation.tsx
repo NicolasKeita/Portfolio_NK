@@ -21,10 +21,16 @@ interface NebulaConstellationProps {
 }
 
 /* ─── Particules ─── */
+const STAR_COUNT = 733;
+
 function StarField() {
   const positions = useMemo(() => {
-    const arr = new Float32Array(2200);
-    for (let i = 0; i < 2200; i++) arr[i] = (Math.random() - 0.5) * 22;
+    const arr = new Float32Array(STAR_COUNT * 3);
+    for (let i = 0; i < STAR_COUNT; i++) {
+      arr[i * 3] = (Math.random() - 0.5) * 22;
+      arr[i * 3 + 1] = (Math.random() - 0.5) * 22;
+      arr[i * 3 + 2] = (Math.random() - 0.5) * 22;
+    }
     return arr;
   }, []);
 
