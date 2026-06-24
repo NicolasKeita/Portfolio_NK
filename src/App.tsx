@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect } from 'react';
 import { useTheme } from './hooks/useTheme';
 import { LanguageProvider } from './context/LanguageContext';

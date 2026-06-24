@@ -34,7 +34,7 @@ export function Hero() {
                 transition={{ duration: 0.6, ease: easeOut, delay: 0.2 }}
               >
                 <div className="w-[210px] h-[210px] rounded-full border-[2.5px] border-dashed border-amber bg-slate-950/70 cursor-pointer overflow-hidden relative flex items-center justify-center transition-all duration-300 shadow-[0_0_48px_rgba(34,211,238,0.18)] hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_0_8px_rgba(34,211,238,0.16),0_0_70px_rgba(34,211,238,0.24)] hover:scale-102">
-                  <img src={photoProfil} alt="Nicolas Keita" className="w-full h-full object-cover absolute inset-0 rounded-full" />
+                  <img src={photoProfil.src} alt="Nicolas Keita" className="w-full h-full object-cover absolute inset-0 rounded-full" />
                 </div>
               </motion.div>
             </div>

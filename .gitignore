@@ -23,3 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 .firebase/
+
+.next/
+.npm-cache/
+next-env.d.ts

@@ -52,10 +52,10 @@ export const projects: Project[] = [
     techs: ['Java', 'Android', 'Temps réel'],
     link: 'https://github.com/NicolasKeita/Tactic-Nav',
     photos: [
-      tacticNavAndroid,
-      tacticNavSchema,
-      tacticNavBacklog,
-      tacticNavCockpit,
+      tacticNavAndroid.src,
+      tacticNavSchema.src,
+      tacticNavBacklog.src,
+      tacticNavCockpit.src,
     ],
   },
   {
@@ -71,10 +71,10 @@ export const projects: Project[] = [
     techs: ['Python', 'Reinforcement Learning', 'OpenAI Gym'],
     link: 'https://github.com/NicolasKeita',
     photos: [
-      marsLanderCodingame,
-      marsLanderFalcon9Landing,
-      marsLanderFalcon9Launch,
-      marsLanderHumanoid,
+      marsLanderCodingame.src,
+      marsLanderFalcon9Landing.src,
+      marsLanderFalcon9Launch.src,
+      marsLanderHumanoid.src,
     ],
   },
   {
@@ -90,9 +90,9 @@ export const projects: Project[] = [
     techs: ['C++', 'Qt', 'Sentry', 'Tests fonctionnels', 'Architecture modulaire'],
     link: 'https://github.com/Mudlet/Mudlet/pulls?q=is%3Apr+is%3Aclosed+author%3ANicolasKeita',
     photos: [
-      mudletGame1,
-      mudletGame2,
-      mudletAlgora,
+      mudletGame1.src,
+      mudletGame2.src,
+      mudletAlgora.src,
     ],
   },
   {
@@ -107,8 +107,8 @@ export const projects: Project[] = [
     techs: ['React', 'AWS', 'Full-stack'],
     link: 'https://github.com/NicolasKeita/Champ_select_winrate',
     photos: [
-      champSelectScreenshot1,
-      champSelectScreenshot2,
+      champSelectScreenshot1.src,
+      champSelectScreenshot2.src,
     ],
   },
 ];
