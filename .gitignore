@@ -28,3 +28,5 @@ yarn-error.log*
 .next/
 .npm-cache/
 next-env.d.ts
+
+tsconfig.tsbuildinfo

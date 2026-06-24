@@ -3,9 +3,9 @@ import { Canvas } from '@react-three/fiber';
 import { Points, PointMaterial, Line } from '@react-three/drei';
 import * as THREE from 'three';
 
-const STAR_COUNT = 900;
-const DUST_COUNT = 320;
-const CONSTELLATION_COUNT = 18;
+const STAR_COUNT = 600;
+const DUST_COUNT = 200;
+const CONSTELLATION_COUNT = 12;
 
 function CosmicStars() {
   const farStars = useMemo(() => {
@@ -59,15 +59,15 @@ function NebulaClouds() {
   return (
     <group position={[0, 0, -5]}>
       <mesh position={[-4.4, 1.8, 0]}>
-        <sphereGeometry args={[3.1, 32, 32]} />
+        <sphereGeometry args={[3.1, 16, 16]} />
         <meshBasicMaterial color="#0ea5e9" transparent opacity={0.14} depthWrite={false} />
       </mesh>
       <mesh position={[3.8, -1.2, -0.8]}>
-        <sphereGeometry args={[3.8, 32, 32]} />
+        <sphereGeometry args={[3.8, 16, 16]} />
         <meshBasicMaterial color="#4f46e5" transparent opacity={0.1} depthWrite={false} />
       </mesh>
       <mesh position={[0.8, 2.2, -1.4]}>
-        <sphereGeometry args={[2.6, 32, 32]} />
+        <sphereGeometry args={[2.6, 16, 16]} />
         <meshBasicMaterial color="#22d3ee" transparent opacity={0.07} depthWrite={false} />
       </mesh>
     </group>
@@ -106,12 +106,12 @@ function AmbientConstellations() {
           lineWidth={0.55}
         />
       ))}
-      {nodes.map((node, i) => (
-        <mesh key={`node-${i}`} position={node}>
-          <sphereGeometry args={[i % 5 === 0 ? 0.055 : 0.035, 12, 12]} />
-          <meshBasicMaterial color={i % 2 ? '#67e8f9' : '#a5b4fc'} transparent opacity={0.48} />
-        </mesh>
-      ))}
+        {nodes.map((node, i) => (
+          <mesh key={`node-${i}`} position={node} frustumCulled>
+            <sphereGeometry args={[i % 5 === 0 ? 0.055 : 0.035, 8, 8]} />
+            <meshBasicMaterial color={i % 2 ? '#67e8f9' : '#a5b4fc'} transparent opacity={0.48} />
+          </mesh>
+        ))}
     </group>
   );
 }
@@ -135,7 +135,7 @@ export function CosmicBackdrop() {
         camera={{ position: [0, 0, 7.8], fov: 58 }}
         dpr={[1, 1.25]}
         frameloop="demand"
-        gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
+        gl={{ antialias: true, alpha: false, powerPreference: 'high-performance', depth: true }}
       >
         <Suspense fallback={null}>
           <BackdropScene />
