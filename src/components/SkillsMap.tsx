@@ -6,12 +6,9 @@ import { skillsMap } from '../data/portfolio';
 import { NebulaConstellation } from './ui/nebula-constellation';
 
 const LOCALE = {
-  analyse: { fr: 'Core Analytique', en: 'Analytical Core' },
   survole: { fr: 'Survole une compétence pour voir sa preuve.', en: 'Hover a skill to see its proof.' },
   enCours: { fr: 'En cours de déploiement…', en: 'Deployment in progress…' },
-  specialist: { fr: 'Spécialité principale', en: 'Lead specialty' },
   engineer: { fr: 'Ingénieur Logiciel', en: 'Software Engineer' },
-  methods: { fr: 'Méthodologies :', en: 'Methodologies :' },
 } as const;
 
 const SKILL_POSITIONS: Record<string, { x: number; y: number }> = {
@@ -44,8 +41,6 @@ function SkillsMapPreview() {
     lang === 'en' && s.labelEn ? s.labelEn : s.label;
   const proof = (s: typeof skillsMap[number]) =>
     lang === 'en' ? s.proofEn : s.proof;
-
-  const anyHighlight = hoveredId !== null || isCenterHovered;
 
   const renderSkillButton = (skill: typeof skillsMap[number]) => {
     const isActive = hoveredId === skill.id || activeSkill.id === skill.id;
@@ -134,12 +129,6 @@ function SkillsMapPreview() {
       <div className="relative mx-auto max-w-5xl border border-cyan-200/[0.08] bg-[#050816]/30 backdrop-blur-xl rounded-2xl p-4 sm:p-5 overflow-hidden shadow-[0_16px_70px_rgba(2,6,23,0.2)]">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(34,211,238,0.08),transparent_32%,rgba(167,139,250,0.06))]" />
         <div className="relative flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-          <div className="shrink-0 w-full sm:w-40">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-500 block">
-              {t(LOCALE.analyse)}
-            </span>
-          </div>
-
           <div className="flex-1 w-full">
             <AnimatePresence mode="wait">
               {activeSkill ? (
@@ -163,11 +152,6 @@ function SkillsMapPreview() {
                       <h4 className="text-base sm:text-lg font-bold text-white">
                         {label(activeSkill)}
                       </h4>
-                      {activeSkill.accent && (
-                        <span className="inline-block text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full mt-0.5 font-medium">
-                          {t(LOCALE.specialist)}
-                        </span>
-                      )}
                     </div>
                   </div>
 
@@ -182,33 +166,9 @@ function SkillsMapPreview() {
             </AnimatePresence>
           </div>
 
-          {/* Status à droite */}
-          <div className="shrink-0 self-end sm:self-auto flex items-center gap-3">
-            <span className="text-[10px] text-slate-500 font-mono">
-              {skillsMap.length} nœuds
-            </span>
-            <span className="text-[10px] font-mono text-slate-500">
-              {anyHighlight ? '⏺ actif' : '⏸ veille'}
-            </span>
-          </div>
         </div>
       </div>
 
-      {/* ─── BADGES ─── */}
-      <div className="relative w-full rounded-2xl border border-white/[0.04] bg-transparent p-2 flex flex-wrap gap-1.5 items-center justify-center">
-        <span className="text-xs font-medium text-slate-500 mr-2">
-          {t(LOCALE.methods)}
-        </span>
-        <span className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium">
-          Travail d'équipe
-        </span>
-        <span className="px-3 py-1 text-xs rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 font-medium">
-          CI/CD & DevOps
-        </span>
-        <span className="px-3 py-1 text-xs rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">
-          Agile / Scrum
-        </span>
-      </div>
     </div>
   );
 }
