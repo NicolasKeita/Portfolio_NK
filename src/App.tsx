@@ -4,7 +4,8 @@ import { useEffect, useRef } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { SvgSprite } from './components/SvgSprite';
 import { Nav } from './components/Nav';
-import { Hero } from './components/Hero';
+import { ProfileSection } from './components/ProfileSection';
+import { SkillsMap } from './components/SkillsMap';
 import { Projects } from './components/Projects';
 import { FormationSection } from './components/FormationSection';
 import { ContactSection } from './components/ContactSection';
@@ -53,7 +54,10 @@ function App() {
         <div className="relative z-10">
           <Nav />
           <main>
-            <Hero />
+            <ProfileSection />
+            <section id="competences" className="relative">
+              <SkillsMap />
+            </section>
             <Projects />
             <FormationSection />
             <ContactSection />

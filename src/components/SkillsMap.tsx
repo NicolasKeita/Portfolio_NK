@@ -29,7 +29,11 @@ const SKILL_POSITIONS: Record<string, { x: number; y: number }> = {
   team: { x: 32, y: 25 },
 };
 
-export function SkillsMapPreview() {
+export function SkillsMap() {
+  return <SkillsMapPreview />;
+}
+
+function SkillsMapPreview() {
   const { lang } = useLanguage();
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [isCenterHovered, setIsCenterHovered] = useState(false);

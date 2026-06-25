@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { SkillsMapPreview } from './SkillsMap';
 import { useLanguage } from '../context/LanguageContext';
 import photoProfil from '../assets/photo-profil.jpg';
 
@@ -11,12 +10,12 @@ const fadeSlideUp = (delay = 0) => ({
   transition: { duration: 0.6, ease: easeOut, delay },
 });
 
-export function Hero() {
+export function ProfileSection() {
   const { t } = useLanguage();
 
   return (
     <section id="hero" className="overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 py-12 min-h-[calc(100vh-60px)] flex flex-col justify-center">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 py-6 md:py-8 min-h-[calc(100vh-60px)] flex flex-col justify-center">
         <div className="w-full">
           <div className="flex flex-col justify-center">
             <div className="flex items-center gap-8 mb-5">
@@ -59,13 +58,6 @@ export function Hero() {
               <a href="#contact" className="inline-block px-7 py-3 rounded-lg font-display font-semibold text-sm no-underline tracking-wide border-2 border-white/12 bg-white/[0.03] text-white backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.08] hover:border-cyan-300/60 hover:text-white hover:shadow-[0_0_0_2px_rgba(34,211,238,0.12)]">
                 {t('hero.cta.contact')}
               </a>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: easeOut, delay: 0.5 }}
-            >
-            <SkillsMapPreview />
             </motion.div>
           </div>
         </div>
