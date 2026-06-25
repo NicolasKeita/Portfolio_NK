@@ -1,13 +1,7 @@
 import { motion } from 'framer-motion';
-import { SvgIcon } from './SvgSprite';
 import { useLanguage } from '../context/LanguageContext';
 
-interface NavProps {
-  theme: 'dark' | 'light';
-  onToggleTheme: () => void;
-}
-
-export function Nav({ theme, onToggleTheme }: NavProps) {
+export function Nav() {
   const { lang, setLang, t } = useLanguage();
 
   const toggleLang = () => {
@@ -38,15 +32,6 @@ export function Nav({ theme, onToggleTheme }: NavProps) {
             title={t('nav.lang')}
           >
             {lang === 'fr' ? 'EN' : 'FR'}
-          </button>
-          <button
-            className="w-[34px] h-[34px] flex items-center justify-center border border-white/10 rounded-full bg-white/[0.04] text-white cursor-pointer hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:scale-105 transition-all"
-            onClick={onToggleTheme}
-            aria-label={t('nav.theme')}
-            title={t('nav.theme')}
-          >
-            <SvgIcon id="#i-sun" className="w-4 h-4 stroke-current fill-none stroke-[1.8] [.dark_&]:hidden" />
-            <SvgIcon id="#i-moon" className="w-4 h-4 stroke-current fill-none stroke-[1.8] hidden [.dark_&]:block" />
           </button>
         </div>
       </div>

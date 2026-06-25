@@ -60,4 +60,3 @@ export interface ContactItem {
   subEn?: string;
 }
 
-export type Theme = 'dark' | 'light';

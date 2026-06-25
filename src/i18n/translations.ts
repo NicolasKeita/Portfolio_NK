@@ -15,7 +15,6 @@ export const translations: TranslationEntry[] = [
   { key: 'nav.formation', en: 'Education', fr: 'Formation' },
   { key: 'nav.projets', en: 'Projects', fr: 'Projets' },
   { key: 'nav.contact', en: 'Contact', fr: 'Contact' },
-  { key: 'nav.theme', en: 'Toggle theme', fr: 'Changer de thème' },
   { key: 'nav.lang', en: 'Switch to French', fr: 'Passer en anglais' },
 
   /* Hero */

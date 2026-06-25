@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useTheme } from './hooks/useTheme';
 import { LanguageProvider } from './context/LanguageContext';
 import { SvgSprite } from './components/SvgSprite';
 import { Nav } from './components/Nav';
@@ -13,7 +12,6 @@ import { Footer } from './components/Footer';
 import { SiteConstellationLayer } from './components/ui/site-constellation-layer';
 
 function App() {
-  const { theme, toggleTheme } = useTheme();
   const isFirstRender = useRef(true);
 
   useEffect(() => {
@@ -53,7 +51,7 @@ function App() {
       <div className="relative z-0 min-h-screen">
         <SiteConstellationLayer />
         <div className="relative z-10">
-          <Nav theme={theme} onToggleTheme={toggleTheme} />
+          <Nav />
           <main>
             <Hero />
             <Projects />
