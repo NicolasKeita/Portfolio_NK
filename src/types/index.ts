@@ -1,12 +1,3 @@
-export interface Experience {
-  id: string;
-  title: string;
-  organization: string;
-  period: string;
-  description: string;
-  tags: string[];
-}
-
 export interface Skill {
   id: string;
   icon: string;
@@ -15,15 +6,6 @@ export interface Skill {
   accent?: boolean;
   proof?: string;
   proofEn?: string;
-}
-
-export interface SkillCard {
-  icon: string;
-  name: string;
-  desc: string;
-  nameEn?: string;
-  descEn?: string;
-  level: number; // 1-5
 }
 
 export interface Formation {

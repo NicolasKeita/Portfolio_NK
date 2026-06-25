@@ -1,4 +1,4 @@
-import { Skill, SkillCard, Project, Formation, ContactItem } from '../types';
+import { Skill, Project, Formation, ContactItem } from '../types';
 import tacticNavAndroid from '../assets/tactic-nav/Android_app_2.png';
 import tacticNavBacklog from '../assets/tactic-nav/backlog_backend.png';
 import tacticNavCockpit from '../assets/tactic-nav/cockpit.png';
@@ -26,17 +26,6 @@ export const skillsMap: Skill[] = [
   { id: 'conseil', icon: '#i-bulb', label: 'Conseil', labelEn: 'Consulting', accent: true, proof: 'Conseil en architecture logicielle et choix techniques pour projets variés.', proofEn: 'Software architecture and technical consulting for various projects.' },
   { id: 'rigueur', icon: '#i-target', label: 'Rigueur', labelEn: 'Rigor', accent: true, proof: 'Tests automatisés, benchmark de performance, certification sans crash en vol.', proofEn: 'Automated tests, performance benchmarking, crash-free in-flight certification.' },
   { id: 'team', icon: '#i-users', label: "Équipe", labelEn: 'Teamwork', accent: true, proof: 'Collaboration avec QA Overwolf, revue de code, coordination multidisciplinaire.', proofEn: 'Collaboration with Overwolf QA, code review, multidisciplinary coordination.' },
-];
-
-export const skillCards: SkillCard[] = [
-  { icon: '🖥️', name: 'Systèmes & Réseaux', nameEn: 'Systems & Networks', desc: 'Administration Linux (Debian, Ubuntu), configuration réseau, routage, DNS, DHCP.', descEn: 'Linux administration (Debian, Ubuntu), network configuration, routing, DNS, DHCP.', level: 5 },
-  { icon: '☕', name: 'Java / Kotlin', desc: 'Développement Android, applications embarquées, interfaces temps réel.', descEn: 'Android development, embedded applications, real-time interfaces.', level: 4 },
-  { icon: '⚛️', name: 'React / TypeScript', desc: 'Applications web modernes, composants réutilisables, typage fort.', descEn: 'Modern web applications, reusable components, strong typing.', level: 4 },
-  { icon: '🐍', name: 'Python', desc: 'Automatisation, scripts, analyse de données, génération PDF.', descEn: 'Automation, scripting, data analysis, PDF generation.', level: 4 },
-  { icon: '🐧', name: 'Linux Avancé', nameEn: 'Advanced Linux', desc: 'Scripting shell, containers LXC/Docker, services systèmes, audit de sécurité.', descEn: 'Shell scripting, LXC/Docker containers, system services, security audit.', level: 5 },
-  { icon: '🗄️', name: 'Bases de données', nameEn: 'Databases', desc: 'MySQL, PostgreSQL, MongoDB, modélisation et optimisation de requêtes.', descEn: 'MySQL, PostgreSQL, MongoDB, modeling and query optimization.', level: 3 },
-  { icon: '☁️', name: 'Cloud & DevOps', desc: 'AWS (EC2, S3), CI/CD, Docker, git workflows.', descEn: 'AWS (EC2, S3), CI/CD, Docker, git workflows.', level: 3 },
-  { icon: '📊', name: 'Gestion de projet', nameEn: 'Project management', desc: 'Méthodes agiles, planification, coordination multidisciplinaire.', descEn: 'Agile methods, planning, multidisciplinary coordination.', level: 4 },
 ];
 
 export const projects: Project[] = [
