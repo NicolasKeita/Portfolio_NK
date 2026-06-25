@@ -37,11 +37,9 @@ function App() {
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
-      // Désactiver le scroll restoration du navigateur
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
       }
-      // Forcer le scroll en haut de la page au chargement initial
       window.scrollTo(0, 0);
     }
   }, []);

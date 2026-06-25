@@ -38,7 +38,6 @@ export function MagicCard({ children, className = '', asPanel = false, onClick }
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       {children}
-      {/* Glow effect */}
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{

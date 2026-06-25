@@ -1,7 +1,6 @@
 import { useRef, useEffect, useMemo, useCallback } from 'react';
 import type { Skill } from '../../types';
 
-/* ─── Types ─── */
 type LayoutPosition = { x: number; y: number };
 
 interface NebulaConstellationProps {
@@ -17,11 +16,9 @@ interface NebulaConstellationProps {
   centerSub?: string;
 }
 
-/* ─── Constantes ─── */
 const STAR_COUNT = 133;
 const MAX_W = 1400;
 
-/* ─── Génération des étoiles ─── */
 interface Star {
   x: number;
   y: number;
@@ -46,7 +43,6 @@ function generateStars(w: number, h: number): Star[] {
   return stars;
 }
 
-/* ─── Nébuleuse (veils) ─── */
 interface Veil {
   x: number;
   y: number;
@@ -61,7 +57,6 @@ const VEILS: Veil[] = [
   { x: 0.02, y: 0.06, radius: 0.4, color: '#22d3ee', alpha: 0.045 },
 ];
 
-/* ─── Couleurs ─── */
 const COLORS = {
   star: '#7dd3fc',
   lineDim: '#1e3a5f',
@@ -77,7 +72,6 @@ const COLORS = {
   centerGlow: '#22d3ee',
 } as const;
 
-/* ─── Utilitaires ─── */
 function hexToRgba(hex: string, alpha: number): string {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
@@ -89,7 +83,6 @@ function lerp(a: number, b: number, t: number): number {
   return a + (b - a) * t;
 }
 
-/* ─── Composant principal ─── */
 export function NebulaConstellation(props: NebulaConstellationProps) {
   const {
     skills,
@@ -104,7 +97,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
   const stars = useRef<Star[]>([]);
   const frameId = useRef(0);
 
-  /* Positions des skills en coordonnées relatives */
   const skillPositions = useMemo(() => {
     return skills.map((skill, i) => {
       const fallbackAngle = (i / skills.length) * Math.PI * 2;
@@ -117,14 +109,11 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     });
   }, [skills, layoutPositions]);
 
-  /* Conversion coordonnées relatives → pixels canvas
-     Doit correspondre au positionnement CSS : left: calc(50 + x)%, top: calc(50 + y)% */
   const toCanvas = useCallback((sx: number, sy: number): [number, number] => {
     const { w, h } = dims.current;
     return [((50 + sx) / 100) * w, ((50 + sy) / 100) * h];
   }, []);
 
-  /* Redimensionnement du canvas */
   const resize = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas || !canvas.parentElement) return;
@@ -144,7 +133,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     return false;
   }, []);
 
-  /* Boucle de rendu */
   const render = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -162,7 +150,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
 
-    /* ─── 1. Voiles de nébuleuse ─── */
     for (const veil of VEILS) {
       const vx = halfW + veil.x * w;
       const vy = halfH + veil.y * h;
@@ -178,7 +165,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       ctx.fill();
     }
 
-    /* ─── 2. Étoiles scintillantes ─── */
     for (const star of stars.current) {
       const twinkle = Math.sin(now * star.twinkleSpeed + star.twinkleOffset);
       const a = star.alpha * (0.5 + 0.5 * twinkle);
@@ -188,12 +174,10 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       ctx.fill();
     }
 
-    /* ─── 3. Centre ─── */
     const [cx, cy] = toCanvas(0, 0);
     const centerActive = isCenterHovered || hoveredId !== null;
     const ringR = Math.min(w, h) * 0.012;
 
-    // Glow externe
     const glowR = (centerActive ? 1.32 : 0.86) * Math.min(w, h) * 0.014;
     const glowGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, glowR);
     glowGrad.addColorStop(0, hexToRgba(COLORS.centerGlow, centerActive ? 0.12 : 0.07));
@@ -203,21 +187,18 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     ctx.arc(cx, cy, glowR, 0, Math.PI * 2);
     ctx.fill();
 
-    // Anneau
     ctx.strokeStyle = hexToRgba(COLORS.centerRing, 0.42);
     ctx.lineWidth = 1.8;
     ctx.beginPath();
     ctx.arc(cx, cy, ringR, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Noyau central
     const coreR = (centerActive ? 0.58 : 0.42) * Math.min(w, h) * 0.012;
     ctx.fillStyle = hexToRgba(COLORS.centerCore, centerActive ? 0.7 : 0.46);
     ctx.beginPath();
     ctx.arc(cx, cy, coreR, 0, Math.PI * 2);
     ctx.fill();
 
-    /* ─── 4. Lignes + nœuds ─── */
     for (let i = 0; i < skills.length; i++) {
       const skill = skills[i];
       const [ex, ey] = toCanvas(skillPositions[i].x, skillPositions[i].y);
@@ -227,7 +208,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       );
       const hl = isCenterHovered || hoveredId === skill.id || activeId === skill.id;
 
-      // Ligne entre nœuds adjacents
       ctx.strokeStyle = hexToRgba(
         hl || activeId === skills[(i + 1) % skills.length].id
           ? COLORS.lineActive
@@ -240,7 +220,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       ctx.lineTo(nx, ny);
       ctx.stroke();
 
-      // Ligne radiale (centre → nœud)
       ctx.strokeStyle = hexToRgba(hl ? COLORS.radialActive : COLORS.radialDim, hl ? 0.76 : 0.17);
       ctx.lineWidth = hl ? 3.3 : 1.05;
       ctx.beginPath();
@@ -248,7 +227,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       ctx.lineTo(ex, ey);
       ctx.stroke();
 
-      // Signal dot
       if (hl && activeId === skill.id) {
         ctx.fillStyle = hexToRgba('#67e8f9', 0.92);
         ctx.beginPath();
@@ -256,14 +234,12 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
         ctx.fill();
       }
 
-      // Halo du nœud
       const haloR = (hl ? 0.48 : 0.34) * Math.min(w, h) * 0.018;
       ctx.fillStyle = hexToRgba(hl ? COLORS.haloActive : COLORS.haloDim, hl ? 0.14 : 0.08);
       ctx.beginPath();
       ctx.arc(ex, ey, haloR, 0, Math.PI * 2);
       ctx.fill();
 
-      // Point du nœud
       const nodeR = (hl ? 0.22 : 0.16) * Math.min(w, h) * 0.018;
       ctx.fillStyle = hexToRgba(hl ? COLORS.nodeActive : COLORS.nodeDim, hl ? 0.86 : 0.48);
       ctx.beginPath();
@@ -271,7 +247,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       ctx.fill();
     }
 
-    /* ─── 5. Label du centre ─── */
     ctx.fillStyle = hexToRgba('#ffffff', centerActive ? 0.9 : 0.6);
     ctx.font = `bold ${Math.min(w, h) * 0.016}px system-ui, sans-serif`;
     ctx.textAlign = 'center';
@@ -284,11 +259,9 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       ctx.fillText(props.centerSub, cx, cy + ringR + Math.min(w, h) * 0.033);
     }
 
-    // Continue l'animation
     frameId.current = requestAnimationFrame(render);
   }, [skills, skillPositions, hoveredId, activeId, isCenterHovered, toCanvas, props.centerLabel, props.centerSub]);
 
-  /* ─── Mount / resize ─── */
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;

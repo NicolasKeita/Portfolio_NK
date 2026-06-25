@@ -83,7 +83,7 @@ export function SkillsMap() {
     <div className="relative w-full max-w-7xl mx-auto px-0 sm:px-2 pt-0 pb-1 space-y-2">
       <div className="pointer-events-none absolute inset-x-[-12%] top-[-12%] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.18),rgba(59,130,246,0.08)_36%,transparent_68%)] blur-2xl" />
 
-      {/* ─── CANVAS 3D + overlay HTML lisible ─── */}
+      
       <div className="relative min-h-[520px] overflow-visible">
         <div className="pointer-events-none absolute inset-0 z-0">
           <NebulaConstellation
@@ -121,7 +121,7 @@ export function SkillsMap() {
         </div>
       </div>
 
-      {/* ─── PANNEAU ANALYSE fondu dans la nébuleuse ─── */}
+      
       <div className="relative mx-auto max-w-5xl border border-cyan-200/[0.08] bg-[#050816]/30 backdrop-blur-xl rounded-2xl p-4 sm:p-5 overflow-hidden shadow-[0_16px_70px_rgba(2,6,23,0.2)]">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(34,211,238,0.08),transparent_32%,rgba(167,139,250,0.06))]" />
         <div className="relative flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
@@ -136,7 +136,7 @@ export function SkillsMap() {
                   transition={{ duration: 0.2, ease: 'easeOut' }}
                   className="flex flex-col sm:flex-row items-start gap-3 sm:gap-6"
                 >
-                  {/* Header */}
+                  
                   <div className="flex items-center gap-3 shrink-0">
                     <div className="p-2 rounded-xl bg-cyan-500/10 shadow-[0_0_24px_rgba(34,211,238,0.12)]">
                       <SvgIcon
@@ -151,7 +151,7 @@ export function SkillsMap() {
                     </div>
                   </div>
 
-                  {/* Proof */}
+                  
                   <p className="text-sm leading-relaxed text-slate-400 italic p-3 rounded-xl bg-white/[0.025] border border-white/[0.04] flex-1">
                     &ldquo;{proof(activeSkill) || t(LOCALE.enCours)}&rdquo;
                   </p>
