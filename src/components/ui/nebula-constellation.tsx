@@ -130,7 +130,7 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     if (!canvas || !canvas.parentElement) return;
 
     const w = Math.min(canvas.parentElement.clientWidth, MAX_W);
-    const h = Math.max(canvas.parentElement.clientHeight, 760);
+    const h = canvas.parentElement.clientHeight;
 
     if (dims.current.w !== w || dims.current.h !== h) {
       dims.current = { w, h };
@@ -313,7 +313,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       style={{
         width: '100%',
         height: '100%',
-        minHeight: 760,
         display: 'block',
         pointerEvents: 'none',
       }}

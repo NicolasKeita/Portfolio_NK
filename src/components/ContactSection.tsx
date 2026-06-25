@@ -13,7 +13,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16 px-8">
+    <section id="contact" className="py-4 px-8">
       <MagicCard asPanel className="max-w-[1100px] mx-auto p-6 sm:p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <div>

@@ -89,11 +89,11 @@ function SkillsMapPreview() {
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-0 sm:px-2 pt-4 pb-2 space-y-4">
-      <div className="pointer-events-none absolute inset-x-[-12%] top-[-8%] h-[760px] rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.18),rgba(59,130,246,0.08)_36%,transparent_68%)] blur-2xl" />
+    <div className="relative w-full max-w-7xl mx-auto px-0 sm:px-2 pt-0 pb-1 space-y-2">
+      <div className="pointer-events-none absolute inset-x-[-12%] top-[-12%] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.18),rgba(59,130,246,0.08)_36%,transparent_68%)] blur-2xl" />
 
       {/* ─── CANVAS 3D + overlay HTML lisible ─── */}
-      <div className="relative min-h-[760px] overflow-visible">
+      <div className="relative min-h-[520px] overflow-visible">
         <div className="pointer-events-none absolute inset-0 z-0">
           <NebulaConstellation
             skills={skillsMap}
@@ -108,7 +108,7 @@ function SkillsMapPreview() {
           />
         </div>
 
-        <div className="relative z-10 min-h-[760px]">
+        <div className="relative z-10 min-h-[520px]">
           {skillsMap.map(renderSkillButton)}
           <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 justify-center px-4">
             <button
@@ -116,7 +116,7 @@ function SkillsMapPreview() {
               onFocus={() => setIsCenterHovered(true)}
               onMouseLeave={() => setIsCenterHovered(false)}
               onBlur={() => setIsCenterHovered(false)}
-              className={`w-[clamp(220px,28vw,310px)] rounded-3xl border px-8 py-7 text-center backdrop-blur-xl transition-colors duration-200 ${
+              className={`w-[clamp(170px,22vw,240px)] rounded-3xl border px-5 py-4 text-center backdrop-blur-xl transition-colors duration-200 ${
                 isCenterHovered
                   ? 'border-cyan-300/65 bg-slate-950/72 shadow-[0_0_58px_rgba(34,211,238,0.36)]'
                   : 'border-cyan-200/16 bg-slate-950/46 shadow-[0_0_46px_rgba(15,23,42,0.42)]'
@@ -131,7 +131,7 @@ function SkillsMapPreview() {
       </div>
 
       {/* ─── PANNEAU ANALYSE fondu dans la nébuleuse ─── */}
-      <div className="relative mx-auto max-w-5xl border border-cyan-200/[0.08] bg-[#050816]/30 backdrop-blur-xl rounded-2xl p-5 sm:p-6 overflow-hidden shadow-[0_16px_70px_rgba(2,6,23,0.2)]">
+      <div className="relative mx-auto max-w-5xl border border-cyan-200/[0.08] bg-[#050816]/30 backdrop-blur-xl rounded-2xl p-4 sm:p-5 overflow-hidden shadow-[0_16px_70px_rgba(2,6,23,0.2)]">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(34,211,238,0.08),transparent_32%,rgba(167,139,250,0.06))]" />
         <div className="relative flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
           <div className="shrink-0 w-full sm:w-40">
@@ -195,7 +195,7 @@ function SkillsMapPreview() {
       </div>
 
       {/* ─── BADGES ─── */}
-      <div className="relative w-full rounded-2xl border border-white/[0.04] bg-transparent p-4 flex flex-wrap gap-3 items-center justify-center">
+      <div className="relative w-full rounded-2xl border border-white/[0.04] bg-transparent p-2 flex flex-wrap gap-1.5 items-center justify-center">
         <span className="text-xs font-medium text-slate-500 mr-2">
           {t(LOCALE.methods)}
         </span>
