@@ -39,7 +39,7 @@ export function SkillCard({ skill, label = '', proof = '' }: SkillCardProps) {
       transition={{ duration: 0.15, ease: 'easeOut' }}
       className="flex items-center justify-center gap-4"
     >
-      <p className="text-xs leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl">
+      <p className="text-sm leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl">
         &ldquo;{renderProof(proof)}&rdquo;
       </p>
     </motion.div>
