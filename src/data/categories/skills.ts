@@ -4,10 +4,10 @@ export const skillsMap: Skill[] = [
   {
     id: 'dev',
     icon: '#i-code',
-    label: 'Développement',
-    labelEn: 'Development',
-    proof: "La maîtrise d'un stack varié qui définit le standard d'un développeur polyvalent.",
-    proofEn: 'Mastery of a versatile stack that defines the standard of a polyvalent developer.',
+    label: 'Développement Web',
+    labelEn: 'Web Development',
+    proof: "Les projets Tactic-Nav, Champ Select Winrate et même ce site démontrent ma capacité à travailler sur une stack web : React, APIs, Cloud, Conteneurisation, Bases de données",
+    proofEn: 'The projects Tactic-Nav, Champ Select Winrate and even this site demonstrate my ability to work on a web stack: React, APIs, Cloud, Containerization, Databases',
   },
   {
     id: 'mobile',
@@ -62,8 +62,8 @@ export const skillsMap: Skill[] = [
     icon: '#i-branch',
     label: 'Algorithmique',
     labelEn: 'Algorithmics',
-    proof: "L'algorithmique avancée qui définit le standard des agents autonomes intelligents.",
-    proofEn: 'Advanced algorithmics that defines the standard of intelligent autonomous agents.',
+    proof: "Derrière chaque agent IA autonome se cache de l'algorithmique de pointe. Mon projet AI Mars Lander en est l'illustration : modélisation de trajectoire, optimisation de ressources et résolution de problèmes complexes sous contraintes",
+    proofEn: "Behind every autonomous AI agent lies cutting-edge algorithmics. My project AI Mars Lander illustrates this: trajectory modeling, resource optimization, and solving complex problems under constraints",
   },
   {
     id: 'data',

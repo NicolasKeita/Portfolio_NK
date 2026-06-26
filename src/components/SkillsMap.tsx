@@ -42,6 +42,11 @@ export function SkillsMap() {
       <button
         key={skill.id}
         style={{ left: `${50 + position.x}%`, top: `${50 + position.y}%` }}
+        onClick={() => {
+          setHoveredId(skill.id);
+          setActiveSkill(skill);
+          setShowEngineerDesc(false);
+        }}
         onMouseEnter={() => {
           setHoveredId(skill.id);
           setActiveSkill(skill);

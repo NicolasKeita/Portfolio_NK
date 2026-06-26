@@ -12,7 +12,7 @@ function scrollToProjects(e: React.MouseEvent) {
 }
 
 function renderProof(text: string) {
-  const parts = text.split(/(Tactic-Nav)/g);
+  const parts = text.split(/(Tactic-Nav|Champ Select Winrate|AI Mars Lander)/g);
   return parts.map((part, i) =>
     part === 'Tactic-Nav' ? (
       <button
@@ -21,6 +21,22 @@ function renderProof(text: string) {
         className="inline underline decoration-dotted underline-offset-2 text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer"
       >
         Tactic-Nav
+      </button>
+    ) : part === 'Champ Select Winrate' ? (
+      <button
+        key={i}
+        onClick={scrollToProjects}
+        className="inline underline decoration-dotted underline-offset-2 text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer"
+      >
+        Champ Select Winrate
+      </button>
+    ) : part === 'AI Mars Lander' ? (
+      <button
+        key={i}
+        onClick={scrollToProjects}
+        className="inline underline decoration-dotted underline-offset-2 text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer"
+      >
+        AI Mars Lander
       </button>
     ) : (
       part
