@@ -19,7 +19,10 @@ export const translations: TranslationEntry[] = [
 
   /* Hero */
   { key: 'hero.role', en: 'Portfolio — Software Engineer & IT Consultant', fr: 'Portfolio — Ingénieur Logiciel & Consultant IT' },
-  { key: 'hero.tagline', en: 'What sets me apart is not the number of projects completed, but the quality standard I bring to each one.', fr: 'Ce qui me distingue n\'est pas la quantité de projets réalisés, mais l\'exigence de qualité que j\'apporte à chacun d\'eux.' },
+  { key: 'hero.tagline', en: 'What sets me apart is not the number of projects completed, but the quality standard I bring to each one.', fr: [
+    "Ce qui me distingue n'est pas la quantité de projets réalisés,",
+    "mais l'exigence de qualité que j'apporte à chacun d'eux.",
+  ].join(' ') },
   { key: 'hero.cta.work', en: 'See my work', fr: 'Voir mes réalisations' },
   { key: 'hero.cta.contact', en: 'Get in touch', fr: 'Me contacter' },
   /* Projects */
@@ -41,5 +44,8 @@ export const translations: TranslationEntry[] = [
   { key: 'footer.projets', en: 'Projects', fr: 'Projets' },
   { key: 'footer.formation', en: 'Education', fr: 'Formation' },
   { key: 'footer.contact', en: 'Contact', fr: 'Contact' },
-  { key: 'footer.copyright', en: '© 2026 Nicolas Keita — Software Engineer & IT Consultant | Nouvelle-Aquitaine, France', fr: '© 2026 Nicolas Keita — Ingénieur Logiciel & Consultant IT | Nouvelle-Aquitaine, France' },
+  { key: 'footer.copyright', en: '© 2026 Nicolas Keita — Software Engineer & IT Consultant | Nouvelle-Aquitaine, France', fr: [
+    '© 2026 Nicolas Keita',
+    '— Ingénieur Logiciel & Consultant IT | Nouvelle-Aquitaine, France',
+  ].join(' ') },
 ];

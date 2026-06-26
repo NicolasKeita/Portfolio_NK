@@ -41,7 +41,13 @@ export function ContactSection() {
                 transition={{ duration: 0.3 }}
                 whileHover={{ x: 3 }}
               >
-                <div className="w-[34px] h-[34px] flex-shrink-0 flex items-center justify-center rounded-lg bg-cyan-400/10 border border-cyan-300/20 text-cyan-300 transition-colors duration-200 hover:bg-cyan-400/20 hover:border-cyan-300/40">
+                <div
+                  className={[
+                    'w-[34px] h-[34px] flex-shrink-0 flex items-center justify-center',
+                    'rounded-lg bg-cyan-400/10 border border-cyan-300/20 text-cyan-300',
+                    'transition-colors duration-200 hover:bg-cyan-400/20 hover:border-cyan-300/40',
+                  ].join(' ')}
+                >
                   <SvgIcon id={item.icon} className="w-[17px] h-[17px] stroke-current fill-none stroke-[1.75] stroke-linecap-round stroke-linejoin-round block" />
                 </div>
                 <div>

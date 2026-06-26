@@ -22,7 +22,13 @@ export function FormationSection() {
     <section id="formation" className="py-16 px-8">
       <div className="max-w-[1100px] mx-auto">
         <p className="font-mono text-xs font-semibold text-amber uppercase tracking-widest mb-2.5">{t('formation.label')}</p>
-        <h2 className="font-display font-bold text-white tracking-tight leading-tight mb-0 drop-shadow-[0_0_28px_rgba(167,139,250,0.12)]" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.75rem)' }}>
+        <h2
+          className={[
+            'font-display font-bold text-white tracking-tight leading-tight mb-0',
+            'drop-shadow-[0_0_28px_rgba(167,139,250,0.12)]',
+          ].join(' ')}
+          style={{ fontSize: 'clamp(1.8rem, 4vw, 2.75rem)' }}
+        >
           {t('formation.title')}
         </h2>
         <MagicCard asPanel className="list-none mt-8 px-5 sm:px-7">

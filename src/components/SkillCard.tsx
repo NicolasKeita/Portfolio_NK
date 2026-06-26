@@ -3,7 +3,6 @@ import type { Skill } from '../types';
 
 interface SkillCardProps {
   skill: Skill;
-  label: string | undefined;
   proof: string | undefined;
 }
 
@@ -29,7 +28,7 @@ function renderProof(text: string) {
   );
 }
 
-export function SkillCard({ skill, label = '', proof = '' }: SkillCardProps) {
+export function SkillCard({ skill, proof = '' }: SkillCardProps) {
   return (
     <motion.div
       key={skill.id}

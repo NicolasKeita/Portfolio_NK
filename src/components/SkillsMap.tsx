@@ -54,11 +54,14 @@ export function SkillsMap() {
         }}
         onMouseLeave={() => setHoveredId(null)}
         onBlur={() => setHoveredId(null)}
-        className={`group absolute flex items-center gap-2 -translate-x-1/2 -translate-y-1/2 rounded-full border px-3.5 py-1.5 whitespace-nowrap backdrop-blur-md transition-all duration-300 ease-out select-none ${
-          isActive
+        className={
+          'group absolute flex items-center gap-2 -translate-x-1/2 -translate-y-1/2 ' +
+          'rounded-full border px-3.5 py-1.5 whitespace-nowrap backdrop-blur-md ' +
+          'transition-all duration-300 ease-out select-none ' +
+          (isActive
             ? 'border-cyan-400/50 bg-cyan-950/20 text-cyan-200 shadow-[0_0_20px_rgba(34,211,238,0.25)] scale-105 z-20'
-            : 'border-white/[0.06] bg-slate-900/30 text-slate-300 hover:border-cyan-400/30 hover:bg-slate-900/50 hover:scale-105 z-10'
-        }`}
+            : 'border-white/[0.06] bg-slate-900/30 text-slate-300 hover:border-cyan-400/30 hover:bg-slate-900/50 hover:scale-105 z-10')
+        }
       >
         <span className={`h-1.5 w-1.5 rounded-full transition-all duration-300 ${
           isActive ? 'bg-cyan-400 animate-pulse scale-100' : 'bg-transparent scale-0'
@@ -79,7 +82,13 @@ export function SkillsMap() {
 
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 pt-4 pb-4 space-y-6">
-      <div className="pointer-events-none absolute inset-x-[-12%] top-[-12%] h-[500px] rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.1),rgba(59,130,246,0.03)_40%,transparent_70%)] blur-3xl" />
+      <div
+        className={[
+          'pointer-events-none absolute inset-x-[-12%] top-[-12%] h-[500px] rounded-full',
+          'bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.1),rgba(59,130,246,0.03)_40%,transparent_70%)]',
+          'blur-3xl',
+        ].join(' ')}
+      />
 
       <div className="relative h-[420px] overflow-visible rounded-3xl border border-white/[0.03] bg-slate-950/10">
         
@@ -150,7 +159,6 @@ export function SkillsMap() {
             ) : (
               <SkillCard
                 skill={activeSkill}
-                label={label(activeSkill)}
                 proof={proof(activeSkill)}
               />
             )}

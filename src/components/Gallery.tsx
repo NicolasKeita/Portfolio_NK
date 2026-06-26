@@ -53,7 +53,11 @@ export function Gallery({ photos, title }: GalleryProps) {
             transition={{ duration: 0.2 }}
           >
             <button
-              className="absolute top-4 right-6 bg-black/50 border-none text-white text-2xl w-10 h-10 rounded-full cursor-pointer z-[61] flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity leading-none"
+              className={[
+                'absolute top-4 right-6 bg-black/50 border-none text-white text-2xl',
+                'w-10 h-10 rounded-full cursor-pointer z-[61] flex items-center justify-center',
+                'opacity-70 hover:opacity-100 transition-opacity leading-none',
+              ].join(' ')}
               onClick={closeLightbox}
             >
               ✕

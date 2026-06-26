@@ -7,6 +7,16 @@ interface ProjectCardProps {
   onOpenModal: (project: Project) => void;
 }
 
+const tagColors: Record<string, string> = {
+  'tag-py': 'bg-blue-100 text-blue-800',
+  'tag-sys': 'bg-green-100 text-green-800',
+  'tag-web': 'bg-purple-100 text-purple-800',
+  'tag-audit': 'bg-amber-100 text-amber-800',
+  'tag-data': 'bg-indigo-100 text-indigo-800',
+  'tag-mobile': 'bg-cyan-100 text-cyan-800',
+  'tag-ai': 'bg-pink-100 text-pink-800',
+};
+
 export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
   const { lang } = useLanguage();
 
@@ -20,14 +30,18 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
       onClick={handleClick}
     >
       <div className="px-6 pt-5 flex items-center justify-between">
-        <span className={`font-mono text-xs font-semibold px-2 py-0.5 rounded ${project.tagClass === 'tag-py' ? 'bg-blue-100 text-blue-800' : project.tagClass === 'tag-sys' ? 'bg-green-100 text-green-800' : project.tagClass === 'tag-web' ? 'bg-purple-100 text-purple-800' : project.tagClass === 'tag-audit' ? 'bg-amber-100 text-amber-800' : project.tagClass === 'tag-data' ? 'bg-indigo-100 text-indigo-800' : project.tagClass === 'tag-mobile' ? 'bg-cyan-100 text-cyan-800' : project.tagClass === 'tag-ai' ? 'bg-pink-100 text-pink-800' : ''}`}>
+        <span className={`font-mono text-xs font-semibold px-2 py-0.5 rounded ${tagColors[project.tagClass] ?? ''}`}>
           {project.tag}
         </span>
         <a
           href={project.link}
           target="_blank"
           rel="noreferrer"
-          className="w-8 h-8 border border-white/10 rounded-lg flex items-center justify-center no-underline text-slate-400 text-sm hover:border-cyan-300/60 hover:text-white hover:bg-cyan-400/10 transition-colors"
+          className={[
+            'w-8 h-8 border border-white/10 rounded-lg flex items-center justify-center',
+            'no-underline text-slate-400 text-sm',
+            'hover:border-cyan-300/60 hover:text-white hover:bg-cyan-400/10 transition-colors',
+          ].join(' ')}
           title="Voir le projet"
           onClick={(e) => e.stopPropagation()}
         >

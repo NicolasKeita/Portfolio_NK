@@ -26,7 +26,12 @@ export function Nav() {
             <li><a className="text-sm font-medium text-slate-400 no-underline hover:text-white transition-colors" href="#contact">{t('nav.contact')}</a></li>
           </ul>
           <button
-            className="w-[38px] h-[34px] flex items-center justify-center border border-white/10 rounded-md bg-white/[0.04] text-white cursor-pointer font-mono text-xs font-bold tracking-wider hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:scale-105 transition-all"
+            className={[
+              'w-[38px] h-[34px] flex items-center justify-center border border-white/10',
+              'rounded-md bg-white/[0.04] text-white cursor-pointer font-mono text-xs',
+              'font-bold tracking-wider hover:border-cyan-400/50 hover:bg-cyan-400/10',
+              'hover:scale-105 transition-all',
+            ].join(' ')}
             onClick={toggleLang}
             aria-label={t('nav.lang')}
             title={t('nav.lang')}
