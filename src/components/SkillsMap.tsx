@@ -1,15 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { SkillCard } from './SkillCard';
 import { SvgIcon } from './SvgSprite';
 import { useLanguage } from '../context/LanguageContext';
-import { skillsMap } from '../data/portfolio';
+import { skillsMap, engineerBadge } from '../data/portfolio';
 import { NebulaConstellation } from './ui/nebula-constellation';
-
-const LOCALE = {
-  survole: { fr: 'Survole une compétence pour voir sa preuve.', en: 'Hover a skill to see its proof.' },
-  enCours: { fr: 'En cours de déploiement…', en: 'Deployment in progress…' },
-  engineer: { fr: 'Ingénieur Logiciel', en: 'Software Engineer' },
-} as const;
 
 const SKILL_POSITIONS: Record<string, { x: number; y: number }> = {
   dev: { x: -29, y: -24 },
@@ -30,6 +25,7 @@ export function SkillsMap() {
   const { lang } = useLanguage();
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [isCenterHovered, setIsCenterHovered] = useState(false);
+  const [showEngineerDesc, setShowEngineerDesc] = useState(true);
   const [activeSkill, setActiveSkill] = useState(skillsMap[0]);
 
   const t = (obj: { fr: string; en: string }) => (lang === 'en' ? obj.en : obj.fr);
@@ -49,10 +45,12 @@ export function SkillsMap() {
         onMouseEnter={() => {
           setHoveredId(skill.id);
           setActiveSkill(skill);
+          setShowEngineerDesc(false);
         }}
         onFocus={() => {
           setHoveredId(skill.id);
           setActiveSkill(skill);
+          setShowEngineerDesc(false);
         }}
         onMouseLeave={() => setHoveredId(null)}
         onBlur={() => setHoveredId(null)}
@@ -97,7 +95,7 @@ export function SkillsMap() {
               onHover={setHoveredId}
               isCenterHovered={isCenterHovered}
               onCenterHover={setIsCenterHovered}
-              centerLabel={t(LOCALE.engineer)}
+              centerLabel={t(engineerBadge.engineer)}
             />
           </div>
 
@@ -106,6 +104,7 @@ export function SkillsMap() {
             
             <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 justify-center px-4">
               <button
+                onClick={() => setShowEngineerDesc(prev => !prev)}
                 onMouseEnter={() => setIsCenterHovered(true)}
                 onFocus={() => setIsCenterHovered(true)}
                 onMouseLeave={() => setIsCenterHovered(false)}
@@ -117,7 +116,7 @@ export function SkillsMap() {
                 }`}
               >
                 <div className="text-sm font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 uppercase sm:text-base">
-                  {t(LOCALE.engineer)}
+                  {t(engineerBadge.engineer)}
                 </div>
               </button>
             </div>
@@ -130,33 +129,25 @@ export function SkillsMap() {
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(34,211,238,0.04),transparent_40%,rgba(167,139,250,0.03))]" />
         <div className="relative w-full">
           <AnimatePresence mode="wait">
-            {activeSkill ? (
+            {showEngineerDesc || !activeSkill ? (
               <motion.div
-                key={activeSkill.id}
+                key="engineer-description"
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}
-                className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                className="flex items-center justify-center gap-4"
               >
-                <div className="flex items-center gap-3 shrink-0">
-                  <div className="p-2 rounded-xl bg-cyan-500/5 border border-cyan-500/10 shadow-[0_0_15px_rgba(34,211,238,0.08)]">
-                    <SvgIcon
-                      id={activeSkill.icon}
-                      className="w-4.5 h-4.5 stroke-[1.8] fill-none stroke-cyan-400"
-                    />
-                  </div>
-                  <h4 className="text-sm font-semibold tracking-wide text-white">
-                    {label(activeSkill)}
-                  </h4>
-                </div>
-
-                <p className="text-xs leading-relaxed text-slate-400 italic px-4 py-2.5 rounded-xl bg-white/[0.01] border border-white/[0.03] w-full sm:max-w-2xl">
-                  &ldquo;{proof(activeSkill) || t(LOCALE.enCours)}&rdquo;
+                <p className="text-xs leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl">
+                  &ldquo;{t(engineerBadge.engineerDescription)}&rdquo;
                 </p>
               </motion.div>
             ) : (
-              <p className="text-xs text-slate-500 italic text-center py-2">{t(LOCALE.survole)}</p>
+              <SkillCard
+                skill={activeSkill}
+                label={label(activeSkill)}
+                proof={proof(activeSkill)}
+              />
             )}
           </AnimatePresence>
         </div>

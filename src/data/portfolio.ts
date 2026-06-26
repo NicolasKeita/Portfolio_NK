@@ -15,7 +15,7 @@ import champSelectScreenshot2 from '../assets/champ-select/CSW_2.jpg';
 
 export const skillsMap: Skill[] = [
   { id: 'dev', icon: '#i-code', label: 'Développement', labelEn: 'Development', proof: 'React, TypeScript, Python, Java, C++ — stack varié maîtrisé.', proofEn: 'React, TypeScript, Python, Java, C++ — versatile stack mastered.' },
-  { id: 'mobile', icon: '#i-smartphone', label: 'Mobile', labelEn: 'Mobile', proof: 'Application Android Tactic-Nav avec réception ADS-B et carte temps réel.', proofEn: 'Tactic-Nav Android app with ADS-B reception and real-time map.' },
+  { id: 'mobile', icon: '#i-smartphone', label: 'Développement Mobile', labelEn: 'Mobile Development', proof: 'Le projet Tactic-Nav illustre mon expertise en développement Android, applicable aussi bien aux applications mobiles grand public qu\'aux systèmes embarqués de l\'aviation civile et militaire, soumis à des critères de performance stricts.', proofEn: 'The Tactic-Nav project illustrates my expertise in Android development, applicable to both mainstream mobile applications and embedded systems in civil and military aviation, subject to strict performance criteria.' },
   { id: 'linux', icon: '#i-terminal', label: 'Linux/Unix', labelEn: 'Linux/Unix', proof: 'Administration Debian/Ubuntu, scripting shell, Docker, LXC, audit sécurité.', proofEn: 'Debian/Ubuntu admin, shell scripting, Docker, LXC, security audit.' },
   { id: 'arch', icon: '#i-layout', label: 'Architecture', labelEn: 'Architecture', proof: 'Modularisation d\'un codebase legacy C++/Qt de 15+ ans pour préparer une version mobile.', proofEn: 'Modularized a 15+ year legacy C++/Qt codebase for a mobile version.' },
   { id: 'automation', icon: '#i-refresh', label: 'Automatisation', labelEn: 'Automation', proof: 'Scripts Python, CI/CD, génération automatisée de documents PDF.', proofEn: 'Python scripts, CI/CD, automated PDF document generation.' },
@@ -132,6 +132,14 @@ export const formations: Formation[] = [
     descEn: 'Digital electronics, network cabling, embedded systems.',
   },
 ];
+
+export const engineerBadge = {
+  engineer: { fr: 'Ingénieur Logiciel', en: 'Software Engineer' },
+  engineerDescription: {
+    fr: 'La combinaison d\'ingrédients incontournables qui définit le standard d\'une ingénierie logicielle réussie.',
+    en: 'The combination of essential ingredients that defines the standard of successful software engineering.',
+  },
+} as const;
 
 export const contactItems: ContactItem[] = [
   { icon: '#i-mail', label: 'Email', value: 'nicolaskeita2@gmail.com', href: 'mailto:nicolaskeita2@gmail.com' },
