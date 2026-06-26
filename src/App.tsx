@@ -52,7 +52,9 @@ function App() {
         <div className="relative z-10">
           <Nav />
           <main>
-            <ProfileSection />
+            <div className="relative z-20">
+              <ProfileSection />
+            </div>
             <section id="competences" className="relative">
               <SkillsMap />
             </section>

@@ -11,7 +11,6 @@ const LOCALE = {
   engineer: { fr: 'Ingénieur Logiciel', en: 'Software Engineer' },
 } as const;
 
-// TES POSITIONS D'ORIGINE (STRICTEMENT INCHANGÉES)
 const SKILL_POSITIONS: Record<string, { x: number; y: number }> = {
   dev: { x: -29, y: -24 },
   mobile: { x: -11, y: -31 },
@@ -82,13 +81,10 @@ export function SkillsMap() {
 
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 pt-4 pb-4 space-y-6">
-      {/* Halo lumineux */}
       <div className="pointer-events-none absolute inset-x-[-12%] top-[-12%] h-[500px] rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.1),rgba(59,130,246,0.03)_40%,transparent_70%)] blur-3xl" />
 
-      {/* 1. CONTAINER VISIBLE : Hauteur réduite à 420px au lieu de 560px */}
       <div className="relative h-[420px] overflow-visible rounded-3xl border border-white/[0.03] bg-slate-950/10">
         
-        {/* 2. WRAPPER INTERNE : Conserve ses 520px de repère mais est translaté vers le haut de 82px */}
         <div className="absolute inset-x-0 top-[-82px] h-[520px]">
           
           <div className="pointer-events-none absolute inset-0 z-0">
@@ -108,7 +104,6 @@ export function SkillsMap() {
           <div className="relative z-10 h-[520px]">
             {skillsMap.map(renderSkillButton)}
             
-            {/* Bouton Central */}
             <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 justify-center px-4">
               <button
                 onMouseEnter={() => setIsCenterHovered(true)}
@@ -131,7 +126,6 @@ export function SkillsMap() {
         </div>
       </div>
 
-      {/* Panneau inférieur */}
       <div className="relative mx-auto max-w-4xl border border-white/[0.05] bg-slate-900/20 backdrop-blur-xl rounded-2xl p-4 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(34,211,238,0.04),transparent_40%,rgba(167,139,250,0.03))]" />
         <div className="relative w-full">
