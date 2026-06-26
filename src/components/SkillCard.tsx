@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { SvgIcon } from './SvgSprite';
 import type { Skill } from '../types';
 
 interface SkillCardProps {
@@ -38,21 +37,9 @@ export function SkillCard({ skill, label = '', proof = '' }: SkillCardProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -4 }}
       transition={{ duration: 0.15, ease: 'easeOut' }}
-      className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+      className="flex items-center justify-center gap-4"
     >
-      <div className="flex items-center gap-3 shrink-0">
-        <div className="p-2 rounded-xl bg-cyan-500/5 border border-cyan-500/10 shadow-[0_0_15px_rgba(34,211,238,0.08)]">
-          <SvgIcon
-            id={skill.icon}
-            className="w-4.5 h-4.5 stroke-[1.8] fill-none stroke-cyan-400"
-          />
-        </div>
-        <h4 className="text-sm font-semibold tracking-wide text-white">
-          {label}
-        </h4>
-      </div>
-
-      <p className="text-xs leading-relaxed text-slate-400 italic px-4 py-2.5 rounded-xl bg-white/[0.01] border border-white/[0.03] w-full sm:max-w-2xl">
+      <p className="text-xs leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl">
         &ldquo;{renderProof(proof)}&rdquo;
       </p>
     </motion.div>

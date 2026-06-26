@@ -104,9 +104,14 @@ export function SkillsMap() {
             
             <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 justify-center px-4">
               <button
-                onClick={() => setShowEngineerDesc(prev => !prev)}
-                onMouseEnter={() => setIsCenterHovered(true)}
-                onFocus={() => setIsCenterHovered(true)}
+                onMouseEnter={() => {
+                  setIsCenterHovered(true);
+                  setShowEngineerDesc(true);
+                }}
+                onFocus={() => {
+                  setIsCenterHovered(true);
+                  setShowEngineerDesc(true);
+                }}
                 onMouseLeave={() => setIsCenterHovered(false)}
                 onBlur={() => setIsCenterHovered(false)}
                 className={`w-[clamp(180px,20vw,250px)] rounded-full border px-6 py-3 text-center backdrop-blur-2xl transition-all duration-300 ease-out ${
