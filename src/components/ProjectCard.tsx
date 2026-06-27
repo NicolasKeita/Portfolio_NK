@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import { Project } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { MagicCard } from './ui/MagicCard';
@@ -30,18 +31,18 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
       onClick={handleClick}
     >
       <div className="px-6 pt-5 flex items-center justify-between">
-        <span className={`font-mono text-xs font-semibold px-2 py-0.5 rounded ${tagColors[project.tagClass] ?? ''}`}>
+        <span className={clsx('font-mono text-xs font-semibold px-2 py-0.5 rounded', tagColors[project.tagClass])}>
           {project.tag}
         </span>
         <a
           href={project.link}
           target="_blank"
           rel="noreferrer"
-          className={[
-            'w-8 h-8 border border-white/10 rounded-lg flex items-center justify-center',
-            'no-underline text-slate-400 text-sm',
-            'hover:border-cyan-300/60 hover:text-white hover:bg-cyan-400/10 transition-colors',
-          ].join(' ')}
+          className={`
+            w-8 h-8 border border-white/10 rounded-lg flex items-center justify-center
+            no-underline text-slate-400 text-sm
+            hover:border-cyan-300/60 hover:text-white hover:bg-cyan-400/10 transition-colors
+          `}
           title="Voir le projet"
           onClick={(e) => e.stopPropagation()}
         >

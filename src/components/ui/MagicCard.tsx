@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { clsx } from 'clsx';
 import { ReactNode, useRef } from 'react';
 
 interface MagicCardProps {
@@ -23,24 +24,24 @@ export function MagicCard({ children, className = '', asPanel = false, onClick }
   };
 
   const baseClasses = asPanel
-    ? [
+    ? clsx(
         'group relative rounded-2xl border border-white/10',
         'bg-gradient-to-br from-slate-900/80 to-slate-800/50',
-        'shadow-[0_24px_80px_rgba(0,0,0,0.26)] backdrop-blur-xl overflow-hidden',
-      ].join(' ')
-    : [
+        'shadow-[0_24px_80px_rgba(0,0,0,0.26)] backdrop-blur-xl overflow-hidden'
+      )
+    : clsx(
         'group relative rounded-xl border border-white/[0.11]',
         'bg-gradient-to-br from-slate-900/80 to-[#141d33]/50',
         'shadow-[0_18px_60px_rgba(2,6,23,0.32)] overflow-hidden',
         'cursor-pointer transition-all duration-300 hover:-translate-y-1',
         'hover:border-cyan-400/45',
-        'hover:shadow-[0_22px_80px_rgba(8,47,73,0.38),0_0_0_1px_rgba(34,211,238,0.08)]',
-      ].join(' ');
+        'hover:shadow-[0_22px_80px_rgba(8,47,73,0.38),0_0_0_1px_rgba(34,211,238,0.08)]'
+      );
 
   return (
     <motion.div
       ref={cardRef}
-      className={`magic-card ${baseClasses} ${className}`}
+      className={clsx('magic-card', baseClasses, className)}
       onMouseMove={handleMouseMove}
       onClick={onClick}
       initial={{ opacity: 0, y: 30 }}

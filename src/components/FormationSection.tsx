@@ -23,10 +23,10 @@ export function FormationSection() {
       <div className="max-w-[1100px] mx-auto">
         <p className="font-mono text-xs font-semibold text-amber uppercase tracking-widest mb-2.5">{t('formation.label')}</p>
         <h2
-          className={[
-            'font-display font-bold text-white tracking-tight leading-tight mb-0',
-            'drop-shadow-[0_0_28px_rgba(167,139,250,0.12)]',
-          ].join(' ')}
+          className={`
+            font-display font-bold text-white tracking-tight leading-tight mb-0
+            drop-shadow-[0_0_28px_rgba(167,139,250,0.12)]
+          `}
           style={{ fontSize: 'clamp(1.8rem, 4vw, 2.75rem)' }}
         >
           {t('formation.title')}

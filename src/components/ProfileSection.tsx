@@ -33,15 +33,15 @@ export function ProfileSection() {
                 transition={{ duration: 0.6, ease: easeOut, delay: 0.2 }}
               >
                 <div
-                  className={[
-                    'w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] rounded-full',
-                    'border-[2.5px] border-dashed border-amber bg-slate-950/70 cursor-pointer',
-                    'overflow-hidden relative flex items-center justify-center transition-all duration-300',
-                    'shadow-[0_0_48px_rgba(34,211,238,0.18)]',
-                    'hover:border-cyan-300 hover:bg-cyan-400/10',
-                    'hover:shadow-[0_0_0_8px_rgba(34,211,238,0.16),0_0_70px_rgba(34,211,238,0.24)]',
-                    'hover:scale-102',
-                  ].join(' ')}
+                  className={`
+                    w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] rounded-full
+                    border-[2.5px] border-dashed border-amber bg-slate-950/70 cursor-pointer
+                    overflow-hidden relative flex items-center justify-center transition-all duration-300
+                    shadow-[0_0_48px_rgba(34,211,238,0.18)]
+                    hover:border-cyan-300 hover:bg-cyan-400/10
+                    hover:shadow-[0_0_0_8px_rgba(34,211,238,0.16),0_0_70px_rgba(34,211,238,0.24)]
+                    hover:scale-102
+                  `}
                 >
                   <img src={photoProfil.src} alt="Nicolas Keita" className="w-full h-full object-cover absolute inset-0 rounded-full" />
                 </div>
@@ -55,11 +55,11 @@ export function ProfileSection() {
               {t('hero.role')}
             </motion.span>
             <motion.p
-              className={[
-                'font-display font-semibold text-cyan-200 leading-snug max-w-[620px]',
-                'mb-2 p-2 pl-4 border-l-4 border-amber bg-slate-950/45 backdrop-blur-xl',
-                'rounded-r-lg shadow-[0_12px_45px_rgba(2,6,23,0.24)]',
-              ].join(' ')}
+              className={`
+                font-display font-semibold text-cyan-200 leading-snug max-w-[620px]
+                mb-2 p-2 pl-4 border-l-4 border-amber bg-slate-950/45 backdrop-blur-xl
+                rounded-r-lg shadow-[0_12px_45px_rgba(2,6,23,0.24)]
+              `}
               style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.65rem)' }}
               {...fadeSlideUp(0.2)}
             >
@@ -68,27 +68,27 @@ export function ProfileSection() {
             <motion.div className="flex gap-3.5 flex-wrap mb-0" {...fadeSlideUp(0.3)}>
               <a
                 href="#projets"
-                className={[
-                  'inline-block px-7 py-3 rounded-lg font-display font-semibold text-sm',
-                  'no-underline tracking-wide border-2 border-cyan-400/70 bg-cyan-500/90',
-                  'text-slate-950',
-                  'shadow-[0_0_0_2px_rgba(34,211,238,0.18),0_10px_32px_rgba(34,211,238,0.22)]',
-                  'transition-all duration-300',
-                  'hover:shadow-[0_0_0_4px_rgba(34,211,238,0.22),0_8px_30px_rgba(34,211,238,0.3)]',
-                  'hover:-translate-y-0.5',
-                ].join(' ')}
+                className={`
+                  inline-block px-7 py-3 rounded-lg font-display font-semibold text-sm
+                  no-underline tracking-wide border-2 border-cyan-400/70 bg-cyan-500/90
+                  text-slate-950
+                  shadow-[0_0_0_2px_rgba(34,211,238,0.18),0_10px_32px_rgba(34,211,238,0.22)]
+                  transition-all duration-300
+                  hover:shadow-[0_0_0_4px_rgba(34,211,238,0.22),0_8px_30px_rgba(34,211,238,0.3)]
+                  hover:-translate-y-0.5
+                `}
               >
                 {t('hero.cta.work')}
               </a>
               <a
                 href="#contact"
-                className={[
-                  'inline-block px-7 py-3 rounded-lg font-display font-semibold text-sm',
-                  'no-underline tracking-wide border-2 border-white/12 bg-white/[0.03]',
-                  'text-white backdrop-blur-xl transition-all duration-300',
-                  'hover:bg-white/[0.08] hover:border-cyan-300/60 hover:text-white',
-                  'hover:shadow-[0_0_0_2px_rgba(34,211,238,0.12)]',
-                ].join(' ')}
+                className={`
+                  inline-block px-7 py-3 rounded-lg font-display font-semibold text-sm
+                  no-underline tracking-wide border-2 border-white/12 bg-white/[0.03]
+                  text-white backdrop-blur-xl transition-all duration-300
+                  hover:bg-white/[0.08] hover:border-cyan-300/60 hover:text-white
+                  hover:shadow-[0_0_0_2px_rgba(34,211,238,0.12)]
+                `}
               >
                 {t('hero.cta.contact')}
               </a>

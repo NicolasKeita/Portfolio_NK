@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { clsx } from 'clsx';
 import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import '../globals.css';
 
@@ -40,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`dark ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={clsx('dark', inter.variable, spaceGrotesk.variable, jetbrainsMono.variable)}
       suppressHydrationWarning
     >
       <body className="font-body">{children}</body>
