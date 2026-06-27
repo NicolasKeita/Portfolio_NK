@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import type { Skill } from '../types';
 
 interface SkillCardProps {
@@ -9,10 +9,6 @@ interface SkillCardProps {
 function scrollToProjects(e: React.MouseEvent) {
   e.stopPropagation();
   document.getElementById('projets')?.scrollIntoView({ behavior: 'smooth' });
-}
-function scrollToFormation(e: React.MouseEvent) {
-  e.stopPropagation();
-  document.getElementById('formation')?.scrollIntoView({ behavior: 'smooth' });
 }
 
 const PROJECT_NAMES = ['Tactic-Nav', 'Champ Select Winrate', 'AI Mars Lander', 'Mudlet'] as const;
