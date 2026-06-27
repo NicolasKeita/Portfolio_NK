@@ -94,11 +94,11 @@ export const skillsMap: Skill[] = [
   {
     id: 'rigueur',
     icon: '#i-target',
-    label: 'Rigueur',
-    labelEn: 'Rigor',
+    label: 'Tests & Qualité produit',
+    labelEn: 'Testing & Product Quality',
     accent: true,
-    proof: "La rigueur de la certification sans crash qui définit le standard de la fiabilité logicielle.",
-    proofEn: 'Crash-free certification rigor that defines the standard of software reliability.',
+    proof: "J'ai participé à Mudlet et Tactic-Nav, deux projets où les tests étaient cruciaux. Sur Mudlet, avec des milliers d'utilisateurs qui signalent des bugs chaque jour, mon rôle a été de déployer des tests en masse pour stabiliser l'app. Sur Tactic-Nav (aviation), l'enjeu était d'éviter tout crash en plein vol.",
+    proofEn: "I worked on Mudlet and Tactic-Nav, two projects where testing was crucial. On Mudlet, with thousands of users reporting bugs every day, my role was to deploy mass testing to stabilize the app. On Tactic-Nav (aviation), the stakes were to avoid any in-flight crash.",
   },
   {
     id: 'team',
