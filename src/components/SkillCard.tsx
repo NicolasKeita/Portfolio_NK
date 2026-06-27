@@ -11,32 +11,18 @@ function scrollToProjects(e: React.MouseEvent) {
   document.getElementById('projets')?.scrollIntoView({ behavior: 'smooth' });
 }
 
+const PROJECT_NAMES = ['Tactic-Nav', 'Champ Select Winrate', 'AI Mars Lander', 'Mudlet'] as const;
+
 function renderProof(text: string) {
-  const parts = text.split(/(Tactic-Nav|Champ Select Winrate|AI Mars Lander)/g);
+  const parts = text.split(new RegExp(`(${PROJECT_NAMES.join('|')})`, 'g'));
   return parts.map((part, i) =>
-    part === 'Tactic-Nav' ? (
+    PROJECT_NAMES.includes(part as typeof PROJECT_NAMES[number]) ? (
       <button
         key={i}
         onClick={scrollToProjects}
         className="inline underline decoration-dotted underline-offset-2 text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer"
       >
-        Tactic-Nav
-      </button>
-    ) : part === 'Champ Select Winrate' ? (
-      <button
-        key={i}
-        onClick={scrollToProjects}
-        className="inline underline decoration-dotted underline-offset-2 text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer"
-      >
-        Champ Select Winrate
-      </button>
-    ) : part === 'AI Mars Lander' ? (
-      <button
-        key={i}
-        onClick={scrollToProjects}
-        className="inline underline decoration-dotted underline-offset-2 text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer"
-      >
-        AI Mars Lander
+        {part}
       </button>
     ) : (
       part

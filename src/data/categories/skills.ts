@@ -36,10 +36,10 @@ export const skillsMap: Skill[] = [
   {
     id: 'arch',
     icon: '#i-layout',
-    label: 'Architecture',
-    labelEn: 'Architecture',
-    proof: "La modularisation stratégique qui définit le standard d'une architecture legacy vers le mobile.",
-    proofEn: 'Strategic modularization that defines the standard of legacy-to-mobile architecture.',
+    label: 'Architecture Logicielle',
+    labelEn: 'Software Architecture',
+    proof: "Mes participations à diverses chasses aux bugs m'ont mené à un constat : la majorité des entreprises font face à de lourds problèmes d'architecture nés de l'accumulation de couches de code au fil des années. Ce sont des défis de dette technique complexes que les IA ne peuvent pas résoudre et qui exigent une restructuration profonde. Mon travail sur le projet Mudlet en est une parfaite illustration.",
+    proofEn: "My participation in various bug hunts led me to a realization: the majority of companies face heavy architecture problems born from layers of code accumulated over the years. These are complex technical debt challenges that AIs cannot solve and that require deep restructuring. My work on the Mudlet project is a perfect illustration.",
   },
   {
     id: 'automation',
