@@ -88,8 +88,8 @@ export const skillsMap: Skill[] = [
     label: 'Conseil',
     labelEn: 'Consulting',
     accent: true,
-    proof: "Le conseil éclairé qui définit le standard des choix techniques stratégiques.",
-    proofEn: 'Informed consulting that defines the standard of strategic technical choices.',
+    proof: "Mon activité de freelance m'a amené à accompagner mes clients dans leurs choix techniques. Je fais preuve de pédagogie en utilisant des schémas d'architecture, des maquettes et des tableaux comparatifs pour faciliter la compréhension et la prise de décision.",
+    proofEn: 'My freelance work led me to support clients in their technical choices. I take a pedagogical approach, using architecture diagrams, mockups, and comparative tables to facilitate understanding and decision-making.',
   },
   {
     id: 'rigueur',
@@ -106,7 +106,7 @@ export const skillsMap: Skill[] = [
     label: "Équipe",
     labelEn: 'Teamwork',
     accent: true,
-    proof: "La collaboration multidisciplinaire qui définit le standard d'une ingénierie d'équipe.",
-    proofEn: 'Multidisciplinary collaboration that defines the standard of team engineering.',
+    proof: "Aujourd'hui, toutes les écoles de coding imposent des projets en équipe, c'était le cas pour 95% de mon cursus. C'est un cadre dont j'ai beaucoup bénéficié, notamment avec les méthodes Agiles, pour apprendre à aligner le travail de chacun afin de bâtir un produit cohérent.",
+    proofEn: 'Today, all coding schools require team projects—this was the case for 95% of my curriculum. I benefited greatly from this framework, notably through Agile methodologies, to learn how to align everyone\'s work and build a cohesive product.',
   },
 ];

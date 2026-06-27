@@ -10,6 +10,10 @@ function scrollToProjects(e: React.MouseEvent) {
   e.stopPropagation();
   document.getElementById('projets')?.scrollIntoView({ behavior: 'smooth' });
 }
+function scrollToFormation(e: React.MouseEvent) {
+  e.stopPropagation();
+  document.getElementById('formation')?.scrollIntoView({ behavior: 'smooth' });
+}
 
 const PROJECT_NAMES = ['Tactic-Nav', 'Champ Select Winrate', 'AI Mars Lander', 'Mudlet'] as const;
 
