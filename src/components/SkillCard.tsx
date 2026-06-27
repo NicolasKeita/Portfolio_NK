@@ -11,23 +11,40 @@ function scrollToProjects(e: React.MouseEvent) {
   document.getElementById('projets')?.scrollIntoView({ behavior: 'smooth' });
 }
 
-const PROJECT_NAMES = ['Tactic-Nav', 'Champ Select Winrate', 'AI Mars Lander', 'Mudlet'] as const;
+function scrollToFormation(e: React.MouseEvent) {
+  e.stopPropagation();
+  document.getElementById('formation')?.scrollIntoView({ behavior: 'smooth' });
+}
+
+const LINK_MAP: Record<string, (e: React.MouseEvent) => void> = {
+  'Tactic-Nav': scrollToProjects,
+  'Champ Select Winrate': scrollToProjects,
+  'AI Mars Lander': scrollToProjects,
+  'Mudlet': scrollToProjects,
+  'écoles de coding': scrollToFormation,
+};
+
+const LINK_NAMES = Object.keys(LINK_MAP);
 
 function renderProof(text: string) {
-  const parts = text.split(new RegExp(`(${PROJECT_NAMES.join('|')})`, 'g'));
-  return parts.map((part, i) =>
-    PROJECT_NAMES.includes(part as typeof PROJECT_NAMES[number]) ? (
+  const escaped = LINK_NAMES.map((n) =>
+    n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  ).join('|');
+  const parts = text.split(new RegExp(`(${escaped})`, 'g'));
+  return parts.map((part, i) => {
+    const handler = LINK_MAP[part];
+    return handler ? (
       <button
         key={i}
-        onClick={scrollToProjects}
+        onClick={handler}
         className="inline underline decoration-dotted underline-offset-2 text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer"
       >
         {part}
       </button>
     ) : (
       part
-    )
-  );
+    );
+  });
 }
 
 export function SkillCard({ skill, proof = '' }: SkillCardProps) {

@@ -105,8 +105,8 @@ export const skillsMap: Skill[] = [
     label: 'Relation client',
     labelEn: 'Client relations',
     accent: true,
-    proof: "70 000 téléchargements et une itération continue qui définissent le standard d'une relation client exemplaire.",
-    proofEn: '70,000 downloads and continuous iteration that define the standard of exemplary client relations.',
+    proof: "Sur le projet Mudlet, j'ai affiné mon sens de la relation client en traduisant directement les retours et les plaintes des utilisateurs en corrections de bugs concrètes.",
+    proofEn: 'On the Mudlet project, I refined my client relations skills by directly translating user feedback and complaints into concrete bug fixes.',
   },
   {
     id: 'conseil',
