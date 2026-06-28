@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { Skill } from '../types';
 
 interface SkillCardProps {
@@ -20,6 +20,7 @@ const LINK_MAP: Record<string, (e: React.MouseEvent) => void> = {
   'Tactic-Nav': scrollToProjects,
   'Champ Select Winrate': scrollToProjects,
   'AI Mars Lander': scrollToProjects,
+  'OpenAI Gym': scrollToProjects,
   'Mudlet': scrollToProjects,
   'écoles de coding': scrollToFormation,
 };

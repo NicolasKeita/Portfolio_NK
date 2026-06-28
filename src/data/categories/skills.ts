@@ -32,6 +32,24 @@ export const skillsMap: Skill[] = [
     `.trim(),
   },
   {
+    id: 'ai',
+    icon: '#i-robot',
+    label: 'Intelligence Artificielle',
+    labelEn: 'Artificial Intelligence',
+    proof: `
+      De la création d'un agent IA à son entraînement puis à son utilisation,
+      je maîtrise les fondamentaux de l'intelligence artificielle.
+      Ces concepts, étudiés notamment à travers les cours de Stanford,
+      sont mis en pratique sur les défis OpenAI Gym.
+    `.trim(),
+    proofEn: `
+      From creating an AI agent to training it and using it,
+      I master the fundamentals of artificial intelligence.
+      These concepts, studied notably through Stanford courses,
+      are put into practice on OpenAI Gym challenges.
+    `.trim(),
+  },
+  {
     id: 'arch',
     icon: '#i-layout',
     label: 'Architecture Logicielle',

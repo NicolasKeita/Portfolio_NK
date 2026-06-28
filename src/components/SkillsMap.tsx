@@ -8,14 +8,15 @@ import { skillsMap, engineerBadge } from '../data/portfolio';
 import { NebulaConstellation } from './ui/nebula-constellation';
 
 const SKILL_POSITIONS: Record<string, { x: number; y: number }> = {
-  mobile:  { x: -13, y: -32 },
-  arch:    { x: 13,  y: -32 },
-  algo:    { x: 32,  y: -13 },
-  team:    { x: 32,  y: 13 },
-  rigueur: { x: 13,  y: 32 },
+  mobile: { x: -19, y: -32 },
+  ai: { x: 0, y: -28 },
+  arch: { x: 19, y: -32 },
+  algo: { x: 32, y: -13 },
+  team: { x: 32, y: 13 },
+  rigueur: { x: 13, y: 32 },
   conseil: { x: -13, y: 32 },
-  client:  { x: -32, y: 13 },
-  dev:     { x: -32, y: -13 },
+  client: { x: -32, y: 13 },
+  dev: { x: -32, y: -13 },
 };
 
 export function SkillsMap() {
