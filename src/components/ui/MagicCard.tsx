@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { clsx } from 'clsx';
 import { ReactNode, useRef } from 'react';
 
@@ -13,15 +13,27 @@ interface MagicCardProps {
 
 export function MagicCard({ children, className = '', asPanel = false, onClick }: MagicCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const handleMouseEnter = () => {
+    if (cardRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
+  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    cardRef.current.style.setProperty('--mx', `${x}px`);
-    cardRef.current.style.setProperty('--my', `${y}px`);
+    if (!rectRef.current) return;
+    
+    mouseX.set(e.clientX - rectRef.current.left);
+    mouseY.set(e.clientY - rectRef.current.top);
   };
+
+  const spotlightBackground = useMotionTemplate`
+    radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(34,211,238,0.06), transparent 40%)
+  `;
 
   const baseClasses = asPanel
     ? clsx(
@@ -42,6 +54,7 @@ export function MagicCard({ children, className = '', asPanel = false, onClick }
     <motion.div
       ref={cardRef}
       className={clsx('magic-card', baseClasses, className)}
+      onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onClick={onClick}
       initial={{ opacity: 0, y: 30 }}
@@ -50,11 +63,10 @@ export function MagicCard({ children, className = '', asPanel = false, onClick }
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       {children}
-      <div
+      
+      <motion.div
         className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(34,211,238,0.06), transparent 40%)`,
-        }}
+        style={{ background: spotlightBackground }}
       />
     </motion.div>
   );
