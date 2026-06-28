@@ -32,14 +32,6 @@ export const skillsMap: Skill[] = [
     `.trim(),
   },
   {
-    id: 'linux',
-    icon: '#i-terminal',
-    label: 'Linux/Unix',
-    labelEn: 'Linux/Unix',
-    proof: "La maîtrise de l'écosystème Linux qui définit le standard d'une administration système robuste.",
-    proofEn: 'Mastery of the Linux ecosystem that defines the standard of robust system administration.',
-  },
-  {
     id: 'arch',
     icon: '#i-layout',
     label: 'Architecture Logicielle',
@@ -60,22 +52,6 @@ export const skillsMap: Skill[] = [
     `.trim(),
   },
   {
-    id: 'automation',
-    icon: '#i-refresh',
-    label: 'Automatisation',
-    labelEn: 'Automation',
-    proof: "L'automatisation intelligente qui définit le standard d'un workflow sans friction.",
-    proofEn: 'Intelligent automation that defines the standard of a frictionless workflow.',
-  },
-  {
-    id: 'deploy',
-    icon: '#i-send',
-    label: 'Déploiement',
-    labelEn: 'Deployment',
-    proof: "L'infrastructure cloud qui définit le standard d'un déploiement full-stack fiable.",
-    proofEn: 'Cloud infrastructure that defines the standard of reliable full-stack deployment.',
-  },
-  {
     id: 'algo',
     icon: '#i-branch',
     label: 'Algorithmique',
@@ -90,14 +66,6 @@ export const skillsMap: Skill[] = [
       My project AI Mars Lander illustrates this: trajectory modeling,
       resource optimization, and solving complex problems under constraints
     `.trim(),
-  },
-  {
-    id: 'data',
-    icon: '#i-bars',
-    label: 'Data',
-    labelEn: 'Data',
-    proof: "La modélisation et l'analyse qui définissent le standard d'une donnée exploitable.",
-    proofEn: 'Modeling and analysis that define the standard of actionable data.',
   },
   {
     id: 'client',
