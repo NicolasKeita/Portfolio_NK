@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import photoProfil from '../assets/photo-profil.jpg';
 
 const easeOut = [0, 0, 0.2, 1] as const;
 
@@ -43,7 +42,7 @@ export function ProfileSection() {
                     hover:scale-102
                   `}
                 >
-                  <img src={photoProfil.src} alt="Nicolas Keita" className="w-full h-full object-cover absolute inset-0 rounded-full" />
+                  <img src="/photo-profil.jpg" alt="Nicolas Keita" className="w-full h-full object-cover absolute inset-0 rounded-full" loading="lazy" />
                 </div>
               </motion.div>
             </div>
