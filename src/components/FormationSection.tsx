@@ -48,7 +48,7 @@ export function FormationSection() {
                 {lang === 'en' && f.titleEn ? f.titleEn : f.title}
               </div>
               <div className="text-sm text-cyan-200/80 mb-2">
-                {f.org}
+                {lang === 'en' && f.orgEn ? f.orgEn : f.org}
               </div>
               <div className="text-sm text-slate-400 leading-relaxed">
                 {lang === 'en' && f.descEn ? f.descEn : f.desc}

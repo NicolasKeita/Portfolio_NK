@@ -14,6 +14,7 @@ export interface Formation {
   desc: string;
   titleEn?: string;
   descEn?: string;
+  orgEn?: string;
 }
 
 export interface Project {
