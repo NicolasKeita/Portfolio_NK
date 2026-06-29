@@ -26,20 +26,19 @@ export function MagicCard({ children, className = '', asPanel = false, onClick }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!rectRef.current) return;
-    
     mouseX.set(e.clientX - rectRef.current.left);
     mouseY.set(e.clientY - rectRef.current.top);
   };
 
   const spotlightBackground = useMotionTemplate`
-    radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(34,211,238,0.06), transparent 40%)
+    radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(34,211,238,0.06), transparent 40%)
   `;
 
   const baseClasses = asPanel
     ? clsx(
         'group relative rounded-2xl border border-white/10',
         'bg-gradient-to-br from-slate-900/80 to-slate-800/50',
-        'shadow-[0_24px_80px_rgba(0,0,0,0.26)] backdrop-blur-xl overflow-hidden'
+        'shadow-[0_24px_80px_rgba(0,0,0,0.26)] md:backdrop-blur-lg overflow-hidden md:will-change-backdrop-filter'
       )
     : clsx(
         'group relative rounded-xl border border-white/[0.11]',
@@ -60,14 +59,17 @@ export function MagicCard({ children, className = '', asPanel = false, onClick }
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
       
-      <motion.div
-        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{ background: spotlightBackground }}
-      />
+      {!asPanel && (
+        <motion.div
+          className="pointer-events-none absolute -inset-px scale-0 origin-center transition-transform duration-500 md:group-hover:scale-100 will-change-transform"
+          style={{ background: spotlightBackground }}
+        />
+      )}
     </motion.div>
   );
 }

@@ -91,7 +91,7 @@ export function SkillsMap() {
         className={`
           pointer-events-none absolute inset-x-[-12%] top-[-12%] h-[500px] rounded-full
           bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.1),rgba(59,130,246,0.03)_40%,transparent_70%)]
-          blur-3xl
+          md:blur-2xl will-change-filter
         `}
       />
 

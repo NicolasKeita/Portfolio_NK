@@ -94,6 +94,13 @@ export function SvgSprite() {
         <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
         <line x1="2" y1="13" x2="22" y2="13" />
       </symbol>
+      <symbol id="i-robot" viewBox="0 0 24 24">
+        <path d="M7 11v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-6" />
+        <path d="M9 7a4 4 0 1 1 6 0" />
+        <path d="M15 4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2z" />
+        <circle cx="12" cy="17" r="1.5" />
+        <line x1="12" y1="15" x2="12" y2="15.5" />
+      </symbol>
     </svg>
   );
 }
