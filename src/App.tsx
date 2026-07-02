@@ -89,8 +89,8 @@ function App() {
       <SvgSprite />
       <div className="relative z-0 min-h-screen">
         <SiteConstellationLayer />
-        <div style={{ height: '10000px' }} />
-        {/* <div className="relative z-10">
+        {/* <div style={{ height: '10000px' }} /> */}
+        <div className="relative z-10">
           <Nav />
           <main>
             <div className="relative z-20">
@@ -99,13 +99,13 @@ function App() {
             <section id="competences" className="relative">
               <SkillsMap />
             </section>
-            <Projects />
-            <FormationSection />
-            <ContactSection />
+            {/* <Projects /> */}
+            {/* <FormationSection /> */}
+            {/* <ContactSection /> */}
           </main>
-            <div style={{ height: '10000px' }} />
+            {/* <div style={{ height: '10000px' }} /> */}
           <Footer />
-        </div> */}
+        </div>
       </div>
     </LanguageProvider>
   );

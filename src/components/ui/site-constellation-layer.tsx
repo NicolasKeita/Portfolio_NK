@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+
 const nodes = [
   { x: 9, y: 6, r: 1.1 },
   { x: 23, y: 11, r: 0.8 },
@@ -43,7 +47,86 @@ const clouds = [
   'right-[7%] top-[78%] h-[34rem] w-[34rem] bg-violet-500/8',
 ];
 
+const NODE_COLORS = ['#67e8f9', '#93c5fd', '#c4b5fd'] as const;
+const NODE_OPACITIES = [0.42, 0.24] as const;
+
 export function SiteConstellationLayer() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const draw = () => {
+      const w = window.innerWidth;
+      const h = Math.max(window.innerHeight, document.documentElement.scrollHeight);
+      const dpr = window.devicePixelRatio || 1;
+
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+
+      // Draw links
+      for (let i = 0; i < links.length; i++) {
+        const [a, b] = links[i];
+        const x1 = (nodes[a].x / 100) * w;
+        const y1 = (nodes[a].y / 100) * h;
+        const x2 = (nodes[b].x / 100) * w;
+        const y2 = (nodes[b].y / 100) * h;
+
+        // Vary link opacity to match SVG gradient feel
+        const alpha = i % 4 === 0 ? 0.18 : 0.10;
+        ctx.strokeStyle = `rgba(56,189,248,${alpha})`;
+        ctx.lineWidth = i % 4 === 0 ? 1.2 : 0.7;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+
+      // Draw nodes with glow
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        const cx = (n.x / 100) * w;
+        const cy = (n.y / 100) * h;
+        const color = NODE_COLORS[i % 3];
+        const opacity = NODE_OPACITIES[i % 2];
+
+        // Glow effect using radial gradient (replaces SVG feGaussianBlur)
+        const glowGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, n.r * 4);
+        glowGrad.addColorStop(0, color + '30');
+        glowGrad.addColorStop(1, 'transparent');
+        ctx.fillStyle = glowGrad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, n.r * 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Core node
+        ctx.fillStyle = color + Math.round(opacity * 255).toString(16).padStart(2, '0');
+        ctx.beginPath();
+        //ctx.arc(cx, cy, n.r, 0, Math.PI * 2);
+        const wv = window.innerWidth;
+        const hv = window.innerHeight;
+        const scale = Math.min(wv, hv) / 100;
+        const nodeSize = scale * 3;
+        ctx.arc(cx, cy, n.r * nodeSize, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    };
+
+    draw();
+    window.addEventListener('resize', draw);
+
+    return () => window.removeEventListener('resize', draw);
+  }, []);
+
   return (
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
       {clouds.map((className) => (
@@ -52,51 +135,10 @@ export function SiteConstellationLayer() {
           className={`absolute rounded-full blur-3xl ${className}`}
         />
       ))}
-
-      <svg
-        className="absolute inset-x-0 top-0 h-full min-h-[3200px] w-full opacity-40"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <linearGradient id="siteConstellationLine" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.02" />
-            <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.18" />
-            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.05" />
-          </linearGradient>
-          <filter id="siteConstellationGlow">
-            <feGaussianBlur stdDeviation="0.8" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        {links.map(([a, b], index) => (
-          <line
-            key={`${a}-${b}-${index}`}
-            x1={nodes[a].x}
-            y1={nodes[a].y}
-            x2={nodes[b].x}
-            y2={nodes[b].y}
-            stroke="url(#siteConstellationLine)"
-            strokeWidth={index % 4 === 0 ? 0.13 : 0.08}
-          />
-        ))}
-
-        {nodes.map((node, index) => (
-          <circle
-            key={`${node.x}-${node.y}`}
-            cx={node.x}
-            cy={node.y}
-            r={node.r}
-            fill={index % 3 === 0 ? '#67e8f9' : index % 3 === 1 ? '#93c5fd' : '#c4b5fd'}
-            opacity={index % 5 === 0 ? 0.42 : 0.24}
-            filter="url(#siteConstellationGlow)"
-          />
-        ))}
-      </svg>
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 h-full w-full"
+      />
     </div>
   );
 }
