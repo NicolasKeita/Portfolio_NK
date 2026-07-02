@@ -24,7 +24,7 @@ export function SkillsMap() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [isCenterHovered, setIsCenterHovered] = useState(false);
   const [showEngineerDesc, setShowEngineerDesc] = useState(true);
-  const [activeSkill, setActiveSkill] = useState(skillsMap[0]);
+  const [displayedSkillId, setDisplayedSkillId] = useState<string>(skillsMap[0].id);
 
   const t = (obj: { fr: string; en: string }) => (lang === 'en' ? obj.en : obj.fr);
   const label = (s: typeof skillsMap[number]) =>
@@ -32,8 +32,10 @@ export function SkillsMap() {
   const proof = (s: typeof skillsMap[number]) =>
     lang === 'en' ? s.proofEn : s.proof;
 
+  const activeSkill = skillsMap.find(s => s.id === displayedSkillId) ?? skillsMap[0];
+
   const renderSkillButton = (skill: typeof skillsMap[number]) => {
-    const isActive = hoveredId === skill.id || activeSkill.id === skill.id;
+    const isActive = hoveredId === skill.id || displayedSkillId === skill.id;
     const position = SKILL_POSITIONS[skill.id] ?? { x: 0, y: 0 };
 
     return (
@@ -42,17 +44,17 @@ export function SkillsMap() {
         style={{ left: `${50 + position.x}%`, top: `${50 + position.y}%` }}
         onClick={() => {
           setHoveredId(skill.id);
-          setActiveSkill(skill);
+          setDisplayedSkillId(skill.id);
           setShowEngineerDesc(false);
         }}
         onMouseEnter={() => {
           setHoveredId(skill.id);
-          setActiveSkill(skill);
+          setDisplayedSkillId(skill.id);
           setShowEngineerDesc(false);
         }}
         onFocus={() => {
           setHoveredId(skill.id);
-          setActiveSkill(skill);
+          setDisplayedSkillId(skill.id);
           setShowEngineerDesc(false);
         }}
         onMouseLeave={() => setHoveredId(null)}
@@ -103,9 +105,12 @@ export function SkillsMap() {
             <NebulaConstellation
               skills={skillsMap}
               layoutPositions={SKILL_POSITIONS}
-              activeId={activeSkill?.id ?? null}
+              activeId={displayedSkillId}
               hoveredId={hoveredId}
-              onSelect={setActiveSkill}
+              onSelect={(skill) => {
+                setDisplayedSkillId(skill.id);
+                setShowEngineerDesc(false);
+              }}
               onHover={setHoveredId}
               isCenterHovered={isCenterHovered}
               onCenterHover={setIsCenterHovered}
