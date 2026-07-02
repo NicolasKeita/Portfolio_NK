@@ -44,12 +44,53 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+  let last = performance.now();
+  let frames = 0;
+
+  const div = document.createElement('div');
+  div.style.cssText = `
+    position:fixed;
+    top:10px;
+    right:10px;
+    z-index:99999;
+    background:#000;
+    color:#0f0;
+    padding:8px 12px;
+    font:14px monospace;
+    border-radius:6px;
+  `;
+  document.body.appendChild(div);
+
+  let raf: number;
+
+  function loop(now: number) {
+    frames++;
+
+    if (now - last >= 1000) {
+      div.textContent = `${frames} FPS`;
+      frames = 0;
+      last = now;
+    }
+
+    raf = requestAnimationFrame(loop);
+  }
+
+  raf = requestAnimationFrame(loop);
+
+  return () => {
+    cancelAnimationFrame(raf);
+    div.remove();
+  };
+}, []);
+
   return (
     <LanguageProvider>
       <SvgSprite />
       <div className="relative z-0 min-h-screen">
         <SiteConstellationLayer />
-        <div className="relative z-10">
+        <div style={{ height: '10000px' }} />
+        {/* <div className="relative z-10">
           <Nav />
           <main>
             <div className="relative z-20">
@@ -62,8 +103,9 @@ function App() {
             <FormationSection />
             <ContactSection />
           </main>
+            <div style={{ height: '10000px' }} />
           <Footer />
-        </div>
+        </div> */}
       </div>
     </LanguageProvider>
   );

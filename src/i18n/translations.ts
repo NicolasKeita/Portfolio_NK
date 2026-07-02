@@ -36,7 +36,11 @@ export const translations: TranslationEntry[] = [
   /* Contact */
   { key: 'contact.title', en: 'Contact', fr: 'Contact' },
   { key: 'contact.tagline', en: 'Ready to take on\nnew challenges.', fr: 'Prêt à relever\nde nouveaux défis.' },
-  { key: 'contact.sub1', en: 'Available for permanent, fixed-term, or public sector contracts.', fr: 'Disponible pour des postes en CDI, CDD ou contrat public.' },
+  {
+    key: 'contact.sub1',
+    en: 'Available for permanent, fixed-term, freelance, or public sector opportunities.',
+    fr: 'Disponible pour des opportunités en CDI, CDD, en freelance ou dans le secteur public.'
+  },
   { key: 'contact.sub2', en: 'Feel free to reach out to discuss your needs.', fr: 'N\'hésitez pas à me contacter pour discuter de votre besoin.' },
 
   /* Footer */
