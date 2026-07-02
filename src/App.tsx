@@ -99,9 +99,9 @@ function App() {
             <section id="competences" className="relative">
               <SkillsMap />
             </section>
-            {/* <Projects /> */}
-            {/* <FormationSection /> */}
-            {/* <ContactSection /> */}
+            <Projects />
+            <FormationSection />
+            <ContactSection />
           </main>
             {/* <div style={{ height: '10000px' }} /> */}
           <Footer />
