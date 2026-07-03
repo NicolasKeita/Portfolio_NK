@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
 import type { Skill } from '../types';
 
 interface SkillCardProps {
   skill: Skill;
   proof: string | undefined;
+  className?: string; // Ajout de la prop manquante
 }
 
 function scrollToProjects(e: React.MouseEvent) {
@@ -26,19 +26,20 @@ const LINK_MAP: Record<string, (e: React.MouseEvent) => void> = {
 };
 
 const LINK_NAMES = Object.keys(LINK_MAP);
+const ESCAPED_NAMES = LINK_NAMES.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+const PROOF_REGEX = new RegExp(`(${ESCAPED_NAMES})`, 'g');
 
 function renderProof(text: string) {
-  const escaped = LINK_NAMES.map((n) =>
-    n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  ).join('|');
-  const parts = text.split(new RegExp(`(${escaped})`, 'g'));
+  if (!text) return '';
+  const parts = text.split(PROOF_REGEX);
+  
   return parts.map((part, i) => {
     const handler = LINK_MAP[part];
     return handler ? (
       <button
         key={i}
         onClick={handler}
-        className="inline underline decoration-dotted underline-offset-2 text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer"
+        className="inline align-baseline underline decoration-dotted underline-offset-2 text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer"
       >
         {part}
       </button>
@@ -48,19 +49,11 @@ function renderProof(text: string) {
   });
 }
 
-export function SkillCard({ skill, proof = '' }: SkillCardProps) {
+export function SkillCard({ proof = '', className = '' }: SkillCardProps) {
   return (
-    <motion.div
-      key={skill.id}
-      initial={{ opacity: 0, y: 4 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -4 }}
-      transition={{ duration: 0.15, ease: 'easeOut' }}
-      className="flex items-center justify-center gap-4"
-    >
-      <p className="text-sm leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl">
-        &ldquo;{renderProof(proof)}&rdquo;
-      </p>
-    </motion.div>
+    // mx-auto garantit le centrage horizontal du bloc de texte limité par max-w-3xl
+    <p className={`text-sm leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl mx-auto ${className}`}>
+      &ldquo;{renderProof(proof)}&rdquo;
+    </p>
   );
 }
