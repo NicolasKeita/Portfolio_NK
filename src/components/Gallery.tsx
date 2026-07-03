@@ -1,10 +1,67 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 
 interface GalleryProps {
   photos: string[];
   title: string;
+}
+
+function LazyGalleryImage({
+  src,
+  alt,
+  onClick,
+}: {
+  src: string;
+  alt: string;
+  onClick: () => void;
+}) {
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+
+    if (typeof IntersectionObserver === 'undefined') {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '120px 0px', threshold: 0.01 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="rounded-lg overflow-hidden border border-border-light dark:border-border-dark bg-bg-dark-light dark:bg-bg-dark-dark aspect-[16/10] relative"
+    >
+      {!shouldLoad ? (
+        <div className="absolute inset-0 bg-slate-800/70 animate-pulse" />
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover block cursor-pointer transition-transform duration-300 hover:scale-105 hover:opacity-90"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
+          onClick={onClick}
+        />
+      )}
+    </div>
+  );
 }
 
 export function Gallery({ photos, title }: GalleryProps) {
@@ -26,18 +83,12 @@ export function Gallery({ photos, title }: GalleryProps) {
     <>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-3 mb-6">
         {photos.map((src, i) => (
-          <div
-            key={i}
-            className="rounded-lg overflow-hidden border border-border-light dark:border-border-dark bg-bg-dark-light dark:bg-bg-dark-dark aspect-[16/10]"
-          >
-            <img
-              src={src}
-              alt={`${title} – ${i + 1}`}
-              className="w-full h-full object-cover block cursor-pointer transition-transform duration-300 hover:scale-105 hover:opacity-90"
-              loading="lazy"
-              onClick={() => openLightbox(src)}
-            />
-          </div>
+          <LazyGalleryImage
+            key={`${src}-${i}`}
+            src={src}
+            alt={`${title} – ${i + 1}`}
+            onClick={() => openLightbox(src)}
+          />
         ))}
       </div>
 

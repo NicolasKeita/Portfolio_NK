@@ -33,18 +33,30 @@ export function Projects() {
   const [showContent, setShowContent] = useState(false);
   const rafRef = useRef<number | null>(null);
 
-  // Découple l'ouverture de l'animation du chargement du contenu lourd
   useEffect(() => {
-    if (modalProject) {
-      rafRef.current = requestAnimationFrame(() => {
-        setShowContent(true);
-      });
-    } else {
+    const imageUrls = projects.flatMap((project) => project.photos ?? []);
+
+    imageUrls.forEach((src) => {
+      if (!src) return;
+      const img = new window.Image();
+      img.decoding = 'async';
+      img.src = src;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!modalProject) {
       setShowContent(false);
+      return;
     }
+
+    rafRef.current = window.setTimeout(() => {
+      setShowContent(true);
+    }, 30);
+
     return () => {
       if (rafRef.current !== null) {
-        cancelAnimationFrame(rafRef.current);
+        window.clearTimeout(rafRef.current);
         rafRef.current = null;
       }
     };
