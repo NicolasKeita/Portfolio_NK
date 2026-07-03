@@ -49,7 +49,6 @@ export function SiteConstellationLayer() {
       className="absolute inset-0 w-full min-h-screen overflow-hidden pointer-events-none z-0"
       aria-hidden="true"
     >
-      {/* CLOUDS (background decorative layer) */}
       {clouds.map((className) => (
         <div
           key={className}
@@ -57,14 +56,12 @@ export function SiteConstellationLayer() {
         />
       ))}
 
-      {/* SVG CONSTELLATION FULL PAGE */}
       <svg
         className="absolute inset-0 w-full h-full opacity-40"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
         <defs>
-          {/* Gradient (cheap, OK) */}
           <linearGradient
             id="siteConstellationLine"
             x1="0"
@@ -77,7 +74,6 @@ export function SiteConstellationLayer() {
             <stop offset="100%" stopColor="#818cf8" stopOpacity="0.05" />
           </linearGradient>
 
-          {/* Glow filter (IMPORTANT: keep but avoid overuse) */}
           <filter id="siteConstellationGlow">
             <feGaussianBlur stdDeviation="0.8" result="blur" />
             <feMerge>
@@ -87,7 +83,6 @@ export function SiteConstellationLayer() {
           </filter>
         </defs>
 
-        {/* LINKS */}
         {links.map(([a, b], index) => (
           <line
             key={`${a}-${b}-${index}`}
@@ -100,7 +95,6 @@ export function SiteConstellationLayer() {
           />
         ))}
 
-        {/* NODES */}
         {nodes.map((node, index) => (
           <circle
             key={`${node.x}-${node.y}`}

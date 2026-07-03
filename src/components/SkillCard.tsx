@@ -3,7 +3,7 @@ import type { Skill } from '../types';
 interface SkillCardProps {
   skill: Skill;
   proof: string | undefined;
-  className?: string; // Ajout de la prop manquante
+  className?: string;
 }
 
 function scrollToProjects(e: React.MouseEvent) {
@@ -49,10 +49,12 @@ function renderProof(text: string) {
   });
 }
 
+const CARD_CLASS =
+  'text-sm leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl mx-auto';
+
 export function SkillCard({ proof = '', className = '' }: SkillCardProps) {
   return (
-    // mx-auto garantit le centrage horizontal du bloc de texte limité par max-w-3xl
-    <p className={`text-sm leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl mx-auto ${className}`}>
+    <p className={`${CARD_CLASS} ${className}`}>
       &ldquo;{renderProof(proof)}&rdquo;
     </p>
   );

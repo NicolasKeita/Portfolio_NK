@@ -2,6 +2,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SkillCard } from './SkillCard';
 import type { Skill } from '../types';
 
+const CARD_CLASS =
+  'text-sm leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl mx-auto';
+
 type Props = {
   activeSkill: Skill;
   proof: (skill: Skill) => string | undefined;
@@ -29,7 +32,7 @@ export function SkillsMapDetail({
             transition={{ duration: 0.15, ease: 'easeOut' }}
             className="relative w-full flex items-center justify-center gap-4"
           >
-            <p className="text-sm leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl mx-auto">
+            <p className={CARD_CLASS}>
               &ldquo;{engineerDescription}&rdquo;
             </p>
           </motion.div>

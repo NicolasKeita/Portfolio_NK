@@ -34,7 +34,7 @@ function generateStars(w: number, h: number): Star[] {
       x: (Math.random() - 0.5) * w * 1.1,
       y: (Math.random() - 0.5) * h * 1.1,
       size: 0.6 + Math.random() * 1.4,
-      alpha: 0.15 + Math.random() * 0.6, // Alphas fixes légèrement adoucis
+      alpha: 0.15 + Math.random() * 0.6,
     });
   }
   return stars;
@@ -146,7 +146,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     return false;
   }, []);
 
-  // Transformation de la boucle "render" en une fonction de dessin unique et réactive "draw"
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -165,7 +164,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
 
-    // Dessin des Voiles de la nébuleuse
     if (veilGradients.current && veilGradients.current.length === VEILS.length) {
       for (let i = 0; i < VEILS.length; i++) {
         const veil = VEILS[i];
@@ -183,7 +181,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       }
     }
 
-    // Dessin des Étoiles fixes (Plus de calcul mathématique de temps)
     for (const star of stars.current) {
       ctx.fillStyle = toRgba(COLORS_RGB.star, star.alpha);
       ctx.beginPath();
@@ -195,7 +192,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     const centerActive = isCenterHovered || hoveredId !== null;
     const ringR = Math.min(w, h) * 0.012;
 
-    // Halo central
     const glowR = (centerActive ? 1.32 : 0.86) * Math.min(w, h) * 0.014;
     const glowGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, glowR);
     glowGrad.addColorStop(0, toRgba(COLORS_RGB.centerGlow, centerActive ? 0.12 : 0.07));
@@ -217,7 +213,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     ctx.arc(cx, cy, coreR, 0, Math.PI * 2);
     ctx.fill();
 
-    // Dessin des constellations (Compétences)
     for (let i = 0; i < skills.length; i++) {
       const skill = skills[i];
       const [ex, ey] = toCanvas(skillPositions[i].x, skillPositions[i].y);
@@ -266,7 +261,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       ctx.fill();
     }
 
-    // Textes statiques
     ctx.fillStyle = toRgba('255, 255, 255', centerActive ? 0.9 : 0.6);
     ctx.font = `bold ${Math.min(w, h) * 0.016}px system-ui, sans-serif`;
     ctx.textAlign = 'center';
@@ -280,12 +274,10 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     }
   }, [skills, skillPositions, hoveredId, activeId, isCenterHovered, centerLabel, centerSub, toCanvas]);
 
-  // Hook pour redessiner à CHAQUE fois qu'une prop de statut React change (et uniquement là)
   useEffect(() => {
     draw();
   }, [draw]);
 
-  // Gestion unique du Resize
   useEffect(() => {
     const onResize = () => {
       resize();

@@ -4,33 +4,41 @@ export default {
   meta: {
     type: "suggestion",
     docs: {
-      description: "Disallow comments inside functions",
+      description: "Disallow comments inside functions and TypeScript interfaces",
     },
     messages: {
-      avoidCommentsInFunctions: "Comments are not allowed inside function bodies. Prefer self-explanatory code.",
+      avoidComments:
+        "Comments are not allowed here. Prefer self-explanatory code.",
     },
+    schema: [],
   },
+
   create(context) {
+    const sourceCode = context.sourceCode;
+
+    const forbiddenParents = new Set([
+      "FunctionDeclaration",
+      "FunctionExpression",
+      "ArrowFunctionExpression",
+      "TSInterfaceBody",
+    ]);
+
     return {
       Program() {
-        const sourceCode = context.sourceCode;
         const comments = sourceCode.getAllComments();
 
         for (const comment of comments) {
           let node = sourceCode.getNodeByRangeIndex(comment.range[0]);
 
           while (node) {
-            if (
-              node.type === "FunctionDeclaration" ||
-              node.type === "FunctionExpression" ||
-              node.type === "ArrowFunctionExpression"
-            ) {
+            if (forbiddenParents.has(node.type)) {
               context.report({
                 loc: comment.loc,
-                messageId: "avoidCommentsInFunctions",
+                messageId: "avoidComments",
               });
               break;
             }
+
             node = node.parent;
           }
         }

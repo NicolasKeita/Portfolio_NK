@@ -89,7 +89,6 @@ function App() {
       <SvgSprite />
       <div className="relative z-0 min-h-screen">
         <SiteConstellationLayer />
-        {/* <div style={{ height: '10000px' }} /> */}
         <div className="relative z-10">
           <Nav />
           <main>
@@ -103,7 +102,6 @@ function App() {
             <FormationSection />
             <ContactSection />
           </main>
-            {/* <div style={{ height: '10000px' }} /> */}
           <Footer />
         </div>
       </div>
