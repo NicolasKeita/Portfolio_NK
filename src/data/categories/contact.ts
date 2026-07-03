@@ -1,7 +1,7 @@
 import { ContactItem } from '../../types';
 
 export const contactItems: ContactItem[] = [
-  { icon: '#i-mail', label: 'Email', value: 'nicolaskeita2@gmail.com', href: 'mailto:nicolaskeita2@gmail.com' },
+  { icon: '#i-mail', label: 'Email', value: 'nicolas.keita@epitech.eu', href: 'mailto:nicolas.keita@epitech.eu' },
   { icon: '#i-phone', label: 'Téléphone', labelEn: 'Phone', value: '+33 7 54 84 26 88', href: 'tel:+33754842688' },
   { icon: '#i-pin', label: 'Lieu de résidence', labelEn: 'Location', value: 'Nouvelle-Aquitaine' },
   { icon: '#i-globe', label: 'Mobilité', labelEn: 'Mobility', value: 'France & International', sub: 'Passeport valide', subEn: 'Valid passport' },
