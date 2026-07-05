@@ -10,6 +10,7 @@ import marsLanderFalcon9Launch from '../../assets/mars-lander/space_X_falcon_9_l
 import mudletAlgora from '../../assets/mudlet/algora.io.png';
 import mudletGame1 from '../../assets/mudlet/game_1.png';
 import mudletGame2 from '../../assets/mudlet/game_2.png';
+import mudletBg from '../../assets/mudlet/ISO_C++_Logo.svg.webp';
 import champSelectScreenshot1 from '../../assets/champ-select/CSW_1.jpg';
 import champSelectScreenshot2 from '../../assets/champ-select/CSW_2.jpg';
 
@@ -174,6 +175,7 @@ export const projects: Project[] = [
     `.trim(),
     techs: ['C++', 'Qt', 'Sentry', 'Tests fonctionnels', 'Architecture modulaire'],
     link: 'https://github.com/Mudlet/Mudlet/pulls?q=is%3Apr+is%3Aclosed+author%3ANicolasKeita',
+    bgImage: mudletBg.src,
     photos: [
       mudletGame1.src,
       mudletGame2.src,

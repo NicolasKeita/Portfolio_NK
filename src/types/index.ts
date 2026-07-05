@@ -30,6 +30,7 @@ export interface Project {
   techs: string[];
   link: string;
   photos: string[];
+  bgImage?: string;
 }
 
 export interface ContactItem {

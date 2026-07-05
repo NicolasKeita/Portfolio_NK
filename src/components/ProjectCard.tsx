@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Project } from '../types';
 import { MagicCard } from './ui/MagicCard';
 import { localizedText } from '../utils/localizedText';
@@ -41,22 +40,10 @@ interface ProjectCardProps {
   onOpen: () => void;
 }
 
-function ProjectCardBase({ project, lang, onOpen }: ProjectCardProps) {
+export function ProjectCard({ project, lang, onOpen }: ProjectCardProps) {
   return (
     <MagicCard onClick={onOpen}>
-      {project.bgImage && (
-        <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
-          style={{
-            backgroundImage: `url(${project.bgImage})`,
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        />
-      )}
-
-      <div className="px-6 pt-5 flex items-center justify-between relative z-10">
+      <div className="px-6 pt-5 flex items-center justify-between">
         <ProjectTag tagClass={project.tagClass} tag={project.tag} />
 
         <a
@@ -71,7 +58,7 @@ function ProjectCardBase({ project, lang, onOpen }: ProjectCardProps) {
         </a>
       </div>
 
-      <div className="px-6 pb-6 pt-5 flex-1 flex flex-col relative z-10">
+      <div className="px-6 pb-6 pt-5 flex-1 flex flex-col">
         <h3 className="font-display font-semibold text-base text-white mb-2">
           {localizedText(lang, project.titleEn, project.title)}
         </h3>
@@ -89,9 +76,3 @@ function ProjectCardBase({ project, lang, onOpen }: ProjectCardProps) {
     </MagicCard>
   );
 }
-
-export const ProjectCard = memo(ProjectCardBase, (prev, next) => {
-  // Ignore onOpen (recréé à chaque ouverture du modal)
-  // Ne re-render que si le projet ou la langue changent
-  return prev.project.id === next.project.id && prev.lang === next.lang;
-});
