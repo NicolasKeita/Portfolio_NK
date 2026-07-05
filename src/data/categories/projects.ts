@@ -46,6 +46,18 @@ export const projects: Project[] = [
       - low-level optimization required to meet strict performance targets
       (no crashes or FPS drops allowed during flight), validated through benchmarking
     `.trim(),
+    overview: [
+      'Application Android embarquée de surveillance aérienne en temps réel via le protocole ADS-B',
+      'Tests automatisés (unitaires, intégration, performance) garantissant zéro crash en vol',
+      'Optimisation bas niveau (Java/Android) pour maintien des FPS sous contrainte temps réel',
+      'Validation par benchmarking des performances sur cible embarquée',
+    ],
+    overviewEn: [
+      'Embedded Android application for real-time air surveillance via ADS-B protocol',
+      'Automated tests (unit, integration, performance) ensuring zero in-flight crashes',
+      'Low-level optimization (Java/Android) for FPS stability under real-time constraints',
+      'Performance validated through benchmarking on embedded hardware',
+    ],
     techs: ['Java', 'Android', 'Temps réel'],
     link: 'https://github.com/NicolasKeita/Tactic-Nav',
     photos: [
@@ -120,6 +132,20 @@ export const projects: Project[] = [
       to develop intelligent agents and conduct complex work based on the study
       of cutting-edge scientific publications.
     `.trim(),
+    overview: [
+      'Développement d\'agents autonomes par Reinforcement Learning (Q-Learning, Policy Gradient)',
+      'Environnements multiples : OpenAI Gym, Codingame Mars Lander, Lunar Lander',
+      'Prise de décision temps réel en espace d\'état continu avec contraintes physiques',
+      'Analyse des fonctions de récompense et optimisation par reward shaping et hyperparamètres',
+      'Étude basée sur le cours CS234 Reinforcement Learning de Stanford University',
+    ],
+    overviewEn: [
+      'Development of autonomous agents using Reinforcement Learning (Q-Learning, Policy Gradient)',
+      'Multiple environments: OpenAI Gym, Codingame Mars Lander, Lunar Lander',
+      'Real-time decision-making in continuous state space with physics constraints',
+      'Reward function analysis and optimization through reward shaping and hyperparameter tuning',
+      'Based on Stanford University\'s CS234 Reinforcement Learning course',
+    ],
     techs: ['Python', 'Reinforcement Learning', 'OpenAI Gym'],
     link: 'https://github.com/NicolasKeita',
     photos: [
@@ -173,6 +199,20 @@ export const projects: Project[] = [
       including software engineers from the United States, China, and India,
       in order to claim the associated bounty.
     `.trim(),
+    overview: [
+      'Intégration de Sentry (crash reporting) dans un codebase C++/Qt legacy de 15+ ans',
+      'Mise en place de tests fonctionnels fiables sur une plateforme ouverte de gaming',
+      'Correction de bugs critiques enfouis dans un codebase legacy massif',
+      'Modularisation : détachement du front-end Qt du cœur logiciel pour préparer une version mobile',
+      'Victoires récurrentes en compétitions internationales de bug bounty sur Algora.io',
+    ],
+    overviewEn: [
+      'Sentry crash reporting integration in a 15+ year-old C++/Qt legacy codebase',
+      'Setup of reliable functional tests on an open-source gaming platform',
+      'Critical bug fixes deep within a massive legacy codebase',
+      'Modularization: decoupling Qt front-end from software core to enable mobile version',
+      'Consistent wins in international bug bounty competitions on Algora.io',
+    ],
     techs: ['C++', 'Qt', 'Sentry', 'Tests fonctionnels', 'Architecture modulaire'],
     link: 'https://github.com/Mudlet/Mudlet/pulls?q=is%3Apr+is%3Aclosed+author%3ANicolasKeita',
     bgImage: mudletBg.src,
@@ -207,6 +247,20 @@ export const projects: Project[] = [
       architecture, cloud deployment and collaboration with Overwolf's QA teams
       until product validation.
     `.trim(),
+    overview: [
+      'Application desktop companion pour League of Legends (70k téléchargements)',
+      'Intégration d\'API Riot Games pour l\'analyse des winrates en phase de sélection',
+      'Architecture full-stack React + AWS (déploiement cloud)',
+      'Collaboration avec les équipes QA d\'Overwolf jusqu\'à validation du produit',
+      'Déploiement et distribution via la plateforme Overwolf',
+    ],
+    overviewEn: [
+      'Desktop companion app for League of Legends (70k downloads)',
+      'Riot Games API integration for winrate analysis during champion select',
+      'Full-stack React + AWS architecture (cloud deployment)',
+      'Collaboration with Overwolf QA teams until product validation',
+      'Deployment and distribution via the Overwolf platform',
+    ],
     techs: ['React', 'AWS', 'Full-stack'],
     link: 'https://github.com/NicolasKeita/Champ_select_winrate',
     photos: [

@@ -27,6 +27,8 @@ export interface Project {
   descEn?: string;
   prologue?: string;
   prologueEn?: string;
+  overview?: string[];
+  overviewEn?: string[];
   techs: string[];
   link: string;
   photos: string[];
@@ -43,4 +45,3 @@ export interface ContactItem {
   sub?: string;
   subEn?: string;
 }
-

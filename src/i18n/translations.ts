@@ -10,6 +10,9 @@ export const translations: TranslationEntry[] = [
   /* Modal */
   { key: 'modal.close', en: 'Close', fr: 'Fermer' },
   { key: 'modal.github', en: 'View code', fr: 'Voir le code' },
+  { key: 'modal.sectionChallenges', en: 'Engineering Challenges', fr: 'Engineering Challenges' },
+  { key: 'modal.sectionOverview', en: 'Project Overview', fr: 'Project Overview' },
+  { key: 'modal.sectionDescription', en: 'Project Description', fr: 'Description du projet' },
 
   /* Nav */
   { key: 'nav.formation', en: 'Education', fr: 'Formation' },
