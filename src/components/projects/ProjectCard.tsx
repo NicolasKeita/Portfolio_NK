@@ -1,6 +1,6 @@
-import { Project } from '../types';
-import { MagicCard } from './ui/MagicCard';
-import { localizedText } from '../utils/localizedText';
+import { Project } from '../../types';
+import { MagicCard } from '../ui/MagicCard';
+import { localizedText } from '../../utils/localizedText';
 
 const TAG_COLORS: Record<string, string> = {
   'tag-py': 'bg-blue-100 text-blue-800',

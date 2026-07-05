@@ -1,8 +1,8 @@
 import { useState, useCallback, useMemo } from 'react';
-import { useLanguage } from '../context/LanguageContext';
-import { skillsMap, engineerBadge } from '../data/portfolio';
-import { SkillsMapDiagram } from './SkillsMapDiagram';
-import { SkillsMapDetail } from './SkillsMapDetail';
+import { useLanguage } from '../../context/LanguageContext';
+import { skillsMap, engineerBadge } from '../../data/portfolio';
+import { SkillsMapDiagram } from '../skills/SkillsMapDiagram';
+import { SkillsMapDetail } from '../skills/SkillsMapDetail';
 
 const GRADIENT_CLASS = [
   'pointer-events-none absolute inset-x-[-12%] top-[-12%] h-[500px]',

@@ -1,16 +1,16 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { FpsCounter } from './components/FpsCounter';
+import { FpsCounter } from './components/debug/FpsCounter';
 import { LanguageProvider } from './context/LanguageContext';
-import { SvgSprite } from './components/SvgSprite';
-import { Nav } from './components/Nav';
-import { ProfileSection } from './components/ProfileSection';
-import { SkillsMap } from './components/SkillsMap';
-import { Projects } from './components/Projects';
-import { FormationSection } from './components/FormationSection';
-import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
+import { SvgSprite } from './components/shared/SvgSprite';
+import { Nav } from './components/layout/Nav';
+import { ProfileSection } from './components/sections/ProfileSection';
+import { SkillsMap } from './components/sections/SkillsMap';
+import { Projects } from './components/sections/Projects';
+import { FormationSection } from './components/sections/FormationSection';
+import { ContactSection } from './components/sections/ContactSection';
+import { Footer } from './components/layout/Footer';
 import { SiteConstellationLayer } from './components/ui/site-constellation-layer';
 
 function App() {

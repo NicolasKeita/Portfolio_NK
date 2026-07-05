@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../../context/LanguageContext';
 
 const easeOut = [0, 0, 0.2, 1] as const;
 

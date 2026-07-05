@@ -1,11 +1,11 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { useLanguage } from '../context/LanguageContext';
-import { Project } from '../types';
-import { projects } from '../data/portfolio';
-import { Modal } from './Modal';
-import { ProjectCard } from './ProjectCardComponent';
-import { ProjectModalContent } from './ProjectModalContent';
-import { localizedText } from '../utils/localizedText';
+import { useLanguage } from '../../context/LanguageContext';
+import { Project } from '../../types';
+import { projects } from '../../data/portfolio';
+import { Modal } from '../projects/Modal';
+import { ProjectCard } from '../projects/ProjectCardComponent';
+import { ProjectModalContent } from '../projects/ProjectModalContent';
+import { localizedText } from '../../utils/localizedText';
 
 
 function SectionHeader() {

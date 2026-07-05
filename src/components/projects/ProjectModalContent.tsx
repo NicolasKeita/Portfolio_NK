@@ -1,7 +1,7 @@
-import { useLanguage } from '../context/LanguageContext';
-import { Project } from '../types';
+import { useLanguage } from '../../context/LanguageContext';
+import { Project } from '../../types';
 import { Gallery } from './Gallery';
-import { localizedText } from '../utils/localizedText';
+import { localizedText } from '../../utils/localizedText';
 
 
 const GITHUB_LINK_CLASSES =

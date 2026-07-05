@@ -1,6 +1,6 @@
 import { useEffect, useRef, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface ModalProps {
   title: string;

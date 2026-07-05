@@ -1,7 +1,7 @@
 import { SkillButton } from './SkillButton';
-import { NebulaConstellation } from './ui/nebula-constellation';
-import { skillsMap } from '../data/portfolio';
-import type { Skill } from '../types';
+import { NebulaConstellation } from '../ui/nebula-constellation';
+import { skillsMap } from '../../data/portfolio';
+import type { Skill } from '../../types';
 
 type Props = {
   displayedSkillId: string;

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { SvgIcon } from './SvgSprite';
-import { useLanguage } from '../context/LanguageContext';
-import { contactItems } from '../data/portfolio';
-import { MagicCard } from './ui/MagicCard';
+import { SvgIcon } from '../shared/SvgSprite';
+import { useLanguage } from '../../context/LanguageContext';
+import { contactItems } from '../../data/portfolio';
+import { MagicCard } from '../ui/MagicCard';
 
 export function ContactSection() {
   const { lang, t } = useLanguage();

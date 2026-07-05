@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { Project } from '../types';
-import { MagicCard } from './ui/MagicCard';
-import { localizedText } from '../utils/localizedText';
+import { Project } from '../../types';
+import { MagicCard } from '../ui/MagicCard';
+import { localizedText } from '../../utils/localizedText';
 
 const TAG_COLORS: Record<string, string> = {
   'tag-py': 'bg-blue-100 text-blue-800',
@@ -91,7 +91,5 @@ function ProjectCardBase({ project, lang, onOpen }: ProjectCardProps) {
 }
 
 export const ProjectCard = memo(ProjectCardBase, (prev, next) => {
-  // Ignore onOpen (recréé à chaque ouverture du modal)
-  // Ne re-render que si le projet ou la langue changent
   return prev.project.id === next.project.id && prev.lang === next.lang;
 });

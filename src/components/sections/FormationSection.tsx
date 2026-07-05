@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageContext';
-import { formations } from '../data/portfolio';
-import { MagicCard } from './ui/MagicCard';
+import { useLanguage } from '../../context/LanguageContext';
+import { formations } from '../../data/portfolio';
+import { MagicCard } from '../ui/MagicCard';
 
 const stagger = {
   hidden: {},

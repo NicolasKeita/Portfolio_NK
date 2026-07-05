@@ -1,6 +1,6 @@
-import { Skill } from '../types';
+import { Skill } from '../../types';
 import { clsx } from 'clsx';
-import { SvgIcon } from './SvgSprite';
+import { SvgIcon } from '../shared/SvgSprite';
 
 type Props = {
   skill: Skill;
