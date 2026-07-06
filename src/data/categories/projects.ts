@@ -13,6 +13,7 @@ import mudletGame2 from '../../assets/mudlet/game_2.png';
 import mudletBg from '../../assets/mudlet/ISO_C++_Logo.svg.webp';
 import champSelectScreenshot1 from '../../assets/champ-select/CSW_1.jpg';
 import champSelectScreenshot2 from '../../assets/champ-select/CSW_2.jpg';
+import { oneLine, stripIndent } from 'common-tags';
 
 export const projects: Project[] = [
   {
@@ -73,55 +74,44 @@ export const projects: Project[] = [
     tagClass: 'tag-ai',
     title: 'IA et Reinforcement Learning — Mars Lander, Lunar Lander et défis OpenAI Gym',
     titleEn: 'AI and Reinforcement Learning — Mars Lander, Lunar Lander and OpenAI Gym challenges',
-    description: `
-      Développement d'agents autonomes utilisant des techniques de Reinforcement Learning
-      sur plusieurs environnements OpenAI Gym, ainsi que sur Mars Lander (Codingame)
-      et Lunar Lander.
+    description: [
+      oneLine`Développement d'agents autonomes utilisant des techniques de Reinforcement Learning sur plusieurs
+      environnements OpenAI Gym, ainsi que sur Mars Lander (Codingame) et Lunar Lander.`,
+      "",
+      oneLine`Le projet explore la conception d'agents capables de prendre des décisions en temps réel dans un espace
+      d'état continu, avec contraintes physiques (gravité, poussée, carburant, stabilité). Ces environnements
+      constituent des cas d'étude classiques pour des problématiques de contrôle, de prise de décision séquentielle et d'optimisation.`,
+      "",
+      stripIndent`
+        Travail réalisé :
+        * Implémentation d'agents basés sur des méthodes de Reinforcement Learning (Q-Learning, algorithmes de type Policy Gradient)
+        * Entraînement sur des environnements OpenAI Gym et adaptation sur un environnement Codingame (Mars Lander)
+        * Analyse des fonctions de récompense et de leur impact sur l'apprentissage et les performances des agents
+        * Optimisation des performances d'atterrissage via l'ajustement des hyperparamètres et le reward shaping
+        * Étude comparative des comportements des agents selon les architectures testées
 
-      Le projet explore la conception d'agents capables de prendre des décisions en temps réel
-      dans un espace d'état continu, avec contraintes physiques (gravité, poussée,
-      carburant, stabilité). Ces environnements constituent des cas d'étude classiques
-      pour des problématiques de contrôle, de prise de décision séquentielle et d'optimisation.
+        Formation des compétences via des ressources académiques en ligne, notamment le cours de Reinforcement Learning CS234 de Stanford University.
+      `
+    ].join('\n'),
+descEn: [
+      oneLine`Development of autonomous agents using Reinforcement Learning techniques across multiple
+      OpenAI Gym environments, as well as Mars Lander (Codingame) and Lunar Lander.`,
+      "",
+      oneLine`The project explores the design of agents capable of making real-time decisions in a continuous
+      state space, with physical constraints (gravity, thrust, fuel, stability). These environments are classic
+      case studies for control problems, sequential decision-making, and optimization.`,
+      "",
+      stripIndent`
+        Work accomplished:
+        * Implementation of agents based on Reinforcement Learning methods (Q-Learning, Policy Gradient algorithms)
+        * Training on OpenAI Gym environments and adaptation to a Codingame environment (Mars Lander)
+        * Analysis of reward functions and their impact on agent learning and performance
+        * Landing performance optimization via hyperparameter tuning and reward shaping
+        * Comparative study of agent behaviors across tested architectures
 
-      Travail réalisé :
-
-      * Implémentation d'agents basés sur des méthodes de Reinforcement Learning
-      (Q-Learning, algorithmes de type Policy Gradient)
-      * Entraînement sur des environnements OpenAI Gym et adaptation sur un environnement
-      Codingame (Mars Lander)
-      * Analyse des fonctions de récompense et de leur impact sur l'apprentissage
-      et les performances des agents
-      * Optimisation des performances d'atterrissage via l'ajustement
-      des hyperparamètres et le reward shaping
-      * Étude comparative des comportements des agents selon les architectures testées
-
-      Formation des compétences via des ressources académiques en ligne,
-      notamment le cours de Reinforcement Learning CS234 de Stanford University.
-    `.trim(),
-    descEn: `
-      Development of autonomous agents using Reinforcement Learning techniques
-      across multiple OpenAI Gym environments, as well as Mars Lander (Codingame)
-      and Lunar Lander.
-
-      The project explores the design of agents capable of making real-time decisions
-      in a continuous state space, with physical constraints (gravity, thrust, fuel,
-      stability). These environments are classic case studies for control problems,
-      sequential decision-making, and optimization.
-
-      Work accomplished:
-
-      * Implementation of agents based on Reinforcement Learning methods
-      (Q-Learning, Policy Gradient algorithms)
-      * Training on OpenAI Gym environments and adaptation to a Codingame
-      environment (Mars Lander)
-      * Analysis of reward functions and their impact on agent learning and performance
-      * Landing performance optimization via hyperparameter tuning
-      and reward shaping
-      * Comparative study of agent behaviors across tested architectures
-
-      Skill development through online academic resources, including Stanford
-      University's CS234 Reinforcement Learning course.
-    `.trim(),
+        Skill development through online academic resources, including Stanford University's CS234 Reinforcement Learning course.
+      `
+    ].join('\n'),
     prologue: `
       Je maîtrise les principes de création de l'IA, et ce projet prouve ma capacité
       à développer des agents intelligents et à conduire des travaux complexes
@@ -161,17 +151,20 @@ export const projects: Project[] = [
     tagClass: 'tag-audit',
     title: 'Mudlet',
     titleEn: 'Mudlet',
-    description: `
-      Mudlet (C++/Qt) est une plateforme opensource pour jeux vidéo comme Steam.
+description: [
+      oneLine`Mudlet (C++/Qt) est une plateforme opensource pour jeux vidéo comme Steam.
       J'ai réalisé plusieurs milestones majeurs sur lesquels l'équipe bloquait
-      depuis des années :
-      • Intégration de Sentry (crash reporting)
-      • Mise en place de tests fonctionnels fiables.
-      • Correction de bugs profondément enfouis dans un codebase de plus de 15 ans.
-      • Rendre Mudlet modulaire : détacher le front-end Qt du cœur du logiciel
-      afin de préparer une version mobile et d'adopter un front-end plus adapté
-      que Qt pour les mobiles.
-    `.trim(),
+      depuis des années :`,
+      "",
+      stripIndent`
+        • Intégration de Sentry (crash reporting)
+        • Mise en place de tests fonctionnels fiables.
+        • Correction de bugs profondément enfouis dans un codebase de plus de 15 ans.
+        • ${oneLine`Rendre Mudlet modulaire : détacher le front-end Qt du cœur du logiciel
+          afin de préparer une version mobile et d'adopter un front-end plus adapté
+          que Qt pour les mobiles.`}
+      `
+    ].join('\n'),
     descEn: `
       Mudlet (C++/Qt) is an open-source gaming platform like Steam.
       I achieved several major milestones the team had been stuck on for years:

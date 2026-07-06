@@ -32,16 +32,18 @@ export function ProjectModalContent({ project, lang }: ProjectModalContentProps)
     <>
       <Gallery photos={project.photos} title={project.title} />
 
-      {/* Engineering Challenges */}
-      {hasPrologue && (
-        <>
-          <h3 className={SECTION_TITLE_CLASSES}>
-            {t('modal.sectionChallenges')}
-          </h3>
-          <p className="text-white italic font-medium leading-relaxed mb-4 pb-4 border-b border-white/10 whitespace-pre-line">
-            {localizedText(lang, project.prologueEn, project.prologue)}
-          </p>
-        </>
+      {/* GitHub link — at the top, right after the gallery */}
+      {project.link && (
+        <div className="mb-5 mt-4">
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={GITHUB_LINK_CLASSES}
+          >
+            {t('modal.github')}
+          </a>
+        </div>
       )}
 
       {/* Project Overview */}
@@ -58,6 +60,18 @@ export function ProjectModalContent({ project, lang }: ProjectModalContentProps)
         </>
       )}
 
+      {/* Engineering Challenges */}
+      {hasPrologue && (
+        <>
+          <h3 className={SECTION_TITLE_CLASSES}>
+            {t('modal.sectionChallenges')}
+          </h3>
+          <p className="text-white italic font-medium leading-relaxed mb-4 pb-4 border-b border-white/10 whitespace-pre-line">
+            {localizedText(lang, project.prologueEn, project.prologue)}
+          </p>
+        </>
+      )}
+
       {/* Project Description */}
       {hasDescription && (
         <>
@@ -68,20 +82,6 @@ export function ProjectModalContent({ project, lang }: ProjectModalContentProps)
             {localizedText(lang, project.descEn, project.description)}
           </div>
         </>
-      )}
-
-      {/* GitHub link — placed above techs so it's not at the very bottom */}
-      {project.link && (
-        <div className="mb-5">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={GITHUB_LINK_CLASSES}
-          >
-            {t('modal.github')}
-          </a>
-        </div>
       )}
 
       {/* Techs */}

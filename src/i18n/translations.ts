@@ -1,3 +1,4 @@
+import { oneLine } from 'common-tags';
 export type Lang = 'fr' | 'en';
 
 export interface TranslationEntry {
@@ -10,8 +11,8 @@ export const translations: TranslationEntry[] = [
   /* Modal */
   { key: 'modal.close', en: 'Close', fr: 'Fermer' },
   { key: 'modal.github', en: 'View code', fr: 'Voir le code' },
-  { key: 'modal.sectionChallenges', en: 'Engineering Challenges', fr: 'Engineering Challenges' },
-  { key: 'modal.sectionOverview', en: 'Project Overview', fr: 'Project Overview' },
+  { key: 'modal.sectionChallenges', en: 'Engineering Challenges', fr: 'Défis techniques' },
+  { key: 'modal.sectionOverview', en: 'Project Overview', fr: 'Aperçu du projet' },
   { key: 'modal.sectionDescription', en: 'Project Description', fr: 'Description du projet' },
 
   /* Nav */
@@ -22,10 +23,10 @@ export const translations: TranslationEntry[] = [
 
   /* Hero */
   { key: 'hero.role', en: 'Portfolio — Software Engineer & IT Consultant', fr: 'Portfolio — Ingénieur Logiciel & Consultant IT' },
-  { key: 'hero.tagline', en: 'What sets me apart is not the number of projects completed, but the quality standard I bring to each one.', fr: `
+  { key: 'hero.tagline', en: 'What sets me apart is not the number of projects completed, but the quality standard I bring to each one.', fr: oneLine`
     Ce qui me distingue n'est pas la quantité de projets réalisés,
     mais l'exigence de qualité que j'apporte à chacun d'eux.
-  `.trim() },
+  ` },
   { key: 'hero.cta.work', en: 'See my work', fr: 'Voir mes réalisations' },
   { key: 'hero.cta.contact', en: 'Get in touch', fr: 'Me contacter' },
   /* Projects */
@@ -51,8 +52,8 @@ export const translations: TranslationEntry[] = [
   { key: 'footer.projets', en: 'Projects', fr: 'Projets' },
   { key: 'footer.formation', en: 'Education', fr: 'Formation' },
   { key: 'footer.contact', en: 'Contact', fr: 'Contact' },
-  { key: 'footer.copyright', en: '© 2026 Nicolas Keita — Software Engineer & IT Consultant | Nouvelle-Aquitaine, France', fr: `
+  { key: 'footer.copyright', en: '© 2026 Nicolas Keita — Software Engineer & IT Consultant | Nouvelle-Aquitaine, France', fr: oneLine`
     © 2026 Nicolas Keita
     — Ingénieur Logiciel & Consultant IT | Nouvelle-Aquitaine, France
-  `.trim() },
+  ` },
 ];

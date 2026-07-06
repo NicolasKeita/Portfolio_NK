@@ -76,9 +76,17 @@ function ProjectCardBase({ project, lang, onOpen }: ProjectCardProps) {
           {localizedText(lang, project.titleEn, project.title)}
         </h3>
 
-        <p className="text-sm text-slate-400 leading-relaxed flex-1 mb-5 whitespace-pre-line">
-          {localizedText(lang, project.prologueEn, project.prologue)}
-        </p>
+        {project.overview && project.overview.length > 0 ? (
+          <ul className="text-sm text-slate-400 leading-relaxed flex-1 mb-5 list-disc list-inside space-y-1">
+            {(lang === 'en' && project.overviewEn ? project.overviewEn : project.overview).map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-slate-400 leading-relaxed flex-1 mb-5 whitespace-pre-line">
+            {localizedText(lang, project.prologueEn, project.prologue)}
+          </p>
+        )}
 
         <div className="flex flex-wrap gap-1.5">
           {project.techs.map((tech) => (
