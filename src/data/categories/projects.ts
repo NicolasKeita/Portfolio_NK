@@ -147,8 +147,13 @@ descEn: [
   },
   {
     id: 'mudlet',
-    tag: 'Audit',
-    tagClass: 'tag-audit',
+    tag: 'Architecture / Refactoring',
+    tagClass: 'tag-architecture',
+    tags: [
+      { name: 'Architecture / Refactoring', class: 'tag-architecture' },
+      { name: 'Open Source', class: 'tag-opensource' },
+      { name: 'C++ / Qt', class: 'tag-cpp' }
+    ],
     title: 'Mudlet',
     titleEn: 'Mudlet',
 description: [

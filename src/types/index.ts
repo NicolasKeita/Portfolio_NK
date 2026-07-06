@@ -17,10 +17,16 @@ export interface Formation {
   orgEn?: string;
 }
 
+export interface ProjectTag {
+  name: string;
+  class: string;
+}
+
 export interface Project {
   id: string;
   tag: string;
   tagClass: string;
+  tags?: ProjectTag[];
   title: string;
   description: string;
   titleEn?: string;

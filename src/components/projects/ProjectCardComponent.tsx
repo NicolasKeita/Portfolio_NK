@@ -11,6 +11,9 @@ const TAG_COLORS: Record<string, string> = {
   'tag-data': 'bg-indigo-100 text-indigo-800',
   'tag-mobile': 'bg-cyan-100 text-cyan-800',
   'tag-ai': 'bg-pink-100 text-pink-800',
+  'tag-architecture': 'bg-amber-100 text-amber-800',
+  'tag-opensource': 'bg-emerald-100 text-emerald-800',
+  'tag-cpp': 'bg-sky-100 text-sky-800',
 };
 
 const LINK_BUTTON_CLASSES =
@@ -28,6 +31,21 @@ function ProjectTag({ tagClass, tag }: { tagClass: string; tag: string }) {
     >
       {tag}
     </span>
+  );
+}
+
+function ProjectTags({ tags }: { tags: { name: string; class: string }[] }) {
+  return (
+    <div className="flex flex-wrap gap-1.5">
+      {tags.map((t) => (
+        <span
+          key={t.name}
+          className={`${TAG_COLORS[t.class] ?? ''} font-mono text-xs font-semibold px-2 py-0.5 rounded`}
+        >
+          {t.name}
+        </span>
+      ))}
+    </div>
   );
 }
 
@@ -57,7 +75,11 @@ function ProjectCardBase({ project, lang, onOpen }: ProjectCardProps) {
       )}
 
       <div className="px-6 pt-5 flex items-center justify-between relative z-10">
-        <ProjectTag tagClass={project.tagClass} tag={project.tag} />
+        {project.tags ? (
+          <ProjectTags tags={project.tags} />
+        ) : (
+          <ProjectTag tagClass={project.tagClass} tag={project.tag} />
+        )}
 
         <a
           href={project.link}
