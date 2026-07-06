@@ -1,7 +1,6 @@
 import { memo } from 'react';
-import { Project } from '../../types';
 import { MagicCard } from '../ui/MagicCard';
-import { localizedText } from '../../utils/localizedText';
+import type { ProjectYaml } from '../../data';
 
 const TAG_COLORS: Record<string, string> = {
   'tag-py': 'bg-blue-100 text-blue-800',
@@ -54,19 +53,19 @@ function TechBadge({ tech }: { tech: string }) {
 }
 
 interface ProjectCardProps {
-  project: Project;
-  lang: string;
+  project: ProjectYaml;
+  getImage: (path: string) => string;
   onOpen: () => void;
 }
 
-function ProjectCardBase({ project, lang, onOpen }: ProjectCardProps) {
+function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
   return (
     <MagicCard onClick={onOpen}>
       {project.bgImage && (
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            backgroundImage: `url(${project.bgImage})`,
+            backgroundImage: `url(${getImage(project.bgImage)})`,
             backgroundSize: 'contain',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -95,18 +94,18 @@ function ProjectCardBase({ project, lang, onOpen }: ProjectCardProps) {
 
       <div className="px-6 pb-6 pt-5 flex-1 flex flex-col relative z-10">
         <h3 className="font-display font-semibold text-base text-white mb-2">
-          {localizedText(lang, project.titleEn, project.title)}
+          {project.title}
         </h3>
 
         {project.overview && project.overview.length > 0 ? (
           <ul className="text-sm text-slate-400 leading-relaxed flex-1 mb-5 list-disc list-inside space-y-1">
-            {(lang === 'en' && project.overviewEn ? project.overviewEn : project.overview).map((item, i) => (
+            {project.overview.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
         ) : (
           <p className="text-sm text-slate-400 leading-relaxed flex-1 mb-5 whitespace-pre-line">
-            {localizedText(lang, project.prologueEn, project.prologue)}
+            {project.prologue ?? project.description}
           </p>
         )}
 
@@ -121,5 +120,5 @@ function ProjectCardBase({ project, lang, onOpen }: ProjectCardProps) {
 }
 
 export const ProjectCard = memo(ProjectCardBase, (prev, next) => {
-  return prev.project.id === next.project.id && prev.lang === next.lang;
+  return prev.project.id === next.project.id;
 });

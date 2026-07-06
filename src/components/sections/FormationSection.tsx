@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
-import { formations } from '../../data/portfolio';
+import { getFormations } from '../../data';
 import { MagicCard } from '../ui/MagicCard';
 
 const stagger = {
@@ -17,6 +17,7 @@ const itemVariant = {
 
 export function FormationSection() {
   const { lang, t } = useLanguage();
+  const formations = getFormations(lang as 'fr' | 'en');
 
   return (
     <section id="formation" className="py-16 px-8">
@@ -40,18 +41,18 @@ export function FormationSection() {
           >
           {formations.map((f, i) => (
             <motion.div
-              key={i}
+              key={f.id ?? i}
               variants={itemVariant}
               className="py-7 border-b border-white/10 last:border-b-0"
             >
               <div className="font-display font-semibold text-lg text-white mb-1">
-                {lang === 'en' && f.titleEn ? f.titleEn : f.title}
+                {f.title}
               </div>
               <div className="text-sm text-cyan-200/80 mb-2">
-                {lang === 'en' && f.orgEn ? f.orgEn : f.org}
+                {f.org}
               </div>
               <div className="text-sm text-slate-400 leading-relaxed">
-                {lang === 'en' && f.descEn ? f.descEn : f.desc}
+                {f.desc}
               </div>
             </motion.div>
           ))}

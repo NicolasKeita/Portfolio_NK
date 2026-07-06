@@ -1,16 +1,18 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { SkillCard, CARD_CLASS } from './SkillCard';
-import type { Skill } from '../../types';
+import type { SkillYaml } from '../../data';
 
 type Props = {
-  activeSkill: Skill;
-  proof: (skill: Skill) => string | undefined;
+  activeSkill: SkillYaml;
+  activeSkillId: string;
+  proof: (id: string) => string | undefined;
   engineerDescription: string;
   showEngineerDesc: boolean;
 };
 
 export function SkillsMapDetail({
   activeSkill,
+  activeSkillId,
   proof,
   engineerDescription,
   showEngineerDesc,
@@ -35,14 +37,14 @@ export function SkillsMapDetail({
           </motion.div>
         ) : (
           <motion.div
-            key={activeSkill.id}
+            key={activeSkillId}
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
             className="relative w-full flex items-center justify-center gap-4"
           >
-            <SkillCard skill={activeSkill} proof={proof(activeSkill)} />
+            <SkillCard proof={proof(activeSkillId) ?? ''} />
           </motion.div>
         )}
       </AnimatePresence>

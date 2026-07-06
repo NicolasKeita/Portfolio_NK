@@ -1,8 +1,5 @@
-import type { Skill } from '../../types';
-
 interface SkillCardProps {
-  skill: Skill;
-  proof: string | undefined;
+  proof: string;
   className?: string;
 }
 

@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { skillsMap, engineerBadge } from '../../data/portfolio';
+import { getSkills, getEngineer } from '../../data';
 import { SkillsMapDiagram } from '../skills/SkillsMapDiagram';
 import { SkillsMapDetail } from '../skills/SkillsMapDetail';
 
@@ -16,27 +16,29 @@ export function SkillsMap() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [isCenterHovered, setIsCenterHovered] = useState(false);
   const [showEngineerDesc, setShowEngineerDesc] = useState(true);
-  const [displayedSkillId, setDisplayedSkillId] = useState<string>(skillsMap[0].id);
+  const [displayedSkillId, setDisplayedSkillId] = useState<string>('dev');
 
-  const t = useCallback((obj: { fr: string; en: string }) => (lang === 'en' ? obj.en : obj.fr), [lang]);
+  const skills = getSkills(lang as 'fr' | 'en');
+  const engineer = getEngineer(lang as 'fr' | 'en');
+  const skillsEntries = useMemo(() => Object.entries(skills), [skills]);
 
   const label = useCallback(
-    (s: typeof skillsMap[number]) => (lang === 'en' && s.labelEn ? s.labelEn : s.label),
-    [lang]
+    (id: string) => skills[id]?.label ?? id,
+    [skills]
   );
 
   const proof = useCallback(
-    (s: typeof skillsMap[number]) => (lang === 'en' ? s.proofEn : s.proof),
-    [lang]
+    (id: string) => skills[id]?.proof ?? '',
+    [skills]
   );
 
   const activeSkill = useMemo(
-    () => skillsMap.find((s) => s.id === displayedSkillId) ?? skillsMap[0],
-    [displayedSkillId]
+    () => skills[displayedSkillId] ?? skillsEntries[0]?.[1],
+    [displayedSkillId, skills, skillsEntries]
   );
 
-  const handleSelectSkill = useCallback((skill: typeof skillsMap[number]) => {
-    setDisplayedSkillId(skill.id);
+  const handleSelectSkill = useCallback((id: string) => {
+    setDisplayedSkillId(id);
     setShowEngineerDesc(false);
   }, []);
 
@@ -53,14 +55,15 @@ export function SkillsMap() {
         setDisplayedSkillId={setDisplayedSkillId}
         setShowEngineerDesc={setShowEngineerDesc}
         onSelectSkill={handleSelectSkill}
-        displayLabel={label}
-        centerLabel={t(engineerBadge.engineer)}
+        skills={skills}
+        centerLabel={engineer.label}
       />
 
       <SkillsMapDetail
         activeSkill={activeSkill}
+        activeSkillId={displayedSkillId}
         proof={proof}
-        engineerDescription={t(engineerBadge.engineerDescription)}
+        engineerDescription={engineer.description}
         showEngineerDesc={showEngineerDesc}
       />
     </div>

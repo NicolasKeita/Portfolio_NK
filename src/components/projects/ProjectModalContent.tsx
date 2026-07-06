@@ -1,7 +1,6 @@
 import { useLanguage } from '../../context/LanguageContext';
-import { Project } from '../../types';
 import { Gallery } from './Gallery';
-import { localizedText } from '../../utils/localizedText';
+import type { ProjectYaml } from '../../data';
 
 const GITHUB_LINK_CLASSES =
   'inline-flex items-center gap-2 px-7 py-3 rounded-lg ' +
@@ -12,27 +11,23 @@ const GITHUB_LINK_CLASSES =
 
 const SECTION_TITLE_CLASSES = 'text-cyan-400 font-display font-semibold text-lg mb-3 mt-6 first:mt-0';
 
-function localizedList(lang: string, enValues?: string[], frValues?: string[]): string[] {
-  return lang === 'en' && enValues ? enValues : (frValues ?? []);
-}
-
 interface ProjectModalContentProps {
-  project: Project;
-  lang: string;
+  project: ProjectYaml;
+  getImage: (path: string) => string;
 }
 
-export function ProjectModalContent({ project, lang }: ProjectModalContentProps) {
+export function ProjectModalContent({ project, getImage }: ProjectModalContentProps) {
   const { t } = useLanguage();
-  const overviewItems = localizedList(lang, project.overviewEn, project.overview);
-  const hasPrologue = Boolean(project.prologue || project.prologueEn);
-  const hasOverview = overviewItems.length > 0;
-  const hasDescription = Boolean(project.description || project.descEn);
+
+  const hasPrologue = Boolean(project.prologue);
+  const hasOverview = Boolean(project.overview && project.overview.length > 0);
+  const hasDescription = Boolean(project.description);
 
   return (
     <>
-      <Gallery photos={project.photos} title={project.title} />
+      <Gallery photos={project.photos.map(getImage)} title={project.title} />
 
-      {/* GitHub link — at the top, right after the gallery */}
+      {/* GitHub link */}
       {project.link && (
         <div className="mb-5 mt-4">
           <a
@@ -53,7 +48,7 @@ export function ProjectModalContent({ project, lang }: ProjectModalContentProps)
             {t('modal.sectionOverview')}
           </h3>
           <ul className="list-disc list-inside text-slate-300 leading-relaxed mb-4 space-y-1.5">
-            {overviewItems.map((item, i) => (
+            {project.overview!.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
@@ -67,7 +62,7 @@ export function ProjectModalContent({ project, lang }: ProjectModalContentProps)
             {t('modal.sectionChallenges')}
           </h3>
           <p className="text-white italic font-medium leading-relaxed mb-4 pb-4 border-b border-white/10 whitespace-pre-line">
-            {localizedText(lang, project.prologueEn, project.prologue)}
+            {project.prologue}
           </p>
         </>
       )}
@@ -79,7 +74,7 @@ export function ProjectModalContent({ project, lang }: ProjectModalContentProps)
             {t('modal.sectionDescription')}
           </h3>
           <div className="text-slate-300 leading-relaxed mb-6 whitespace-pre-line">
-            {localizedText(lang, project.descEn, project.description)}
+            {project.description}
           </div>
         </>
       )}

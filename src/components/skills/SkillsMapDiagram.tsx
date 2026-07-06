@@ -1,7 +1,6 @@
 import { SkillButton } from './SkillButton';
 import { NebulaConstellation } from '../ui/nebula-constellation';
-import { skillsMap } from '../../data/portfolio';
-import type { Skill } from '../../types';
+import type { SkillYaml } from '../../data';
 
 type Props = {
   displayedSkillId: string;
@@ -11,8 +10,8 @@ type Props = {
   setIsCenterHovered: (value: boolean) => void;
   setDisplayedSkillId: (id: string) => void;
   setShowEngineerDesc: (value: boolean) => void;
-  onSelectSkill: (skill: Skill) => void;
-  displayLabel: (skill: Skill) => string;
+  onSelectSkill: (id: string) => void;
+  skills: Record<string, SkillYaml>;
   centerLabel: string;
 };
 
@@ -37,14 +36,14 @@ export function SkillsMapDiagram({
   setDisplayedSkillId,
   setShowEngineerDesc,
   onSelectSkill,
-  displayLabel,
+  skills,
   centerLabel,
 }: Props) {
   return (
     <div className="relative h-[420px] overflow-visible rounded-3xl border border-white/[0.03] bg-slate-950/10">
       <div className="absolute inset-x-0 top-[-82px] h-[520px]">
         <NebulaConstellation
-          skills={skillsMap}
+          skillIds={Object.keys(skills)}
           layoutPositions={SKILL_POSITIONS}
           activeId={displayedSkillId}
           hoveredId={hoveredId}
@@ -55,17 +54,18 @@ export function SkillsMapDiagram({
           centerLabel={centerLabel}
         />
 
-        {skillsMap.map((skill) => (
+        {Object.entries(skills).map(([id, skill]) => (
           <SkillButton
-            key={skill.id}
-            skill={skill}
+            key={id}
+            skillId={id}
+            icon={skill.icon}
+            label={skill.label}
             hoveredId={hoveredId}
             displayedSkillId={displayedSkillId}
             setHoveredId={setHoveredId}
             setDisplayedSkillId={setDisplayedSkillId}
             setShowEngineerDesc={setShowEngineerDesc}
-            position={SKILL_POSITIONS[skill.id] ?? { x: 0, y: 0 }}
-            displayLabel={displayLabel(skill)}
+            position={SKILL_POSITIONS[id] ?? { x: 0, y: 0 }}
           />
         ))}
 

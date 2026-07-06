@@ -1,0 +1,58 @@
+# ── Parcours de formation ──
+formations:
+  - id: stanford-cs234
+    title:
+      fr: "Intelligence Artificielle, apprentissage par renforcement (reinforcement learning) (CS234)"
+      en: "Artificial Intelligence, reinforcement learning (CS234)"
+    org:
+      fr: "Stanford University, Californie - 6 mois"
+      en: "Stanford University, California - 6 months"
+    desc:
+      fr: >-
+        Cours en ligne encadré par Emma Brunskill, incluant les processus de décision markoviens (MDP),
+        les méthodes à différences temporelles (TD) et les algorithmes de Q-learning.
+      en: >-
+        Online course taught by Emma Brunskill, covering Markov Decision Processes (MDPs),
+        temporal difference (TD) methods, and Q-learning algorithms.
+  - id: epitech
+    title:
+      fr: "École d'informatique (pédagogie par projets)"
+      en: "Computer Science School (Project-Based Learning)"
+    org:
+      fr: "EPITECH Paris - 3 Ans"
+      en: "EPITECH Paris - 3 Years"
+    desc:
+      fr: >-
+        Major de promotion. Formation orientée développement logiciel, autonomie, travail en équipe,
+        culture de l'innovation et approche produit.
+      en: >-
+        Ranked first in the class. Software development-focused training with emphasis on autonomy,
+        teamwork, innovation culture, and product approach.
+  - id: sorbonne-physics
+    title:
+      fr: "Licence de Physique"
+      en: "Bachelor's in Physics"
+    org:
+      fr: "Sorbonne Université (Paris VI) - 2 Ans"
+      en: "Sorbonne University (Paris VI) - 2 Years"
+    desc:
+      fr: >-
+        Physique fondamentale, mathématiques appliquées et modélisation, développant une rigueur
+        scientifique et une approche analytique.
+      en: >-
+        Fundamental physics, applied mathematics and modeling, developing scientific rigor
+        and an analytical approach.
+  - id: bac-pro
+    title:
+      fr: "Baccalauréat professionnel Systèmes Numériques Électroniques"
+      en: "Vocational Baccalaureate in Digital Electronic Systems"
+    org:
+      fr: "Lycée Eugène Ionesco"
+      en: "Eugène Ionesco High School"
+    desc:
+      fr: >-
+        Électronique numérique, réseaux et systèmes embarqués. Bases en électronique et traitement du signal
+        (analyse fréquentielle, séries de Fourier).
+      en: >-
+        Digital electronics, networks, and embedded systems. Basics in electronics and signal processing
+        (frequency analysis, Fourier series).

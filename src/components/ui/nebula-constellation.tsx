@@ -1,14 +1,13 @@
 import { useRef, useEffect, useMemo, useCallback } from 'react';
-import type { Skill } from '../../types';
 
 type LayoutPosition = { x: number; y: number };
 
 interface NebulaConstellationProps {
-  skills: Skill[];
+  skillIds: string[];
   layoutPositions?: Record<string, LayoutPosition>;
   activeId: string | null;
   hoveredId: string | null;
-  onSelect: (skill: Skill) => void;
+  onSelect: (id: string) => void;
   onHover: (id: string | null) => void;
   isCenterHovered: boolean;
   onCenterHover: (v: boolean) => void;
@@ -26,7 +25,6 @@ interface Star {
   alpha: number;
 }
 
-// Génération d'étoiles fixes, sans paramètres de scintillement
 function generateStars(w: number, h: number): Star[] {
   const stars: Star[] = [];
   for (let i = 0; i < STAR_COUNT; i++) {
@@ -79,7 +77,7 @@ function lerp(a: number, b: number, t: number): number {
 
 export function NebulaConstellation(props: NebulaConstellationProps) {
   const {
-    skills,
+    skillIds,
     layoutPositions,
     activeId,
     hoveredId,
@@ -94,16 +92,16 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
   const veilGradients = useRef<CanvasGradient[] | null>(null);
 
   const skillPositions = useMemo(() => {
-    return skills.map((skill, i) => {
-      const fallbackAngle = (i / skills.length) * Math.PI * 2;
+    return skillIds.map((id, i) => {
+      const fallbackAngle = (i / skillIds.length) * Math.PI * 2;
       const fallback = {
         x: Math.cos(fallbackAngle) * 30,
         y: Math.sin(fallbackAngle) * 30,
       };
-      const pos = layoutPositions?.[skill.id] ?? fallback;
+      const pos = layoutPositions?.[id] ?? fallback;
       return { x: pos.x, y: pos.y };
     });
-  }, [skills, layoutPositions]);
+  }, [skillIds, layoutPositions]);
 
   const toCanvas = useCallback((sx: number, sy: number): [number, number] => {
     const { w, h } = dims.current;
@@ -213,17 +211,17 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     ctx.arc(cx, cy, coreR, 0, Math.PI * 2);
     ctx.fill();
 
-    for (let i = 0; i < skills.length; i++) {
-      const skill = skills[i];
+    for (let i = 0; i < skillIds.length; i++) {
+      const id = skillIds[i];
       const [ex, ey] = toCanvas(skillPositions[i].x, skillPositions[i].y);
       const [nx, ny] = toCanvas(
-        skillPositions[(i + 1) % skills.length].x,
-        skillPositions[(i + 1) % skills.length].y
+        skillPositions[(i + 1) % skillIds.length].x,
+        skillPositions[(i + 1) % skillIds.length].y
       );
-      const hl = isCenterHovered || hoveredId === skill.id || activeId === skill.id;
+      const hl = isCenterHovered || hoveredId === id || activeId === id;
 
       ctx.strokeStyle = toRgba(
-        hl || activeId === skills[(i + 1) % skills.length].id
+        hl || activeId === skillIds[(i + 1) % skillIds.length]
           ? COLORS_RGB.lineActive
           : COLORS_RGB.lineDim,
         hl ? 0.3 : 0.1
@@ -241,7 +239,7 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       ctx.lineTo(ex, ey);
       ctx.stroke();
 
-      if (hl && activeId === skill.id) {
+      if (hl && activeId === id) {
         ctx.fillStyle = 'rgba(103, 232, 249, 0.92)';
         ctx.beginPath();
         ctx.arc(lerp(cx, ex, 0.62), lerp(cy, ey, 0.62), Math.min(w, h) * 0.003, 0, Math.PI * 2);
@@ -272,7 +270,7 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
       ctx.font = `${Math.min(w, h) * 0.01}px system-ui, sans-serif`;
       ctx.fillText(centerSub, cx, cy + ringR + Math.min(w, h) * 0.033);
     }
-  }, [skills, skillPositions, hoveredId, activeId, isCenterHovered, centerLabel, centerSub, toCanvas]);
+  }, [skillIds, skillPositions, hoveredId, activeId, isCenterHovered, centerLabel, centerSub, toCanvas]);
 
   useEffect(() => {
     draw();

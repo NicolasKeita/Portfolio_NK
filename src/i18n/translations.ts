@@ -1,59 +1,101 @@
-import { oneLine } from 'common-tags';
+import ui from './locales/ui.yaml';
+import skills from './locales/skills.yaml';
+import education from './locales/education.yaml';
+import contact from './locales/contact.yaml';
+import projects from './locales/projects.yaml';
+
 export type Lang = 'fr' | 'en';
 
-export interface TranslationEntry {
-  key: string;
-  en: string;
-  fr: string;
+export type TranslationData = Record<string, unknown>;
+
+function mergeTranslationData(target: TranslationData, source: TranslationData): TranslationData {
+  for (const [key, value] of Object.entries(source)) {
+    const existing = target[key];
+    if (
+      value &&
+      typeof value === 'object' &&
+      !Array.isArray(value) &&
+      existing &&
+      typeof existing === 'object' &&
+      !Array.isArray(existing)
+    ) {
+      mergeTranslationData(existing as TranslationData, value as TranslationData);
+    } else {
+      target[key] = value;
+    }
+  }
+  return target;
 }
 
-export const translations: TranslationEntry[] = [
-  /* Modal */
-  { key: 'modal.close', en: 'Close', fr: 'Fermer' },
-  { key: 'modal.github', en: 'View code', fr: 'Voir le code' },
-  { key: 'modal.sectionChallenges', en: 'Engineering Challenges', fr: 'Défis techniques' },
-  { key: 'modal.sectionOverview', en: 'Project Overview', fr: 'Aperçu du projet' },
-  { key: 'modal.sectionDescription', en: 'Project Description', fr: 'Description du projet' },
+const rawData: TranslationData = {};
+for (const chunk of [ui, skills, education, contact, projects] as TranslationData[]) {
+  mergeTranslationData(rawData, chunk);
+}
 
-  /* Nav */
-  { key: 'nav.formation', en: 'Education', fr: 'Formation' },
-  { key: 'nav.projets', en: 'Projects', fr: 'Projets' },
-  { key: 'nav.contact', en: 'Contact', fr: 'Contact' },
-  { key: 'nav.lang', en: 'Switch to French', fr: 'Passer en anglais' },
+/** Stock brut du YAML parsé */
+export const store = rawData as TranslationData;
 
-  /* Hero */
-  { key: 'hero.role', en: 'Portfolio — Software Engineer & IT Consultant', fr: 'Portfolio — Ingénieur Logiciel & Consultant IT' },
-  { key: 'hero.tagline', en: 'What sets me apart is not the number of projects completed, but the quality standard I bring to each one.', fr: oneLine`
-    Ce qui me distingue n'est pas la quantité de projets réalisés,
-    mais l'exigence de qualité que j'apporte à chacun d'eux.
-  ` },
-  { key: 'hero.cta.work', en: 'See my work', fr: 'Voir mes réalisations' },
-  { key: 'hero.cta.contact', en: 'Get in touch', fr: 'Me contacter' },
-  /* Projects */
-  { key: 'projects.label', en: 'Projects', fr: 'Projets' },
-  { key: 'projects.title', en: 'My Work', fr: 'Réalisations' },
+function resolveLanguageNode(value: unknown, lang: Lang): unknown {
+  if (Array.isArray(value)) {
+    return value.map((item) => resolveLanguageNode(item, lang));
+  }
 
-  /* Formation */
-  { key: 'formation.label', en: 'Academic Background', fr: 'Parcours Académique' },
-  { key: 'formation.title', en: 'Education', fr: 'Formation' },
+  if (value && typeof value === 'object') {
+    const record = value as Record<string, unknown>;
 
-  /* Contact */
-  { key: 'contact.title', en: 'Contact', fr: 'Contact' },
-  { key: 'contact.tagline', en: 'Ready to take on\nnew challenges.', fr: 'Prêt à relever\nde nouveaux défis.' },
-  {
-    key: 'contact.sub1',
-    en: 'Available for permanent, fixed-term, freelance, or public sector opportunities.',
-    fr: 'Disponible pour des opportunités en CDI, CDD, en freelance ou dans le secteur public.'
-  },
-  { key: 'contact.sub2', en: 'Feel free to reach out to discuss your needs.', fr: 'N\'hésitez pas à me contacter pour discuter de votre besoin.' },
+    if (record.fr !== undefined && record.en !== undefined) {
+      return record[lang];
+    }
 
-  /* Footer */
-  { key: 'footer.home', en: 'Home', fr: 'Accueil' },
-  { key: 'footer.projets', en: 'Projects', fr: 'Projets' },
-  { key: 'footer.formation', en: 'Education', fr: 'Formation' },
-  { key: 'footer.contact', en: 'Contact', fr: 'Contact' },
-  { key: 'footer.copyright', en: '© 2026 Nicolas Keita — Software Engineer & IT Consultant | Nouvelle-Aquitaine, France', fr: oneLine`
-    © 2026 Nicolas Keita
-    — Ingénieur Logiciel & Consultant IT | Nouvelle-Aquitaine, France
-  ` },
-];
+    const resolved: Record<string, unknown> = {};
+    for (const [key, child] of Object.entries(record)) {
+      resolved[key] = resolveLanguageNode(child, lang);
+    }
+    return resolved;
+  }
+
+  return value;
+}
+
+export const locales: Record<Lang, TranslationData> = {
+  fr: resolveLanguageNode(rawData, 'fr') as TranslationData,
+  en: resolveLanguageNode(rawData, 'en') as TranslationData,
+};
+
+/**
+ * Récupère une valeur dans un objet par un chemin "dot notation".
+ */
+export function getNested(obj: TranslationData, path: string): unknown {
+  const keys = path.split('.');
+  let current: unknown = obj;
+  for (const key of keys) {
+    if (current === null || typeof current !== 'object') return undefined;
+    current = (current as TranslationData)[key];
+  }
+  return current;
+}
+
+/**
+ * Résout un bloc { fr: '...', en: '...' } en une string pour la langue donnée.
+ * Si la valeur est déjà une string, la retourne directement.
+ */
+export function localizedValue(val: unknown, lang: Lang): string {
+  if (typeof val === 'string') return val;
+  if (val && typeof val === 'object') {
+    const v = val as Record<string, unknown>;
+    const s = v[lang];
+    if (typeof s === 'string') return s;
+    const fallback = lang === 'fr' ? v.en : v.fr;
+    if (typeof fallback === 'string') return fallback;
+  }
+  return '';
+}
+
+/**
+ * Retourne une traduction string depuis la clé dot-path.
+ * Résout automatiquement les blocs { fr, en }.
+ */
+export function t(lang: Lang, key: string): string {
+  const val = getNested(store, key);
+  return localizedValue(val, lang);
+}

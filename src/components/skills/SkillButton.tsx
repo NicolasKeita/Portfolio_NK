@@ -1,46 +1,47 @@
-import { Skill } from '../../types';
 import { clsx } from 'clsx';
 import { SvgIcon } from '../shared/SvgSprite';
 
 type Props = {
-  skill: Skill;
+  skillId: string;
+  icon: string;
+  label: string;
   hoveredId: string | null;
   displayedSkillId: string;
   setHoveredId: (id: string | null) => void;
   setDisplayedSkillId: (id: string) => void;
   setShowEngineerDesc: (v: boolean) => void;
   position: { x: number; y: number };
-  displayLabel?: string;
 };
 
 export function SkillButton({
-  skill,
+  skillId,
+  icon,
+  label,
   hoveredId,
   displayedSkillId,
   setHoveredId,
   setDisplayedSkillId,
   setShowEngineerDesc,
   position,
-  displayLabel,
 }: Props) {
-  const isActive = hoveredId === skill.id || displayedSkillId === skill.id;
+  const isActive = hoveredId === skillId || displayedSkillId === skillId;
 
   return (
     <button
       style={{ left: `${50 + position.x}%`, top: `${50 + position.y}%` }}
       onClick={() => {
-        setHoveredId(skill.id);
-        setDisplayedSkillId(skill.id);
+        setHoveredId(skillId);
+        setDisplayedSkillId(skillId);
         setShowEngineerDesc(false);
       }}
       onMouseEnter={() => {
-        setHoveredId(skill.id);
-        setDisplayedSkillId(skill.id);
+        setHoveredId(skillId);
+        setDisplayedSkillId(skillId);
         setShowEngineerDesc(false);
       }}
       onFocus={() => {
-        setHoveredId(skill.id);
-        setDisplayedSkillId(skill.id);
+        setHoveredId(skillId);
+        setDisplayedSkillId(skillId);
         setShowEngineerDesc(false);
       }}
       onMouseLeave={() => setHoveredId(null)}
@@ -62,14 +63,14 @@ export function SkillButton({
       />
 
       <SvgIcon
-        id={skill.icon}
+        id={icon}
         className={clsx(
           'h-4 w-4 fill-none stroke-[1.8] transition-colors sm:h-4.5 sm:w-4.5',
           isActive ? 'stroke-cyan-300' : 'stroke-slate-400 group-hover:stroke-cyan-300'
         )}
       />
       <span className="text-[11px] font-medium tracking-wide sm:text-xs">
-        {displayLabel ?? skill.label}
+        {label}
       </span>
     </button>
   );

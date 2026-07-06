@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { SvgIcon } from '../shared/SvgSprite';
 import { useLanguage } from '../../context/LanguageContext';
-import { contactItems } from '../../data/portfolio';
+import { getContactItems } from '../../data';
 import { MagicCard } from '../ui/MagicCard';
 
 export function ContactSection() {
   const { lang, t } = useLanguage();
+  const items = getContactItems(lang as 'fr' | 'en');
+  const entries = Object.entries(items);
 
   const iconVariants = {
     hidden: { scale: 0.8, opacity: 0 },
@@ -30,9 +32,9 @@ export function ContactSection() {
             </p>
           </div>
           <ul className="list-none grid grid-cols-1 sm:grid-cols-2 gap-3.5 m-0 p-0">
-            {contactItems.map((item) => (
+            {entries.map(([key, item]) => (
               <motion.li
-                key={item.label}
+                key={key}
                 className="flex items-start gap-3"
                 variants={iconVariants}
                 initial="hidden"
@@ -52,7 +54,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <div className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-0.5">
-                    {lang === 'en' && item.labelEn ? item.labelEn : item.label}
+                    {item.label}
                   </div>
                   {item.href ? (
                     <a href={item.href} className="text-sm font-medium text-white no-underline hover:text-cyan-300 hover:underline">
@@ -60,9 +62,9 @@ export function ContactSection() {
                     </a>
                   ) : (
                     <span className="text-sm font-medium text-white">
-                      {lang === 'en' && item.valueEn ? item.valueEn : item.value}
+                      {item.value}
                       {item.sub && (
-                        <><br /><span className="font-normal text-slate-500 text-xs">{lang === 'en' && item.subEn ? item.subEn : item.sub}</span></>
+                        <><br /><span className="font-normal text-slate-500 text-xs">{item.sub}</span></>
                       )}
                     </span>
                   )}

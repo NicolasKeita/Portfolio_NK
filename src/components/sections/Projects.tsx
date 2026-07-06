@@ -1,12 +1,9 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { Project } from '../../types';
-import { projects } from '../../data/portfolio';
+import { getProjects, getImage } from '../../data';
 import { Modal } from '../projects/Modal';
 import { ProjectCard } from '../projects/ProjectCardComponent';
 import { ProjectModalContent } from '../projects/ProjectModalContent';
-import { localizedText } from '../../utils/localizedText';
-
 
 function SectionHeader() {
   const { t } = useLanguage();
@@ -26,26 +23,26 @@ function SectionHeader() {
   );
 }
 
-
 export function Projects() {
   const { lang } = useLanguage();
-  const [modalProject, setModalProject] = useState<Project | null>(null);
+  const [modalProjectId, setModalProjectId] = useState<string | null>(null);
   const [showContent, setShowContent] = useState(false);
   const rafRef = useRef<number | null>(null);
 
+  const projects = getProjects(lang as 'fr' | 'en');
+
   useEffect(() => {
     const imageUrls = projects.flatMap((project) => project.photos ?? []);
-
     imageUrls.forEach((src) => {
       if (!src) return;
       const img = new window.Image();
       img.decoding = 'async';
-      img.src = src;
+      img.src = getImage(src);
     });
-  }, []);
+  }, [projects]);
 
   useEffect(() => {
-    if (!modalProject) {
+    if (!modalProjectId) {
       setShowContent(false);
       return;
     }
@@ -60,15 +57,17 @@ export function Projects() {
         rafRef.current = null;
       }
     };
-  }, [modalProject]);
+  }, [modalProjectId]);
 
-  const handleOpen = useCallback((project: Project) => {
-    setModalProject(project);
+  const handleOpen = useCallback((id: string) => {
+    setModalProjectId(id);
   }, []);
 
   const handleClose = useCallback(() => {
-    setModalProject(null);
+    setModalProjectId(null);
   }, []);
+
+  const modalProject = modalProjectId ? projects.find((p) => p.id === modalProjectId) ?? null : null;
 
   return (
     <section id="projets" className="py-16 px-8">
@@ -80,8 +79,8 @@ export function Projects() {
             <ProjectCard
               key={project.id}
               project={project}
-              lang={lang}
-              onOpen={() => handleOpen(project)}
+              getImage={getImage}
+              onOpen={() => handleOpen(project.id)}
             />
           ))}
         </div>
@@ -89,10 +88,10 @@ export function Projects() {
 
       {modalProject && (
         <Modal
-          title={localizedText(lang, modalProject.titleEn, modalProject.title)}
+          title={modalProject.title}
           onClose={handleClose}
         >
-          {showContent && <ProjectModalContent project={modalProject} lang={lang} />}
+          {showContent && <ProjectModalContent project={modalProject} getImage={getImage} />}
         </Modal>
       )}
     </section>
