@@ -1,7 +1,6 @@
 import { getNested, locales } from '../i18n/translations';
 import type { Lang } from '../i18n/translations';
 
-// Les images doivent être importées statiquement pour webpack
 import tacticNavAndroid from '../assets/tactic-nav/Android_app_2.png';
 import tacticNavBacklog from '../assets/tactic-nav/backlog_backend.png';
 import tacticNavCockpit from '../assets/tactic-nav/cockpit.png';
@@ -66,7 +65,6 @@ export function getEngineer(lang: Lang) {
   };
 }
 
-// Types pour les données YAML
 export interface ProjectYaml {
   id: string;
   tag: string;

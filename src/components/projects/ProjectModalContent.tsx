@@ -27,7 +27,6 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
     <>
       <Gallery photos={project.photos.map(getImage)} title={project.title} />
 
-      {/* GitHub link */}
       {project.link && (
         <div className="mb-5 mt-4">
           <a
@@ -41,7 +40,6 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
         </div>
       )}
 
-      {/* Project Overview */}
       {hasOverview && (
         <>
           <h3 className={SECTION_TITLE_CLASSES}>
@@ -55,7 +53,6 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
         </>
       )}
 
-      {/* Engineering Challenges */}
       {hasPrologue && (
         <>
           <h3 className={SECTION_TITLE_CLASSES}>
@@ -67,7 +64,6 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
         </>
       )}
 
-      {/* Project Description */}
       {hasDescription && (
         <>
           <h3 className={SECTION_TITLE_CLASSES}>
@@ -79,7 +75,6 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
         </>
       )}
 
-      {/* Techs */}
       <div className="flex flex-wrap gap-1.5">
         {project.techs.map((tech) => (
           <span key={tech} className="font-mono text-xs text-slate-300 bg-white/[0.04] border border-white/10 rounded px-1.5 py-0.5">

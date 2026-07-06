@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { getSkills, getEngineer } from '../../data';
 import { SkillsMapDiagram } from '../skills/SkillsMapDiagram';
@@ -20,21 +20,10 @@ export function SkillsMap() {
 
   const skills = getSkills(lang as 'fr' | 'en');
   const engineer = getEngineer(lang as 'fr' | 'en');
-  const skillsEntries = useMemo(() => Object.entries(skills), [skills]);
-
-  const label = useCallback(
-    (id: string) => skills[id]?.label ?? id,
-    [skills]
-  );
 
   const proof = useCallback(
     (id: string) => skills[id]?.proof ?? '',
     [skills]
-  );
-
-  const activeSkill = useMemo(
-    () => skills[displayedSkillId] ?? skillsEntries[0]?.[1],
-    [displayedSkillId, skills, skillsEntries]
   );
 
   const handleSelectSkill = useCallback((id: string) => {
@@ -60,7 +49,6 @@ export function SkillsMap() {
       />
 
       <SkillsMapDetail
-        activeSkill={activeSkill}
         activeSkillId={displayedSkillId}
         proof={proof}
         engineerDescription={engineer.description}

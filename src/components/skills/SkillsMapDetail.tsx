@@ -1,9 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { SkillCard, CARD_CLASS } from './SkillCard';
-import type { SkillYaml } from '../../data';
 
 type Props = {
-  activeSkill: SkillYaml;
   activeSkillId: string;
   proof: (id: string) => string | undefined;
   engineerDescription: string;
@@ -11,7 +9,6 @@ type Props = {
 };
 
 export function SkillsMapDetail({
-  activeSkill,
   activeSkillId,
   proof,
   engineerDescription,
