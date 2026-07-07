@@ -61,7 +61,6 @@ interface ProjectCardProps {
 function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
   return (
     <MagicCard onClick={onOpen}>
-      {/* Image d'arrière-plan en pleine opacité */}
       {project.bgImage && (
         <div
           className="absolute inset-0 opacity-100 pointer-events-none"
@@ -74,10 +73,8 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
         />
       )}
 
-      {/* Overlay sombre léger au repos, se renforce au hover pour faire ressortir le texte */}
       <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/55 transition-all duration-500 z-[1]" />
 
-      {/* Tags et lien — visibles au repos, plus lumineux au hover */}
       <div className="px-6 pt-5 flex items-center justify-between relative z-10 transition-all duration-500">
         {project.tags ? (
           <ProjectTags tags={project.tags} />
@@ -97,7 +94,6 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
         </a>
       </div>
 
-      {/* Contenu texte — titre visible, description et badges révélés au hover */}
       <div className="px-6 pb-6 pt-5 flex-1 flex flex-col relative z-10">
         <h3 className="font-display font-semibold text-base text-white mb-2">
           {project.title}
