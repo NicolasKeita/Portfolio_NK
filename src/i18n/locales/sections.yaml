@@ -1,5 +1,5 @@
 # ──────────────────────────────────────────────
-#   TRADUCTIONS — fr / en côte à côte
+#   TRANSLATIONS — French / English side by side
 # ──────────────────────────────────────────────
 
 # ── Modal ──
@@ -51,7 +51,7 @@ hero:
       fr: "Me contacter"
       en: "Get in touch"
 
-# ── Projets (UI) ──
+# ── Projects (UI) ──
 projects:
   label:
     fr: "Projets"
@@ -60,7 +60,7 @@ projects:
     fr: "Réalisations"
     en: "My Work"
 
-# ── Formation (UI) ──
+# ── Education (UI) ──
 formation:
   label:
     fr: "Parcours Académique"
@@ -249,7 +249,7 @@ skills:
         I benefited greatly from this framework, notably through Agile methodologies,
         to learn how to align everyone's work and build a cohesive product.
 
-# ── Formations ──
+# ── Education ──
 formations:
   - id: stanford-cs234
     title:
@@ -383,7 +383,7 @@ contactItems:
       fr: "En recherche active"
       en: "Actively seeking"
 
-# ── Projets ──
+# ── Projects ──
 projectsList:
   - id: tactic-nav
     tag:

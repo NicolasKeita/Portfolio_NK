@@ -1,9 +1,10 @@
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import noCommentsInFunctions from './no-comments-in-functions.js';
-import maxFilesPerDirectory from './max-files-per-directory.js';
-import noEmptyDirectories from './no-empty-directories.js';
-import noEmptyFile from './no-empty-file.js';
+import noCommentsInFunctions from './linter_custom_rules/no-comments-in-functions.js';
+import maxFilesPerDirectory from './linter_custom_rules/max-files-per-directory.js';
+import noEmptyDirectories from './linter_custom_rules/no-empty-directories.js';
+import noEmptyFile from './linter_custom_rules/no-empty-file.js';
+import noFrenchComments from './linter_custom_rules/no-french-comments.js';
 
 export default tseslint.config(
   js.configs.recommended,
@@ -16,6 +17,7 @@ export default tseslint.config(
           'max-files-per-directory': maxFilesPerDirectory,
           'no-empty-directories': noEmptyDirectories,
           'no-empty-file': noEmptyFile,
+          'no-french-comments': noFrenchComments,
         },
       },
     },
@@ -25,6 +27,7 @@ export default tseslint.config(
       'local/max-files-per-directory': ['warn', { max: 10 }],
       'local/no-empty-directories': 'warn',
       'local/no-empty-file': 'warn',
+      'local/no-french-comments': 'warn',
       'max-len': ['warn', { code: 180 }],
     },
   },

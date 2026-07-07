@@ -32,7 +32,7 @@ for (const chunk of [ui, skills, education, contact, projects] as TranslationDat
   mergeTranslationData(rawData, chunk);
 }
 
-/** Stock brut du YAML parsé */
+/** Raw parsed YAML data */
 export const store = rawData as TranslationData;
 
 function resolveLanguageNode(value: unknown, lang: Lang): unknown {
@@ -63,7 +63,7 @@ export const locales: Record<Lang, TranslationData> = {
 };
 
 /**
- * Récupère une valeur dans un objet par un chemin "dot notation".
+ * Retrieves a value from an object using dot-notation.
  */
 export function getNested(obj: TranslationData, path: string): unknown {
   const keys = path.split('.');
@@ -76,8 +76,8 @@ export function getNested(obj: TranslationData, path: string): unknown {
 }
 
 /**
- * Résout un bloc { fr: '...', en: '...' } en une string pour la langue donnée.
- * Si la valeur est déjà une string, la retourne directement.
+ * Resolves a { fr: '...', en: '...' } block into a string for the selected language.
+ * If the value is already a string, it returns it directly.
  */
 export function localizedValue(val: unknown, lang: Lang): string {
   if (typeof val === 'string') return val;
@@ -92,8 +92,8 @@ export function localizedValue(val: unknown, lang: Lang): string {
 }
 
 /**
- * Retourne une traduction string depuis la clé dot-path.
- * Résout automatiquement les blocs { fr, en }.
+ * Returns a translated string from a dot-path key.
+ * Automatically resolves { fr, en } blocks.
  */
 export function t(lang: Lang, key: string): string {
   const val = getNested(store, key);
