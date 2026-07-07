@@ -55,7 +55,7 @@ function App() {
         <SiteConstellationLayer />
         <div className="relative z-10">
           <Nav />
-          <main>
+          <main id="main-content">
             <div className="relative z-20">
               <ProfileSection />
             </div>

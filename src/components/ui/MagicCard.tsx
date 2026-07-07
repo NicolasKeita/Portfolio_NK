@@ -9,9 +9,10 @@ interface MagicCardProps {
   className?: string;
   asPanel?: boolean;
   onClick?: (e: React.MouseEvent) => void;
+  'aria-label'?: string;
 }
 
-export function MagicCard({ children, className = '', asPanel = false, onClick }: MagicCardProps) {
+export function MagicCard({ children, className = '', asPanel = false, onClick, 'aria-label': ariaLabel }: MagicCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const rectRef = useRef<DOMRect | null>(null);
 
@@ -49,10 +50,25 @@ export function MagicCard({ children, className = '', asPanel = false, onClick }
         'hover:shadow-[0_22px_80px_rgba(8,47,73,0.38),0_0_0_1px_rgba(34,211,238,0.08)]'
       );
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      onClick(e as unknown as React.MouseEvent);
+    }
+  };
+
   return (
     <motion.div
       ref={cardRef}
       className={clsx('magic-card', baseClasses, className)}
+      {...(onClick && !asPanel
+        ? {
+            role: 'button',
+            tabIndex: 0,
+            'aria-label': ariaLabel,
+            onKeyDown: handleKeyDown,
+          }
+        : {})}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onClick={onClick}

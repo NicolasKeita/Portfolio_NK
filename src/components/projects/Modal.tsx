@@ -1,6 +1,7 @@
 import { useEffect, useRef, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 
 interface ModalProps {
   title: string;
@@ -11,6 +12,9 @@ interface ModalProps {
 export function Modal({ title, children, onClose }: ModalProps) {
   const { t } = useLanguage();
   const overlayRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(panelRef, true, onClose);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -18,14 +22,6 @@ export function Modal({ title, children, onClose }: ModalProps) {
       document.body.style.overflow = '';
     };
   }, []);
-
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [onClose]);
 
   const handleOverlayClick = (e: React.MouseEvent) => {
     if (e.target === overlayRef.current) onClose();
@@ -41,8 +37,12 @@ export function Modal({ title, children, onClose }: ModalProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
       >
         <motion.div
+          ref={panelRef}
           className={`
             relative rounded-xl max-w-2xl w-11/12 max-h-[90vh] overflow-y-auto p-8
             border border-white/10 bg-gradient-to-br from-slate-900/80 to-slate-800/50
@@ -52,6 +52,7 @@ export function Modal({ title, children, onClose }: ModalProps) {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
+          tabIndex={-1}
         >
           <button
             className={`

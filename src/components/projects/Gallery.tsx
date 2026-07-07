@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 
 interface GalleryProps {
   photos: string[];
@@ -66,6 +67,9 @@ function LazyGalleryImage({
 
 export function Gallery({ photos, title }: GalleryProps) {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
+  const lightboxRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(lightboxRef, selectedImg !== null, () => setSelectedImg(null));
 
   if (!photos || photos.length === 0) return null;
 
@@ -96,12 +100,17 @@ export function Gallery({ photos, title }: GalleryProps) {
         <AnimatePresence>
           <motion.div
             key="lightbox"
+            ref={lightboxRef}
             className="fixed inset-0 z-[60] bg-black/92 cursor-pointer flex items-center justify-center"
             onClick={closeLightbox}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${title} – image agrandie`}
+            tabIndex={-1}
           >
             <button
               className={`
@@ -110,12 +119,13 @@ export function Gallery({ photos, title }: GalleryProps) {
                 opacity-70 hover:opacity-100 transition-opacity leading-none
               `}
               onClick={closeLightbox}
+              aria-label="Fermer"
             >
               ✕
             </button>
             <motion.img
               src={selectedImg}
-              alt=""
+              alt={`${title} – image agrandie`}
               className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-lg cursor-default"
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, scale: 0.9 }}

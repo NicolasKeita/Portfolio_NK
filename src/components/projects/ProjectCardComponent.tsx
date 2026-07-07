@@ -21,7 +21,7 @@ const LINK_BUTTON_CLASSES =
   'hover:border-cyan-300/60 hover:text-white hover:bg-cyan-400/10 transition-colors';
 
 const TECH_BADGE_CLASSES =
-  'font-mono text-xs text-slate-200 bg-white/[0.08] border border-white/20 rounded px-1.5 py-0.5';
+  'font-mono text-xs text-white bg-slate-700/80 border border-white/20 rounded px-1.5 py-0.5';
 
 function ProjectTag({ tagClass, tag }: { tagClass: string; tag: string }) {
   return (
@@ -60,7 +60,7 @@ interface ProjectCardProps {
 
 function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
   return (
-    <MagicCard onClick={onOpen}>
+    <MagicCard onClick={onOpen} aria-label={`Voir le projet : ${project.title}`}>
       {project.bgImage && (
         <div
           className="absolute inset-0 opacity-100 pointer-events-none"
