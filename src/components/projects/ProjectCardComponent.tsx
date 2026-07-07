@@ -123,6 +123,4 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
   );
 }
 
-export const ProjectCard = memo(ProjectCardBase, (prev, next) => {
-  return prev.project.id === next.project.id;
-});
+export const ProjectCard = memo(ProjectCardBase);

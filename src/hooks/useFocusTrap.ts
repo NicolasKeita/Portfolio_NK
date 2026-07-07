@@ -1,9 +1,5 @@
 import { useEffect, useRef, type RefObject } from 'react';
 
-/**
- * Piège le focus clavier à l'intérieur d'un élément (focus trap).
- * Gère aussi la fermeture avec Escape.
- */
 export function useFocusTrap(
   containerRef: RefObject<HTMLElement | null>,
   isActive: boolean,
@@ -14,11 +10,9 @@ export function useFocusTrap(
   useEffect(() => {
     if (!isActive) return;
 
-    // Sauvegarder l'élément qui avait le focus avant ouverture
     previousFocusRef.current = document.activeElement as HTMLElement;
 
     return () => {
-      // Restaurer le focus à la fermeture
       previousFocusRef.current?.focus();
     };
   }, [isActive]);
@@ -29,7 +23,6 @@ export function useFocusTrap(
     const container = containerRef.current;
     if (!container) return;
 
-    // Focus le premier élément focusable à l'ouverture
     const focusableSelector =
       'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -47,7 +40,6 @@ export function useFocusTrap(
       }
     };
 
-    // Petit timeout pour laisser le DOM se mettre à jour
     requestAnimationFrame(focusFirstElement);
 
     const handleKeyDown = (e: KeyboardEvent) => {
