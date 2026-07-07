@@ -1,0 +1,45 @@
+id: champ-select
+tag:
+  fr: "Web"
+  en: "Web"
+tagClass: "tag-web"
+title:
+  fr: "Champ Select Winrate"
+  en: "Champ Select Winrate"
+description:
+  fr: >-
+    Application compagnon desktop pour League of Legends (70k téléchargements).
+    Dev web full-stack, React, AWS.
+  en: >-
+    Desktop companion app for League of Legends (70k downloads).
+    Full-stack web development, React, AWS.
+prologue:
+  fr: >-
+    Au-delà du développement web, ce projet illustre ma capacité à construire
+    un produit complet : intégration d'API tierces, architecture full-stack
+    React/AWS, déploiement cloud et collaboration avec les équipes QA d'Overwolf
+    jusqu'à la validation du produit.
+  en: >-
+    Beyond web development, this project demonstrates my ability to build
+    a complete product: third-party API integration, full-stack React/AWS
+    architecture, cloud deployment and collaboration with Overwolf's QA teams
+    until product validation.
+overview:
+  fr:
+    - "Application desktop companion pour League of Legends (70k téléchargements)"
+    - "Intégration d'API Riot Games pour l'analyse des winrates en phase de sélection"
+    - "Architecture full-stack React + AWS (déploiement cloud)"
+    - "Collaboration avec les équipes QA d'Overwolf jusqu'à validation du produit"
+    - "Déploiement et distribution via la plateforme Overwolf"
+  en:
+    - "Desktop companion app for League of Legends (70k downloads)"
+    - "Riot Games API integration for winrate analysis during champion select"
+    - "Full-stack React + AWS architecture (cloud deployment)"
+    - "Collaboration with Overwolf QA teams until product validation"
+    - "Deployment and distribution via the Overwolf platform"
+techs: ["React", "AWS", "Full-stack"]
+link: "https://github.com/NicolasKeita/Champ_select_winrate"
+bgImage: "champ-select/CSW_2.jpg"
+photos:
+  - "champ-select/CSW_1.jpg"
+  - "champ-select/CSW_2.jpg"

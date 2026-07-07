@@ -1,0 +1,71 @@
+id: mars-lander-rl
+tag:
+  fr: "IA"
+  en: "AI"
+tagClass: "tag-ai"
+title:
+  fr: "IA et Reinforcement Learning — Mars Lander, Lunar Lander et défis OpenAI Gym"
+  en: "AI and Reinforcement Learning — Mars Lander, Lunar Lander and OpenAI Gym challenges"
+description:
+  fr: >-
+    Développement d'agents autonomes utilisant des techniques de Reinforcement Learning sur plusieurs
+    environnements OpenAI Gym, ainsi que sur Mars Lander (Codingame) et Lunar Lander.
+
+    Le projet explore la conception d'agents capables de prendre des décisions en temps réel dans un espace
+    d'état continu, avec contraintes physiques (gravité, poussée, carburant, stabilité). Ces environnements
+    constituent des cas d'étude classiques pour des problématiques de contrôle, de prise de décision séquentielle et d'optimisation.
+
+    Travail réalisé :
+    * Implémentation d'agents basés sur des méthodes de Reinforcement Learning (Q-Learning, algorithmes de type Policy Gradient)
+    * Entraînement sur des environnements OpenAI Gym et adaptation sur un environnement Codingame (Mars Lander)
+    * Analyse des fonctions de récompense et de leur impact sur l'apprentissage et les performances des agents
+    * Optimisation des performances d'atterrissage via l'ajustement des hyperparamètres et le reward shaping
+    * Étude comparative des comportements des agents selon les architectures testées
+
+    Formation des compétences via des ressources académiques en ligne, notamment le cours de Reinforcement Learning CS234 de Stanford University.
+  en: >-
+    Development of autonomous agents using Reinforcement Learning techniques across multiple
+    OpenAI Gym environments, as well as Mars Lander (Codingame) and Lunar Lander.
+
+    The project explores the design of agents capable of making real-time decisions in a continuous
+    state space, with physical constraints (gravity, thrust, fuel, stability). These environments are classic
+    case studies for control problems, sequential decision-making, and optimization.
+
+    Work accomplished:
+    * Implementation of agents based on Reinforcement Learning methods (Q-Learning, Policy Gradient algorithms)
+    * Training on OpenAI Gym environments and adaptation to a Codingame environment (Mars Lander)
+    * Analysis of reward functions and their impact on agent learning and performance
+    * Landing performance optimization via hyperparameter tuning and reward shaping
+    * Comparative study of agent behaviors across tested architectures
+
+    Skill development through online academic resources, including Stanford University's CS234 Reinforcement Learning course.
+prologue:
+  fr: >-
+    Je maîtrise les principes de création de l'IA, et ce projet prouve ma capacité
+    à développer des agents intelligents et à conduire des travaux complexes
+    fondés sur l'étude de publications scientifiques de pointe.
+  en: >-
+    I master the principles of AI creation, and this project proves my ability
+    to develop intelligent agents and conduct complex work based on the study
+    of cutting-edge scientific publications.
+overview:
+  fr:
+    - "Développement d'agents autonomes par Reinforcement Learning (Q-Learning, Policy Gradient)"
+    - "Environnements multiples : OpenAI Gym, Codingame Mars Lander, Lunar Lander"
+    - "Prise de décision temps réel en espace d'état continu avec contraintes physiques"
+    - "Analyse des fonctions de récompense et optimisation par reward shaping et hyperparamètres"
+    - "Étude basée sur le cours CS234 Reinforcement Learning de Stanford University"
+  en:
+    - "Development of autonomous agents using Reinforcement Learning (Q-Learning, Policy Gradient)"
+    - "Multiple environments: OpenAI Gym, Codingame Mars Lander, Lunar Lander"
+    - "Real-time decision-making in continuous state space with physics constraints"
+    - "Reward function analysis and optimization through reward shaping and hyperparameter tuning"
+    - "Based on Stanford University's CS234 Reinforcement Learning course"
+techs: ["Python", "Reinforcement Learning", "OpenAI Gym"]
+link: "https://github.com/NicolasKeita"
+bgImage: "mars-lander/humanoid_standup.gif"
+photos:
+  - "mars-lander/codinggame_mars_lander.png"
+  - "mars-lander/space_x_falcon_9_landing.png"
+  - "mars-lander/space_X_falcon_9_launch.png"
+  - "mars-lander/humanoid_standup.gif"
