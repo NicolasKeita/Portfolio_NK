@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  turbopack: {
+    rules: {
+      '*.yaml': ['yaml-loader'],
+    },
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.ya?ml$/,

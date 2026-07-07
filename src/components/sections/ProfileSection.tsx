@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -42,7 +43,13 @@ export function ProfileSection() {
                     hover:scale-102
                   `}
                 >
-                  <img src="/photo-profil.jpg" alt="Nicolas Keita" className="w-full h-full object-cover absolute inset-0 rounded-full" loading="lazy" />
+                  <Image
+                    src="/photo-profil.jpg"
+                    alt="Nicolas Keita"
+                    width={340}
+                    height={340}
+                    className="w-full h-full object-cover absolute inset-0 rounded-full"
+                  />
                 </div>
               </motion.div>
             </div>

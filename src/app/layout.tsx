@@ -8,7 +8,7 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
-  preload: false,
+  preload: true,
 
 });
 
@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
-  preload: false,
+  preload: true,
 
 });
 
@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
   display: 'swap',
-  preload: false,
+  preload: true,
 
 });
 

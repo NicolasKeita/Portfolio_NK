@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { FpsCounter } from './components/debug/FpsCounter';
 import { LanguageProvider } from './context/LanguageContext';
+import { LangSetter } from './components/shared/LangSetter';
 import { SvgSprite } from './components/shared/SvgSprite';
 import { Nav } from './components/layout/Nav';
 import { ProfileSection } from './components/sections/ProfileSection';
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <LanguageProvider>
+      <LangSetter />
       {process.env.NODE_ENV === 'development' && <FpsCounter />}
       <SvgSprite />
       <div className="relative z-0 min-h-screen">
