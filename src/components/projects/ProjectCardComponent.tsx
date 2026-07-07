@@ -21,7 +21,7 @@ const LINK_BUTTON_CLASSES =
   'hover:border-cyan-300/60 hover:text-white hover:bg-cyan-400/10 transition-colors';
 
 const TECH_BADGE_CLASSES =
-  'font-mono text-xs text-slate-300 bg-white/[0.04] border border-white/10 rounded px-1.5 py-0.5';
+  'font-mono text-xs text-slate-200 bg-white/[0.08] border border-white/20 rounded px-1.5 py-0.5';
 
 function ProjectTag({ tagClass, tag }: { tagClass: string; tag: string }) {
   return (
@@ -61,9 +61,10 @@ interface ProjectCardProps {
 function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
   return (
     <MagicCard onClick={onOpen}>
+      {/* Image d'arrière-plan en pleine opacité */}
       {project.bgImage && (
         <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
+          className="absolute inset-0 opacity-100 pointer-events-none"
           style={{
             backgroundImage: `url(${getImage(project.bgImage)})`,
             backgroundSize: 'contain',
@@ -73,7 +74,11 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
         />
       )}
 
-      <div className="px-6 pt-5 flex items-center justify-between relative z-10">
+      {/* Overlay sombre léger au repos, se renforce au hover pour faire ressortir le texte */}
+      <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/55 transition-all duration-500 z-[1]" />
+
+      {/* Tags et lien — visibles au repos, plus lumineux au hover */}
+      <div className="px-6 pt-5 flex items-center justify-between relative z-10 transition-all duration-500">
         {project.tags ? (
           <ProjectTags tags={project.tags} />
         ) : (
@@ -92,27 +97,30 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
         </a>
       </div>
 
+      {/* Contenu texte — titre visible, description et badges révélés au hover */}
       <div className="px-6 pb-6 pt-5 flex-1 flex flex-col relative z-10">
         <h3 className="font-display font-semibold text-base text-white mb-2">
           {project.title}
         </h3>
 
-        {project.overview && project.overview.length > 0 ? (
-          <ul className="text-sm text-slate-400 leading-relaxed flex-1 mb-5 list-disc list-inside space-y-1">
-            {project.overview.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-sm text-slate-400 leading-relaxed flex-1 mb-5 whitespace-pre-line">
-            {project.prologue ?? project.description}
-          </p>
-        )}
+        <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 flex-1 flex flex-col bg-slate-900/70 rounded-lg p-3 -mx-3">
+          {project.overview && project.overview.length > 0 ? (
+            <ul className="text-sm text-slate-200 leading-relaxed flex-1 mb-5 list-disc list-inside space-y-1">
+              {project.overview.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-sm text-slate-200 leading-relaxed flex-1 mb-5 whitespace-pre-line">
+              {project.prologue ?? project.description}
+            </p>
+          )}
 
-        <div className="flex flex-wrap gap-1.5">
-          {project.techs.map((tech) => (
-            <TechBadge key={tech} tech={tech} />
-          ))}
+          <div className="flex flex-wrap gap-1.5">
+            {project.techs.map((tech) => (
+              <TechBadge key={tech} tech={tech} />
+            ))}
+          </div>
         </div>
       </div>
     </MagicCard>

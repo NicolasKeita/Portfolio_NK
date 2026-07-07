@@ -45,6 +45,7 @@ projectsList:
         - "Performance validated through benchmarking on embedded hardware"
     techs: ["Java", "Android", "Temps réel"]
     link: "https://github.com/NicolasKeita/Tactic-Nav"
+    bgImage: "tactic-nav/Android_app_2.png"
     photos:
       - "tactic-nav/Android_app_2.png"
       - "tactic-nav/schema_architecture.png"
@@ -193,7 +194,7 @@ projectsList:
         - "Consistent wins in international bug bounty competitions on Algora.io"
     techs: ["C++", "Qt", "Sentry", "Tests fonctionnels", "Architecture modulaire"]
     link: "https://github.com/Mudlet/Mudlet/pulls?q=is%3Apr+is%3Aclosed+author%3ANicolasKeita"
-    bgImage: "mudlet/ISO_C++_Logo.svg.webp"
+    bgImage: "mudlet/game_1.png"
     photos:
       - "mudlet/game_1.png"
       - "mudlet/game_2.png"
