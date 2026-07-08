@@ -82,16 +82,34 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
           <ProjectTag tagClass={project.tagClass} tag={project.tag} />
         )}
 
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noreferrer"
-          className={LINK_BUTTON_CLASSES}
-          title="Voir le projet"
-          onClick={(e) => e.stopPropagation()}
-        >
-          ↗
-        </a>
+        <div className="flex gap-1.5">
+          {project.links ? (
+            project.links.map((link) => (
+              <a
+                key={link.url}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+                className={LINK_BUTTON_CLASSES}
+                title={link.label}
+                onClick={(e) => e.stopPropagation()}
+              >
+                ↗
+              </a>
+            ))
+          ) : (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className={LINK_BUTTON_CLASSES}
+              title="Voir le projet"
+              onClick={(e) => e.stopPropagation()}
+            >
+              ↗
+            </a>
+          )}
+        </div>
       </div>
 
       <div className="px-6 pb-6 pt-5 flex-1 flex flex-col relative z-10">

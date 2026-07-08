@@ -63,6 +63,13 @@ overview:
     - "Based on Stanford University's CS234 Reinforcement Learning course"
 techs: ["Python", "Reinforcement Learning", "OpenAI Gym"]
 link: "https://github.com/NicolasKeita"
+links:
+  - url: "https://github.com/NicolasKeita/Rocket_Landing_Genetic_Algorithm"
+    label: "Rocket Landing"
+  - url: "https://github.com/NicolasKeita/Runner_AI"
+    label: "Mini - Runner AI"
+  - url: "https://github.com/NicolasKeita/Self_Driving_Car_AI"
+    label: "Mini - Self Driving Car AI"
 bgImage: "mars-lander/humanoid_standup.gif"
 photos:
   - "mars-lander/codinggame_mars_lander.png"

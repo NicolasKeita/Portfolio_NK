@@ -65,6 +65,11 @@ export function getEngineer(lang: Lang) {
   };
 }
 
+export interface ProjectLink {
+  url: string;
+  label: string;
+}
+
 export interface ProjectYaml {
   id: string;
   tag: string;
@@ -76,6 +81,7 @@ export interface ProjectYaml {
   overview?: string[];
   techs: string[];
   link: string;
+  links?: ProjectLink[];
   bgImage?: string;
   photos: string[];
 }
