@@ -1,5 +1,7 @@
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import stylistic from '@stylistic/eslint-plugin';
+
 import noCommentsInFunctions from './linter_custom_rules/no-comments-in-functions.js';
 import maxFilesPerDirectory from './linter_custom_rules/max-files-per-directory.js';
 import noEmptyDirectories from './linter_custom_rules/no-empty-directories.js';
@@ -11,6 +13,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   {
     plugins: {
+      '@stylistic': stylistic,
       local: {
         rules: {
           'no-comments-in-functions': noCommentsInFunctions,
@@ -28,7 +31,13 @@ export default tseslint.config(
       'local/no-empty-directories': 'warn',
       'local/no-empty-file': 'warn',
       'local/no-french-comments': 'warn',
+
       'max-len': ['warn', { code: 180 }],
+
+      '@stylistic/indent': ['error', 2],
+      '@stylistic/semi': ['error', 'always'],
+      '@stylistic/eol-last': ['error', 'always'],
+      '@stylistic/space-infix-ops': 'error',
     },
   },
   {
@@ -38,5 +47,5 @@ export default tseslint.config(
       'out/',
       'public/',
     ],
-  }
+  },
 );
