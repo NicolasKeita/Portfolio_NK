@@ -22,7 +22,7 @@
     "build": "next build --webpack",
     "start": "next start --webpack",
     "lint": "eslint src/",
-    "format": "prettier --write ."
+    "format": "eslint src --fix"
   },
   "devDependencies": {
     "@eslint/js": ">=10.0.1",
