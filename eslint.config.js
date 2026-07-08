@@ -39,6 +39,16 @@ export default tseslint.config(
       '@stylistic/eol-last': ['error', 'always'],
       '@stylistic/space-infix-ops': 'error',
       'linebreak-style': ['error', 'unix'],
+      '@stylistic/object-curly-spacing': ['error', 'always'],
+      '@stylistic/comma-spacing': [
+        'error',
+        {
+          before: false,
+          after: true,
+        },
+      ],
+      '@stylistic/space-before-blocks': ['error', 'always'],
+      '@stylistic/no-trailing-spaces': 'error',
     },
   },
   {

@@ -29,7 +29,7 @@ const PROOF_REGEX = new RegExp(`(${ESCAPED_NAMES})`, 'g');
 function renderProof(text: string) {
   if (!text) return '';
   const parts = text.split(PROOF_REGEX);
-  
+
   return parts.map((part, i) => {
     const handler = LINK_MAP[part];
     return handler ? (
