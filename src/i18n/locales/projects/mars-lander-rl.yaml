@@ -7,7 +7,7 @@ title:
   fr: "IA et Reinforcement Learning — Mars Lander, Lunar Lander et défis OpenAI Gym"
   en: "AI and Reinforcement Learning — Mars Lander, Lunar Lander and OpenAI Gym challenges"
 description:
-  fr: >-
+  fr: |-
     Développement d'agents autonomes utilisant des techniques de Reinforcement Learning sur plusieurs
     environnements OpenAI Gym, ainsi que sur Mars Lander (Codingame) et Lunar Lander.
 
@@ -23,7 +23,7 @@ description:
     * Étude comparative des comportements des agents selon les architectures testées
 
     Formation des compétences via des ressources académiques en ligne, notamment le cours de Reinforcement Learning CS234 de Stanford University.
-  en: >-
+  en: |-
     Development of autonomous agents using Reinforcement Learning techniques across multiple
     OpenAI Gym environments, as well as Mars Lander (Codingame) and Lunar Lander.
 
@@ -40,11 +40,11 @@ description:
 
     Skill development through online academic resources, including Stanford University's CS234 Reinforcement Learning course.
 prologue:
-  fr: >-
+  fr: |-
     Je maîtrise les principes de création de l'IA, et ce projet prouve ma capacité
     à développer des agents intelligents et à conduire des travaux complexes
     fondés sur l'étude de publications scientifiques de pointe.
-  en: >-
+  en: |-
     I master the principles of AI creation, and this project proves my ability
     to develop intelligent agents and conduct complex work based on the study
     of cutting-edge scientific publications.

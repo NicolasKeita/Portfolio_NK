@@ -16,14 +16,14 @@ description:
     a standard used in real aviation for aircraft position transmission,
     receiving and displaying real-time air traffic on a map.
 prologue:
-  fr: >-
+  fr: |-
     Au-delà de son contexte aéronautique, ce projet constitue un exercice complet
     d'ingénierie logicielle couvrant :
     - le développement mobile Android
     - l'assurance d'une application sans crash grâce à des tests automatisés variés
     - l'optimisation bas niveau nécessaire au respect d'objectifs de performance stricts
     (aucun crash ni perte de FPS n'est autorisé en plein vol), avec validation par benchmarking
-  en: >-
+  en: |-
     Beyond its aeronautical context, this project is a complete software engineering
     exercise covering:
     - Android mobile development

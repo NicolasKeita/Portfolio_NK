@@ -40,7 +40,7 @@ description:
     • Making Mudlet modular: detaching the Qt front-end from the software core
     to prepare a mobile version and adopt a more suitable front-end than Qt for mobile.
 prologue:
-  fr: >-
+  fr: |-
     Cette expérience met en évidence ma capacité à comprendre rapidement
     des codebases énormes et complexes sous contrainte de temps.
 
@@ -48,8 +48,8 @@ prologue:
     (sur Algora.io), j'ai à plusieurs reprises identifié et corrigé des problèmes
     avant d'autres participants, notamment des ingénieurs logiciels issus
     des États-Unis, de Chine et d'Inde, afin d'obtenir la prime associée.
-  en: >-
-    This experience highlights my ability to quickly understand enormous
+  en: |-
+    This experience highlights my ability to understand enormous
     and complex codebases under time constraints.
 
     During international paid bug bounty competitions (on Algora.io),
