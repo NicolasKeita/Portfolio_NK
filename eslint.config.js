@@ -38,6 +38,7 @@ export default tseslint.config(
       '@stylistic/semi': ['error', 'always'],
       '@stylistic/eol-last': ['error', 'always'],
       '@stylistic/space-infix-ops': 'error',
+      'linebreak-style': ['error', 'unix'],
     },
   },
   {
