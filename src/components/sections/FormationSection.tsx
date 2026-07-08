@@ -39,24 +39,24 @@ export function FormationSection() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-          {formations.map((f, i) => (
-            <motion.div
-              key={f.id ?? i}
-              variants={itemVariant}
-              className="py-7 border-b border-white/10 last:border-b-0"
-            >
-              <div className="font-display font-semibold text-lg text-white mb-1">
-                {f.title}
-              </div>
-              <div className="text-sm text-cyan-200/80 mb-2">
-                {f.org}
-              </div>
-              <div className="text-sm text-slate-400 leading-relaxed">
-                {f.desc}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+            {formations.map((f, i) => (
+              <motion.div
+                key={f.id ?? i}
+                variants={itemVariant}
+                className="py-7 border-b border-white/10 last:border-b-0"
+              >
+                <div className="font-display font-semibold text-lg text-white mb-1">
+                  {f.title}
+                </div>
+                <div className="text-sm text-cyan-200/80 mb-2">
+                  {f.org}
+                </div>
+                <div className="text-sm text-slate-400 leading-relaxed">
+                  {f.desc}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </MagicCard>
       </div>
     </section>

@@ -105,8 +105,8 @@ export function SiteConstellationLayer() {
               index % 3 === 0
                 ? '#67e8f9'
                 : index % 3 === 1
-                ? '#93c5fd'
-                : '#c4b5fd'
+                  ? '#93c5fd'
+                  : '#c4b5fd'
             }
             opacity={index % 5 === 0 ? 0.42 : 0.24}
             filter="url(#siteConstellationGlow)"
