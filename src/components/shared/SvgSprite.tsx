@@ -15,15 +15,6 @@ export function SvgSprite() {
         <polyline points="16 18 22 12 16 6" />
         <polyline points="8 6 2 12 8 18" />
       </symbol>
-      <symbol id="i-terminal" viewBox="0 0 24 24">
-        <rect x="3" y="4" width="18" height="16" rx="2" />
-        <polyline points="7 9 11 12 7 15" />
-        <line x1="12" y1="15" x2="16" y2="15" />
-      </symbol>
-      <symbol id="i-refresh" viewBox="0 0 24 24">
-        <path d="M21 12a9 9 0 1 1-3-6.7" />
-        <polyline points="21 3 21 9 15 9" />
-      </symbol>
       <symbol id="i-layout" viewBox="0 0 24 24">
         <rect x="3" y="3" width="18" height="18" rx="2" />
         <line x1="3" y1="9" x2="21" y2="9" />
@@ -44,21 +35,11 @@ export function SvgSprite() {
         <circle cx="12" cy="12" r="5" />
         <circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none" />
       </symbol>
-      <symbol id="i-send" viewBox="0 0 24 24">
-        <line x1="22" y1="2" x2="11" y2="13" />
-        <polygon points="22 2 15 22 11 13 2 9 22 2" />
-      </symbol>
       <symbol id="i-branch" viewBox="0 0 24 24">
         <line x1="6" y1="3" x2="6" y2="15" />
         <circle cx="6" cy="18" r="2.2" />
         <circle cx="18" cy="6" r="2.2" />
         <path d="M18 8.2a6 6 0 0 1-6 6h-1" />
-      </symbol>
-      <symbol id="i-bars" viewBox="0 0 24 24">
-        <line x1="5" y1="20" x2="5" y2="13" />
-        <line x1="12" y1="20" x2="12" y2="7" />
-        <line x1="19" y1="20" x2="19" y2="11" />
-        <line x1="3" y1="20" x2="21" y2="20" />
       </symbol>
       <symbol id="i-mail" viewBox="0 0 24 24">
         <rect x="3" y="5" width="18" height="14" rx="2" />

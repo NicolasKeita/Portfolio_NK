@@ -26,11 +26,6 @@ export function SkillsMap() {
     [skills]
   );
 
-  const handleSelectSkill = useCallback((id: string) => {
-    setDisplayedSkillId(id);
-    setShowEngineerDesc(false);
-  }, []);
-
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 pt-4 pb-4 space-y-6">
       <div className={GRADIENT_CLASS} />
@@ -43,7 +38,6 @@ export function SkillsMap() {
         setIsCenterHovered={setIsCenterHovered}
         setDisplayedSkillId={setDisplayedSkillId}
         setShowEngineerDesc={setShowEngineerDesc}
-        onSelectSkill={handleSelectSkill}
         skills={skills}
         centerLabel={engineer.label}
       />

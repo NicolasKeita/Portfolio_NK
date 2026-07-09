@@ -10,7 +10,6 @@ type Props = {
   setIsCenterHovered: (value: boolean) => void;
   setDisplayedSkillId: (id: string) => void;
   setShowEngineerDesc: (value: boolean) => void;
-  onSelectSkill: (id: string) => void;
   skills: Record<string, SkillYaml>;
   centerLabel: string;
 };
@@ -35,7 +34,6 @@ export function SkillsMapDiagram({
   setIsCenterHovered,
   setDisplayedSkillId,
   setShowEngineerDesc,
-  onSelectSkill,
   skills,
   centerLabel,
 }: Props) {
@@ -47,10 +45,7 @@ export function SkillsMapDiagram({
           layoutPositions={SKILL_POSITIONS}
           activeId={displayedSkillId}
           hoveredId={hoveredId}
-          onSelect={onSelectSkill}
-          onHover={setHoveredId}
           isCenterHovered={isCenterHovered}
-          onCenterHover={setIsCenterHovered}
           centerLabel={centerLabel}
         />
 

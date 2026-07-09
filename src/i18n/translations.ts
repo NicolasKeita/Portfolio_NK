@@ -33,7 +33,7 @@ for (const chunk of [ui, skills, education, contact, projects] as TranslationDat
 }
 
 /** Raw parsed YAML data */
-export const store = rawData as TranslationData;
+const store = rawData as TranslationData;
 
 function resolveLanguageNode(value: unknown, lang: Lang): unknown {
   if (Array.isArray(value)) {
@@ -79,7 +79,7 @@ export function getNested(obj: TranslationData, path: string): unknown {
  * Resolves a { fr: '...', en: '...' } block into a string for the selected language.
  * If the value is already a string, it returns it directly.
  */
-export function localizedValue(val: unknown, lang: Lang): string {
+function localizedValue(val: unknown, lang: Lang): string {
   if (typeof val === 'string') return val;
   if (val && typeof val === 'object') {
     const v = val as Record<string, unknown>;

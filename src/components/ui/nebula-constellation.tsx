@@ -7,12 +7,8 @@ interface NebulaConstellationProps {
   layoutPositions?: Record<string, LayoutPosition>;
   activeId: string | null;
   hoveredId: string | null;
-  onSelect: (id: string) => void;
-  onHover: (id: string | null) => void;
   isCenterHovered: boolean;
-  onCenterHover: (v: boolean) => void;
   centerLabel: string;
-  centerSub?: string;
 }
 
 const STAR_COUNT = 96;
@@ -83,7 +79,6 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     hoveredId,
     isCenterHovered,
     centerLabel,
-    centerSub,
   } = props;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -264,13 +259,7 @@ export function NebulaConstellation(props: NebulaConstellationProps) {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(centerLabel, cx, cy + ringR + Math.min(w, h) * 0.015);
-
-    if (centerSub) {
-      ctx.fillStyle = toRgba('148, 163, 184', centerActive ? 0.7 : 0.5);
-      ctx.font = `${Math.min(w, h) * 0.01}px system-ui, sans-serif`;
-      ctx.fillText(centerSub, cx, cy + ringR + Math.min(w, h) * 0.033);
-    }
-  }, [skillIds, skillPositions, hoveredId, activeId, isCenterHovered, centerLabel, centerSub, toCanvas]);
+  }, [skillIds, skillPositions, hoveredId, activeId, isCenterHovered, centerLabel, toCanvas]);
 
   useEffect(() => {
     draw();
