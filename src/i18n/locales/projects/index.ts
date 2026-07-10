@@ -4,9 +4,9 @@ import mudlet from './mudlet.yaml';
 import champSelect from './champ-select.yaml';
 
 const projectsList = [
-  tacticNav,
-  marsLanderRl,
   mudlet,
+  marsLanderRl,
+  tacticNav,
   champSelect,
 ];
 
