@@ -8,8 +8,7 @@ title:
   en: "AI and Reinforcement Learning — Mars Lander, Lunar Lander and OpenAI Gym challenges"
 description:
   fr: |-
-    Développement d'agents autonomes utilisant des techniques de Reinforcement Learning sur plusieurs
-    environnements OpenAI Gym, ainsi que sur Mars Lander (Codingame) et Lunar Lander.
+    Développement d'agents autonomes utilisant des techniques de Reinforcement Learning sur plusieurs environnements OpenAI Gym, ainsi que sur Mars Lander (Codingame) et Lunar Lander.
 
     Le projet explore la conception d'agents capables de prendre des décisions en temps réel dans un espace
     d'état continu, avec contraintes physiques (gravité, poussée, carburant, stabilité). Ces environnements
@@ -24,8 +23,7 @@ description:
 
     Formation des compétences via des ressources académiques en ligne, notamment le cours de Reinforcement Learning CS234 de Stanford University.
   en: |-
-    Development of autonomous agents using Reinforcement Learning techniques across multiple
-    OpenAI Gym environments, as well as Mars Lander (Codingame) and Lunar Lander.
+    Development of autonomous agents using Reinforcement Learning techniques across multiple OpenAI Gym environments, as well as Mars Lander (Codingame) and Lunar Lander.
 
     The project explores the design of agents capable of making real-time decisions in a continuous
     state space, with physical constraints (gravity, thrust, fuel, stability). These environments are classic
