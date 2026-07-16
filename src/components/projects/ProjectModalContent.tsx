@@ -64,7 +64,12 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
           </button>
 
           {dropdownOpen && (
-            <div className="absolute top-full left-0 mt-1 w-64 bg-slate-800 border border-white/10 rounded-lg shadow-xl z-50 overflow-hidden">
+            <div
+              className={[
+                'absolute top-full left-0 mt-1 w-64',
+                'bg-slate-800 border border-white/10 rounded-lg shadow-xl z-50 overflow-hidden',
+              ].join(' ')}
+            >
               {project.links!.map((link) => (
                 <a
                   key={link.url}

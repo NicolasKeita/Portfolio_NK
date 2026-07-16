@@ -82,7 +82,10 @@ export function MagicCard({ children, className = '', asPanel = false, onClick, 
 
       {!asPanel && (
         <motion.div
-          className="pointer-events-none absolute -inset-px scale-0 origin-center transition-transform duration-500 md:group-hover:scale-100 will-change-transform"
+          className={[
+            'pointer-events-none absolute -inset-px scale-0 origin-center',
+            'transition-transform duration-500 md:group-hover:scale-100 will-change-transform',
+          ].join(' ')}
           style={{ background: spotlightBackground }}
         />
       )}

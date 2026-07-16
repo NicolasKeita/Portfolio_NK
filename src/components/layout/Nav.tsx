@@ -21,9 +21,30 @@ export function Nav() {
         </a>
         <div className="flex items-center gap-6">
           <ul className="nav-links flex gap-6 list-none m-0 p-0">
-            <li><a className="text-sm font-medium text-slate-400 no-underline hover:text-white transition-colors" href="#formation">{t('nav.formation')}</a></li>
-            <li><a className="text-sm font-medium text-slate-400 no-underline hover:text-white transition-colors" href="#projets">{t('nav.projets')}</a></li>
-            <li><a className="text-sm font-medium text-slate-400 no-underline hover:text-white transition-colors" href="#contact">{t('nav.contact')}</a></li>
+            <li>
+              <a
+                className="text-sm font-medium text-slate-400 no-underline hover:text-white transition-colors"
+                href="#formation"
+              >
+                {t('nav.formation')}
+              </a>
+            </li>
+            <li>
+              <a
+                className="text-sm font-medium text-slate-400 no-underline hover:text-white transition-colors"
+                href="#projets"
+              >
+                {t('nav.projets')}
+              </a>
+            </li>
+            <li>
+              <a
+                className="text-sm font-medium text-slate-400 no-underline hover:text-white transition-colors"
+                href="#contact"
+              >
+                {t('nav.contact')}
+              </a>
+            </li>
           </ul>
           <button
             className={`

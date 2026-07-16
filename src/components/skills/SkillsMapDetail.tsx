@@ -15,8 +15,20 @@ export function SkillsMapDetail({
   showEngineerDesc,
 }: Props) {
   return (
-    <div className="relative mx-auto max-w-4xl border border-white/[0.05] bg-slate-900/20 backdrop-blur-xl rounded-2xl p-4 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(34,211,238,0.04),transparent_40%,rgba(167,139,250,0.03))]" />
+    <div
+      className={[
+        'relative mx-auto max-w-4xl',
+        'border border-white/[0.05] bg-slate-900/20 backdrop-blur-xl',
+        'rounded-2xl p-4 overflow-hidden',
+        'shadow-[0_20px_50px_rgba(0,0,0,0.3)]',
+      ].join(' ')}
+    >
+      <div
+        className={[
+          'pointer-events-none absolute inset-0',
+          'bg-[linear-gradient(90deg,rgba(34,211,238,0.04),transparent_40%,rgba(167,139,250,0.03))]',
+        ].join(' ')}
+      />
 
       <AnimatePresence mode="wait">
         {showEngineerDesc ? (

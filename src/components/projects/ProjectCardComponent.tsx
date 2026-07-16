@@ -117,7 +117,12 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
           {project.title}
         </h3>
 
-        <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 flex-1 flex flex-col bg-slate-900/70 rounded-lg p-3 -mx-3">
+        <div
+          className={[
+            'opacity-0 group-hover:opacity-100 transition-all duration-500',
+            'flex-1 flex flex-col bg-slate-900/70 rounded-lg p-3 -mx-3',
+          ].join(' ')}
+        >
           {project.overview && project.overview.length > 0 ? (
             <ul className="text-sm text-slate-200 leading-relaxed flex-1 mb-5 list-disc list-inside space-y-1">
               {project.overview.map((item, i) => (

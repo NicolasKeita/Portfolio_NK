@@ -50,7 +50,13 @@ export function ContactSection() {
                     transition-colors duration-200 hover:bg-cyan-400/20 hover:border-cyan-300/40
                   `}
                 >
-                  <SvgIcon id={item.icon} className="w-[17px] h-[17px] stroke-current fill-none stroke-[1.75] stroke-linecap-round stroke-linejoin-round block" />
+                  <SvgIcon
+                    id={item.icon}
+                    className={[
+                      'w-[17px] h-[17px] stroke-current fill-none',
+                      'stroke-[1.75] stroke-linecap-round stroke-linejoin-round block',
+                    ].join(' ')}
+                  />
                 </div>
                 <div>
                   <div className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-0.5">

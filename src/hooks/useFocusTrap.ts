@@ -24,7 +24,14 @@ export function useFocusTrap(
     if (!container) return;
 
     const focusableSelector =
-      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+      [
+        'a[href]',
+        'button:not([disabled])',
+        'textarea:not([disabled])',
+        'input:not([disabled])',
+        'select:not([disabled])',
+        '[tabindex]:not([tabindex="-1"])',
+      ].join(', ');
 
     const getFocusableElements = () =>
       Array.from(container.querySelectorAll<HTMLElement>(focusableSelector)).filter(

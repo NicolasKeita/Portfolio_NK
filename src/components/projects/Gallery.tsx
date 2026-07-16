@@ -46,7 +46,12 @@ function LazyGalleryImage({
   return (
     <div
       ref={containerRef}
-      className="rounded-lg overflow-hidden border border-border-light dark:border-border-dark bg-bg-dark-light dark:bg-bg-dark-dark aspect-[16/10] relative"
+      className={[
+        'rounded-lg overflow-hidden',
+        'border border-border-light dark:border-border-dark',
+        'bg-bg-dark-light dark:bg-bg-dark-dark',
+        'aspect-[16/10] relative',
+      ].join(' ')}
     >
       {!shouldLoad ? (
         <div className="absolute inset-0 bg-slate-800/70 animate-pulse" />

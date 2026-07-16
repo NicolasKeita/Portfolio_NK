@@ -76,13 +76,21 @@ export function SkillsMapDiagram({
             }}
             onMouseLeave={() => setIsCenterHovered(false)}
             onBlur={() => setIsCenterHovered(false)}
-            className={`w-[clamp(180px,20vw,250px)] rounded-full border px-6 py-3 text-center backdrop-blur-2xl transition-all duration-300 ease-out ${
+            className={[
+              'w-[clamp(180px,20vw,250px)] rounded-full border px-6 py-3 text-center',
+              'backdrop-blur-2xl transition-all duration-300 ease-out',
               isCenterHovered
                 ? 'border-cyan-400/50 bg-slate-950/80 shadow-[0_0_40px_rgba(34,211,238,0.2)] scale-105'
-                : 'border-white/[0.08] bg-slate-950/50 shadow-[0_10px_40px_rgba(0,0,0,0.5)]'
-            }`}
+                : 'border-white/[0.08] bg-slate-950/50 shadow-[0_10px_40px_rgba(0,0,0,0.5)]',
+            ].join(' ')}
           >
-            <div className="text-sm font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 uppercase sm:text-base">
+            <div
+              className={[
+                'text-sm font-bold tracking-wider',
+                'text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400',
+                'uppercase sm:text-base',
+              ].join(' ')}
+            >
               {centerLabel}
             </div>
           </button>

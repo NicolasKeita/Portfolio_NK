@@ -36,7 +36,10 @@ function renderProof(text: string) {
       <button
         key={i}
         onClick={handler}
-        className="inline align-baseline underline decoration-dotted underline-offset-2 text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer"
+        className={[
+          'inline align-baseline underline decoration-dotted underline-offset-2',
+          'text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer',
+        ].join(' ')}
       >
         {part}
       </button>
@@ -47,7 +50,11 @@ function renderProof(text: string) {
 }
 
 export const CARD_CLASS =
-  'text-sm leading-relaxed text-cyan-300/90 font-medium text-center px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10 w-full max-w-3xl mx-auto';
+  [
+    'text-sm leading-relaxed text-cyan-300/90 font-medium text-center',
+    'px-4 py-3 rounded-xl bg-cyan-500/[0.03] border border-cyan-500/10',
+    'w-full max-w-3xl mx-auto',
+  ].join(' ');
 
 export function SkillCard({ proof = '', className = '' }: SkillCardProps) {
   return (

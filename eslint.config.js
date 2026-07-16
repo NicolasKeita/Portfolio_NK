@@ -32,23 +32,23 @@ export default tseslint.config(
       'local/no-empty-file': 'warn',
       'local/no-french-comments': 'warn',
 
-      'max-len': ['warn', { code: 180 }],
+      'max-len': ['warn', { code: 140 }],
 
-      '@stylistic/indent': ['error', 2],
-      '@stylistic/semi': ['error', 'always'],
-      '@stylistic/eol-last': ['error', 'always'],
-      '@stylistic/space-infix-ops': 'error',
-      'linebreak-style': ['error', 'unix'],
-      '@stylistic/object-curly-spacing': ['error', 'always'],
+      '@stylistic/indent': ['warn', 2],
+      '@stylistic/semi': ['warn', 'always'],
+      '@stylistic/eol-last': ['warn', 'always'],
+      '@stylistic/space-infix-ops': 'warn',
+      'linebreak-style': ['warn', 'unix'],
+      '@stylistic/object-curly-spacing': ['warn', 'always'],
       '@stylistic/comma-spacing': [
-        'error',
+        'warn',
         {
           before: false,
           after: true,
         },
       ],
-      '@stylistic/space-before-blocks': ['error', 'always'],
-      '@stylistic/no-trailing-spaces': 'error',
+      '@stylistic/space-before-blocks': ['warn', 'always'],
+      '@stylistic/no-trailing-spaces': 'warn',
     },
   },
   {

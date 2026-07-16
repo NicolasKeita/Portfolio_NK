@@ -20,7 +20,11 @@ export function ProfileSection() {
           <div className="flex flex-col justify-center">
             <div className="flex items-center gap-8 mb-4">
               <motion.h1
-                className="flex-1 min-w-0 font-display font-bold text-white leading-[0.95] tracking-tighter drop-shadow-[0_0_34px_rgba(34,211,238,0.16)]"
+                className={[
+                  'flex-1 min-w-0 font-display font-bold',
+                  'text-white leading-[0.95] tracking-tighter',
+                  'drop-shadow-[0_0_34px_rgba(34,211,238,0.16)]',
+                ].join(' ')}
                 style={{ fontSize: 'clamp(3.5rem, 9vw, 7.5rem)' }}
                 {...fadeSlideUp(0)}
               >
