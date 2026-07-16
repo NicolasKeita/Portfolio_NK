@@ -52,7 +52,7 @@ export const CARD_CLASS =
 export function SkillCard({ proof = '', className = '' }: SkillCardProps) {
   return (
     <p className={`${CARD_CLASS} ${className}`}>
-      &ldquo;{renderProof(proof)}&rdquo;
+      {renderProof(proof)}
     </p>
   );
 }

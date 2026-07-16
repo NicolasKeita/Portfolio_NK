@@ -29,7 +29,7 @@ export function SkillsMapDetail({
             className="relative w-full flex items-center justify-center gap-4"
           >
             <p className={CARD_CLASS}>
-              &ldquo;{engineerDescription}&rdquo;
+              {engineerDescription}
             </p>
           </motion.div>
         ) : (
