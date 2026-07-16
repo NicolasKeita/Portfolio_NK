@@ -37,10 +37,10 @@ const links = [
 ] as const;
 
 const clouds = [
-  'left-[1%] top-[8%] h-[34rem] w-[34rem] bg-cyan-400/10',
-  'right-[-6%] top-[27%] h-[42rem] w-[42rem] bg-indigo-500/10',
-  'left-[8%] top-[54%] h-[38rem] w-[38rem] bg-sky-500/9',
-  'right-[7%] top-[78%] h-[34rem] w-[34rem] bg-violet-500/8',
+  'left-[1%] top-[8%] h-136 w-136 bg-cyan-400/10',
+  'right-[-6%] top-[27%] h-168 w-2xl bg-indigo-500/10',
+  'left-[8%] top-[54%] h-152 w-152 bg-sky-500/9',
+  'right-[7%] top-[78%] h-136 w-136 bg-violet-500/8',
 ];
 
 export function SiteConstellationLayer() {

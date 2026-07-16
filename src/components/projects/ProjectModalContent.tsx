@@ -6,7 +6,7 @@ import type { ProjectYaml } from '../../data';
 const GITHUB_LINK_CLASSES =
   'inline-flex items-center gap-2 px-7 py-3 rounded-lg ' +
   'font-display font-semibold text-sm no-underline tracking-wide ' +
-  'border-2 border-white/10 bg-white/[0.04] text-white transition-all duration-300 ' +
+  'border-2 border-white/10 bg-white/4 text-white transition-all duration-300 ' +
   'hover:bg-cyan-400/10 hover:border-cyan-300/50 hover:text-white ' +
   'hover:shadow-[0_0_0_2px_rgba(34,211,238,0.14)]';
 
@@ -135,7 +135,7 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
 
       <div className="flex flex-wrap gap-1.5">
         {project.techs.map((tech) => (
-          <span key={tech} className="font-mono text-xs text-slate-300 bg-white/[0.04] border border-white/10 rounded px-1.5 py-0.5">
+          <span key={tech} className="font-mono text-xs text-slate-300 bg-white/4 border border-white/10 rounded-sm px-1.5 py-0.5">
             {tech}
           </span>
         ))}

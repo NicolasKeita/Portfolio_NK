@@ -31,7 +31,7 @@ export function ProfileSection() {
                 Nicolas<br />Keita
               </motion.h1>
               <motion.div
-                className="flex flex-col items-center flex-shrink-0"
+                className="flex flex-col items-center shrink-0"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, ease: easeOut, delay: 0.2 }}
@@ -94,9 +94,9 @@ export function ProfileSection() {
                 href="#contact"
                 className={`
                   inline-block px-7 py-3 rounded-lg font-display font-semibold text-sm
-                  no-underline tracking-wide border-2 border-white/12 bg-white/[0.03]
+                  no-underline tracking-wide border-2 border-white/12 bg-white/3
                   text-white backdrop-blur-xl transition-all duration-300
-                  hover:bg-white/[0.08] hover:border-cyan-300/60 hover:text-white
+                  hover:bg-white/8 hover:border-cyan-300/60 hover:text-white
                   hover:shadow-[0_0_0_2px_rgba(34,211,238,0.12)]
                 `}
               >

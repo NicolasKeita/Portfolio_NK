@@ -52,7 +52,7 @@ export function SkillButton({
         'transition-all duration-300 ease-out select-none',
         isActive
           ? 'border-cyan-400/50 bg-cyan-950/20 text-cyan-200 shadow-[0_0_20px_rgba(34,211,238,0.25)] scale-105 z-20'
-          : 'border-white/[0.06] bg-slate-900/30 text-slate-300 hover:border-cyan-400/30 hover:bg-slate-900/50 hover:scale-105 z-10'
+          : 'border-white/6 bg-slate-900/30 text-slate-300 hover:border-cyan-400/30 hover:bg-slate-900/50 hover:scale-105 z-10'
       )}
     >
       <span

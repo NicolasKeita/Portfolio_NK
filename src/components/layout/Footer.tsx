@@ -6,7 +6,7 @@ export function Footer() {
   const linkClass = `
     text-slate-400 no-underline text-sm hover:text-cyan-300 transition-colors
     relative before:content-[""] before:absolute before:bottom-[-2px] before:left-0
-    before:w-full before:h-px before:bg-gradient-to-r before:from-transparent
+    before:w-full before:h-px before:bg-linear-to-r before:from-transparent
     before:via-cyan-300 before:to-transparent before:opacity-0
     before:transition-opacity hover:before:opacity-100
   `;

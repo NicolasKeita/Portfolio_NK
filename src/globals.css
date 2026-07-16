@@ -1,6 +1,70 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-blue: #3b82f6;
+
+  --color-amber: #f59e0b;
+
+  --color-bg-dark-light: #ffffff;
+  --color-bg-dark-dark: #0b1220;
+
+  --color-bg-card-light: #f8fafc;
+  --color-bg-card-dark: #141d33;
+
+  --color-navy-light: #1e293b;
+  --color-navy-dark: #e8edf7;
+
+  --color-text-light: #1e293b;
+  --color-text-dark: #e8edf7;
+
+  --color-text-soft-light: #64748b;
+  --color-text-soft-dark: #aab4c8;
+
+  --color-muted-light: #94a3b8;
+  --color-muted-dark: #7c8aa8;
+
+  --color-border-light: #e2e8f0;
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+
+  --font-display: var(--font-display), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+  --font-body: var(--font-body), sans-serif;
+
+  --animate-fade-in: fade-in 0.3s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 html {
   scroll-behavior: smooth;

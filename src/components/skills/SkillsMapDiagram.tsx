@@ -38,7 +38,7 @@ export function SkillsMapDiagram({
   centerLabel,
 }: Props) {
   return (
-    <div className="relative h-[420px] overflow-visible rounded-3xl border border-white/[0.03] bg-slate-950/10">
+    <div className="relative h-[420px] overflow-visible rounded-3xl border border-white/3 bg-slate-950/10">
       <div className="absolute inset-x-0 top-[-82px] h-[520px]">
         <NebulaConstellation
           skillIds={Object.keys(skills)}
@@ -81,13 +81,13 @@ export function SkillsMapDiagram({
               'backdrop-blur-2xl transition-all duration-300 ease-out',
               isCenterHovered
                 ? 'border-cyan-400/50 bg-slate-950/80 shadow-[0_0_40px_rgba(34,211,238,0.2)] scale-105'
-                : 'border-white/[0.08] bg-slate-950/50 shadow-[0_10px_40px_rgba(0,0,0,0.5)]',
+                : 'border-white/8 bg-slate-950/50 shadow-[0_10px_40px_rgba(0,0,0,0.5)]',
             ].join(' ')}
           >
             <div
               className={[
                 'text-sm font-bold tracking-wider',
-                'text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400',
+                'text-transparent bg-clip-text bg-linear-to-r from-white via-slate-200 to-slate-400',
                 'uppercase sm:text-base',
               ].join(' ')}
             >

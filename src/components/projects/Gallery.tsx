@@ -50,7 +50,7 @@ function LazyGalleryImage({
         'rounded-lg overflow-hidden',
         'border border-border-light dark:border-border-dark',
         'bg-bg-dark-light dark:bg-bg-dark-dark',
-        'aspect-[16/10] relative',
+        'aspect-16/10 relative',
       ].join(' ')}
     >
       {!shouldLoad ? (
@@ -106,7 +106,7 @@ export function Gallery({ photos, title }: GalleryProps) {
           <motion.div
             key="lightbox"
             ref={lightboxRef}
-            className="fixed inset-0 z-[60] bg-black/92 cursor-pointer flex items-center justify-center"
+            className="fixed inset-0 z-60 bg-black/92 cursor-pointer flex items-center justify-center"
             onClick={closeLightbox}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -120,7 +120,7 @@ export function Gallery({ photos, title }: GalleryProps) {
             <button
               className={`
                 absolute top-4 right-6 bg-black/50 border-none text-white text-2xl
-                w-10 h-10 rounded-full cursor-pointer z-[61] flex items-center justify-center
+                w-10 h-10 rounded-full cursor-pointer z-61 flex items-center justify-center
                 opacity-70 hover:opacity-100 transition-opacity leading-none
               `}
               onClick={closeLightbox}

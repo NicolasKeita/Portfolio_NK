@@ -38,12 +38,12 @@ export function MagicCard({ children, className = '', asPanel = false, onClick, 
   const baseClasses = asPanel
     ? clsx(
       'group relative rounded-2xl border border-white/10',
-      'bg-gradient-to-br from-slate-900/80 to-slate-800/50',
+      'bg-linear-to-br from-slate-900/80 to-slate-800/50',
       'shadow-[0_24px_80px_rgba(0,0,0,0.26)] md:backdrop-blur-lg overflow-hidden md:will-change-backdrop-filter'
     )
     : clsx(
-      'group relative rounded-xl border border-white/[0.11]',
-      'bg-gradient-to-br from-slate-900/80 to-[#141d33]/50',
+      'group relative rounded-xl border border-white/11',
+      'bg-linear-to-br from-slate-900/80 to-bg-card-dark/50',
       'shadow-[0_18px_60px_rgba(2,6,23,0.32)] overflow-hidden',
       'cursor-pointer transition-all duration-300 hover:-translate-y-1',
       'hover:border-cyan-400/45',

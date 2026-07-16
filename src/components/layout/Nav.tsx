@@ -49,7 +49,7 @@ export function Nav() {
           <button
             className={`
               w-[38px] h-[34px] flex items-center justify-center border border-white/10
-              rounded-md bg-white/[0.04] text-white cursor-pointer font-mono text-xs
+              rounded-md bg-white/4 text-white cursor-pointer font-mono text-xs
               font-bold tracking-wider hover:border-cyan-400/50 hover:bg-cyan-400/10
               hover:scale-105 transition-all
             `}

@@ -18,7 +18,7 @@ export function SkillsMapDetail({
     <div
       className={[
         'relative mx-auto max-w-4xl',
-        'border border-white/[0.05] bg-slate-900/20 backdrop-blur-xl',
+        'border border-white/5 bg-slate-900/20 backdrop-blur-xl',
         'rounded-2xl p-4 overflow-hidden',
         'shadow-[0_20px_50px_rgba(0,0,0,0.3)]',
       ].join(' ')}

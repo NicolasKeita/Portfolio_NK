@@ -21,12 +21,12 @@ const LINK_BUTTON_CLASSES =
   'hover:border-cyan-300/60 hover:text-white hover:bg-cyan-400/10 transition-colors';
 
 const TECH_BADGE_CLASSES =
-  'font-mono text-xs text-white bg-slate-700/80 border border-white/20 rounded px-1.5 py-0.5';
+  'font-mono text-xs text-white bg-slate-700/80 border border-white/20 rounded-sm px-1.5 py-0.5';
 
 function ProjectTag({ tagClass, tag }: { tagClass: string; tag: string }) {
   return (
     <span
-      className={`${TAG_COLORS[tagClass] ?? ''} font-mono text-xs font-semibold px-2 py-0.5 rounded`}
+      className={`${TAG_COLORS[tagClass] ?? ''} font-mono text-xs font-semibold px-2 py-0.5 rounded-sm`}
     >
       {tag}
     </span>
@@ -39,7 +39,7 @@ function ProjectTags({ tags }: { tags: { name: string; class: string }[] }) {
       {tags.map((t) => (
         <span
           key={t.name}
-          className={`${TAG_COLORS[t.class] ?? ''} font-mono text-xs font-semibold px-2 py-0.5 rounded`}
+          className={`${TAG_COLORS[t.class] ?? ''} font-mono text-xs font-semibold px-2 py-0.5 rounded-sm`}
         >
           {t.name}
         </span>
@@ -73,7 +73,7 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
         />
       )}
 
-      <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/55 transition-all duration-500 z-[1]" />
+      <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/55 transition-all duration-500 z-1" />
 
       <div className="px-6 pt-5 flex items-center justify-between relative z-10 transition-all duration-500">
         {project.tags ? (
