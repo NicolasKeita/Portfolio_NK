@@ -1,0 +1,78 @@
+id = "mudlet"
+tag.fr = "Architecture / Refactoring"
+tag.en = "Architecture / Refactoring"
+tagClass = "tag-architecture"
+title.fr = "Mudlet"
+title.en = "Mudlet"
+techs = ["C++", "Qt", "Sentry", "Tests fonctionnels", "Architecture modulaire"]
+link = "https://github.com/Mudlet/Mudlet/pulls?q=is%3Apr+is%3Aclosed+author%3ANicolasKeita"
+bgImage = "mudlet/game_1.png"
+photos = ["mudlet/game_1.png", "mudlet/game_2.png", "mudlet/algora.io.png"]
+
+[[tags]]
+name.fr = "Architecture / Refactoring"
+name.en = "Architecture / Refactoring"
+class = "tag-architecture"
+
+[[tags]]
+name.fr = "Open Source"
+name.en = "Open Source"
+class = "tag-opensource"
+
+[[tags]]
+name.fr = "C++ / Qt"
+name.en = "C++ / Qt"
+class = "tag-cpp"
+
+[description]
+fr = """Mudlet (C++/Qt) est une plateforme opensource pour jeux vidéo comme Steam.
+J'ai réalisé plusieurs milestones majeurs sur lesquels l'équipe bloquait
+depuis des années :
+
+• Intégration de Sentry (crash reporting)
+• Mise en place de tests fonctionnels fiables.
+• Correction de bugs profondément enfouis dans un codebase de plus de 15 ans.
+• Rendre Mudlet modulaire : détacher le front-end Qt du cœur du logiciel
+  afin de préparer une version mobile et d'adopter un front-end plus adapté
+  que Qt pour les mobiles."""
+en = """Mudlet (C++/Qt) is an open-source gaming platform like Steam.
+I achieved several major milestones the team had been stuck on for years:
+• Sentry integration (crash reporting)
+• Implementation of reliable functional tests.
+• Bug fixes deep within a 15+ year-old codebase.
+• Making Mudlet modular: detaching the Qt front-end from the software core
+to prepare a mobile version and adopt a more suitable front-end than Qt for mobile."""
+
+[prologue]
+fr = """Cette expérience met en évidence ma capacité à comprendre rapidement
+des codebases énormes et complexes sous contrainte de temps.
+
+Lors de compétitions internationales de chasse aux bugs rémunérées
+(sur Algora.io), j'ai à plusieurs reprises identifié et corrigé des problèmes
+avant d'autres participants, notamment des ingénieurs logiciels issus
+des États-Unis, de Chine et d'Inde, afin d'obtenir la prime associée."""
+en = """This experience highlights my ability to understand enormous
+and complex codebases under time constraints.
+
+During international paid bug bounty competitions (on Algora.io),
+I have repeatedly identified and fixed issues before other participants,
+including software engineers from the United States, China, and India,
+in order to claim the associated bounty."""
+
+[overview]
+fr = [
+  "Application desktop de gaming open-source (C++/Qt) pour joueurs et créateurs de jeux",
+  "Intégration de Sentry (crash reporting) dans un codebase C++/Qt legacy de 15+ ans",
+  "Mise en place de tests fonctionnels fiables sur une plateforme ouverte de gaming",
+  "Correction de bugs critiques enfouis dans un codebase legacy massif",
+  "Modularisation : détachement du front-end Qt du cœur logiciel pour préparer une version mobile",
+  "Victoires récurrentes en compétitions internationales de bug bounty sur Algora.io",
+]
+en = [
+  "Open-source desktop gaming application (C++/Qt) for players and game creators",
+  "Sentry crash reporting integration in a 15+ year-old C++/Qt legacy codebase",
+  "Setup of reliable functional tests on an open-source gaming platform",
+  "Critical bug fixes deep within a massive legacy codebase",
+  "Modularization: decoupling Qt front-end from software core to enable mobile version",
+  "Consistent wins in international bug bounty competitions on Algora.io",
+]

@@ -1,7 +1,7 @@
-import tacticNav from './tactic-nav.yaml';
-import marsLanderRl from './mars-lander-rl.yaml';
-import mudlet from './mudlet.yaml';
-import champSelect from './champ-select.yaml';
+import tacticNav from './tactic-nav.toml';
+import marsLanderRl from './mars-lander-rl.toml';
+import mudlet from './mudlet.toml';
+import champSelect from './champ-select.toml';
 
 const projectsList = [
   mudlet,

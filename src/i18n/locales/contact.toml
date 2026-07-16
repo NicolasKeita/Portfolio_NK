@@ -1,0 +1,80 @@
+# ── Contact information ──
+[contactItems.email]
+icon = "#i-mail"
+[contactItems.email.label]
+fr = "Email"
+en = "Email"
+[contactItems.email.value]
+fr = "nicolas.keita@epitech.eu"
+en = "nicolas.keita@epitech.eu"
+contactItems.email.href = "mailto:nicolas.keita@epitech.eu"
+
+[contactItems.phone]
+icon = "#i-phone"
+[contactItems.phone.label]
+fr = "Téléphone"
+en = "Phone"
+[contactItems.phone.value]
+fr = "+33 7 54 84 26 88"
+en = "+33 7 54 84 26 88"
+contactItems.phone.href = "tel:+33754842688"
+
+[contactItems.location]
+icon = "#i-pin"
+[contactItems.location.label]
+fr = "Lieu de résidence"
+en = "Location"
+[contactItems.location.value]
+fr = "Nouvelle-Aquitaine"
+en = "Nouvelle-Aquitaine"
+
+[contactItems.mobility]
+icon = "#i-globe"
+[contactItems.mobility.label]
+fr = "Mobilité"
+en = "Mobility"
+[contactItems.mobility.value]
+fr = "France & International"
+en = "France & International"
+[contactItems.mobility.sub]
+fr = "Passeport valide"
+en = "Valid passport"
+
+[contactItems.nationality]
+icon = "#i-flag"
+[contactItems.nationality.label]
+fr = "Nationalité"
+en = "Nationality"
+[contactItems.nationality.value]
+fr = "Française"
+en = "French"
+
+[contactItems.criminalRecord]
+icon = "#i-check"
+[contactItems.criminalRecord.label]
+fr = "Casier judiciaire"
+en = "Criminal record"
+[contactItems.criminalRecord.value]
+fr = "Vierge"
+en = "Clean"
+
+[contactItems.languages]
+icon = "#i-chat"
+[contactItems.languages.label]
+fr = "Langues"
+en = "Languages"
+[contactItems.languages.value]
+fr = "Français natif"
+en = "Native French"
+[contactItems.languages.sub]
+fr = "Anglais professionnel"
+en = "Professional English"
+
+[contactItems.availability]
+icon = "#i-briefcase"
+[contactItems.availability.label]
+fr = "Disponibilité"
+en = "Availability"
+[contactItems.availability.value]
+fr = "En recherche active"
+en = "Actively seeking"

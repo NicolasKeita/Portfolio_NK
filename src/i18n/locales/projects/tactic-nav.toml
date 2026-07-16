@@ -1,0 +1,44 @@
+id = "tactic-nav"
+tag.fr = "Avionique"
+tag.en = "Avionique"
+tagClass = "tag-mobile"
+title.fr = "Tactic-Nav"
+title.en = "Tactic-Nav"
+techs = ["Java", "Android", "Temps réel"]
+link = "https://github.com/NicolasKeita/Tactic-Nav"
+bgImage = "tactic-nav/Android_app_2.png"
+photos = ["tactic-nav/Android_app_2.png", "tactic-nav/schema_architecture.png", "tactic-nav/backlog_backend.png", "tactic-nav/cockpit.png"]
+
+[description]
+fr = """Système embarqué Android de surveillance aérienne exploitant le protocole ADS-B,
+standard utilisé en aviation réelle pour la transmission de position des aéronefs,
+pour la réception et la visualisation cartographique en temps réel du trafic aérien."""
+en = """Android embedded system for air surveillance using the ADS-B protocol,
+a standard used in real aviation for aircraft position transmission,
+receiving and displaying real-time air traffic on a map."""
+
+[prologue]
+fr = """Au-delà de son contexte aéronautique, ce projet constitue un exercice complet d'ingénierie logicielle couvrant :
+- le développement mobile Android
+- l'assurance d'une application sans crash grâce à des tests automatisés variés
+- l'optimisation bas niveau nécessaire au respect d'objectifs de performance stricts
+(aucun crash ni perte de FPS n'est autorisé en plein vol), avec validation par benchmarking"""
+en = """Beyond its aeronautical context, this project is a complete software engineering exercise covering:
+- Android mobile development
+- ensuring a crash-free application through various automated tests
+- low-level optimization required to meet strict performance targets
+(no crashes or FPS drops allowed during flight), validated through benchmarking"""
+
+[overview]
+fr = [
+  "Application Android embarquée de surveillance aérienne en temps réel via le protocole ADS-B",
+  "Tests automatisés (unitaires, intégration, performance) garantissant zéro crash en vol",
+  "Optimisation bas niveau (Java/Android) pour maintien des FPS sous contrainte temps réel",
+  "Validation par benchmarking des performances sur cible embarquée",
+]
+en = [
+  "Embedded Android application for real-time air surveillance via ADS-B protocol",
+  "Automated tests (unit, integration, performance) ensuring zero in-flight crashes",
+  "Low-level optimization (Java/Android) for FPS stability under real-time constraints",
+  "Performance validated through benchmarking on embedded hardware",
+]

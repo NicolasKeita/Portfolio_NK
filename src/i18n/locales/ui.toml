@@ -1,0 +1,121 @@
+# ── Interface, navigation, and generic content ──
+[modal]
+[modal.close]
+fr = "Fermer"
+en = "Close"
+
+[modal.github]
+fr = "Voir le code"
+en = "View code"
+
+[modal.sectionChallenges]
+fr = "Défis techniques"
+en = "Engineering Challenges"
+
+[modal.sectionOverview]
+fr = "Aperçu du projet"
+en = "Project Overview"
+
+[modal.sectionDescription]
+fr = "Description du projet"
+en = "Project Description"
+
+[nav]
+[nav.formation]
+fr = "Formation"
+en = "Education"
+
+[nav.projets]
+fr = "Projets"
+en = "Projects"
+
+[nav.contact]
+fr = "Contact"
+en = "Contact"
+
+[nav.lang]
+fr = "Passer en anglais"
+en = "Switch to French"
+
+[hero]
+[hero.role]
+fr = "Portfolio — Ingénieur Logiciel & Consultant IT"
+en = "Portfolio — Software Engineer & IT Consultant"
+
+[hero.tagline]
+fr = "Ce qui me distingue n'est pas la quantité de projets réalisés, mais l'exigence de qualité que j'apporte à chacun d'eux."
+en = "What sets me apart is not the number of projects completed, but the quality standard I bring to each one."
+
+[hero.cta]
+[hero.cta.work]
+fr = "Voir mes réalisations"
+en = "See my work"
+
+[hero.cta.contact]
+fr = "Me contacter"
+en = "Get in touch"
+
+[projects]
+[projects.label]
+fr = "Projets"
+en = "Projects"
+
+[projects.title]
+fr = "Réalisations"
+en = "My Work"
+
+[formation]
+[formation.label]
+fr = "Parcours Académique"
+en = "Academic Background"
+
+[formation.title]
+fr = "Formation"
+en = "Education"
+
+[contact]
+[contact.title]
+fr = "Contact"
+en = "Contact"
+
+[contact.tagline]
+fr = "Prêt à relever\nde nouveaux défis."
+en = "Ready to take on\nnew challenges."
+
+[contact.sub1]
+fr = "Disponible pour des opportunités en CDI, CDD, en freelance ou dans le secteur public."
+en = "Available for permanent, fixed-term, freelance, or public sector opportunities."
+
+[contact.sub2]
+fr = "N'hésitez pas à me contacter pour discuter de votre besoin."
+en = "Feel free to reach out to discuss your needs."
+
+[footer]
+[footer.home]
+fr = "Accueil"
+en = "Home"
+
+[footer.projets]
+fr = "Projets"
+en = "Projects"
+
+[footer.formation]
+fr = "Formation"
+en = "Education"
+
+[footer.contact]
+fr = "Contact"
+en = "Contact"
+
+[footer.copyright]
+fr = "© 2026 Nicolas Keita — Ingénieur Logiciel & Consultant IT | Nouvelle-Aquitaine, France"
+en = "© 2026 Nicolas Keita — Software Engineer & IT Consultant | Nouvelle-Aquitaine, France"
+
+[engineer]
+[engineer.label]
+fr = "Ingénieur Logiciel"
+en = "Software Engineer"
+
+[engineer.description]
+fr = "La combinaison d'ingrédients incontournables qui définit le standard d'une ingénierie logicielle réussie."
+en = "The combination of essential ingredients that defines the standard of successful software engineering."

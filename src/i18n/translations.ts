@@ -1,7 +1,7 @@
-import ui from './locales/ui.yaml';
-import skills from './locales/skills.yaml';
-import education from './locales/education.yaml';
-import contact from './locales/contact.yaml';
+import ui from './locales/ui.toml';
+import skills from './locales/skills.toml';
+import education from './locales/education.toml';
+import contact from './locales/contact.toml';
 import projects from './locales/projects';
 
 export type Lang = 'fr' | 'en';

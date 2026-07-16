@@ -7,13 +7,13 @@ const nextConfig: NextConfig = {
   },
   turbopack: {
     rules: {
-      '*.yaml': ['yaml-loader'],
+      '*.toml': ['./src/i18n/toml-loader.cjs'],
     },
   },
   webpack: (config) => {
     config.module.rules.push({
-      test: /\.ya?ml$/,
-      use: 'yaml-loader',
+      test: /\.toml$/,
+      use: './src/i18n/toml-loader.cjs',
     });
     return config;
   },
