@@ -18,6 +18,9 @@ en = "Phone"
 fr = "+33 7 54 84 26 88"
 en = "+33 7 54 84 26 88"
 contactItems.phone.href = "tel:+33754842688"
+[contactItems.phone.sub]
+fr = "Appels masqués non acceptés"
+en = "Private calls not accepted"
 
 [contactItems.location]
 icon = "#i-pin"
