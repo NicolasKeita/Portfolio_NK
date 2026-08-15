@@ -100,8 +100,9 @@ export const profileStyles = {
   }),
 
   role: css({
-    display: 'inline-block',
-    alignSelf: 'flex-start',
+    display: 'block',
+    w: 'full',
+    alignSelf: 'stretch',
     fontFamily: 'display',
     color: 'slate-100',
     borderBottomWidth: '3px',

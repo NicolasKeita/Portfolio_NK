@@ -15,7 +15,7 @@ export function ProfileHeroIntro({
     <>
       <motion.span
         className={styles.role}
-        style={{ display: 'inline-block', fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
+        style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
         {...fadeSlideUp(0.1)}
       >
         {role}
