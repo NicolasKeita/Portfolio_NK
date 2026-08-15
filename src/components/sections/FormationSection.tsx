@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 import { getFormations } from '../../data';
 import { MagicCard } from '../ui/MagicCard';
+import { sectionStyles } from './sectionStyles';
+import { css } from '../../../styled-system/css';
 
 const stagger = {
   hidden: {},
@@ -15,24 +17,62 @@ const itemVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
 
+const styles = {
+  title: css({
+    fontFamily: 'display',
+    fontWeight: 'bold',
+    color: 'white',
+    letterSpacing: '-0.025em',
+    lineHeight: 'tight',
+    mb: 0,
+    filter: 'drop-shadow(0 0 28px rgba(167,139,250,0.12))',
+    fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+  }),
+  panel: css({
+    listStyle: 'none',
+    mt: '8',
+    px: { base: '5', sm: '7' },
+  }),
+  item: css({
+    py: '7',
+    borderBottomWidth: '1px',
+    borderBottomStyle: 'solid',
+    borderBottomColor: 'rgba(255,255,255,0.1)',
+    _last: {
+      borderBottomWidth: 0,
+    },
+  }),
+  itemTitle: css({
+    fontFamily: 'display',
+    fontWeight: 'semibold',
+    fontSize: 'lg',
+    color: 'white',
+    mb: '1',
+  }),
+  itemOrg: css({
+    fontSize: 'sm',
+    color: 'rgba(165, 243, 252, 0.8)',
+    mb: '2',
+  }),
+  itemDescription: css({
+    fontSize: 'sm',
+    color: 'slate.400',
+    lineHeight: 'relaxed',
+  }),
+};
+
 export function FormationSection() {
   const { lang, t } = useLanguage();
   const formations = getFormations(lang as 'fr' | 'en');
 
   return (
-    <section id="formation" className="py-16 px-8">
-      <div className="max-w-[1100px] mx-auto">
-        <p className="font-mono text-xs font-semibold text-amber uppercase tracking-widest mb-2.5">{t('formation.label')}</p>
-        <h2
-          className={`
-            font-display font-bold text-white tracking-tight leading-tight mb-0
-            drop-shadow-[0_0_28px_rgba(167,139,250,0.12)]
-          `}
-          style={{ fontSize: 'clamp(1.8rem, 4vw, 2.75rem)' }}
-        >
+    <section id="formation" className={sectionStyles.section}>
+      <div className={sectionStyles.inner}>
+        <p className={sectionStyles.eyebrow}>{t('formation.label')}</p>
+        <h2 className={styles.title}>
           {t('formation.title')}
         </h2>
-        <MagicCard asPanel className="list-none mt-8 px-5 sm:px-7">
+        <MagicCard asPanel className={styles.panel}>
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -43,15 +83,15 @@ export function FormationSection() {
               <motion.div
                 key={f.id ?? i}
                 variants={itemVariant}
-                className="py-7 border-b border-white/10 last:border-b-0"
+                className={styles.item}
               >
-                <div className="font-display font-semibold text-lg text-white mb-1">
+                <div className={styles.itemTitle}>
                   {f.title}
                 </div>
-                <div className="text-sm text-cyan-200/80 mb-2">
+                <div className={styles.itemOrg}>
                   {f.org}
                 </div>
-                <div className="text-sm text-slate-400 leading-relaxed">
+                <div className={styles.itemDescription}>
                   {f.desc}
                 </div>
               </motion.div>

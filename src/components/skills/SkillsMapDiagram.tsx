@@ -1,6 +1,7 @@
 import { SkillButton } from './SkillButton';
 import { NebulaConstellation } from '../ui/nebula-constellation';
 import type { SkillYaml } from '../../data';
+import { css, cx } from '../../../styled-system/css';
 
 type Props = {
   displayedSkillId: string;
@@ -26,6 +27,66 @@ const SKILL_POSITIONS: Record<string, { x: number; y: number }> = {
   dev: { x: -32, y: -13 },
 };
 
+const styles = {
+  frame: css({
+    position: 'relative',
+    h: '420px',
+    overflow: 'visible',
+    rounded: '3xl',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(255,255,255,0.03)',
+    bg: 'rgba(2,6,23,0.1)',
+  }),
+  constellation: css({
+    position: 'absolute',
+    insetX: 0,
+    top: '-82px',
+    h: '520px',
+  }),
+  centerWrap: css({
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    display: 'flex',
+    transform: 'translate(-50%, -50%)',
+    justifyContent: 'center',
+    px: '4',
+    zIndex: 10,
+  }),
+  centerButton: css({
+    w: 'clamp(180px, 20vw, 250px)',
+    rounded: 'full',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    px: '6',
+    py: '3',
+    textAlign: 'center',
+    backdropFilter: 'blur(40px)',
+    transition: 'all 300ms cubic-bezier(0,0,.2,1)',
+  }),
+  centerIdle: css({
+    borderColor: 'rgba(255,255,255,0.08)',
+    bg: 'rgba(2,6,23,0.5)',
+    boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
+  }),
+  centerActive: css({
+    borderColor: 'rgba(34,211,238,0.5)',
+    bg: 'rgba(2,6,23,0.8)',
+    boxShadow: '0 0 40px rgba(34,211,238,0.2)',
+    transform: 'scale(1.05)',
+  }),
+  centerLabel: css({
+    fontSize: { base: 'sm', sm: 'md' },
+    fontWeight: 'bold',
+    letterSpacing: '0.05em',
+    color: 'transparent',
+    bgClip: 'text',
+    bg: 'linear-gradient(90deg, #fff, #e2e8f0, #94a3b8)',
+    textTransform: 'uppercase',
+  }),
+};
+
 export function SkillsMapDiagram({
   displayedSkillId,
   hoveredId,
@@ -38,8 +99,8 @@ export function SkillsMapDiagram({
   centerLabel,
 }: Props) {
   return (
-    <div className="relative h-[420px] overflow-visible rounded-3xl border border-white/3 bg-slate-950/10">
-      <div className="absolute inset-x-0 top-[-82px] h-[520px]">
+    <div className={styles.frame}>
+      <div className={styles.constellation}>
         <NebulaConstellation
           skillIds={Object.keys(skills)}
           layoutPositions={SKILL_POSITIONS}
@@ -64,7 +125,7 @@ export function SkillsMapDiagram({
           />
         ))}
 
-        <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 justify-center px-4 z-10">
+        <div className={styles.centerWrap}>
           <button
             onMouseEnter={() => {
               setIsCenterHovered(true);
@@ -76,21 +137,9 @@ export function SkillsMapDiagram({
             }}
             onMouseLeave={() => setIsCenterHovered(false)}
             onBlur={() => setIsCenterHovered(false)}
-            className={[
-              'w-[clamp(180px,20vw,250px)] rounded-full border px-6 py-3 text-center',
-              'backdrop-blur-2xl transition-all duration-300 ease-out',
-              isCenterHovered
-                ? 'border-cyan-400/50 bg-slate-950/80 shadow-[0_0_40px_rgba(34,211,238,0.2)] scale-105'
-                : 'border-white/8 bg-slate-950/50 shadow-[0_10px_40px_rgba(0,0,0,0.5)]',
-            ].join(' ')}
+            className={cx(styles.centerButton, isCenterHovered ? styles.centerActive : styles.centerIdle)}
           >
-            <div
-              className={[
-                'text-sm font-bold tracking-wider',
-                'text-transparent bg-clip-text bg-linear-to-r from-white via-slate-200 to-slate-400',
-                'uppercase sm:text-base',
-              ].join(' ')}
-            >
+            <div className={styles.centerLabel}>
               {centerLabel}
             </div>
           </button>

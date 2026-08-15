@@ -4,19 +4,26 @@ import { getProjects, getImage } from '../../data';
 import { Modal } from '../projects/Modal';
 import { ProjectCard } from '../projects/ProjectCardComponent';
 import { ProjectModalContent } from '../projects/ProjectModalContent';
+import { sectionStyles } from './sectionStyles';
+import { css } from '../../../styled-system/css';
+
+const projectGrid = css({
+  display: 'grid',
+  gridTemplateColumns: { base: '1fr', md: 'repeat(2, minmax(0, 1fr))' },
+  gap: '6',
+  maxW: '900px',
+  mx: 'auto',
+});
 
 function SectionHeader() {
   const { t } = useLanguage();
 
   return (
     <>
-      <p className="font-mono text-xs font-semibold text-amber uppercase tracking-widest mb-2.5">
+      <p className={sectionStyles.eyebrow}>
         {t('projects.label')}
       </p>
-      <h2
-        className="font-display font-bold text-white tracking-tight leading-tight mb-7 drop-shadow-[0_0_28px_rgba(34,211,238,0.12)]"
-        style={{ fontSize: 'clamp(1.8rem, 4vw, 2.75rem)' }}
-      >
+      <h2 className={sectionStyles.title}>
         {t('projects.title')}
       </h2>
     </>
@@ -70,11 +77,11 @@ export function Projects() {
   const modalProject = modalProjectId ? projects.find((p) => p.id === modalProjectId) ?? null : null;
 
   return (
-    <section id="projets" className="py-16 px-8">
-      <div className="max-w-[1100px] mx-auto">
+    <section id="projets" className={sectionStyles.section}>
+      <div className={sectionStyles.inner}>
         <SectionHeader />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
+        <div className={projectGrid}>
           {projects.map((project) => (
             <ProjectCard
               key={project.id}

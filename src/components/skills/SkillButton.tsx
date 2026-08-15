@@ -1,5 +1,5 @@
-import { clsx } from 'clsx';
 import { SvgIcon } from '../shared/SvgSprite';
+import { css, cx } from '../../../styled-system/css';
 
 type Props = {
   skillId: string;
@@ -11,6 +11,79 @@ type Props = {
   setDisplayedSkillId: (id: string) => void;
   setShowEngineerDesc: (v: boolean) => void;
   position: { x: number; y: number };
+};
+
+const styles = {
+  button: css({
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '2',
+    transform: 'translate(-50%, -50%)',
+    rounded: 'full',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    px: '3.5',
+    py: '1.5',
+    whiteSpace: 'nowrap',
+    backdropFilter: 'blur(12px)',
+    transition: 'all 300ms cubic-bezier(0,0,.2,1)',
+    userSelect: 'none',
+  }),
+  activeButton: css({
+    borderColor: 'rgba(34,211,238,0.5)',
+    bg: 'rgba(8, 51, 68, 0.2)',
+    color: 'cyan.200',
+    boxShadow: '0 0 20px rgba(34,211,238,0.25)',
+    transform: 'translate(-50%, -50%) scale(1.05)',
+    zIndex: 20,
+  }),
+  inactiveButton: css({
+    borderColor: 'rgba(255,255,255,0.06)',
+    bg: 'rgba(15,23,42,0.3)',
+    color: 'slate.300',
+    zIndex: 10,
+    _hover: {
+      borderColor: 'rgba(34,211,238,0.3)',
+      bg: 'rgba(15,23,42,0.5)',
+      transform: 'translate(-50%, -50%) scale(1.05)',
+    },
+  }),
+  dot: css({
+    h: '1.5',
+    w: '1.5',
+    rounded: 'full',
+    transition: 'all 300ms ease',
+  }),
+  activeDot: css({
+    bg: 'cyan.400',
+    transform: 'scale(1)',
+  }),
+  inactiveDot: css({
+    bg: 'transparent',
+    transform: 'scale(0)',
+  }),
+  icon: css({
+    h: { base: '4', sm: '4.5' },
+    w: { base: '4', sm: '4.5' },
+    fill: 'none',
+    strokeWidth: '1.8',
+    transition: 'stroke 150ms ease',
+  }),
+  activeIcon: css({
+    stroke: 'cyan.300',
+  }),
+  inactiveIcon: css({
+    stroke: 'slate.400',
+    _groupHover: {
+      stroke: 'cyan.300',
+    },
+  }),
+  label: css({
+    fontSize: { base: '11px', sm: 'xs' },
+    fontWeight: 'medium',
+    letterSpacing: '0.025em',
+  }),
 };
 
 export function SkillButton({
@@ -46,30 +119,17 @@ export function SkillButton({
       }}
       onMouseLeave={() => setHoveredId(null)}
       onBlur={() => setHoveredId(null)}
-      className={clsx(
-        'group absolute flex items-center gap-2 -translate-x-1/2 -translate-y-1/2',
-        'rounded-full border px-3.5 py-1.5 whitespace-nowrap backdrop-blur-md',
-        'transition-all duration-300 ease-out select-none',
-        isActive
-          ? 'border-cyan-400/50 bg-cyan-950/20 text-cyan-200 shadow-[0_0_20px_rgba(34,211,238,0.25)] scale-105 z-20'
-          : 'border-white/6 bg-slate-900/30 text-slate-300 hover:border-cyan-400/30 hover:bg-slate-900/50 hover:scale-105 z-10'
-      )}
+      className={cx('group', styles.button, isActive ? styles.activeButton : styles.inactiveButton)}
     >
       <span
-        className={clsx(
-          'h-1.5 w-1.5 rounded-full transition-all duration-300',
-          isActive ? 'bg-cyan-400 scale-100' : 'bg-transparent scale-0'
-        )}
+        className={cx(styles.dot, isActive ? styles.activeDot : styles.inactiveDot)}
       />
 
       <SvgIcon
         id={icon}
-        className={clsx(
-          'h-4 w-4 fill-none stroke-[1.8] transition-colors sm:h-4.5 sm:w-4.5',
-          isActive ? 'stroke-cyan-300' : 'stroke-slate-400 group-hover:stroke-cyan-300'
-        )}
+        className={cx(styles.icon, isActive ? styles.activeIcon : styles.inactiveIcon)}
       />
-      <span className="text-[11px] font-medium tracking-wide sm:text-xs">
+      <span className={styles.label}>
         {label}
       </span>
     </button>

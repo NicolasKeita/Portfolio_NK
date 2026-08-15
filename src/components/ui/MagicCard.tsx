@@ -5,8 +5,8 @@ import {
   useMotionValue,
   useMotionTemplate,
 } from "framer-motion";
-import { clsx } from "clsx";
 import { ReactNode, useRef } from "react";
+import { css, cx } from "../../../styled-system/css";
 
 interface MagicCardProps {
   children: ReactNode;
@@ -15,6 +15,55 @@ interface MagicCardProps {
   onClick?: (e: React.MouseEvent) => void;
   "aria-label"?: string;
 }
+
+const styles = {
+  panel: css({
+    position: 'relative',
+    rounded: '2xl',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(255,255,255,0.1)',
+    overflow: 'hidden',
+    bg: 'linear-gradient(135deg, rgba(15,23,42,0.8), rgba(30,41,59,0.5))',
+    boxShadow: '0 24px 80px rgba(0,0,0,0.26)',
+    md: {
+      willChange: 'backdrop-filter',
+    },
+  }),
+
+  card: css({
+    position: 'relative',
+    rounded: 'xl',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(255,255,255,0.11)',
+    overflow: 'hidden',
+    bg: 'linear-gradient(135deg, rgba(15,23,42,0.8), rgba(20,29,51,0.5))',
+    boxShadow: '0 18px 60px rgba(2,6,23,0.32)',
+    cursor: 'pointer',
+    transition: 'all 300ms ease',
+    _hover: {
+      transform: 'translateY(-4px)',
+      borderColor: 'rgba(34,211,238,0.45)',
+      boxShadow: '0 22px 80px rgba(8,47,73,0.38), 0 0 0 1px rgba(34,211,238,0.08)',
+    },
+  }),
+
+  spotlight: css({
+    pointerEvents: 'none',
+    position: 'absolute',
+    inset: '-1px',
+    transform: 'scale(0)',
+    transformOrigin: 'center',
+    transition: 'transform 500ms ease',
+    willChange: 'transform',
+    md: {
+      _groupHover: {
+        transform: 'scale(1)',
+      },
+    },
+  }),
+};
 
 export function MagicCard({
   children,
@@ -52,75 +101,7 @@ export function MagicCard({
     )
   `;
 
-  const panelStructure = clsx(
-    "group",
-    "relative",
-    "rounded-2xl",
-    "border",
-    "border-white/10",
-    "overflow-hidden"
-  );
-
-  const panelBackground = clsx(
-    "bg-linear-to-br",
-    "from-slate-900/80",
-    "to-slate-800/50"
-  );
-
-  const panelShadow = clsx(
-    "shadow-[0_24px_80px_rgba(0,0,0,0.26)]"
-  );
-
-  const panelBackdropBlur = clsx(
-    "md:backdrop-blur-lg"
-  );
-
-  const panelBackdropWillChange = clsx(
-    "md:will-change-backdrop-filter"
-  );
-
-  const cardStructure = clsx(
-    "group",
-    "relative",
-    "rounded-xl",
-    "border",
-    "border-white/11",
-    "overflow-hidden"
-  );
-
-  const cardBackground = clsx(
-    "bg-linear-to-br",
-    "from-slate-900/80",
-    "to-bg-card-dark/50"
-  );
-
-  const cardShadow = clsx(
-    "shadow-[0_18px_60px_rgba(2,6,23,0.32)]"
-  );
-
-  const cardInteraction = clsx(
-    "cursor-pointer",
-    "transition-all",
-    "duration-300",
-    "hover:-translate-y-1",
-    "hover:border-cyan-400/45",
-    "hover:shadow-[0_22px_80px_rgba(8,47,73,0.38),0_0_0_1px_rgba(34,211,238,0.08)]"
-  );
-
-  const baseClasses = asPanel
-    ? clsx(
-        panelStructure,
-        panelBackground,
-        panelShadow,
-        // panelBackdropBlur,
-        panelBackdropWillChange
-      )
-    : clsx(
-        cardStructure,
-        cardBackground,
-        cardShadow,
-        cardInteraction
-      );
+  const baseClasses = asPanel ? styles.panel : styles.card;
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (onClick && (e.key === "Enter" || e.key === " ")) {
@@ -132,7 +113,7 @@ export function MagicCard({
   return (
     <motion.div
       ref={cardRef}
-      className={clsx("magic-card", baseClasses, className)}
+      className={cx("magic-card", "group", baseClasses, className)}
       {...(onClick && !asPanel
         ? {
             role: "button",
@@ -154,17 +135,7 @@ export function MagicCard({
 
       {!asPanel && (
         <motion.div
-          className={[
-            "pointer-events-none",
-            "absolute",
-            "-inset-px",
-            "scale-0",
-            "origin-center",
-            "transition-transform",
-            "duration-500",
-            "md:group-hover:scale-100",
-            "will-change-transform",
-          ].join(" ")}
+          className={styles.spotlight}
           style={{ background: spotlightBackground }}
         />
       )}

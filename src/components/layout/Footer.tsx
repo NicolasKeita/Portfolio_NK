@@ -1,34 +1,81 @@
 import { useLanguage } from '../../context/LanguageContext';
+import { css } from '../../../styled-system/css';
+
+const styles = {
+  footer: css({
+    position: 'relative',
+    bg: 'rgba(5, 8, 22, 0.72)',
+    backdropFilter: 'blur(24px)',
+    color: 'slate.400',
+    textAlign: 'center',
+    py: '12',
+    px: '8',
+  }),
+  inner: css({
+    maxW: '1100px',
+    mx: 'auto',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '6',
+  }),
+  links: css({
+    display: 'flex',
+    gap: '6',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  }),
+  link: css({
+    color: 'slate.400',
+    textDecoration: 'none',
+    fontSize: 'sm',
+    position: 'relative',
+    transition: 'color 150ms ease',
+    _before: {
+      content: '""',
+      position: 'absolute',
+      bottom: '-2px',
+      left: 0,
+      w: 'full',
+      h: '1px',
+      bg: 'linear-gradient(90deg, transparent, #67e8f9, transparent)',
+      opacity: 0,
+      transition: 'opacity 150ms ease',
+    },
+    _hover: {
+      color: 'cyan.300',
+      _before: {
+        opacity: 1,
+      },
+    },
+  }),
+  copyright: css({
+    color: 'slate.500',
+    fontSize: 'xs',
+  }),
+};
 
 export function Footer() {
   const { t } = useLanguage();
 
-  const linkClass = `
-    text-slate-400 no-underline text-sm hover:text-cyan-300 transition-colors
-    relative before:content-[""] before:absolute before:bottom-[-2px] before:left-0
-    before:w-full before:h-px before:bg-linear-to-r before:from-transparent
-    before:via-cyan-300 before:to-transparent before:opacity-0
-    before:transition-opacity hover:before:opacity-100
-  `;
-
   return (
-    <footer className="relative bg-[#050816]/72 backdrop-blur-xl text-slate-400 text-center py-12 px-8">
-      <div className="max-w-[1100px] mx-auto flex flex-col items-center gap-6">
-        <div className="flex gap-6 flex-wrap justify-center">
-          <a href="#hero" className={linkClass}>
+    <footer className={styles.footer}>
+      <div className={styles.inner}>
+        <div className={styles.links}>
+          <a href="#hero" className={styles.link}>
             {t('footer.home')}
           </a>
-          <a href="#projets" className={linkClass}>
+          <a href="#projets" className={styles.link}>
             {t('footer.projets')}
           </a>
-          <a href="#formation" className={linkClass}>
+          <a href="#formation" className={styles.link}>
             {t('footer.formation')}
           </a>
-          <a href="#contact" className={linkClass}>
+          <a href="#contact" className={styles.link}>
             {t('footer.contact')}
           </a>
         </div>
-        <p className="text-slate-500 text-xs">
+        <p className={styles.copyright}>
           {t('footer.copyright')}
         </p>
       </div>

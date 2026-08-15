@@ -1,32 +1,154 @@
 import { memo } from 'react';
 import { MagicCard } from '../ui/MagicCard';
 import type { ProjectYaml } from '../../data';
+import { css, cx } from '../../../styled-system/css';
 
 const TAG_COLORS: Record<string, string> = {
-  'tag-py': 'bg-blue-100 text-blue-800',
-  'tag-sys': 'bg-green-100 text-green-800',
-  'tag-web': 'bg-purple-100 text-purple-800',
-  'tag-audit': 'bg-amber-100 text-amber-800',
-  'tag-data': 'bg-indigo-100 text-indigo-800',
-  'tag-mobile': 'bg-cyan-100 text-cyan-800',
-  'tag-ai': 'bg-pink-100 text-pink-800',
-  'tag-architecture': 'bg-amber-100 text-amber-800',
-  'tag-opensource': 'bg-emerald-100 text-emerald-800',
-  'tag-cpp': 'bg-sky-100 text-sky-800',
+  'tag-py': css({ bg: 'blue.100', color: 'blue.800' }),
+  'tag-sys': css({ bg: 'green.100', color: 'green.800' }),
+  'tag-web': css({ bg: 'purple.100', color: 'purple.800' }),
+  'tag-audit': css({ bg: 'amber.100', color: 'amber.800' }),
+  'tag-data': css({ bg: 'indigo.100', color: 'indigo.800' }),
+  'tag-mobile': css({ bg: 'cyan.100', color: 'cyan.800' }),
+  'tag-ai': css({ bg: 'pink.100', color: 'pink.800' }),
+  'tag-architecture': css({ bg: 'amber.100', color: 'amber.800' }),
+  'tag-opensource': css({ bg: 'emerald.100', color: 'emerald.800' }),
+  'tag-cpp': css({ bg: 'sky.100', color: 'sky.800' }),
 };
 
-const LINK_BUTTON_CLASSES =
-  'w-8 h-8 border border-white/10 rounded-lg flex items-center justify-center ' +
-  'no-underline text-slate-400 text-sm ' +
-  'hover:border-cyan-300/60 hover:text-white hover:bg-cyan-400/10 transition-colors';
-
-const TECH_BADGE_CLASSES =
-  'font-mono text-xs text-white bg-slate-700/80 border border-white/20 rounded-sm px-1.5 py-0.5';
+const styles = {
+  tag: css({
+    fontFamily: 'mono',
+    fontSize: 'xs',
+    fontWeight: 'semibold',
+    px: '2',
+    py: '0.5',
+    rounded: 'sm',
+  }),
+  tagList: css({
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '1.5',
+  }),
+  linkButton: css({
+    w: '8',
+    h: '8',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(255,255,255,0.1)',
+    rounded: 'lg',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textDecoration: 'none',
+    color: 'slate.400',
+    fontSize: 'sm',
+    transition: 'color 150ms ease, background-color 150ms ease, border-color 150ms ease',
+    _hover: {
+      borderColor: 'rgba(103,232,249,0.6)',
+      color: 'white',
+      bg: 'rgba(34,211,238,0.1)',
+    },
+  }),
+  techBadge: css({
+    fontFamily: 'mono',
+    fontSize: 'xs',
+    color: 'white',
+    bg: 'rgba(51,65,85,0.8)',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(255,255,255,0.2)',
+    rounded: 'sm',
+    px: '1.5',
+    py: '0.5',
+  }),
+  background: css({
+    position: 'absolute',
+    inset: 0,
+    opacity: 1,
+    pointerEvents: 'none',
+  }),
+  overlay: css({
+    position: 'absolute',
+    inset: 0,
+    bg: 'rgba(15,23,42,0.3)',
+    transition: 'all 500ms ease',
+    zIndex: 1,
+    _groupHover: {
+      bg: 'rgba(15,23,42,0.55)',
+    },
+  }),
+  header: css({
+    px: '6',
+    pt: '5',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    position: 'relative',
+    zIndex: 10,
+    transition: 'all 500ms ease',
+  }),
+  linkList: css({
+    display: 'flex',
+    gap: '1.5',
+  }),
+  body: css({
+    px: '6',
+    pb: '6',
+    pt: '5',
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'relative',
+    zIndex: 10,
+  }),
+  title: css({
+    fontFamily: 'display',
+    fontWeight: 'semibold',
+    fontSize: 'md',
+    color: 'white',
+    mb: '2',
+  }),
+  details: css({
+    opacity: 0,
+    transition: 'all 500ms ease',
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    bg: 'rgba(15,23,42,0.7)',
+    rounded: 'lg',
+    p: '3',
+    mx: '-3',
+    _groupHover: {
+      opacity: 1,
+    },
+  }),
+  overview: css({
+    fontSize: 'sm',
+    color: 'slate.200',
+    lineHeight: 'relaxed',
+    flex: 1,
+    mb: '5',
+    listStyleType: 'disc',
+    listStylePosition: 'inside',
+    '& > li + li': {
+      mt: '1',
+    },
+  }),
+  description: css({
+    fontSize: 'sm',
+    color: 'slate.200',
+    lineHeight: 'relaxed',
+    flex: 1,
+    mb: '5',
+    whiteSpace: 'pre-line',
+  }),
+};
 
 function ProjectTag({ tagClass, tag }: { tagClass: string; tag: string }) {
   return (
     <span
-      className={`${TAG_COLORS[tagClass] ?? ''} font-mono text-xs font-semibold px-2 py-0.5 rounded-sm`}
+      className={cx(TAG_COLORS[tagClass], styles.tag)}
     >
       {tag}
     </span>
@@ -35,11 +157,11 @@ function ProjectTag({ tagClass, tag }: { tagClass: string; tag: string }) {
 
 function ProjectTags({ tags }: { tags: { name: string; class: string }[] }) {
   return (
-    <div className="flex flex-wrap gap-1.5">
+    <div className={styles.tagList}>
       {tags.map((t) => (
         <span
           key={t.name}
-          className={`${TAG_COLORS[t.class] ?? ''} font-mono text-xs font-semibold px-2 py-0.5 rounded-sm`}
+          className={cx(TAG_COLORS[t.class], styles.tag)}
         >
           {t.name}
         </span>
@@ -49,7 +171,7 @@ function ProjectTags({ tags }: { tags: { name: string; class: string }[] }) {
 }
 
 function TechBadge({ tech }: { tech: string }) {
-  return <span className={TECH_BADGE_CLASSES}>{tech}</span>;
+  return <span className={styles.techBadge}>{tech}</span>;
 }
 
 interface ProjectCardProps {
@@ -63,7 +185,7 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
     <MagicCard onClick={onOpen} aria-label={`Voir le projet : ${project.title}`}>
       {project.bgImage && (
         <div
-          className="absolute inset-0 opacity-100 pointer-events-none"
+          className={styles.background}
           style={{
             backgroundImage: `url(${getImage(project.bgImage)})`,
             backgroundSize: 'contain',
@@ -73,16 +195,16 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
         />
       )}
 
-      <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/55 transition-all duration-500 z-1" />
+      <div className={styles.overlay} />
 
-      <div className="px-6 pt-5 flex items-center justify-between relative z-10 transition-all duration-500">
+      <div className={styles.header}>
         {project.tags ? (
           <ProjectTags tags={project.tags} />
         ) : (
           <ProjectTag tagClass={project.tagClass} tag={project.tag} />
         )}
 
-        <div className="flex gap-1.5">
+        <div className={styles.linkList}>
           {project.links ? (
             project.links.map((link) => (
               <a
@@ -90,7 +212,7 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
                 href={link.url}
                 target="_blank"
                 rel="noreferrer"
-                className={LINK_BUTTON_CLASSES}
+                className={styles.linkButton}
                 title={link.label}
                 onClick={(e) => e.stopPropagation()}
               >
@@ -102,7 +224,7 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
               href={project.link}
               target="_blank"
               rel="noreferrer"
-              className={LINK_BUTTON_CLASSES}
+              className={styles.linkButton}
               title="Voir le projet"
               onClick={(e) => e.stopPropagation()}
             >
@@ -112,30 +234,27 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
         </div>
       </div>
 
-      <div className="px-6 pb-6 pt-5 flex-1 flex flex-col relative z-10">
-        <h3 className="font-display font-semibold text-base text-white mb-2">
+      <div className={styles.body}>
+        <h3 className={styles.title}>
           {project.title}
         </h3>
 
         <div
-          className={[
-            'opacity-0 group-hover:opacity-100 transition-all duration-500',
-            'flex-1 flex flex-col bg-slate-900/70 rounded-lg p-3 -mx-3',
-          ].join(' ')}
+          className={styles.details}
         >
           {project.overview && project.overview.length > 0 ? (
-            <ul className="text-sm text-slate-200 leading-relaxed flex-1 mb-5 list-disc list-inside space-y-1">
+            <ul className={styles.overview}>
               {project.overview.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
             </ul>
           ) : (
-            <p className="text-sm text-slate-200 leading-relaxed flex-1 mb-5 whitespace-pre-line">
+            <p className={styles.description}>
               {project.prologue ?? project.description}
             </p>
           )}
 
-          <div className="flex flex-wrap gap-1.5">
+          <div className={styles.tagList}>
             {project.techs.map((tech) => (
               <TechBadge key={tech} tech={tech} />
             ))}

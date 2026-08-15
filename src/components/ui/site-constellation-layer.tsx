@@ -1,3 +1,5 @@
+import { css, cx } from '../../../styled-system/css';
+
 const nodes = [
   { x: 9, y: 6, r: 1.1 },
   { x: 23, y: 11, r: 0.8 },
@@ -36,28 +38,53 @@ const links = [
   [4, 9], [9, 14], [14, 19], [19, 24],
 ] as const;
 
+const styles = {
+  layer: css({
+    position: 'absolute',
+    inset: 0,
+    w: 'full',
+    minH: '100vh',
+    overflow: 'hidden',
+    pointerEvents: 'none',
+    zIndex: 0,
+  }),
+  cloud: css({
+    pointerEvents: 'none',
+    position: 'absolute',
+    rounded: 'full',
+    filter: 'blur(64px)',
+  }),
+  svg: css({
+    position: 'absolute',
+    inset: 0,
+    w: 'full',
+    h: 'full',
+    opacity: 0.4,
+  }),
+};
+
 const clouds = [
-  'left-[1%] top-[8%] h-136 w-136 bg-cyan-400/10',
-  'right-[-6%] top-[27%] h-168 w-2xl bg-indigo-500/10',
-  'left-[8%] top-[54%] h-152 w-152 bg-sky-500/9',
-  'right-[7%] top-[78%] h-136 w-136 bg-violet-500/8',
+  css({ left: '1%', top: '8%', h: '34rem', w: '34rem', bg: 'rgba(34,211,238,0.1)' }),
+  css({ right: '-6%', top: '27%', h: '42rem', w: '42rem', bg: 'rgba(99,102,241,0.1)' }),
+  css({ left: '8%', top: '54%', h: '38rem', w: '38rem', bg: 'rgba(14,165,233,0.09)' }),
+  css({ right: '7%', top: '78%', h: '34rem', w: '34rem', bg: 'rgba(139,92,246,0.08)' }),
 ];
 
 export function SiteConstellationLayer() {
   return (
     <div
-      className="absolute inset-0 w-full min-h-screen overflow-hidden pointer-events-none z-0"
+      className={styles.layer}
       aria-hidden="true"
     >
       {clouds.map((className) => (
         <div
           key={className}
-          className={`pointer-events-none absolute rounded-full blur-3xl ${className}`}
+          className={cx(styles.cloud, className)}
         />
       ))}
 
       <svg
-        className="absolute inset-0 w-full h-full opacity-40"
+        className={styles.svg}
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >

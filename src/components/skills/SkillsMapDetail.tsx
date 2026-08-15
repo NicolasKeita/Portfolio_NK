@@ -1,11 +1,43 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { SkillCard, CARD_CLASS } from './SkillCard';
+import { css } from '../../../styled-system/css';
 
 type Props = {
   activeSkillId: string;
   proof: (id: string) => string | undefined;
   engineerDescription: string;
   showEngineerDesc: boolean;
+};
+
+const styles = {
+  panel: css({
+    position: 'relative',
+    mx: 'auto',
+    maxW: '4xl',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(255,255,255,0.05)',
+    bg: 'rgba(15,23,42,0.2)',
+    backdropFilter: 'blur(24px)',
+    rounded: '2xl',
+    p: '4',
+    overflow: 'hidden',
+    boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
+  }),
+  glow: css({
+    pointerEvents: 'none',
+    position: 'absolute',
+    inset: 0,
+    bg: 'linear-gradient(90deg, rgba(34,211,238,0.04), transparent 40%, rgba(167,139,250,0.03))',
+  }),
+  content: css({
+    position: 'relative',
+    w: 'full',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '4',
+  }),
 };
 
 export function SkillsMapDetail({
@@ -15,20 +47,8 @@ export function SkillsMapDetail({
   showEngineerDesc,
 }: Props) {
   return (
-    <div
-      className={[
-        'relative mx-auto max-w-4xl',
-        'border border-white/5 bg-slate-900/20 backdrop-blur-xl',
-        'rounded-2xl p-4 overflow-hidden',
-        'shadow-[0_20px_50px_rgba(0,0,0,0.3)]',
-      ].join(' ')}
-    >
-      <div
-        className={[
-          'pointer-events-none absolute inset-0',
-          'bg-[linear-gradient(90deg,rgba(34,211,238,0.04),transparent_40%,rgba(167,139,250,0.03))]',
-        ].join(' ')}
-      />
+    <div className={styles.panel}>
+      <div className={styles.glow} />
 
       <AnimatePresence mode="wait">
         {showEngineerDesc ? (
@@ -38,7 +58,7 @@ export function SkillsMapDetail({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="relative w-full flex items-center justify-center gap-4"
+            className={styles.content}
           >
             <p className={CARD_CLASS}>
               {engineerDescription}
@@ -51,7 +71,7 @@ export function SkillsMapDetail({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="relative w-full flex items-center justify-center gap-4"
+            className={styles.content}
           >
             <SkillCard proof={proof(activeSkillId) ?? ''} />
           </motion.div>

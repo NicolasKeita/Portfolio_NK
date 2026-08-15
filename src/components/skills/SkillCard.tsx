@@ -1,3 +1,5 @@
+import { css, cx } from '../../../styled-system/css';
+
 interface SkillCardProps {
   proof: string;
   className?: string;
@@ -36,10 +38,7 @@ function renderProof(text: string) {
       <button
         key={i}
         onClick={handler}
-        className={[
-          'inline align-baseline underline decoration-dotted underline-offset-2',
-          'text-cyan-300 hover:text-cyan-200 hover:decoration-solid transition-all cursor-pointer',
-        ].join(' ')}
+        className={styles.proofLink}
       >
         {part}
       </button>
@@ -49,16 +48,44 @@ function renderProof(text: string) {
   });
 }
 
-export const CARD_CLASS =
-  [
-    'text-sm leading-relaxed text-cyan-300/90 font-medium text-center',
-    'px-4 py-3 rounded-xl bg-cyan-500/3 border border-cyan-500/10',
-    'w-full max-w-3xl mx-auto',
-  ].join(' ');
+const styles = {
+  proofLink: css({
+    display: 'inline',
+    verticalAlign: 'baseline',
+    textDecoration: 'underline',
+    textDecorationStyle: 'dotted',
+    textUnderlineOffset: '2px',
+    color: 'cyan.300',
+    transition: 'all 150ms ease',
+    cursor: 'pointer',
+    _hover: {
+      color: 'cyan.200',
+      textDecorationStyle: 'solid',
+    },
+  }),
+};
+
+export const CARD_CLASS = css({
+  fontSize: 'sm',
+  lineHeight: 'relaxed',
+  color: 'rgba(103,232,249,0.9)',
+  fontWeight: 'medium',
+  textAlign: 'center',
+  px: '4',
+  py: '3',
+  rounded: 'xl',
+  bg: 'rgba(6,182,212,0.03)',
+  borderWidth: '1px',
+  borderStyle: 'solid',
+  borderColor: 'rgba(6,182,212,0.1)',
+  w: 'full',
+  maxW: '3xl',
+  mx: 'auto',
+});
 
 export function SkillCard({ proof = '', className = '' }: SkillCardProps) {
   return (
-    <p className={`${CARD_CLASS} ${className}`}>
+    <p className={cx(CARD_CLASS, className)}>
       {renderProof(proof)}
     </p>
   );

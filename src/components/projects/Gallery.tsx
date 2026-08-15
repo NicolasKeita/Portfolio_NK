@@ -2,11 +2,91 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
+import { css } from '../../../styled-system/css';
 
 interface GalleryProps {
   photos: string[];
   title: string;
 }
+
+const styles = {
+  thumb: css({
+    rounded: 'lg',
+    overflow: 'hidden',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(255,255,255,0.1)',
+    bg: '#0b1220',
+    aspectRatio: '16 / 10',
+    position: 'relative',
+  }),
+  placeholder: css({
+    position: 'absolute',
+    inset: 0,
+    bg: 'rgba(30,41,59,0.7)',
+    animation: 'pulse 2s cubic-bezier(.4,0,.6,1) infinite',
+  }),
+  image: css({
+    w: 'full',
+    h: 'full',
+    objectFit: 'cover',
+    display: 'block',
+    cursor: 'pointer',
+    transition: 'transform 300ms ease, opacity 300ms ease',
+    _hover: {
+      transform: 'scale(1.05)',
+      opacity: 0.9,
+    },
+  }),
+  grid: css({
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+    gap: '3',
+    mb: '6',
+  }),
+  lightbox: css({
+    position: 'fixed',
+    inset: 0,
+    zIndex: 60,
+    bg: 'rgba(0,0,0,0.92)',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }),
+  closeButton: css({
+    position: 'absolute',
+    top: '4',
+    right: '6',
+    bg: 'rgba(0,0,0,0.5)',
+    borderWidth: 0,
+    color: 'white',
+    fontSize: '2xl',
+    w: '10',
+    h: '10',
+    rounded: 'full',
+    cursor: 'pointer',
+    zIndex: 61,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    opacity: 0.7,
+    transition: 'opacity 150ms ease',
+    lineHeight: 'none',
+    _hover: {
+      opacity: 1,
+    },
+  }),
+  lightboxImage: css({
+    maxW: '90vw',
+    maxH: '90vh',
+    w: 'auto',
+    h: 'auto',
+    objectFit: 'contain',
+    rounded: 'lg',
+    cursor: 'default',
+  }),
+};
 
 function LazyGalleryImage({
   src,
@@ -46,20 +126,15 @@ function LazyGalleryImage({
   return (
     <div
       ref={containerRef}
-      className={[
-        'rounded-lg overflow-hidden',
-        'border border-border-light dark:border-border-dark',
-        'bg-bg-dark-light dark:bg-bg-dark-dark',
-        'aspect-16/10 relative',
-      ].join(' ')}
+      className={styles.thumb}
     >
       {!shouldLoad ? (
-        <div className="absolute inset-0 bg-slate-800/70 animate-pulse" />
+        <div className={styles.placeholder} />
       ) : (
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-cover block cursor-pointer transition-transform duration-300 hover:scale-105 hover:opacity-90"
+          className={styles.image}
           loading="lazy"
           decoding="async"
           fetchPriority="low"
@@ -90,7 +165,7 @@ export function Gallery({ photos, title }: GalleryProps) {
 
   return (
     <>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-3 mb-6">
+      <div className={styles.grid}>
         {photos.map((src, i) => (
           <LazyGalleryImage
             key={`${src}-${i}`}
@@ -106,7 +181,7 @@ export function Gallery({ photos, title }: GalleryProps) {
           <motion.div
             key="lightbox"
             ref={lightboxRef}
-            className="fixed inset-0 z-60 bg-black/92 cursor-pointer flex items-center justify-center"
+            className={styles.lightbox}
             onClick={closeLightbox}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -118,11 +193,7 @@ export function Gallery({ photos, title }: GalleryProps) {
             tabIndex={-1}
           >
             <button
-              className={`
-                absolute top-4 right-6 bg-black/50 border-none text-white text-2xl
-                w-10 h-10 rounded-full cursor-pointer z-61 flex items-center justify-center
-                opacity-70 hover:opacity-100 transition-opacity leading-none
-              `}
+              className={styles.closeButton}
               onClick={closeLightbox}
               aria-label="Fermer"
             >
@@ -131,7 +202,7 @@ export function Gallery({ photos, title }: GalleryProps) {
             <motion.img
               src={selectedImg}
               alt={`${title} – image agrandie`}
-              className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-lg cursor-default"
+              className={styles.lightboxImage}
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

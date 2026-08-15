@@ -2,19 +2,143 @@ import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { Gallery } from './Gallery';
 import type { ProjectYaml } from '../../data';
+import { css, cx } from '../../../styled-system/css';
 
-const GITHUB_LINK_CLASSES =
-  'inline-flex items-center gap-2 px-7 py-3 rounded-lg ' +
-  'font-display font-semibold text-sm no-underline tracking-wide ' +
-  'border-2 border-white/10 bg-white/4 text-white transition-all duration-300 ' +
-  'hover:bg-cyan-400/10 hover:border-cyan-300/50 hover:text-white ' +
-  'hover:shadow-[0_0_0_2px_rgba(34,211,238,0.14)]';
-
-const DROPDOWN_ITEM_CLASSES =
-  'block w-full text-left px-4 py-2.5 text-sm text-slate-200 no-underline ' +
-  'hover:bg-cyan-400/10 hover:text-white transition-colors first:rounded-t-lg last:rounded-b-lg';
-
-const SECTION_TITLE_CLASSES = 'text-cyan-400 font-display font-semibold text-lg mb-3 mt-6 first:mt-0';
+const styles = {
+  linkWrap: css({
+    mb: '5',
+    mt: '4',
+    position: 'relative',
+  }),
+  githubLink: css({
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '2',
+    px: '7',
+    py: '3',
+    rounded: 'lg',
+    fontFamily: 'display',
+    fontWeight: 'semibold',
+    fontSize: 'sm',
+    textDecoration: 'none',
+    letterSpacing: '0.025em',
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(255,255,255,0.1)',
+    bg: 'rgba(255,255,255,0.04)',
+    color: 'white',
+    transition: 'all 300ms ease',
+    _hover: {
+      bg: 'rgba(34,211,238,0.1)',
+      borderColor: 'rgba(103,232,249,0.5)',
+      color: 'white',
+      boxShadow: '0 0 0 2px rgba(34,211,238,0.14)',
+    },
+  }),
+  clickable: css({
+    cursor: 'pointer',
+  }),
+  chevron: css({
+    w: '4',
+    h: '4',
+    transition: 'transform 150ms ease',
+  }),
+  chevronOpen: css({
+    transform: 'rotate(180deg)',
+  }),
+  dropdown: css({
+    position: 'absolute',
+    top: '100%',
+    left: 0,
+    mt: '1',
+    w: '64',
+    bg: 'slate.800',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(255,255,255,0.1)',
+    rounded: 'lg',
+    boxShadow: 'xl',
+    zIndex: 50,
+    overflow: 'hidden',
+  }),
+  dropdownItem: css({
+    display: 'block',
+    w: 'full',
+    textAlign: 'left',
+    px: '4',
+    py: '2.5',
+    fontSize: 'sm',
+    color: 'slate.200',
+    textDecoration: 'none',
+    transition: 'color 150ms ease, background-color 150ms ease',
+    _hover: {
+      bg: 'rgba(34,211,238,0.1)',
+      color: 'white',
+    },
+    _first: {
+      roundedTop: 'lg',
+    },
+    _last: {
+      roundedBottom: 'lg',
+    },
+  }),
+  sectionTitle: css({
+    color: 'cyan.400',
+    fontFamily: 'display',
+    fontWeight: 'semibold',
+    fontSize: 'lg',
+    mb: '3',
+    mt: '6',
+    _first: {
+      mt: 0,
+    },
+  }),
+  overview: css({
+    listStyleType: 'disc',
+    listStylePosition: 'inside',
+    color: 'slate.300',
+    lineHeight: 'relaxed',
+    mb: '4',
+    '& > li + li': {
+      mt: '1.5',
+    },
+  }),
+  prologue: css({
+    color: 'white',
+    fontStyle: 'italic',
+    fontWeight: 'medium',
+    lineHeight: 'relaxed',
+    mb: '4',
+    pb: '4',
+    borderBottomWidth: '1px',
+    borderBottomStyle: 'solid',
+    borderBottomColor: 'rgba(255,255,255,0.1)',
+    whiteSpace: 'pre-line',
+  }),
+  description: css({
+    color: 'slate.300',
+    lineHeight: 'relaxed',
+    mb: '6',
+    whiteSpace: 'pre-line',
+  }),
+  techList: css({
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '1.5',
+  }),
+  techBadge: css({
+    fontFamily: 'mono',
+    fontSize: 'xs',
+    color: 'slate.300',
+    bg: 'rgba(255,255,255,0.04)',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(255,255,255,0.1)',
+    rounded: 'sm',
+    px: '1.5',
+    py: '0.5',
+  }),
+};
 
 interface ProjectModalContentProps {
   project: ProjectYaml;
@@ -47,14 +171,14 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
       <Gallery photos={project.photos.map(getImage)} title={project.title} />
 
       {hasDropdown ? (
-        <div className="mb-5 mt-4 relative" ref={dropdownRef}>
+        <div className={styles.linkWrap} ref={dropdownRef}>
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            className={GITHUB_LINK_CLASSES + ' cursor-pointer'}
+            className={cx(styles.githubLink, styles.clickable)}
           >
             {t('modal.github')}
             <svg
-              className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`}
+              className={cx(styles.chevron, dropdownOpen && styles.chevronOpen)}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -64,19 +188,14 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
           </button>
 
           {dropdownOpen && (
-            <div
-              className={[
-                'absolute top-full left-0 mt-1 w-64',
-                'bg-slate-800 border border-white/10 rounded-lg shadow-xl z-50 overflow-hidden',
-              ].join(' ')}
-            >
+            <div className={styles.dropdown}>
               {project.links!.map((link) => (
                 <a
                   key={link.url}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={DROPDOWN_ITEM_CLASSES}
+                  className={styles.dropdownItem}
                   onClick={() => setDropdownOpen(false)}
                 >
                   {link.label}
@@ -86,12 +205,12 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
           )}
         </div>
       ) : project.link && (
-        <div className="mb-5 mt-4">
+        <div className={styles.linkWrap}>
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className={GITHUB_LINK_CLASSES}
+            className={styles.githubLink}
           >
             {t('modal.github')}
           </a>
@@ -100,10 +219,10 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
 
       {hasOverview && (
         <>
-          <h3 className={SECTION_TITLE_CLASSES}>
+          <h3 className={styles.sectionTitle}>
             {t('modal.sectionOverview')}
           </h3>
-          <ul className="list-disc list-inside text-slate-300 leading-relaxed mb-4 space-y-1.5">
+          <ul className={styles.overview}>
             {project.overview!.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -113,10 +232,10 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
 
       {hasPrologue && (
         <>
-          <h3 className={SECTION_TITLE_CLASSES}>
+          <h3 className={styles.sectionTitle}>
             {t('modal.sectionChallenges')}
           </h3>
-          <p className="text-white italic font-medium leading-relaxed mb-4 pb-4 border-b border-white/10 whitespace-pre-line">
+          <p className={styles.prologue}>
             {project.prologue}
           </p>
         </>
@@ -124,18 +243,18 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
 
       {hasDescription && (
         <>
-          <h3 className={SECTION_TITLE_CLASSES}>
+          <h3 className={styles.sectionTitle}>
             {t('modal.sectionDescription')}
           </h3>
-          <div className="text-slate-300 leading-relaxed mb-6 whitespace-pre-line">
+          <div className={styles.description}>
             {project.description}
           </div>
         </>
       )}
 
-      <div className="flex flex-wrap gap-1.5">
+      <div className={styles.techList}>
         {project.techs.map((tech) => (
-          <span key={tech} className="font-mono text-xs text-slate-300 bg-white/4 border border-white/10 rounded-sm px-1.5 py-0.5">
+          <span key={tech} className={styles.techBadge}>
             {tech}
           </span>
         ))}

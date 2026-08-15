@@ -3,6 +3,101 @@ import { SvgIcon } from '../shared/SvgSprite';
 import { useLanguage } from '../../context/LanguageContext';
 import { getContactItems } from '../../data';
 import { MagicCard } from '../ui/MagicCard';
+import { sectionStyles } from './sectionStyles';
+import { css } from '../../../styled-system/css';
+
+const styles = {
+  panel: css({
+    maxW: '1100px',
+    mx: 'auto',
+    p: { base: '6', sm: '8' },
+  }),
+  grid: css({
+    display: 'grid',
+    gridTemplateColumns: { base: '1fr', md: 'repeat(2, minmax(0, 1fr))' },
+    gap: '16',
+    alignItems: 'start',
+  }),
+  title: css({
+    fontFamily: 'display',
+    fontWeight: 'semibold',
+    color: 'white',
+    letterSpacing: '-0.025em',
+    lineHeight: 'tight',
+    mb: '3.5',
+    fontSize: 'clamp(1.4rem, 2.8vw, 2rem)',
+  }),
+  intro: css({
+    fontSize: 'sm',
+    color: 'slate.400',
+    lineHeight: 'relaxed',
+  }),
+  list: css({
+    listStyle: 'none',
+    display: 'grid',
+    gridTemplateColumns: { base: '1fr', sm: 'repeat(2, minmax(0, 1fr))' },
+    gap: '3.5',
+    m: 0,
+    p: 0,
+  }),
+  item: css({
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: '3',
+  }),
+  iconBox: css({
+    w: '34px',
+    h: '34px',
+    flexShrink: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    rounded: 'lg',
+    bg: 'rgba(34, 211, 238, 0.1)',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(103,232,249,0.2)',
+    color: 'cyan.300',
+    transition: 'background-color 200ms ease, border-color 200ms ease',
+    _hover: {
+      bg: 'rgba(34, 211, 238, 0.2)',
+      borderColor: 'rgba(103,232,249,0.4)',
+    },
+  }),
+  icon: css({
+    w: '17px',
+    h: '17px',
+    stroke: 'currentColor',
+    fill: 'none',
+    strokeWidth: '1.75',
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    display: 'block',
+  }),
+  label: css({
+    fontSize: 'xs',
+    fontWeight: 'medium',
+    color: 'slate.500',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
+    mb: '0.5',
+  }),
+  value: css({
+    fontSize: 'sm',
+    fontWeight: 'medium',
+    color: 'white',
+    textDecoration: 'none',
+    _hover: {
+      color: 'cyan.300',
+      textDecoration: 'underline',
+    },
+  }),
+  subValue: css({
+    fontWeight: 'normal',
+    color: 'slate.500',
+    fontSize: 'xs',
+  }),
+};
 
 export function ContactSection() {
   const { lang, t } = useLanguage();
@@ -15,27 +110,24 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-4 px-8">
-      <MagicCard asPanel className="max-w-[1100px] mx-auto p-6 sm:p-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+    <section id="contact" className={sectionStyles.compactSection}>
+      <MagicCard asPanel className={styles.panel}>
+        <div className={styles.grid}>
           <div>
-            <p className="font-mono text-xs font-semibold text-amber uppercase tracking-widest mb-2.5">{t('contact.title')}</p>
-            <h2
-              className="font-display font-semibold text-white tracking-tight leading-tight mb-3.5"
-              style={{ fontSize: 'clamp(1.4rem, 2.8vw, 2rem)' }}
-            >
+            <p className={sectionStyles.eyebrow}>{t('contact.title')}</p>
+            <h2 className={styles.title}>
               {t('contact.tagline')}
             </h2>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className={styles.intro}>
               {t('contact.sub1')}<br />
               {t('contact.sub2')}
             </p>
           </div>
-          <ul className="list-none grid grid-cols-1 sm:grid-cols-2 gap-3.5 m-0 p-0">
+          <ul className={styles.list}>
             {entries.map(([key, item]) => (
               <motion.li
                 key={key}
-                className="flex items-start gap-3"
+                className={styles.item}
                 variants={iconVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -43,34 +135,25 @@ export function ContactSection() {
                 transition={{ duration: 0.3 }}
                 whileHover={{ x: 3 }}
               >
-                <div
-                  className={`
-                    w-[34px] h-[34px] shrink-0 flex items-center justify-center
-                    rounded-lg bg-cyan-400/10 border border-cyan-300/20 text-cyan-300
-                    transition-colors duration-200 hover:bg-cyan-400/20 hover:border-cyan-300/40
-                  `}
-                >
+                <div className={styles.iconBox}>
                   <SvgIcon
                     id={item.icon}
-                    className={[
-                      'w-[17px] h-[17px] stroke-current fill-none',
-                      'stroke-[1.75] stroke-linecap-round stroke-linejoin-round block',
-                    ].join(' ')}
+                    className={styles.icon}
                   />
                 </div>
                 <div>
-                  <div className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-0.5">
+                  <div className={styles.label}>
                     {item.label}
                   </div>
                   {item.href ? (
-                    <a href={item.href} className="text-sm font-medium text-white no-underline hover:text-cyan-300 hover:underline">
+                    <a href={item.href} className={styles.value}>
                       {item.value}
                     </a>
                   ) : (
-                    <span className="text-sm font-medium text-white">
+                    <span className={styles.value}>
                       {item.value}
                       {item.sub && (
-                        <><br /><span className="font-normal text-slate-500 text-xs">{item.sub}</span></>
+                        <><br /><span className={styles.subValue}>{item.sub}</span></>
                       )}
                     </span>
                   )}

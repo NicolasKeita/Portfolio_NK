@@ -13,6 +13,26 @@ import { FormationSection } from './components/sections/FormationSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { Footer } from './components/layout/Footer';
 import { SiteConstellationLayer } from './components/ui/site-constellation-layer';
+import { css } from '../styled-system/css';
+
+const appStyles = {
+  shell: css({
+    position: 'relative',
+    zIndex: 0,
+    minH: 'screen',
+  }),
+  content: css({
+    position: 'relative',
+    zIndex: 10,
+  }),
+  heroLayer: css({
+    position: 'relative',
+    zIndex: 20,
+  }),
+  skillsSection: css({
+    position: 'relative',
+  }),
+};
 
 function App() {
   const isFirstRender = useRef(true);
@@ -51,15 +71,15 @@ function App() {
       <LangSetter />
       {process.env.NODE_ENV === 'development' && <FpsCounter />}
       <SvgSprite />
-      <div className="relative z-0 min-h-screen">
+      <div className={appStyles.shell}>
         <SiteConstellationLayer />
-        <div className="relative z-10">
+        <div className={appStyles.content}>
           <Nav />
           <main id="main-content">
-            <div className="relative z-20">
+            <div className={appStyles.heroLayer}>
               <ProfileSection />
             </div>
-            <section id="competences" className="relative">
+            <section id="competences" className={appStyles.skillsSection}>
               <SkillsMap />
             </section>
             <Projects />
