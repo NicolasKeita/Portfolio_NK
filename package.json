@@ -6,12 +6,12 @@
   "dependencies": {
     "@radix-ui/react-hover-card": ">=1.1.23",
     "common-tags": ">=1.8.2",
-    "framer-motion": ">=12.43.0",
+    "framer-motion": ">=13.1.0",
     "franc": ">=6.2.0",
     "next": "^16.2.10",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "smol-toml": ">=1.7.1"
+    "smol-toml": ">=1.8.0"
   },
   "scripts": {
     "prepare": "panda codegen",
@@ -26,12 +26,12 @@
     "@pandacss/dev": ">=1.12.0",
     "@stylistic/eslint-plugin": ">=5.10.0",
     "@types/common-tags": ">=1.8.4",
-    "@types/node": ">=26.1.2",
+    "@types/node": ">=26.2.0",
     "@types/react": ">=19.2.18",
     "@types/react-dom": ">=19.2.4",
-    "eslint": ">=10.8.0",
-    "postcss": ">=8.5.25",
+    "eslint": ">=10.8.1",
+    "postcss": ">=8.5.26",
     "typescript": "6.0",
-    "typescript-eslint": ">=8.65.0"
+    "typescript-eslint": ">=8.67.0"
   }
 }

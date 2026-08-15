@@ -5,7 +5,7 @@ import {
   useMotionValue,
   useMotionTemplate,
 } from "framer-motion";
-import { ReactNode, useRef } from "react";
+import { ComponentProps, ReactNode, useRef } from "react";
 import { css, cx } from "../../../styled-system/css";
 
 interface MagicCardProps {
@@ -110,18 +110,22 @@ export function MagicCard({
     }
   };
 
+  const interactiveProps: ComponentProps<typeof motion.div> = {};
+
+  if (onClick && !asPanel) {
+    Object.assign(interactiveProps, {
+      role: "button",
+      tabIndex: 0,
+      "aria-label": ariaLabel,
+      onKeyDown: handleKeyDown,
+    });
+  }
+
   return (
     <motion.div
       ref={cardRef}
       className={cx("magic-card", "group", baseClasses, className)}
-      {...(onClick && !asPanel
-        ? {
-            role: "button",
-            tabIndex: 0,
-            "aria-label": ariaLabel,
-            onKeyDown: handleKeyDown,
-          }
-        : {})}
+      {...interactiveProps}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onClick={onClick}
