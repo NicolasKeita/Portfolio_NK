@@ -110,6 +110,13 @@ const styles = {
     color: 'white',
     mb: '2',
   }),
+  insuranceTitle: css({
+    alignSelf: 'flex-start',
+    bg: 'rgba(15,23,42,0.88)',
+    px: '3',
+    py: '2',
+    rounded: 'md',
+  }),
   status: css({
     display: 'inline-block',
     mb: '2',
@@ -242,7 +249,7 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
       </div>
 
       <div className={styles.body}>
-        <h3 className={styles.title}>
+        <h3 className={cx(styles.title, project.id === 'insurance-claims-ai' && styles.insuranceTitle)}>
           {project.title}
         </h3>
         {project.status && <strong className={styles.status}>{project.status}</strong>}

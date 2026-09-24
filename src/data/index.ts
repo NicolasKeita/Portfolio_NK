@@ -18,6 +18,7 @@ import champSelectScreenshot2 from '../assets/champ-select/CSW_2.jpg';
 import droneFmeca from '../assets/drone-embedded/fmeca-drone.png';
 import droneDigitalTwin from '../assets/drone-embedded/DT.png';
 import droneScreenshot from '../assets/drone-embedded/drone.webp';
+import insuranceClaimsDamagedCar from '../assets/insurance-claims-ai/damaged-car.png';
 
 const imageMap: Record<string, string> = {
   'tactic-nav/Android_app_2.png': tacticNavAndroid.src,
@@ -37,6 +38,7 @@ const imageMap: Record<string, string> = {
   'drone-embedded/fmeca-drone.png': droneFmeca.src,
   'drone-embedded/DT.png': droneDigitalTwin.src,
   'drone-embedded/drone.webp': droneScreenshot.src,
+  'insurance-claims-ai/damaged-car.png': insuranceClaimsDamagedCar.src,
 };
 
 export function getImage(path: string): string {

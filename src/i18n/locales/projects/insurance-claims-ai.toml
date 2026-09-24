@@ -2,12 +2,14 @@ id = "insurance-claims-ai"
 tag.fr = "IA appliquée"
 tag.en = "Applied AI"
 tagClass = "tag-ai"
-title.fr = "Plateforme IA de triage et d'investigation des sinistres"
+title.fr = "Solution IA de triage et d’investigation des sinistres d’assurance"
 title.en = "AI Insurance Claims Triage & Investigation Platform"
 status.fr = "En cours"
 status.en = "In progress"
+link = "https://github.com/NicolasKeita/insurance_claims_ai_triage"
 techs = ["Python", "Machine Learning", "Vision", "RAG", "MLOps"]
-photos = []
+bgImage = "insurance-claims-ai/damaged-car.png"
+photos = ["insurance-claims-ai/damaged-car.png"]
 
 [[tags]]
 name.fr = "IA appliquée"
@@ -33,14 +35,14 @@ Legal and financial decisions remain subject to human review. The ML, agent, and
 
 [overview]
 fr = [
-  "Plateforme d'aide au triage et à l'investigation des sinistres automobiles, en cours de développement.",
+  "Outil d’aide au triage et à l’investigation des sinistres automobiles, en cours de développement.",
   "Extraction de données depuis les documents et analyse des photos de dommages",
   "Évaluation de la sévérité, détection d'anomalies et orientation des dossiers",
   "Recherche des clauses du contrat et des procédures avec citations des sources",
   "Recommandations explicables et validation finale par un gestionnaire",
 ]
 en = [
-  "Platform for motor insurance claim triage and investigation, currently in development.",
+  "Tool to support motor insurance claim triage and investigation, currently in development.",
   "Data extraction from documents and analysis of damage photos",
   "Severity assessment, anomaly detection, and case routing",
   "Retrieval of policy clauses and procedures with source citations",
