@@ -15,6 +15,9 @@ import mudletGame2 from '../assets/mudlet/game_2.png';
 import mudletBg from '../assets/mudlet/ISO_C++_Logo.svg.webp';
 import champSelectScreenshot1 from '../assets/champ-select/CSW_1.jpg';
 import champSelectScreenshot2 from '../assets/champ-select/CSW_2.jpg';
+import droneFmeca from '../assets/drone-embedded/fmeca-drone.png';
+import droneDigitalTwin from '../assets/drone-embedded/DT.png';
+import droneScreenshot from '../assets/drone-embedded/drone.webp';
 
 const imageMap: Record<string, string> = {
   'tactic-nav/Android_app_2.png': tacticNavAndroid.src,
@@ -31,6 +34,9 @@ const imageMap: Record<string, string> = {
   'mudlet/ISO_C++_Logo.svg.webp': mudletBg.src,
   'champ-select/CSW_1.jpg': champSelectScreenshot1.src,
   'champ-select/CSW_2.jpg': champSelectScreenshot2.src,
+  'drone-embedded/fmeca-drone.png': droneFmeca.src,
+  'drone-embedded/DT.png': droneDigitalTwin.src,
+  'drone-embedded/drone.webp': droneScreenshot.src,
 };
 
 export function getImage(path: string): string {

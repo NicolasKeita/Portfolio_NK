@@ -6,7 +6,8 @@ title.fr = "Drone - Contrôle de vol embarqué et sûreté"
 title.en = "Drone - Embedded Flight Control and Safety"
 techs = ["C++23", "STM32", "Zephyr", "SIL / HIL", "React", "Three.js"]
 link = "https://github.com/NicolasKeita/Embedded_Work_On_Drone"
-photos = []
+bgImage = "drone-embedded/drone.webp"
+photos = ["drone-embedded/fmeca-drone.png", "drone-embedded/DT.png", "drone-embedded/drone.webp"]
 
 [[tags]]
 name.fr = "Systèmes embarqués"
