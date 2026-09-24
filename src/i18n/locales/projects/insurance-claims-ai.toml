@@ -1,0 +1,48 @@
+id = "insurance-claims-ai"
+tag.fr = "IA appliquée"
+tag.en = "Applied AI"
+tagClass = "tag-ai"
+title.fr = "Plateforme IA de triage et d'investigation des sinistres"
+title.en = "AI Insurance Claims Triage & Investigation Platform"
+status.fr = "En cours"
+status.en = "In progress"
+techs = ["Python", "Machine Learning", "Vision", "RAG", "MLOps"]
+photos = []
+
+[[tags]]
+name.fr = "IA appliquée"
+name.en = "Applied AI"
+class = "tag-ai"
+
+[[tags]]
+name.fr = "Machine learning"
+name.en = "Machine learning"
+class = "tag-ai"
+
+[description]
+fr = """Projet en cours de développement : une plateforme d'aide aux gestionnaires de sinistres automobiles. Elle vise à extraire les informations des déclarations, contrats, devis et photos, puis à préparer un dossier structuré pour le triage et l'investigation.
+
+Le système envisagé combine analyse de documents et d'images, modèles de sévérité et de risque, recherche des clauses contractuelles par RAG et agent d'investigation. Il doit signaler les informations manquantes et les incohérences, proposer un parcours de traitement et justifier ses recommandations avec leurs sources.
+
+Les décisions juridiques et financières restent soumises à une validation humaine. Les composantes ML, agentiques et MLOps décrites ici constituent la portée du projet en cours, pas des résultats déjà déployés."""
+en = """Project in progress: a platform to assist motor insurance claims handlers. It aims to extract information from claim forms, policies, repair estimates, and photos, then prepare a structured case for triage and investigation.
+
+The planned system combines document and image analysis, severity and risk models, RAG over policy clauses, and an investigation agent. It is intended to flag missing information and inconsistencies, suggest a handling workflow, and support recommendations with sources.
+
+Legal and financial decisions remain subject to human review. The ML, agent, and MLOps components described here are the scope of ongoing work, not deployed results."""
+
+[overview]
+fr = [
+  "Plateforme d'aide au triage et à l'investigation des sinistres automobiles, en cours de développement.",
+  "Extraction de données depuis les documents et analyse des photos de dommages",
+  "Évaluation de la sévérité, détection d'anomalies et orientation des dossiers",
+  "Recherche des clauses du contrat et des procédures avec citations des sources",
+  "Recommandations explicables et validation finale par un gestionnaire",
+]
+en = [
+  "Platform for motor insurance claim triage and investigation, currently in development.",
+  "Data extraction from documents and analysis of damage photos",
+  "Severity assessment, anomaly detection, and case routing",
+  "Retrieval of policy clauses and procedures with source citations",
+  "Explainable recommendations and final review by a claims handler",
+]

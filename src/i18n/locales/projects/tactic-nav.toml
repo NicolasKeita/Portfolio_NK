@@ -9,6 +9,16 @@ link = "https://github.com/NicolasKeita/Tactic-Nav"
 bgImage = "tactic-nav/Android_app_2.png"
 photos = ["tactic-nav/Android_app_2.png", "tactic-nav/schema_architecture.png", "tactic-nav/backlog_backend.png", "tactic-nav/cockpit.png"]
 
+[[tags]]
+name.fr = "Avionique"
+name.en = "Avionics"
+class = "tag-mobile"
+
+[[tags]]
+name.fr = "Java"
+name.en = "Java"
+class = "tag-java"
+
 [description]
 fr = """Système embarqué Android de surveillance aérienne exploitant le protocole ADS-B,
 standard utilisé en aviation réelle pour la transmission de position des aéronefs,

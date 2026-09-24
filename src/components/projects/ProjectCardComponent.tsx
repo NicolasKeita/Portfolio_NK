@@ -14,6 +14,7 @@ const TAG_COLORS: Record<string, string> = {
   'tag-architecture': css({ bg: 'amber.100', color: 'amber.800' }),
   'tag-opensource': css({ bg: 'emerald.100', color: 'emerald.800' }),
   'tag-cpp': css({ bg: 'sky.100', color: 'sky.800' }),
+  'tag-java': css({ bg: 'orange.100', color: 'orange.800' }),
 };
 
 const styles = {
@@ -108,6 +109,12 @@ const styles = {
     fontSize: 'md',
     color: 'white',
     mb: '2',
+  }),
+  status: css({
+    display: 'inline-block',
+    mb: '2',
+    fontWeight: 'bold',
+    color: 'cyan.300',
   }),
   details: css({
     opacity: 0,
@@ -219,7 +226,7 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
                 ↗
               </a>
             ))
-          ) : (
+          ) : project.link ? (
             <a
               href={project.link}
               target="_blank"
@@ -230,7 +237,7 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
             >
               ↗
             </a>
-          )}
+          ) : null}
         </div>
       </div>
 
@@ -238,6 +245,7 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
         <h3 className={styles.title}>
           {project.title}
         </h3>
+        {project.status && <strong className={styles.status}>{project.status}</strong>}
 
         <div
           className={styles.details}

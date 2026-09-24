@@ -16,6 +16,10 @@ en = "Engineering Challenges"
 fr = "Aperçu du projet"
 en = "Project Overview"
 
+[modal.oneSentence]
+fr = "Le projet en une phrase"
+en = "The project in one sentence"
+
 [modal.sectionDescription]
 fr = "Description du projet"
 en = "Project Description"

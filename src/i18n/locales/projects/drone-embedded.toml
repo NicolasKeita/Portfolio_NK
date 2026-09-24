@@ -1,0 +1,50 @@
+id = "drone-embedded"
+tag.fr = "Systèmes embarqués"
+tag.en = "Embedded systems"
+tagClass = "tag-sys"
+title.fr = "Drone - Contrôle de vol embarqué et sûreté"
+title.en = "Drone - Embedded Flight Control and Safety"
+techs = ["C++23", "STM32", "Zephyr", "SIL / HIL", "React", "Three.js"]
+link = "https://github.com/NicolasKeita/Embedded_Work_On_Drone"
+photos = []
+
+[[tags]]
+name.fr = "Systèmes embarqués"
+name.en = "Embedded systems"
+class = "tag-sys"
+
+[[tags]]
+name.fr = "C++"
+name.en = "C++"
+class = "tag-cpp"
+
+[[tags]]
+name.fr = "Avionique"
+name.en = "Avionics"
+class = "tag-mobile"
+
+[description]
+fr = """Banc de développement et de validation d'un système de contrôle de vol distribué pour un aéronef simulé. Le contrôleur FC1 pilote la mission et les commandes, tandis que FC2 supervise l'état du système et participe à la gestion des fautes.
+
+Le même cœur logiciel est exercé en simulation à pas fixe (SIL), en boucle HIL locale et sur deux cartes Nucleo-L476RG avec firmwares Zephyr. Le PC conserve le modèle de l'aéronef, des capteurs et des actionneurs. Des scénarios de fautes, une campagne Monte Carlo et une matrice de traçabilité structurent la validation. Un visualiseur Digital Twin en React et Three.js affiche la télémétrie en direct ou en relecture.
+
+Le projet est un banc d'ingénierie : les performances du HIL physique et l'aptitude au vol réel ne sont pas établies par une campagne de mesures publiée."""
+en = """Development and validation testbed for a distributed flight-control system operating on a simulated aircraft. FC1 handles the mission and control commands, while FC2 monitors system health and contributes to fault handling.
+
+The same software core runs in fixed-step software simulation (SIL), local HIL loopback, and on two Nucleo-L476RG boards running Zephyr firmware. The PC retains the aircraft, sensor, and actuator models. Fault scenarios, a Monte Carlo campaign, and a traceability matrix structure validation. A React and Three.js Digital Twin viewer displays live or replayed telemetry.
+
+This is an engineering testbed: physical HIL performance and readiness for real flight have not been established by a published measurement campaign."""
+
+[overview]
+fr = [
+  "Logiciel embarqué de drone + Bancs de test pour valider le contrôle de vol et la gestion des pannes sur un aéronef simulé.",
+  "Simulation SIL, HIL loopback et HIL physique sur deux STM32 sous Zephyr",
+  "Injection de fautes, scénarios de validation et campagnes Monte Carlo",
+  "Visualisation de télémétrie en direct et en relecture avec un Digital Twin",
+]
+en = [
+  "Drone embedded software + Test benches for validating flight control and fault management on a simulated aircraft.",
+  "SIL simulation, HIL loopback, and physical HIL on two Zephyr-based STM32 boards",
+  "Fault injection, validation scenarios, and Monte Carlo campaigns",
+  "Live and replayed telemetry in a Digital Twin viewer",
+]

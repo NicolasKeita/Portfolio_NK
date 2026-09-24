@@ -121,6 +121,12 @@ const styles = {
     mb: '6',
     whiteSpace: 'pre-line',
   }),
+  status: css({
+    display: 'block',
+    fontWeight: 'bold',
+    color: 'cyan.300',
+    mb: '4',
+  }),
   techList: css({
     display: 'flex',
     flexWrap: 'wrap',
@@ -162,6 +168,7 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
 
   const hasPrologue = Boolean(project.prologue);
   const hasOverview = Boolean(project.overview && project.overview.length > 0);
+  const overviewDetails = project.overview?.slice(1) ?? [];
   const hasDescription = Boolean(project.description);
 
   const hasDropdown = project.links && project.links.length > 0;
@@ -169,6 +176,7 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
   return (
     <>
       <Gallery photos={project.photos.map(getImage)} title={project.title} />
+      {project.status && <strong className={styles.status}>{project.status}</strong>}
 
       {hasDropdown ? (
         <div className={styles.linkWrap} ref={dropdownRef}>
@@ -220,13 +228,21 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
       {hasOverview && (
         <>
           <h3 className={styles.sectionTitle}>
-            {t('modal.sectionOverview')}
+            {t('modal.oneSentence')}
           </h3>
-          <ul className={styles.overview}>
-            {project.overview!.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
+          <p className={styles.description}>{project.overview![0]}</p>
+          {overviewDetails.length > 0 && (
+            <>
+              <h3 className={styles.sectionTitle}>
+                {t('modal.sectionOverview')}
+              </h3>
+              <ul className={styles.overview}>
+                {overviewDetails.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </>
+          )}
         </>
       )}
 

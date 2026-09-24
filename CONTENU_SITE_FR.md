@@ -67,7 +67,7 @@ Lors de compétitions internationales de chasse aux bugs rémunérées (sur Algo
 
 | | |
 |---|---|
-| **Tag** | IA |
+| **Tag** | Machine learning |
 | **Technologies** | Python, Reinforcement Learning, OpenAI Gym |
 | **Lien** | https://github.com/NicolasKeita |
 

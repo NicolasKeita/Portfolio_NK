@@ -76,11 +76,12 @@ export interface ProjectYaml {
   tagClass: string;
   tags?: { name: string; class: string }[];
   title: string;
+  status?: string;
   description: string;
   prologue?: string;
   overview?: string[];
   techs: string[];
-  link: string;
+  link?: string;
   links?: ProjectLink[];
   bgImage?: string;
   photos: string[];

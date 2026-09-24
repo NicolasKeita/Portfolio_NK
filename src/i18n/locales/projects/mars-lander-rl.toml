@@ -1,9 +1,9 @@
 id = "mars-lander-rl"
-tag.fr = "IA"
-tag.en = "AI"
+tag.fr = "Machine learning"
+tag.en = "Machine learning"
 tagClass = "tag-ai"
 title.fr = "IA et Reinforcement Learning — Mars Lander, Lunar Lander et défis OpenAI Gym"
-title.en = "AI and Reinforcement Learning — Mars Lander, Lunar Lander and OpenAI Gym challenges"
+title.en = "Reinforcement Learning — Mars Lander, Lunar Lander and OpenAI Gym challenges"
 techs = ["Python", "Reinforcement Learning", "OpenAI Gym"]
 link = "https://github.com/NicolasKeita"
 bgImage = "mars-lander/humanoid_standup.gif"
