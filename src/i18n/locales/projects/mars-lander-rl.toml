@@ -4,7 +4,7 @@ tag.en = "Machine learning"
 tagClass = "tag-ai"
 title.fr = "IA et Reinforcement Learning — Mars Lander, Lunar Lander et défis OpenAI Gym"
 title.en = "Reinforcement Learning — Mars Lander, Lunar Lander and OpenAI Gym challenges"
-techs = ["Python", "Reinforcement Learning", "OpenAI Gym"]
+techs = ["Python", "Reinforcement Learning", "Deep Learning", "OpenAI Gym"]
 link = "https://github.com/NicolasKeita"
 bgImage = "mars-lander/humanoid_standup.gif"
 photos = [
@@ -34,7 +34,7 @@ d'état continu, avec contraintes physiques (gravité, poussée, carburant, stab
 constituent des cas d'étude classiques pour des problématiques de contrôle, de prise de décision séquentielle et d'optimisation.
 
 Travail réalisé :
-* Implémentation d'agents basés sur des méthodes de Reinforcement Learning (Q-Learning, algorithmes de type Policy Gradient)
+* Implémentation d'agents basés sur des méthodes de Reinforcement Learning (Q-Learning, algorithmes de type Policy Gradient) et exploration de réseaux de neurones pour le Deep Learning
 * Entraînement sur des environnements OpenAI Gym et adaptation sur un environnement Codingame (Mars Lander)
 * Analyse des fonctions de récompense et de leur impact sur l'apprentissage et les performances des agents
 * Optimisation des performances d'atterrissage via l'ajustement des hyperparamètres et le reward shaping
@@ -48,7 +48,7 @@ state space, with physical constraints (gravity, thrust, fuel, stability). These
 case studies for control problems, sequential decision-making, and optimization.
 
 Work accomplished:
-* Implementation of agents based on Reinforcement Learning methods (Q-Learning, Policy Gradient algorithms)
+* Implementation of agents based on Reinforcement Learning methods (Q-Learning, Policy Gradient algorithms) and exploration of neural networks for Deep Learning
 * Training on OpenAI Gym environments and adaptation to a Codingame environment (Mars Lander)
 * Analysis of reward functions and their impact on agent learning and performance
 * Landing performance optimization via hyperparameter tuning and reward shaping

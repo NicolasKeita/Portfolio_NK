@@ -68,7 +68,7 @@ Lors de compétitions internationales de chasse aux bugs rémunérées (sur Algo
 | | |
 |---|---|
 | **Tag** | Machine learning |
-| **Technologies** | Python, Reinforcement Learning, OpenAI Gym |
+| **Technologies** | Python, Reinforcement Learning, Deep Learning, OpenAI Gym |
 | **Lien** | https://github.com/NicolasKeita |
 
 **Liens :**
@@ -84,7 +84,7 @@ Le projet explore la conception d'agents capables de prendre des décisions en t
 
 Travail réalisé :
 
-- Implémentation d'agents basés sur des méthodes de Reinforcement Learning (Q-Learning, algorithmes de type Policy Gradient)
+- Implémentation d'agents basés sur des méthodes de Reinforcement Learning (Q-Learning, algorithmes de type Policy Gradient) et exploration de réseaux de neurones pour le Deep Learning
 - Entraînement sur des environnements OpenAI Gym et adaptation sur un environnement Codingame (Mars Lander)
 - Analyse des fonctions de récompense et de leur impact sur l'apprentissage et les performances des agents
 - Optimisation des performances d'atterrissage via l'ajustement des hyperparamètres et le reward shaping
