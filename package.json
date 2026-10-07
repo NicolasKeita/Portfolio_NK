@@ -4,13 +4,13 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@radix-ui/react-hover-card": ">=1.1.23",
-    "common-tags": ">=1.8.2",
-    "framer-motion": ">=13.1.0",
-    "next": "^16.2.10",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "smol-toml": ">=1.8.0"
+    "@radix-ui/react-hover-card": "^1.1.24",
+    "common-tags": "^1.8.2",
+    "framer-motion": "^14.0.0",
+    "next": "^16.4.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "smol-toml": "^1.9.0"
   },
   "scripts": {
     "prepare": "panda codegen",
@@ -22,14 +22,14 @@
     "format": "eslint src --fix"
   },
   "devDependencies": {
-    "@pandacss/dev": ">=1.12.0",
-    "@types/common-tags": ">=1.8.4",
-    "@types/node": ">=26.2.0",
-    "@types/react": ">=19.2.18",
-    "@types/react-dom": ">=19.2.4",
-    "eslint": "^10.8.1",
+    "@pandacss/dev": "^2.1.2",
+    "@types/common-tags": "^1.8.4",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^10.12.0",
     "eslint-config-nicolaskeita": "^0.1.0",
-    "postcss": ">=8.5.26",
+    "postcss": "^8.5.29",
     "typescript": "6.0"
   }
 }
