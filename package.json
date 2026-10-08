@@ -13,7 +13,7 @@
     "smol-toml": "^1.9.0"
   },
   "scripts": {
-    "prepare": "panda codegen",
+    "prepare": "panda codegen --clean",
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start --webpack",
@@ -23,6 +23,8 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^2.1.2",
+    "@pandacss/preset-base": "^2.1.2",
+    "@pandacss/preset-panda": "^2.1.2",
     "@types/common-tags": "^1.8.4",
     "@types/node": "^26.6.4",
     "@types/react": "^19.3.0",

@@ -15,6 +15,8 @@ const projectGrid = css({
   mx: 'auto',
 });
 
+const projectQueryParam = 'projet';
+
 function SectionHeader() {
   const { t } = useLanguage();
 
@@ -37,6 +39,17 @@ export function Projects() {
   const rafRef = useRef<number | null>(null);
 
   const projects = getProjects(lang as 'fr' | 'en');
+
+  useEffect(() => {
+    const syncProjectFromUrl = () => {
+      const id = new URL(window.location.href).searchParams.get(projectQueryParam);
+      setModalProjectId(id && projects.some((project) => project.id === id) ? id : null);
+    };
+
+    syncProjectFromUrl();
+    window.addEventListener('popstate', syncProjectFromUrl);
+    return () => window.removeEventListener('popstate', syncProjectFromUrl);
+  }, [projects]);
 
   useEffect(() => {
     const imageUrls = projects.flatMap((project) => project.photos ?? []);
@@ -67,11 +80,26 @@ export function Projects() {
   }, [modalProjectId]);
 
   const handleOpen = useCallback((id: string) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set(projectQueryParam, id);
+    window.history.pushState(
+      { ...window.history.state, portfolioProjectModal: id },
+      '',
+      url.toString()
+    );
     setModalProjectId(id);
   }, []);
 
   const handleClose = useCallback(() => {
     setModalProjectId(null);
+    if (window.history.state?.portfolioProjectModal) {
+      window.history.back();
+      return;
+    }
+
+    const url = new URL(window.location.href);
+    url.searchParams.delete(projectQueryParam);
+    window.history.replaceState(window.history.state, '', url.toString());
   }, []);
 
   const modalProject = modalProjectId ? projects.find((p) => p.id === modalProjectId) ?? null : null;

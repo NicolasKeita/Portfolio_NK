@@ -1,4 +1,5 @@
 import { useEffect, useRef, ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
@@ -84,7 +85,7 @@ export function Modal({ title, children, onClose }: ModalProps) {
     if (e.target === overlayRef.current) onClose();
   };
 
-  return (
+  return createPortal(
     <AnimatePresence>
       <motion.div
         className={styles.overlay}
@@ -118,6 +119,7 @@ export function Modal({ title, children, onClose }: ModalProps) {
           {children}
         </motion.div>
       </motion.div>
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
