@@ -1,6 +1,6 @@
 {
   "name": "portfolio-nk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "dependencies": {
@@ -19,7 +19,11 @@
     "start": "next start --webpack",
     "lint": "eslint src/ && nk-lint-structure src/",
     "lint:structure": "nk-lint-structure src/",
-    "format": "eslint src --fix"
+    "format": "eslint src --fix",
+    "build:with-demo": "node scripts/build-with-demo.mjs",
+    "assemble:demo": "node scripts/build-with-demo.mjs --assemble-only",
+    "test:demo-build": "node --test scripts/build-with-demo.test.mjs",
+    "check:demo-build": "node scripts/build-with-demo.mjs --verify-only"
   },
   "devDependencies": {
     "@pandacss/dev": "^2.1.2",

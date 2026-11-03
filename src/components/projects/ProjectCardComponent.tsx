@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { MagicCard } from '../ui/MagicCard';
 import type { ProjectYaml } from '../../data';
 import { css, cx } from '../../../styled-system/css';
@@ -18,6 +19,23 @@ const TAG_COLORS: Record<string, string> = {
 };
 
 const styles = {
+  demoLink: css({
+    display: 'inline-flex',
+    alignSelf: 'flex-start',
+    alignItems: 'center',
+    gap: '2',
+    px: '4',
+    py: '2',
+    mb: '3',
+    rounded: 'lg',
+    bg: 'cyan.300',
+    color: 'slate.950',
+    fontWeight: 'semibold',
+    fontSize: 'sm',
+    textDecoration: 'none',
+    _hover: { bg: 'cyan.200' },
+    _focusVisible: { outline: '2px solid white', outlineOffset: '3px' },
+  }),
   tag: css({
     fontFamily: 'mono',
     fontSize: 'xs',
@@ -195,6 +213,8 @@ interface ProjectCardProps {
 }
 
 function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
+  const { lang, t } = useLanguage();
+
   return (
     <MagicCard onClick={onOpen} aria-label={`Voir le projet : ${project.title}`}>
       {project.bgImage && (
@@ -253,6 +273,16 @@ function ProjectCardBase({ project, getImage, onOpen }: ProjectCardProps) {
           {project.title}
         </h3>
         {project.status && <strong className={styles.status}>{project.status}</strong>}
+        {project.demoUrl && (
+          <a
+            href={`${project.demoUrl}?lang=${lang}`}
+            className={styles.demoLink}
+            onClick={(event) => event.stopPropagation()}
+          >
+            {t('modal.demo')}
+            <span aria-hidden="true">→</span>
+          </a>
+        )}
 
         <div
           className={styles.details}

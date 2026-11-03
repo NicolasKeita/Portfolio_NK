@@ -90,6 +90,7 @@ export interface ProjectYaml {
   overview?: string[];
   techs: string[];
   link?: string;
+  demoUrl?: string;
   links?: ProjectLink[];
   bgImage?: string;
   photos: string[];

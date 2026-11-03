@@ -4,6 +4,14 @@
 fr = "Fermer"
 en = "Close"
 
+[modal.demo]
+fr = "Explorer la démo"
+en = "Explore the demo"
+
+[modal.demoDescription]
+fr = "Cas synthétiques, résultats précalculés. Explorez les documents et les explications de l’analyse."
+en = "Synthetic cases, precomputed results. Explore the documents and the reasoning behind the analysis."
+
 [modal.github]
 fr = "Voir le code"
 en = "View code"

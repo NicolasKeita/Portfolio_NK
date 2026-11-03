@@ -104,6 +104,7 @@ export function MagicCard({
   const baseClasses = asPanel ? styles.panel : styles.card;
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.target !== e.currentTarget) return;
     if (onClick && (e.key === "Enter" || e.key === " ")) {
       e.preventDefault();
       onClick(e as unknown as React.MouseEvent);

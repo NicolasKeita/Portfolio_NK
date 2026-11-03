@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useState, ReactNode } from 'react';
 import { Lang, t as translate } from '../i18n/translations';
 
 interface LanguageContextType {
@@ -12,12 +12,33 @@ const LanguageContext = createContext<LanguageContextType | null>(null);
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>('fr');
 
+  const changeLanguage = useCallback((locale: Lang) => {
+    setLang(locale);
+    try {
+      window.localStorage.setItem('claims-review-locale', locale);
+    } catch {
+      return;
+    }
+  }, []);
+
+  useEffect(() => {
+    let preferred = new URLSearchParams(window.location.search).get('lang');
+    if (preferred !== 'fr' && preferred !== 'en') {
+      try {
+        preferred = window.localStorage.getItem('claims-review-locale');
+      } catch {
+        preferred = 'fr';
+      }
+    }
+    changeLanguage(preferred === 'en' ? 'en' : 'fr');
+  }, [changeLanguage]);
+
   const t = (key: string): string => {
     return translate(lang, key);
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t }}>
+    <LanguageContext.Provider value={{ lang, setLang: changeLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );

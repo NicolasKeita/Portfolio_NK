@@ -5,6 +5,27 @@ import type { ProjectYaml } from '../../data';
 import { css, cx } from '../../../styled-system/css';
 
 const styles = {
+  demoLink: css({
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '2',
+    px: '7',
+    py: '3',
+    rounded: 'lg',
+    bg: 'cyan.300',
+    color: 'slate.950',
+    fontFamily: 'display',
+    fontWeight: 'semibold',
+    textDecoration: 'none',
+    _hover: { bg: 'cyan.200' },
+    _focusVisible: { outline: '2px solid white', outlineOffset: '3px' },
+  }),
+  demoNote: css({
+    mt: '2',
+    fontSize: 'sm',
+    color: 'slate.300',
+    lineHeight: 'relaxed',
+  }),
   linkWrap: css({
     mb: '5',
     mt: '4',
@@ -152,7 +173,7 @@ interface ProjectModalContentProps {
 }
 
 export function ProjectModalContent({ project, getImage }: ProjectModalContentProps) {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -177,6 +198,15 @@ export function ProjectModalContent({ project, getImage }: ProjectModalContentPr
     <>
       <Gallery photos={project.photos.map(getImage)} title={project.title} />
       {project.status && <strong className={styles.status}>{project.status}</strong>}
+      {project.demoUrl && (
+        <div className={styles.linkWrap}>
+          <a href={`${project.demoUrl}?lang=${lang}`} className={styles.demoLink}>
+            {t('modal.demo')}
+            <span aria-hidden="true">→</span>
+          </a>
+          <p className={styles.demoNote}>{t('modal.demoDescription')}</p>
+        </div>
+      )}
 
       {hasDropdown ? (
         <div className={styles.linkWrap} ref={dropdownRef}>
