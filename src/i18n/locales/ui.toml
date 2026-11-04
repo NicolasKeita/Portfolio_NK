@@ -9,8 +9,8 @@ fr = "Explorer la démo"
 en = "Explore the demo"
 
 [modal.demoDescription]
-fr = "Cas synthétiques, résultats précalculés. Explorez les documents et les explications de l’analyse."
-en = "Synthetic cases, precomputed results. Explore the documents and the reasoning behind the analysis."
+fr = "Explorez des dossiers fictifs, leurs documents et les analyses déjà réalisées pour comprendre chaque recommandation."
+en = "Explore fictional cases, their documents and completed analyses to understand each recommendation."
 
 [modal.github]
 fr = "Voir le code"

@@ -16,13 +16,6 @@
         "destination": "/index.html"
       }
     ],
-    "redirects": [
-      {
-        "source": "/insurance-demo",
-        "destination": "/insurance-demo/",
-        "type": 301
-      }
-    ],
     "predeploy": [
       "node scripts/build-with-demo.mjs --verify-only"
     ]
