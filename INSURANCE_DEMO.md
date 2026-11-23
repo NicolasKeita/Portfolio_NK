@@ -24,7 +24,15 @@ leurs fichiers, puis copie uniquement l’export dans `out/insurance-demo/`.
 `INSURANCE_AI_ROOT` peut remplacer l’argument `--insurance-root`.
 `npm run build` conserve son comportement de build du portfolio seul.
 
-Pour vérifier un export déjà construit sans relancer les builds :
+## Ouvrir la démo en développement
+
+Après avoir assemblé le site complet, lancer `npm run dev` puis ouvrir
+`http://localhost:3000/insurance-demo?lang=fr`. Le serveur de développement sert
+la démo et ses ressources depuis `out/insurance-demo/`, sur le même port que le
+portfolio. Après un `npm run build` du portfolio seul, réassembler la démo avec
+la commande ci-dessous si son export existe déjà.
+
+Pour réassembler un export existant sans relancer les builds :
 
 ```powershell
 npm run assemble:demo -- --insurance-root ../insurance_claims_ai_triage
@@ -42,10 +50,13 @@ est réservé à la prévisualisation locale.
 ```powershell
 npm run lint
 npm run test:demo-build
+npm run test:demo-access
 npm run build:with-demo -- --insurance-root ../insurance_claims_ai_triage
 ```
 
-Les tests du script sont unitaires et ne lancent aucun navigateur ni test E2E.
+`test:demo-access` démarre un serveur Next.js isolé sur un port libre. Il vérifie
+le lien de la fiche projet, les URL de dossiers, les ressources et les erreurs
+HTTP, avec un export synthétique indépendant du dépôt Insurance AI.
 Vérifier dans l’hébergement statique l’accès direct à `/insurance-demo/`, aux
 PDF/photos et à une URL `?claim=...`, puis le retour à la fiche du portfolio.
 Firebase sert `out/` ; sa règle de démo précède le fallback du portfolio.

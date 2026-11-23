@@ -1,7 +1,10 @@
 import type { NextConfig } from 'next';
+import { PHASE_DEVELOPMENT_SERVER } from 'next/constants';
 
-const nextConfig: NextConfig = {
-  output: 'export',
+const nextConfig = (phase: string): NextConfig => ({
+  ...(phase === PHASE_DEVELOPMENT_SERVER
+    ? { pageExtensions: ['dev.ts', 'tsx', 'ts', 'jsx', 'js'] }
+    : { output: 'export' }),
   images: {
     unoptimized: true,
   },
@@ -17,6 +20,6 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
-};
+});
 
 export default nextConfig;

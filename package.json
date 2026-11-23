@@ -1,6 +1,6 @@
 {
   "name": "portfolio-nk",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "private": true,
   "type": "module",
   "dependencies": {
@@ -23,6 +23,7 @@
     "build:with-demo": "node scripts/build-with-demo.mjs",
     "assemble:demo": "node scripts/build-with-demo.mjs --assemble-only",
     "test:demo-build": "node --test scripts/build-with-demo.test.mjs",
+    "test:demo-access": "node --test scripts/demo-access.test.mjs",
     "check:demo-build": "node scripts/build-with-demo.mjs --verify-only"
   },
   "devDependencies": {
