@@ -51,17 +51,21 @@ en = "Switch to French"
 
 [hero]
 [hero.role]
-fr = "Portfolio — Ingénieur Logiciel & Consultant IT"
-en = "Portfolio — Software Engineer & IT Consultant"
+fr = "Développeur logiciel · IA appliquée"
+en = "Software Developer · Applied AI"
 
 [hero.tagline]
-fr = "Ce qui me distingue n'est pas la quantité de projets réalisés, mais l'exigence de qualité que j'apporte à chacun d'eux."
-en = "What sets me apart is not the number of projects completed, but the quality standard I bring to each one."
+fr = "Je recherche une immersion professionnelle en ingénierie IA."
+en = "I’m looking for a work placement in AI engineering."
 
 [hero.cta]
 [hero.cta.work]
 fr = "Voir mes réalisations"
 en = "See my work"
+
+[hero.cta.cv]
+fr = "Consulter mon CV (PDF)"
+en = "View my CV (French PDF)"
 
 [hero.cta.contact]
 fr = "Me contacter"
@@ -91,16 +95,16 @@ fr = "Contact"
 en = "Contact"
 
 [contact.tagline]
-fr = "Prêt à relever\nde nouveaux défis."
-en = "Ready to take on\nnew challenges."
+fr = "Proposer une immersion"
+en = "Host a work placement"
 
 [contact.sub1]
-fr = "Disponible pour des opportunités en CDI, CDD, en freelance ou dans le secteur public."
-en = "Available for permanent, fixed-term, freelance, or public sector opportunities."
+fr = "Je souhaite contribuer à la conception, à l’évaluation et à l’intégration de modèles d’IA dans des applications."
+en = "I’d like to help design, evaluate, and integrate AI models into applications."
 
 [contact.sub2]
-fr = "N'hésitez pas à me contacter pour discuter de votre besoin."
-en = "Feel free to reach out to discuss your needs."
+fr = "Échangeons sur vos projets et les modalités de l’immersion."
+en = "Let’s talk about your projects and how a placement could work."
 
 [footer]
 [footer.home]
@@ -120,8 +124,8 @@ fr = "Contact"
 en = "Contact"
 
 [footer.copyright]
-fr = "© 2026 Nicolas Keita — Ingénieur Logiciel & Consultant IT | Nouvelle-Aquitaine, France"
-en = "© 2026 Nicolas Keita — Software Engineer & IT Consultant | Nouvelle-Aquitaine, France"
+fr = "© 2026 Nicolas Keita — Développeur logiciel · IA appliquée | Nouvelle-Aquitaine, France"
+en = "© 2026 Nicolas Keita — Software Developer · Applied AI | Nouvelle-Aquitaine, France"
 
 [engineer]
 [engineer.label]

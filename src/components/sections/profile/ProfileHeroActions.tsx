@@ -4,11 +4,13 @@ import { profileStyles as styles } from './profileSection.styles';
 
 interface ProfileHeroActionsProps {
   workLabel: string;
+  cvLabel: string;
   contactLabel: string;
 }
 
 export function ProfileHeroActions({
   workLabel,
+  cvLabel,
   contactLabel,
 }: ProfileHeroActionsProps) {
   return (
@@ -18,6 +20,14 @@ export function ProfileHeroActions({
         className={styles.primaryCta}
       >
         {workLabel}
+      </a>
+      <a
+        href="/cv-nicolas-keita-fr.pdf"
+        hrefLang="fr"
+        type="application/pdf"
+        className={styles.secondaryCta}
+      >
+        {cvLabel}
       </a>
       <a
         href="#contact"

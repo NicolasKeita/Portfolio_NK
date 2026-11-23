@@ -29,9 +29,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Nicolas Keita — Ingénieur Logiciel & Consultant IT',
+  title: 'Nicolas Keita | Développeur logiciel · IA appliquée',
   description:
-    'Portfolio de Nicolas Keita - Ingénieur Logiciel & Consultant IT spécialisé en systèmes, réseaux et gestion de projets',
+    'Nicolas Keita, développeur logiciel à la recherche d’une immersion professionnelle en ingénierie IA. Projets d’IA appliquée.',
   icons: {
     icon: '/favicon.ico',
     apple: '/logo192.png',

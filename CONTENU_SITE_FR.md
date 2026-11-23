@@ -1,8 +1,8 @@
 # Portfolio — Nicolas Keita
 
-> Ingénieur Logiciel & Consultant IT — Nouvelle-Aquitaine, France
+> Développeur logiciel · IA appliquée — Nouvelle-Aquitaine, France
 
-Dernière vérification : **7 novembre 2026**. Ce document reprend le contenu français
+Dernière mise à jour : **23 novembre 2026**. Ce document reprend le contenu français
 du site et de ses modales à partir de `src/i18n/locales/` et des composants
 d'affichage, dans l'ordre de l'interface. Les exports automatiques des projets sont
 décrits dans [PORTFOLIO_EXPORTS.md](PORTFOLIO_EXPORTS.md).
@@ -24,13 +24,14 @@ décrits dans [PORTFOLIO_EXPORTS.md](PORTFOLIO_EXPORTS.md).
 
 **Nom :** Nicolas Keita
 
-**Rôle :** Portfolio — Ingénieur Logiciel & Consultant IT
+**Rôle :** Développeur logiciel · IA appliquée
 
-**Tagline :** Ce qui me distingue n'est pas la quantité de projets réalisés, mais l'exigence de qualité que j'apporte à chacun d'eux.
+**Objectif :** Je recherche une immersion professionnelle en ingénierie IA.
 
 **Actions :**
 
 - Voir mes réalisations
+- [Consulter mon CV (PDF)](/cv-nicolas-keita-fr.pdf)
 - Me contacter
 
 ---
@@ -341,11 +342,11 @@ Physique fondamentale, mathématiques appliquées et modélisation, développant
 
 ## 📬 Contact
 
-**Prêt à relever de nouveaux défis.**
+**Proposer une immersion**
 
-Disponible pour des opportunités en CDI, CDD, en freelance ou dans le secteur public.
+Je souhaite contribuer à la conception, à l’évaluation et à l’intégration de modèles d’IA dans des applications.
 
-N'hésitez pas à me contacter pour discuter de votre besoin.
+Échangeons sur vos projets et les modalités de l’immersion.
 
 | Type | Valeur |
 |---|---|
@@ -380,4 +381,4 @@ N'hésitez pas à me contacter pour discuter de votre besoin.
 - Formation
 - Contact
 
-© 2026 Nicolas Keita — Ingénieur Logiciel & Consultant IT | Nouvelle-Aquitaine, France
+© 2026 Nicolas Keita — Développeur logiciel · IA appliquée | Nouvelle-Aquitaine, France

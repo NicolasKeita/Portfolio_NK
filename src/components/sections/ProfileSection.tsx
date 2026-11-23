@@ -19,6 +19,7 @@ export function ProfileSection() {
             />
             <ProfileHeroActions
               workLabel={t('hero.cta.work')}
+              cvLabel={t('hero.cta.cv')}
               contactLabel={t('hero.cta.contact')}
             />
           </div>
