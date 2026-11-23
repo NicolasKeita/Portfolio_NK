@@ -51,12 +51,12 @@ en = "Switch to French"
 
 [hero]
 [hero.role]
-fr = "Développeur logiciel · IA appliquée"
-en = "Software Developer · Applied AI"
+fr = "Développeur logiciel | Ingénierie IA"
+en = "Software Developer | AI Engineering"
 
 [hero.tagline]
-fr = "Je recherche une immersion professionnelle en ingénierie IA."
-en = "I’m looking for a work placement in AI engineering."
+fr = "Objectif : immersion professionnelle en ingénierie IA"
+en = "Goal: a work placement in AI engineering"
 
 [hero.cta]
 [hero.cta.work]
@@ -124,8 +124,8 @@ fr = "Contact"
 en = "Contact"
 
 [footer.copyright]
-fr = "© 2026 Nicolas Keita — Développeur logiciel · IA appliquée | Nouvelle-Aquitaine, France"
-en = "© 2026 Nicolas Keita — Software Developer · Applied AI | Nouvelle-Aquitaine, France"
+fr = "© 2026 Nicolas Keita — Développeur logiciel | Ingénierie IA"
+en = "© 2026 Nicolas Keita — Software Developer | AI Engineering"
 
 [engineer]
 [engineer.label]

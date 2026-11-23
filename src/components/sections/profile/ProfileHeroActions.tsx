@@ -25,6 +25,8 @@ export function ProfileHeroActions({
         href="/cv-nicolas-keita-fr.pdf"
         hrefLang="fr"
         type="application/pdf"
+        target="_blank"
+        rel="noopener noreferrer"
         className={styles.secondaryCta}
       >
         {cvLabel}

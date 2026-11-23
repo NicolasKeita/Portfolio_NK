@@ -1,6 +1,6 @@
 # Portfolio — Nicolas Keita
 
-> Développeur logiciel · IA appliquée — Nouvelle-Aquitaine, France
+> Développeur logiciel | Ingénierie IA
 
 Dernière mise à jour : **23 novembre 2026**. Ce document reprend le contenu français
 du site et de ses modales à partir de `src/i18n/locales/` et des composants
@@ -24,14 +24,14 @@ décrits dans [PORTFOLIO_EXPORTS.md](PORTFOLIO_EXPORTS.md).
 
 **Nom :** Nicolas Keita
 
-**Rôle :** Développeur logiciel · IA appliquée
+**Rôle :** Développeur logiciel | Ingénierie IA
 
-**Objectif :** Je recherche une immersion professionnelle en ingénierie IA.
+**Objectif : immersion professionnelle en ingénierie IA**
 
 **Actions :**
 
 - Voir mes réalisations
-- [Consulter mon CV (PDF)](/cv-nicolas-keita-fr.pdf)
+- [Consulter mon CV (PDF)](/cv-nicolas-keita-fr.pdf) — S’ouvre dans un nouvel onglet sur le site
 - Me contacter
 
 ---
@@ -350,9 +350,8 @@ Je souhaite contribuer à la conception, à l’évaluation et à l’intégrati
 
 | Type | Valeur |
 |---|---|
-| **Email** | nicolas.keita@epitech.eu |
+| **Email** | [nicolaskeita2@gmail.com](mailto:nicolaskeita2@gmail.com) |
 | **Téléphone** | +33 7 54 84 26 88 *(Appels masqués non acceptés)* |
-| **Lieu de résidence** | Nouvelle-Aquitaine |
 | **Mobilité** | France & International *(Passeport valide)* |
 | **Nationalité** | Française |
 | **Casier judiciaire** | Vierge |
@@ -381,4 +380,4 @@ Je souhaite contribuer à la conception, à l’évaluation et à l’intégrati
 - Formation
 - Contact
 
-© 2026 Nicolas Keita — Développeur logiciel · IA appliquée | Nouvelle-Aquitaine, France
+© 2026 Nicolas Keita — Développeur logiciel | Ingénierie IA

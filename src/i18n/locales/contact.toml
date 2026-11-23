@@ -1,13 +1,13 @@
 # ── Contact information ──
 [contactItems.email]
 icon = "#i-mail"
+href = "mailto:nicolaskeita2@gmail.com"
 [contactItems.email.label]
 fr = "Email"
 en = "Email"
 [contactItems.email.value]
-fr = "nicolas.keita@epitech.eu"
-en = "nicolas.keita@epitech.eu"
-contactItems.email.href = "mailto:nicolas.keita@epitech.eu"
+fr = "nicolaskeita2@gmail.com"
+en = "nicolaskeita2@gmail.com"
 
 [contactItems.phone]
 icon = "#i-phone"
@@ -21,15 +21,6 @@ contactItems.phone.href = "tel:+33754842688"
 [contactItems.phone.sub]
 fr = "Appels masqués non acceptés"
 en = "Private calls not accepted"
-
-[contactItems.location]
-icon = "#i-pin"
-[contactItems.location.label]
-fr = "Lieu de résidence"
-en = "Location"
-[contactItems.location.value]
-fr = "Nouvelle-Aquitaine"
-en = "Nouvelle-Aquitaine"
 
 [contactItems.mobility]
 icon = "#i-globe"
