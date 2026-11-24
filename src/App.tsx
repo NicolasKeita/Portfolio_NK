@@ -8,6 +8,7 @@ import { SvgSprite } from './components/shared/SvgSprite';
 import { Nav } from './components/layout/Nav';
 import { ProfileSection } from './components/sections/ProfileSection';
 import { SkillsMap } from './components/sections/SkillsMap';
+import { SoftSkillsSection } from './components/sections/SoftSkillsSection';
 import { Projects } from './components/sections/Projects';
 import { FormationSection } from './components/sections/FormationSection';
 import { ContactSection } from './components/sections/ContactSection';
@@ -82,6 +83,7 @@ function App() {
             <section id="competences" className={appStyles.skillsSection}>
               <SkillsMap />
             </section>
+            <SoftSkillsSection />
             <Projects />
             <FormationSection />
             <ContactSection />

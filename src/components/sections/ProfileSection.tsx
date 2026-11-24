@@ -15,7 +15,8 @@ export function ProfileSection() {
             <ProfileHeroHeader />
             <ProfileHeroIntro
               role={t('hero.role')}
-              tagline={t('hero.tagline')}
+              statement={t('hero.tagline.statement')}
+              goal={t('hero.tagline.goal')}
             />
             <ProfileHeroActions
               workLabel={t('hero.cta.work')}

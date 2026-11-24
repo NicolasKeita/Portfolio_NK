@@ -54,7 +54,11 @@ en = "Switch to French"
 fr = "Développeur logiciel | Ingénierie IA"
 en = "Software Developer | AI Engineering"
 
-[hero.tagline]
+[hero.tagline.statement]
+fr = "L’excellence démontrée par les résultats"
+en = "Excellence backed by results"
+
+[hero.tagline.goal]
 fr = "Objectif : immersion professionnelle en ingénierie IA"
 en = "Goal: a work placement in AI engineering"
 
@@ -88,6 +92,10 @@ en = "Academic Background"
 [formation.title]
 fr = "Formation"
 en = "Education"
+
+[softSkills.title]
+fr = "Savoir-être"
+en = "Soft Skills"
 
 [contact]
 [contact.title]

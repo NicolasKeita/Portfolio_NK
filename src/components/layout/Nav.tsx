@@ -17,11 +17,12 @@ const styles = {
   inner: css({
     maxW: '1100px',
     mx: 'auto',
-    px: '8',
+    px: { base: '2', sm: '8' },
     h: '60px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    gap: { base: '1', sm: '2' },
   }),
   logo: css({
     fontFamily: 'display',
@@ -37,18 +38,21 @@ const styles = {
   controls: css({
     display: 'flex',
     alignItems: 'center',
-    gap: '6',
+    gap: { base: '1', sm: '6' },
   }),
   links: css({
     display: 'flex',
-    gap: '6',
+    alignItems: 'center',
+    gap: { base: '3px', sm: '6' },
     listStyle: 'none',
     m: 0,
     p: 0,
   }),
   link: css({
+    display: 'block',
     fontSize: 'sm',
     fontWeight: 'medium',
+    lineHeight: 'tight',
     color: 'slate.400',
     textDecoration: 'none',
     transition: 'color 150ms ease',
@@ -57,8 +61,9 @@ const styles = {
     },
   }),
   langButton: css({
-    w: '38px',
+    w: { base: '34px', sm: '38px' },
     h: '34px',
+    flexShrink: 0,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -102,6 +107,14 @@ export function Nav() {
         </a>
         <div className={styles.controls}>
           <ul className={`nav-links ${styles.links}`}>
+            <li>
+              <a
+                className={styles.link}
+                href="#savoir-etre"
+              >
+                {t('softSkills.title')}
+              </a>
+            </li>
             <li>
               <a
                 className={styles.link}

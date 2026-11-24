@@ -124,3 +124,57 @@ afin de bâtir un produit cohérent."""
 en = """Today, all coding schools require team projects—this was the case for 95% of my curriculum.
 I benefited greatly from this framework, notably through Agile methodologies,
 to learn how to align everyone's work and build a cohesive product."""
+
+[[softSkills.items]]
+id = "rigor"
+[softSkills.items.title]
+fr = "Rigueur & précision"
+en = "Rigor & Precision"
+[softSkills.items.description]
+fr = "Analyse approfondie des besoins métier, attention portée aux détails et exigence quant à la qualité des livrables."
+en = "Thorough analysis of business needs, close attention to detail, and high standards for the quality of deliverables."
+
+[[softSkills.items]]
+id = "analytical-thinking"
+[softSkills.items.title]
+fr = "Esprit analytique"
+en = "Analytical Thinking"
+[softSkills.items.description]
+fr = "Capacité à décomposer des problématiques complexes, à en comprendre les enjeux et à identifier des solutions pertinentes."
+en = "Break down complex problems, understand what’s at stake, and identify effective solutions."
+
+[[softSkills.items]]
+id = "leadership"
+[softSkills.items.title]
+fr = "Leadership"
+en = "Leadership"
+[softSkills.items.description]
+fr = "Capacité à fédérer une équipe autour d'un objectif commun, à coordonner un projet et à prendre des décisions face aux contraintes et aux échéances."
+en = "Bring a team together around a shared goal, coordinate projects, and make decisions under constraints and deadlines."
+
+[[softSkills.items]]
+id = "teamwork"
+[softSkills.items.title]
+fr = "Travail en équipe"
+en = "Teamwork"
+[softSkills.items.description]
+fr = "Écoute des opinions divergentes, recherche de consensus, partage des connaissances et vulgarisation de concepts techniques complexes."
+en = "Listen to differing viewpoints, build consensus, share knowledge, and explain complex technical concepts clearly."
+
+[[softSkills.items]]
+id = "autonomy"
+[softSkills.items.title]
+fr = "Autonomie & curiosité intellectuelle"
+en = "Autonomy & Intellectual Curiosity"
+[softSkills.items.description]
+fr = "Capacité à acquérir de nouvelles connaissances de manière autonome, à approfondir des sujets techniques et scientifiques et à expérimenter de nouvelles approches."
+en = "Learn independently, explore technical and scientific topics in depth, and experiment with new approaches."
+
+[[softSkills.items]]
+id = "creativity"
+[softSkills.items.title]
+fr = "Créativité"
+en = "Creativity"
+[softSkills.items.description]
+fr = "Capacité à explorer différentes pistes de résolution, à proposer des approches alternatives et à concevoir des solutions adaptées aux problématiques rencontrées."
+en = "Explore different ways to solve a problem, propose alternatives, and design solutions that fit the situation."

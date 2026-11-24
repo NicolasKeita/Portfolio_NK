@@ -4,12 +4,14 @@ import { profileStyles as styles } from './profileSection.styles';
 
 interface ProfileHeroIntroProps {
   role: string;
-  tagline: string;
+  statement: string;
+  goal: string;
 }
 
 export function ProfileHeroIntro({
   role,
-  tagline,
+  statement,
+  goal,
 }: ProfileHeroIntroProps) {
   return (
     <>
@@ -24,7 +26,9 @@ export function ProfileHeroIntro({
         className={styles.tagline}
         {...fadeSlideUp(0.2)}
       >
-        {tagline}
+        <strong className={styles.taglineStatement}>{statement}</strong>{' '}
+        <span className={styles.taglineSeparator} aria-hidden="true">|</span>{' '}
+        <span className={styles.taglineGoal}>{goal}</span>
       </motion.p>
     </>
   );

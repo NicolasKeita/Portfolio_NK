@@ -60,6 +60,10 @@ export function getSkills(lang: Lang) {
   return getNested(locale, 'skills') as Record<string, SkillYaml>;
 }
 
+export function getSoftSkills(lang: Lang) {
+  return getNested(locales[lang], 'softSkills.items') as SoftSkill[];
+}
+
 export function getContactItems(lang: Lang) {
   const locale = locales[lang];
   return getNested(locale, 'contactItems') as Record<string, ContactYaml>;
@@ -108,6 +112,12 @@ export interface SkillYaml {
   label: string;
   proof?: string;
   accent?: boolean;
+}
+
+interface SoftSkill {
+  id: string;
+  title: string;
+  description: string;
 }
 
 export interface ContactYaml {

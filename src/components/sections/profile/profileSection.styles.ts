@@ -114,10 +114,9 @@ export const profileStyles = {
 
   tagline: css({
     fontFamily: 'display',
-    fontWeight: 'semibold',
     color: 'rgb(165, 243, 252)',
     lineHeight: 'snug',
-    maxW: '620px',
+    maxW: '64rem',
     mb: '2',
     p: '2',
     pl: '4',
@@ -128,7 +127,23 @@ export const profileStyles = {
     backdropFilter: 'blur(24px)',
     roundedRight: 'lg',
     boxShadow: '0 12px 45px rgba(2,6,23,0.24)',
-    fontSize: 'clamp(1.15rem, 2.5vw, 1.65rem)',
+    fontSize: 'clamp(1.15rem, 2.5vw, 1.4rem)',
+  }),
+
+  taglineStatement: css({
+    fontWeight: 'semibold',
+    color: 'white',
+  }),
+
+  taglineSeparator: css({
+    display: { base: 'none', lg: 'inline' },
+    mx: '1',
+  }),
+
+  taglineGoal: css({
+    display: { base: 'block', lg: 'inline' },
+    fontWeight: 'medium',
+    fontSize: 'clamp(1rem, 1.9vw, 1.125rem)',
   }),
 
   actions: css({
