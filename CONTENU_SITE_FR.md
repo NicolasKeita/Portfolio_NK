@@ -2,7 +2,7 @@
 
 > Développeur logiciel | Ingénierie IA
 
-Dernière mise à jour : **23 novembre 2026**. Ce document reprend le contenu français
+Dernière mise à jour : **24 novembre 2026**. Ce document reprend le contenu français
 du site et de ses modales à partir de `src/i18n/locales/` et des composants
 d'affichage, dans l'ordre de l'interface. Les exports automatiques des projets sont
 décrits dans [PORTFOLIO_EXPORTS.md](PORTFOLIO_EXPORTS.md).
@@ -342,11 +342,11 @@ Physique fondamentale, mathématiques appliquées et modélisation, développant
 
 ## 📬 Contact
 
-**Proposer une immersion**
+**Échangeons sur vos projets**
+
+Je suis ouvert aux postes en CDI et aux immersions professionnelles en ingénierie IA.
 
 Je souhaite contribuer à la conception, à l’évaluation et à l’intégration de modèles d’IA dans des applications.
-
-Échangeons sur vos projets et les modalités de l’immersion.
 
 | Type | Valeur |
 |---|---|
