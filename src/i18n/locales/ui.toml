@@ -99,12 +99,12 @@ fr = "Échangeons sur vos projets"
 en = "Let’s talk about your projects"
 
 [contact.sub1]
-fr = "Je suis ouvert aux postes en CDI et aux immersions professionnelles en ingénierie IA."
-en = "I’m open to permanent roles and work placements in AI engineering."
+fr = "Comprendre en profondeur un besoin métier, résoudre des problèmes complexes et concevoir des solutions pertinentes sont autant de défis qui me motivent."
+en = "I’m motivated by the challenge of understanding business needs in depth, solving complex problems, and designing solutions that address those needs."
 
 [contact.sub2]
-fr = "Je souhaite contribuer à la conception, à l’évaluation et à l’intégration de modèles d’IA dans des applications."
-en = "I’d like to help design, evaluate, and integrate AI models into applications."
+fr = "Ouvert à de nouvelles opportunités professionnelles, je serais ravi d'échanger avec vous sur vos projets et vos besoins."
+en = "I’m open to new professional opportunities and would be happy to discuss your projects and what you need."
 
 [footer]
 [footer.home]

@@ -28,6 +28,8 @@ const styles = {
     fontSize: 'clamp(1.4rem, 2.8vw, 2rem)',
   }),
   intro: css({
+    display: 'grid',
+    gap: '2',
     fontSize: 'sm',
     color: 'slate.400',
     lineHeight: 'relaxed',
@@ -118,10 +120,10 @@ export function ContactSection() {
             <h2 className={styles.title}>
               {t('contact.tagline')}
             </h2>
-            <p className={styles.intro}>
-              {t('contact.sub1')}<br />
-              {t('contact.sub2')}
-            </p>
+            <div className={styles.intro}>
+              <p>{t('contact.sub1')}</p>
+              <p>{t('contact.sub2')}</p>
+            </div>
           </div>
           <ul className={styles.list}>
             {entries.map(([key, item]) => (

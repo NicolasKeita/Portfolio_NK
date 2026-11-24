@@ -344,9 +344,9 @@ Physique fondamentale, mathématiques appliquées et modélisation, développant
 
 **Échangeons sur vos projets**
 
-Je suis ouvert aux postes en CDI et aux immersions professionnelles en ingénierie IA.
+Comprendre en profondeur un besoin métier, résoudre des problèmes complexes et concevoir des solutions pertinentes sont autant de défis qui me motivent.
 
-Je souhaite contribuer à la conception, à l’évaluation et à l’intégration de modèles d’IA dans des applications.
+Ouvert à de nouvelles opportunités professionnelles, je serais ravi d'échanger avec vous sur vos projets et vos besoins.
 
 | Type | Valeur |
 |---|---|
