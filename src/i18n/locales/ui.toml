@@ -102,17 +102,17 @@ en = "Soft Skills"
 fr = "Contact"
 en = "Contact"
 
-[contact.tagline]
-fr = "Échangeons sur vos projets"
-en = "Let’s talk about your projects"
-
 [contact.sub1]
-fr = "Comprendre en profondeur un besoin métier, résoudre des problèmes complexes et concevoir des solutions pertinentes sont autant de défis qui me motivent."
-en = "I’m motivated by the challenge of understanding business needs in depth, solving complex problems, and designing solutions that address those needs."
+fr = "J'aime comprendre en profondeur les besoins métier, résoudre des problèmes complexes et concevoir des solutions adaptées."
+en = "I enjoy getting to the heart of business needs, solving complex problems, and designing solutions that meet those needs."
 
 [contact.sub2]
-fr = "Ouvert à de nouvelles opportunités professionnelles, je serais ravi d'échanger avec vous sur vos projets et vos besoins."
-en = "I’m open to new professional opportunities and would be happy to discuss your projects and what you need."
+fr = "Fort d'un parcours scientifique et informatique, je souhaite aujourd'hui mettre à profit ma polyvalence technique et continuer à développer mes compétences au sein d'une entreprise."
+en = "With a background in science and computing, I’d like to join a company where I can apply my skills across different technical areas and keep learning."
+
+[contact.sub3]
+fr = "Je suis ouvert à de nouvelles opportunités professionnelles."
+en = "I’m open to new career opportunities."
 
 [footer]
 [footer.home]

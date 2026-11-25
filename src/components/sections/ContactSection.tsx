@@ -116,13 +116,11 @@ export function ContactSection() {
       <MagicCard asPanel className={styles.panel}>
         <div className={styles.grid}>
           <div>
-            <p className={sectionStyles.eyebrow}>{t('contact.title')}</p>
-            <h2 className={styles.title}>
-              {t('contact.tagline')}
-            </h2>
+            <h2 className={styles.title}>{t('contact.title')}</h2>
             <div className={styles.intro}>
               <p>{t('contact.sub1')}</p>
               <p>{t('contact.sub2')}</p>
+              <p>{t('contact.sub3')}</p>
             </div>
           </div>
           <ul className={styles.list}>

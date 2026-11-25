@@ -373,11 +373,11 @@ Capacité à explorer différentes pistes de résolution, à proposer des approc
 
 ## 📬 Contact
 
-**Échangeons sur vos projets**
+J'aime comprendre en profondeur les besoins métier, résoudre des problèmes complexes et concevoir des solutions adaptées.
 
-Comprendre en profondeur un besoin métier, résoudre des problèmes complexes et concevoir des solutions pertinentes sont autant de défis qui me motivent.
+Fort d'un parcours scientifique et informatique, je souhaite aujourd'hui mettre à profit ma polyvalence technique et continuer à développer mes compétences au sein d'une entreprise.
 
-Ouvert à de nouvelles opportunités professionnelles, je serais ravi d'échanger avec vous sur vos projets et vos besoins.
+Je suis ouvert à de nouvelles opportunités professionnelles.
 
 | Type | Valeur |
 |---|---|
