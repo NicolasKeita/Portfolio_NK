@@ -110,9 +110,9 @@ export function Nav() {
             <li>
               <a
                 className={styles.link}
-                href="#savoir-etre"
+                href="#projets"
               >
-                {t('softSkills.title')}
+                {t('nav.projets')}
               </a>
             </li>
             <li>
@@ -126,9 +126,9 @@ export function Nav() {
             <li>
               <a
                 className={styles.link}
-                href="#projets"
+                href="#savoir-etre"
               >
-                {t('nav.projets')}
+                {t('softSkills.title')}
               </a>
             </li>
             <li>

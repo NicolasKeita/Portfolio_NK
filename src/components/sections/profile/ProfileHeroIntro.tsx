@@ -22,14 +22,13 @@ export function ProfileHeroIntro({
       >
         {role}
       </motion.span>
-      <motion.p
+      <motion.div
         className={styles.tagline}
         {...fadeSlideUp(0.2)}
       >
-        <strong className={styles.taglineStatement}>{statement}</strong>{' '}
-        <span className={styles.taglineSeparator} aria-hidden="true">|</span>{' '}
-        <span className={styles.taglineGoal}>{goal}</span>
-      </motion.p>
+        <p className={styles.taglineStatement}>{statement}</p>
+        <p className={styles.taglineGoal}>{goal}</p>
+      </motion.div>
     </>
   );
 }

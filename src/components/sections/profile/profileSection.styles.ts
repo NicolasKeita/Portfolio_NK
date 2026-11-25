@@ -113,37 +113,30 @@ export const profileStyles = {
   }),
 
   tagline: css({
-    fontFamily: 'display',
-    color: 'rgb(165, 243, 252)',
-    lineHeight: 'snug',
-    maxW: '64rem',
-    mb: '2',
-    p: '2',
-    pl: '4',
-    borderLeftWidth: '4px',
-    borderLeftStyle: 'solid',
-    borderColor: 'amber',
-    bg: 'rgba(2, 6, 23, 0.45)',
-    backdropFilter: 'blur(24px)',
-    roundedRight: 'lg',
-    boxShadow: '0 12px 45px rgba(2,6,23,0.24)',
-    fontSize: 'clamp(1.15rem, 2.5vw, 1.4rem)',
+    display: 'grid',
+    gap: '3',
+    mb: '5',
   }),
 
   taglineStatement: css({
+    fontFamily: 'display',
+    fontSize: 'clamp(1.5rem, 3vw, 2.125rem)',
     fontWeight: 'semibold',
+    letterSpacing: '-0.025em',
+    lineHeight: 'tight',
+    textWrap: 'balance',
     color: 'white',
   }),
 
-  taglineSeparator: css({
-    display: { base: 'none', lg: 'inline' },
-    mx: '1',
-  }),
-
   taglineGoal: css({
-    display: { base: 'block', lg: 'inline' },
-    fontWeight: 'medium',
-    fontSize: 'clamp(1rem, 1.9vw, 1.125rem)',
+    pl: '3',
+    borderLeftWidth: '2px',
+    borderLeftStyle: 'solid',
+    borderColor: 'cyan',
+    fontFamily: 'body',
+    fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
+    lineHeight: 'normal',
+    color: 'rgb(165, 243, 252)',
   }),
 
   actions: css({

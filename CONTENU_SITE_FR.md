@@ -2,7 +2,7 @@
 
 > Développeur logiciel | Ingénierie IA
 
-Dernière mise à jour : **24 novembre 2026**. Ce document reprend le contenu français
+Dernière mise à jour : **25 novembre 2026**. Ce document reprend le contenu français
 du site et de ses modales à partir de `src/i18n/locales/` et des composants
 d'affichage, dans l'ordre de l'interface. Les exports automatiques des projets sont
 décrits dans [PORTFOLIO_EXPORTS.md](PORTFOLIO_EXPORTS.md).
@@ -12,9 +12,9 @@ décrits dans [PORTFOLIO_EXPORTS.md](PORTFOLIO_EXPORTS.md).
 ## 🧭 Navigation
 
 - **NK.** — Retour à l'accueil
-- **Savoir-être**
-- **Formation**
 - **Projets**
+- **Formation**
+- **Savoir-être**
 - **Contact**
 - **EN** — *Passer en anglais*
 - **Aller au contenu principal** — Lien d'évitement affiché au focus clavier
@@ -27,7 +27,9 @@ décrits dans [PORTFOLIO_EXPORTS.md](PORTFOLIO_EXPORTS.md).
 
 **Rôle :** Développeur logiciel | Ingénierie IA
 
-**L’excellence démontrée par les résultats** | Objectif : immersion professionnelle en ingénierie IA
+**L’excellence démontrée par les résultats**
+
+Objectif : immersion professionnelle en ingénierie IA
 
 **Actions :**
 
@@ -78,34 +80,6 @@ J'ai participé à Mudlet et Tactic-Nav, deux projets où les tests étaient cru
 #### Équipe
 
 Aujourd'hui, toutes les écoles de coding imposent des projets en équipe, c'était le cas pour 95% de mon cursus. C'est un cadre dont j'ai beaucoup bénéficié, notamment avec les méthodes Agiles, pour apprendre à aligner le travail de chacun afin de bâtir un produit cohérent.
-
----
-
-## Savoir-être
-
-### Rigueur & précision
-
-Analyse approfondie des besoins métier, attention portée aux détails et exigence quant à la qualité des livrables.
-
-### Esprit analytique
-
-Capacité à décomposer des problématiques complexes, à en comprendre les enjeux et à identifier des solutions pertinentes.
-
-### Leadership
-
-Capacité à fédérer une équipe autour d'un objectif commun, à coordonner un projet et à prendre des décisions face aux contraintes et aux échéances.
-
-### Travail en équipe
-
-Écoute des opinions divergentes, recherche de consensus, partage des connaissances et vulgarisation de concepts techniques complexes.
-
-### Autonomie & curiosité intellectuelle
-
-Capacité à acquérir de nouvelles connaissances de manière autonome, à approfondir des sujets techniques et scientifiques et à expérimenter de nouvelles approches.
-
-### Créativité
-
-Capacité à explorer différentes pistes de résolution, à proposer des approches alternatives et à concevoir des solutions adaptées aux problématiques rencontrées.
 
 ---
 
@@ -366,6 +340,34 @@ Physique fondamentale, mathématiques appliquées et modélisation, développant
 *Lycée Eugène Ionesco*
 
 Électronique numérique, réseaux et systèmes embarqués. Bases en électronique et traitement du signal (analyse fréquentielle, séries de Fourier).
+
+---
+
+## Savoir-être
+
+### Rigueur & précision
+
+Analyse approfondie des besoins métier, attention portée aux détails et exigence quant à la qualité des livrables.
+
+### Esprit analytique
+
+Capacité à décomposer des problématiques complexes, à en comprendre les enjeux et à identifier des solutions pertinentes.
+
+### Leadership
+
+Capacité à fédérer une équipe autour d'un objectif commun, à coordonner un projet et à prendre des décisions face aux contraintes et aux échéances.
+
+### Travail en équipe
+
+Écoute des opinions divergentes, recherche de consensus, partage des connaissances et vulgarisation de concepts techniques complexes.
+
+### Autonomie & curiosité intellectuelle
+
+Capacité à acquérir de nouvelles connaissances de manière autonome, à approfondir des sujets techniques et scientifiques et à expérimenter de nouvelles approches.
+
+### Créativité
+
+Capacité à explorer différentes pistes de résolution, à proposer des approches alternatives et à concevoir des solutions adaptées aux problématiques rencontrées.
 
 ---
 
